@@ -26,9 +26,13 @@ lap/strategy features for seasons supported by the F1 timing API.
 ## Setup
 
 ```powershell
+py -3.11 -m venv .venv
 .\.venv\Scripts\Activate.ps1
-python -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
+
+On Windows, prefer `.\.venv\Scripts\python.exe` if the global `python`
+command opens the Microsoft Store alias.
 
 ## Run the full V0
 
@@ -66,6 +70,7 @@ python scripts/evaluate_models.py
 python scripts/make_charts.py
 python scripts/predict_top10.py
 python scripts/build_submission.py
+python scripts/validate_project.py
 ```
 
 You can train a specific algorithm:

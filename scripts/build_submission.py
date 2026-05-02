@@ -15,6 +15,7 @@ INCLUDE_PATHS = [
     "scripts",
     "data",
     "outputs",
+    "notebooks",
     "report",
 ]
 
@@ -45,6 +46,8 @@ def should_include(path: Path) -> bool:
     if relative_parts & EXCLUDED_PARTS:
         return False
     if path.suffix in EXCLUDED_SUFFIXES:
+        return False
+    if path.stat().st_size == 0:
         return False
     if path == DEFAULT_OUTPUT:
         return False

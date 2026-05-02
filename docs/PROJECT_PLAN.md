@@ -26,7 +26,7 @@ Current limitations:
 - race-control/safety-car features are still placeholders/proxies
 - telemetry features are still proxies, not real FastF1 telemetry
 - neural network is a tabular MLP baseline, not a sequence model
-- submission ZIP/report/notebook still need to be regenerated
+- submission ZIP/report/notebook need final validation before hand-in
 
 ## Milestone 1 - Stabilize Project Structure
 
