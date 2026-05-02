@@ -1,0 +1,66 @@
+{
+  "best_holdout_model": "hist_gradient_boosting",
+  "best_holdout": {
+    "model": "hist_gradient_boosting",
+    "train_rows": 5976,
+    "test_rows": 479,
+    "train_start_season": 2011,
+    "train_end_season": 2024,
+    "test_season": 2025,
+    "accuracy": 0.755741127348643,
+    "precision": 0.7489878542510121,
+    "recall": 0.7708333333333334,
+    "f1": 0.7597535934291582,
+    "roc_auc": 0.8356171548117154,
+    "race_precision_at_10": 0.7708333333333334,
+    "exact_top10_set_rate": 0.041666666666666664
+  },
+  "best_rolling_model": "random_forest",
+  "rolling_average": [
+    {
+      "model": "random_forest",
+      "accuracy": 0.7831123610134216,
+      "precision": 0.7669172693490598,
+      "recall": 0.7991303171986498,
+      "f1": 0.7821434900802802,
+      "roc_auc": 0.8469687172781971,
+      "race_precision_at_10": 0.773851454457381
+    },
+    {
+      "model": "extra_trees",
+      "accuracy": 0.7716302122295877,
+      "precision": 0.7508855615227679,
+      "recall": 0.7982173443540095,
+      "f1": 0.7731464606878973,
+      "roc_auc": 0.8405731729058329,
+      "race_precision_at_10": 0.7692078482110548
+    },
+    {
+      "model": "neural_network_mlp",
+      "accuracy": 0.7674599592614466,
+      "precision": 0.7665687818624881,
+      "recall": 0.7573775347459558,
+      "f1": 0.7599354408613065,
+      "roc_auc": 0.8379404951401197,
+      "race_precision_at_10": 0.7675913236107841
+    },
+    {
+      "model": "hist_gradient_boosting",
+      "accuracy": 0.7625064337485138,
+      "precision": 0.7526101981993519,
+      "recall": 0.7658057864294043,
+      "f1": 0.7581253178427333,
+      "roc_auc": 0.8342806457968174,
+      "race_precision_at_10": 0.7609967551613946
+    },
+    {
+      "model": "logistic_regression",
+      "accuracy": 0.7526208392955906,
+      "precision": 0.7525512815831725,
+      "recall": 0.7398545853748199,
+      "f1": 0.7424944479692271,
+      "roc_auc": 0.8240526330052823,
+      "race_precision_at_10": 0.7497833990055353
+    }
+  ]
+}

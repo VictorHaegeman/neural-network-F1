@@ -1,12 +1,13 @@
 {
-  "train_rows": 2979,
+  "model": "random_forest",
+  "train_rows": 5976,
   "test_rows": 479,
   "test_season": 2025,
-  "accuracy": 0.7578288100208769,
-  "precision": 0.7440944881889764,
-  "recall": 0.7875,
-  "f1": 0.7651821862348178,
-  "roc_auc": 0.8394700139470014,
-  "race_precision_at_10": 0.7583333333333334,
+  "accuracy": 0.7640918580375783,
+  "precision": 0.7550200803212851,
+  "recall": 0.7833333333333333,
+  "f1": 0.7689161554192229,
+  "roc_auc": 0.8416666666666666,
+  "race_precision_at_10": 0.7624999999999998,
   "exact_top10_set_rate": 0.0
 }
