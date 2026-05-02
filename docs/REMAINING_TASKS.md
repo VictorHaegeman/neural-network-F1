@@ -16,6 +16,7 @@ Done:
 - no missing values in the final dataset
 - model comparison across logistic regression, random forest, extra trees,
   histogram gradient boosting and neural network MLP
+- dedicated neural network tuning across several MLP configurations
 - expanding-window season backtest
 - readable top-10 prediction export
 - pre-race upcoming-race prediction export
@@ -30,6 +31,7 @@ Done:
 - [x] Rebuild the submission ZIP after artifact generation.
 - [ ] Optionally generate `report/Report.pdf` if a PDF engine is available.
 - [ ] Extend FastF1 coverage beyond 2024-2025.
+- [x] Train and compare dedicated neural network configurations.
 
 ## Medium Priority
 

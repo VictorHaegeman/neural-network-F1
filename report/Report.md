@@ -53,6 +53,22 @@ The neural network is included as a baseline, but the dataset is still tabular
 and relatively small. In this context, tree-based methods remain strong and
 more stable.
 
+## Dedicated Neural Network Tuning
+
+A separate neural-network tuning step compares several MLP configurations
+without replacing the main champion model. The best dedicated MLP configuration
+uses two hidden layers:
+
+- hidden layers: 128 and 64 neurons
+- activation: ReLU
+- alpha: 0.002
+- learning rate: 0.0005
+- race precision@10: 0.771
+
+This improves the neural-network branch compared with the default MLP baseline,
+but the tree-based models still remain more stable overall on this tabular
+dataset.
+
 ## Validation Strategy
 
 The project uses temporal validation instead of a random split. This better

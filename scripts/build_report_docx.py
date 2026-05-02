@@ -45,6 +45,7 @@ def add_figures(document: Document) -> None:
         "rows_by_season.png",
         "top10_rate_by_season.png",
         "model_comparison.png",
+        "neural_network_tuning.png",
         "rolling_backtest.png",
         "feature_importance.png",
         "confusion_matrix.png",

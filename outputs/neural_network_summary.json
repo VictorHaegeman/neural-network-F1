@@ -1,0 +1,30 @@
+{
+  "best_neural_network_config": "mlp_128_64_small_lr",
+  "best_holdout": {
+    "config_name": "mlp_128_64_small_lr",
+    "hidden_layer_sizes": "(128, 64)",
+    "activation": "relu",
+    "alpha": 0.002,
+    "learning_rate_init": 0.0005,
+    "batch_size": 64,
+    "n_iter": 40,
+    "best_validation_score": 0.7770345596432553,
+    "train_rows": 5976,
+    "test_rows": 479,
+    "train_start_season": 2011,
+    "train_end_season": 2024,
+    "test_season": 2025,
+    "accuracy": 0.7411273486430062,
+    "precision": 0.7735849056603774,
+    "recall": 0.6833333333333333,
+    "f1": 0.7256637168141593,
+    "roc_auc": 0.82639470013947,
+    "race_precision_at_10": 0.7708333333333334,
+    "exact_top10_set_rate": 0.0416666666666666
+  },
+  "model_path": "outputs\\models\\top10_neural_network_mlp.joblib",
+  "model_training_scope": "holdout_train_split_rebuilt_from_existing_results",
+  "tuning_path": "outputs\\neural_network_tuning.csv",
+  "figure_path": "outputs\\figures\\neural_network_tuning.png",
+  "note": "Dedicated neural-network artifact is trained separately from the main champion model."
+}

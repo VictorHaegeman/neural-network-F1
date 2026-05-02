@@ -66,10 +66,12 @@ python scripts/generate_raw_data.py --start-year 2011 --end-year 2026
 python scripts/generate_fastf1_features.py --start-year 2024 --end-year 2024 --max-races 1
 python scripts/generate_final_dataset.py
 python scripts/train_model.py
+python scripts/tune_neural_network.py
 python scripts/evaluate_models.py
 python scripts/make_charts.py
 python scripts/predict_top10.py
 python scripts/predict_upcoming_races.py --season 2026 --count 4 --current-date 2026-05-02
+python scripts/predict_upcoming_races.py --season 2026 --count 4 --current-date 2026-05-02 --model outputs/models/top10_neural_network_mlp.joblib --output-dir outputs/predictions/neural_network
 python scripts/build_submission.py
 python scripts/validate_project.py
 ```
@@ -105,6 +107,8 @@ Main outputs:
 - `outputs/models/top10_classifier.joblib`: trained model
 - `outputs/metrics.json`: validation metrics
 - `outputs/model_comparison.csv`: holdout comparison by algorithm
+- `outputs/neural_network_tuning.csv`: dedicated MLP hyperparameter comparison
+- `outputs/neural_network_summary.json`: best dedicated MLP configuration
 - `outputs/rolling_backtest.csv`: progressive season-by-season validation
 - `outputs/model_selection_summary.json`: best model summary
 - `outputs/predictions/*.csv`: readable race-level prediction exports
