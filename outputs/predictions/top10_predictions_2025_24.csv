@@ -1,0 +1,21 @@
+race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_name,grid,final_position,top10_finish,top10_probability,predicted_rank,predicted_top10
+2025_24,2025,24,Abu Dhabi Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,1,1,1,0.9804512536595146,1,1
+2025_24,2025,24,Abu Dhabi Grand Prix,norris,NOR,Lando Norris,McLaren,2,3,1,0.9630173784151326,2,1
+2025_24,2025,24,Abu Dhabi Grand Prix,russell,RUS,George Russell,Mercedes,4,5,1,0.9629558304063299,3,1
+2025_24,2025,24,Abu Dhabi Grand Prix,piastri,PIA,Oscar Piastri,McLaren,3,2,1,0.938732048834377,4,1
+2025_24,2025,24,Abu Dhabi Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,5,4,1,0.9369795131295565,5,1
+2025_24,2025,24,Abu Dhabi Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,6,6,1,0.773024125117991,6,1
+2025_24,2025,24,Abu Dhabi Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,8,7,1,0.6893805868640814,7,1
+2025_24,2025,24,Abu Dhabi Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,16,8,1,0.6796010177451569,8,1
+2025_24,2025,24,Abu Dhabi Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,18,9,1,0.5334868419097191,9,1
+2025_24,2025,24,Abu Dhabi Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,14,15,0,0.4539418864940838,10,1
+2025_24,2025,24,Abu Dhabi Grand Prix,stroll,STR,Lance Stroll,Aston Martin,15,10,1,0.4496306430269978,11,0
+2025_24,2025,24,Abu Dhabi Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,9,17,0,0.3298960942503427,12,0
+2025_24,2025,24,Abu Dhabi Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,7,11,0,0.3071537659849164,13,0
+2025_24,2025,24,Abu Dhabi Grand Prix,sainz,SAI,Carlos Sainz,Williams,12,13,0,0.2948678814269216,14,0
+2025_24,2025,24,Abu Dhabi Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,11,12,0,0.2937789463047269,15,0
+2025_24,2025,24,Abu Dhabi Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,10,14,0,0.27381503039256083,16,0
+2025_24,2025,24,Abu Dhabi Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,13,18,0,0.19535659711236952,17,0
+2025_24,2025,24,Abu Dhabi Grand Prix,albon,ALB,Alexander Albon,Williams,17,16,0,0.15658994908054755,18,0
+2025_24,2025,24,Abu Dhabi Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,19,19,0,0.08683124419696914,19,0
+2025_24,2025,24,Abu Dhabi Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,20,20,0,0.036870721886693616,20,0

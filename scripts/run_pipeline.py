@@ -18,6 +18,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--model", default="random_forest")
     parser.add_argument("--force-fetch", action="store_true")
     parser.add_argument("--skip-evaluation", action="store_true")
+    parser.add_argument("--skip-prediction", action="store_true")
     parser.add_argument("--skip-pit-stops", action="store_true")
     parser.add_argument("--with-fastf1", action="store_true")
     parser.add_argument("--fastf1-start-year", type=int, default=2018)
@@ -73,6 +74,9 @@ def main() -> None:
         run_step([python, str(SCRIPTS_PATH / "evaluate_models.py")])
 
     run_step([python, str(SCRIPTS_PATH / "make_charts.py")])
+
+    if not args.skip_prediction:
+        run_step([python, str(SCRIPTS_PATH / "predict_top10.py")])
 
     print("\nPipeline completed.", flush=True)
 

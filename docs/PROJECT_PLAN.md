@@ -129,6 +129,7 @@ Tasks:
 - output `outputs/predictions/latest_race_top10_predictions.csv`
 - include driver, constructor, race, predicted probability and rank
 - optionally predict the latest completed race as a sanity check
+- status: implemented as `outputs/predictions/top10_predictions_<season>_<round>.csv`
 
 Validation:
 
