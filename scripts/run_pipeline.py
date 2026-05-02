@@ -19,6 +19,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--force-fetch", action="store_true")
     parser.add_argument("--skip-evaluation", action="store_true")
     parser.add_argument("--skip-pit-stops", action="store_true")
+    parser.add_argument("--with-fastf1", action="store_true")
+    parser.add_argument("--fastf1-start-year", type=int, default=2018)
+    parser.add_argument("--fastf1-end-year", type=int, default=date.today().year)
+    parser.add_argument("--fastf1-max-races", type=int, default=None)
     return parser.parse_args()
 
 
@@ -48,6 +52,19 @@ def main() -> None:
         run_step(fetch_command)
     else:
         print(f"Using existing raw data: {raw_results}", flush=True)
+
+    if args.with_fastf1:
+        fastf1_command = [
+            python,
+            str(SCRIPTS_PATH / "generate_fastf1_features.py"),
+            "--start-year",
+            str(args.fastf1_start_year),
+            "--end-year",
+            str(args.fastf1_end_year),
+        ]
+        if args.fastf1_max_races is not None:
+            fastf1_command.extend(["--max-races", str(args.fastf1_max_races)])
+        run_step(fastf1_command)
 
     run_step([python, str(SCRIPTS_PATH / "generate_final_dataset.py")])
     run_step([python, str(SCRIPTS_PATH / "train_model.py"), "--model", args.model])

@@ -18,10 +18,11 @@ Implemented:
 - season holdout validation and expanding-window rolling backtest
 - project charts and model comparison outputs
 - one-command pipeline through `scripts/run_pipeline.py`
+- optional FastF1 smoke-test feature generation
 
 Current limitations:
 
-- weather features are still placeholders
+- weather features are mostly placeholders unless optional FastF1 is generated
 - race-control/safety-car features are still placeholders/proxies
 - telemetry features are still proxies, not real FastF1 telemetry
 - neural network is a tabular MLP baseline, not a sequence model
@@ -61,14 +62,18 @@ FastF1 can provide it.
 
 Planned tasks:
 
-- add `fastf1` to `requirements.txt`
-- create `scripts/generate_fastf1_features.py`
+- add `fastf1` to `requirements.txt` - done
+- create `scripts/generate_fastf1_features.py` - done
 - use a local ignored cache directory under `.fastf1_cache/`
 - fetch race sessions with laps and weather enabled
 - generate optional raw tables:
   - `data/raw/fastf1_weather.csv`
   - `data/raw/fastf1_lap_features.csv`
   - `data/raw/fastf1_strategy_features.csv`
+- current implementation writes:
+  - `data/raw/fastf1_weather.csv`
+  - `data/raw/fastf1_lap_summaries.csv`
+  - `data/raw/fastf1_driver_form.csv`
 - keep the FastF1 step optional so the Jolpica baseline still runs quickly
 
 Validation:

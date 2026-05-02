@@ -20,6 +20,9 @@ circuits, pit stops and historical standings-derived features. Weather,
 race-control and telemetry features are currently placeholders or derived
 proxies when the public API does not provide the exact signal.
 
+Optional FastF1 enrichment can add richer race-session weather and historical
+lap/strategy features for seasons supported by the F1 timing API.
+
 ## Setup
 
 ```powershell
@@ -40,10 +43,23 @@ raw data again:
 python scripts/run_pipeline.py --force-fetch
 ```
 
+To include optional FastF1 feature generation:
+
+```powershell
+python scripts/run_pipeline.py --with-fastf1
+```
+
+For a quick FastF1 smoke test:
+
+```powershell
+python scripts/run_pipeline.py --with-fastf1 --fastf1-start-year 2024 --fastf1-end-year 2024 --fastf1-max-races 1 --skip-evaluation
+```
+
 Or run each step manually:
 
 ```powershell
 python scripts/generate_raw_data.py --start-year 2011 --end-year 2026
+python scripts/generate_fastf1_features.py --start-year 2024 --end-year 2024 --max-races 1
 python scripts/generate_final_dataset.py
 python scripts/train_model.py
 python scripts/evaluate_models.py
@@ -76,6 +92,7 @@ Main outputs:
 
 - `data/raw/*.csv`: fetched and derived raw feature tables
 - `data/raw/pit_stop_events.csv`: real pit-stop events from Jolpica
+- `data/raw/fastf1_*.csv`: optional FastF1 enrichment tables
 - `data/final/f1_top10_model_dataset.csv`: model-ready dataset
 - `outputs/models/top10_classifier.joblib`: trained model
 - `outputs/metrics.json`: validation metrics

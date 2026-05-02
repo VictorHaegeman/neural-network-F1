@@ -21,6 +21,18 @@ def load_csv(filename):
     return df
 
 
+def load_optional_csv(filename):
+    path = RAW_PATH / filename
+
+    if not path.exists() or path.stat().st_size == 0:
+        print(f"Skipped optional {filename}: missing or empty")
+        return pd.DataFrame()
+
+    df = pd.read_csv(path)
+    print(f"Loaded optional {filename}: {df.shape[0]} rows, {df.shape[1]} columns")
+    return df
+
+
 def clean_duplicate_columns(df):
     df = df.loc[:, ~df.columns.duplicated()]
     return df
@@ -44,6 +56,8 @@ pit_stops = load_csv("pit_stops.csv")
 weather_data = load_csv("weather_data.csv")
 race_control_messages = load_csv("race_control_messages.csv")
 telemetry_data = load_csv("telemetry_data.csv")
+fastf1_weather = load_optional_csv("fastf1_weather.csv")
+fastf1_driver_form = load_optional_csv("fastf1_driver_form.csv")
 
 
 # =========================
@@ -242,6 +256,12 @@ pit_stops = pit_stops[[col for col in pit_stops_keep if col in pit_stops.columns
 weather_data = weather_data[[col for col in weather_keep if col in weather_data.columns]]
 race_control_messages = race_control_messages[[col for col in race_control_keep if col in race_control_messages.columns]]
 telemetry_data = telemetry_data[[col for col in telemetry_keep if col in telemetry_data.columns]]
+if not fastf1_weather.empty:
+    fastf1_weather = fastf1_weather[[col for col in fastf1_weather.columns if "error" not in col.lower()]]
+if not fastf1_driver_form.empty:
+    fastf1_driver_form = fastf1_driver_form[
+        [col for col in fastf1_driver_form.columns if "error" not in col.lower()]
+    ]
 
 
 # Rename columns to avoid confusion
@@ -284,6 +304,12 @@ merge_steps = [
     ("race_control_messages", race_control_messages, ["race_id"]),
     ("telemetry_data", telemetry_data, ["race_id", "driver_id"])
 ]
+
+if not fastf1_weather.empty:
+    merge_steps.append(("fastf1_weather", fastf1_weather, ["race_id"]))
+
+if not fastf1_driver_form.empty:
+    merge_steps.append(("fastf1_driver_form", fastf1_driver_form, ["race_id", "driver_id"]))
 
 for name, dataset, keys in merge_steps:
     before_shape = final_df.shape
@@ -377,6 +403,10 @@ for col in final_df.columns:
 
 numeric_cols = final_df.select_dtypes(include=["number"]).columns.tolist()
 categorical_cols = final_df.select_dtypes(include=["object"]).columns.tolist()
+
+for col in [col for col in final_df.columns if col.startswith("fastf1_")]:
+    if col in numeric_cols:
+        final_df[col] = final_df[col].fillna(0)
 
 for col in numeric_cols:
     if col != "top10_finish":
