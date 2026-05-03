@@ -15,6 +15,8 @@ REQUIRED_NONEMPTY_FILES = [
     "requirements.txt",
     "docs/PROJECT_PLAN.md",
     "docs/REMAINING_TASKS.md",
+    "data/raw/fastf1_race_control.csv",
+    "data/raw/race_control_history.csv",
     "data/raw/weather_data.csv",
     "data/raw/upcoming_qualifying_results.csv",
     "data/final/f1_top10_model_dataset.csv",
@@ -24,13 +26,17 @@ REQUIRED_NONEMPTY_FILES = [
     "outputs/model_comparison.csv",
     "outputs/neural_network_tuning.csv",
     "outputs/neural_network_summary.json",
+    "outputs/position_model_comparison.csv",
+    "outputs/position_model_metrics.json",
     "outputs/rolling_backtest.csv",
     "outputs/model_selection_summary.json",
     "outputs/figures/confusion_matrix.png",
     "outputs/figures/feature_importance.png",
     "outputs/figures/model_comparison.png",
     "outputs/figures/neural_network_tuning.png",
+    "outputs/figures/position_model_comparison.png",
     "outputs/figures/rolling_backtest.png",
+    "outputs/predictions/position_predictions_holdout.csv",
     "outputs/predictions/top10_predictions_2026_03.csv",
     "outputs/predictions/upcoming_top10_predictions.csv",
     "outputs/predictions/upcoming_prediction_notes.json",
@@ -47,8 +53,10 @@ REQUIRED_SCRIPTS = [
     "scripts/generate_raw_data.py",
     "scripts/generate_historical_weather.py",
     "scripts/generate_fastf1_features.py",
+    "scripts/generate_fastf1_race_control.py",
     "scripts/generate_final_dataset.py",
     "scripts/train_model.py",
+    "scripts/train_position_model.py",
     "scripts/tune_neural_network.py",
     "scripts/evaluate_models.py",
     "scripts/make_charts.py",
@@ -111,7 +119,7 @@ def check_dataset(failures: list[str]) -> None:
     else:
         pass_check(f"Dataset rows: {len(df)}")
 
-    if len(df.columns) < 150:
+    if len(df.columns) < 190:
         fail(f"Dataset has too few columns: {len(df.columns)}", failures)
     else:
         pass_check(f"Dataset columns: {len(df.columns)}")
@@ -149,6 +157,56 @@ def check_weather_data(failures: list[str]) -> None:
         fail(f"Weather table has too few available rows: {available}", failures)
     else:
         pass_check(f"Weather rows available: {available}")
+
+
+def check_race_control_data(failures: list[str]) -> None:
+    path = PROJECT_ROOT / "data/raw/fastf1_race_control.csv"
+    if not path.exists() or path.stat().st_size == 0:
+        return
+
+    race_control = pd.read_csv(path)
+    if "fastf1_race_control_available" not in race_control.columns:
+        fail("fastf1_race_control.csv is missing fastf1_race_control_available", failures)
+        return
+
+    available = int(race_control["fastf1_race_control_available"].fillna(0).sum())
+    if available < 150:
+        fail(f"FastF1 race-control has too few available rows: {available}", failures)
+    else:
+        pass_check(f"FastF1 race-control rows available: {available}")
+
+    history_path = PROJECT_ROOT / "data/raw/race_control_history.csv"
+    if history_path.exists() and history_path.stat().st_size > 0:
+        history = pd.read_csv(history_path)
+        if len(history) < 300:
+            fail(f"Race-control history has too few rows: {len(history)}", failures)
+        else:
+            pass_check(f"Race-control history rows: {len(history)}")
+
+
+def check_position_model_outputs(failures: list[str]) -> None:
+    path = PROJECT_ROOT / "outputs/position_model_metrics.json"
+    if not path.exists() or path.stat().st_size == 0:
+        return
+
+    with path.open(encoding="utf-8") as file:
+        metrics = json.load(file)
+
+    best = metrics.get("best_holdout", {})
+    required = ["race_precision_at_10", "actual_top10_rank_mae", "mean_spearman_by_race"]
+    for metric in required:
+        if metric not in best:
+            fail(f"Position model missing metric: {metric}", failures)
+        else:
+            pass_check(f"position {metric}: {best[metric]}")
+
+    predictions_path = PROJECT_ROOT / "outputs/predictions/upcoming_top10_predictions.csv"
+    if predictions_path.exists() and predictions_path.stat().st_size > 0:
+        predictions = pd.read_csv(predictions_path)
+        if "predicted_finish_rank" not in predictions.columns:
+            fail("Upcoming predictions are missing predicted_finish_rank", failures)
+        else:
+            pass_check("Upcoming predictions include predicted_finish_rank")
 
 
 def check_metrics(failures: list[str]) -> None:
@@ -207,7 +265,9 @@ def main() -> None:
     check_scripts(failures)
     check_dataset(failures)
     check_weather_data(failures)
+    check_race_control_data(failures)
     check_metrics(failures)
+    check_position_model_outputs(failures)
     check_submission_zip(failures)
 
     if failures:

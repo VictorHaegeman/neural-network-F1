@@ -13,6 +13,8 @@ Implemented:
 - race results, qualifying, drivers, constructors, circuits and standings
 - real Jolpica pit-stop events and previous-race pit-stop features
 - Open-Meteo historical race-day weather enrichment for local race results
+- FastF1 race-control message import and pre-race disruption history features
+- finish-position/ranking model for predicted top-10 order
 - final model dataset with no missing values
 - multiple algorithms: logistic regression, random forest, extra trees,
   histogram gradient boosting, neural network MLP
@@ -25,7 +27,7 @@ Current limitations:
 
 - Open-Meteo weather is historical race-day weather, not exact live race sensor
   weather
-- race-control/safety-car features are still placeholders/proxies
+- race-control coverage is partial because the timing API is rate limited
 - telemetry features are still proxies, not real FastF1 telemetry
 - FastF1 coverage is partial because the timing API is rate limited
 - neural network is a tabular MLP baseline, not a sequence model

@@ -1,0 +1,22 @@
+{
+  "best_position_model": "neural_network_mlp_regressor",
+  "best_holdout": {
+    "model": "neural_network_mlp_regressor",
+    "train_rows": 5976,
+    "test_rows": 479,
+    "test_season": 2025,
+    "position_mae_raw": 3.2422566957034413,
+    "position_rmse_raw": 4.573160154075418,
+    "race_precision_at_10": 0.7708333333333334,
+    "all_rank_mae": 3.375,
+    "actual_top10_rank_mae": 2.645833333333333,
+    "predicted_top10_rank_mae": 3.15,
+    "mean_spearman_by_race": 0.6551587301587302
+  },
+  "model_path": "outputs\\models\\finish_position_regressor.joblib",
+  "neural_model_path": "outputs\\models\\finish_position_neural_network_mlp.joblib",
+  "comparison_path": "outputs\\position_model_comparison.csv",
+  "holdout_predictions_path": "outputs\\predictions\\position_predictions_holdout.csv",
+  "figure_path": "outputs\\figures\\position_model_comparison.png",
+  "note": "This model predicts race finishing order/rank; it complements the binary top-10 classifier."
+}

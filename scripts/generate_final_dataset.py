@@ -58,6 +58,8 @@ race_control_messages = load_csv("race_control_messages.csv")
 telemetry_data = load_csv("telemetry_data.csv")
 fastf1_weather = load_optional_csv("fastf1_weather.csv")
 fastf1_driver_form = load_optional_csv("fastf1_driver_form.csv")
+fastf1_race_control = load_optional_csv("fastf1_race_control.csv")
+race_control_history = load_optional_csv("race_control_history.csv")
 
 
 # =========================
@@ -262,6 +264,14 @@ if not fastf1_driver_form.empty:
     fastf1_driver_form = fastf1_driver_form[
         [col for col in fastf1_driver_form.columns if "error" not in col.lower()]
     ]
+if not fastf1_race_control.empty:
+    fastf1_race_control = fastf1_race_control[
+        [col for col in fastf1_race_control.columns if "error" not in col.lower()]
+    ]
+if not race_control_history.empty:
+    race_control_history = race_control_history[
+        [col for col in race_control_history.columns if "error" not in col.lower()]
+    ]
 
 
 # Rename columns to avoid confusion
@@ -310,6 +320,12 @@ if not fastf1_weather.empty:
 
 if not fastf1_driver_form.empty:
     merge_steps.append(("fastf1_driver_form", fastf1_driver_form, ["race_id", "driver_id"]))
+
+if not fastf1_race_control.empty:
+    merge_steps.append(("fastf1_race_control", fastf1_race_control, ["race_id"]))
+
+if not race_control_history.empty:
+    merge_steps.append(("race_control_history", race_control_history, ["race_id"]))
 
 for name, dataset, keys in merge_steps:
     before_shape = final_df.shape

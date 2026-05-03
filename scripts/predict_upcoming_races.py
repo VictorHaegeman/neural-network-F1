@@ -58,7 +58,42 @@ LEAKAGE_DEFAULTS: dict[str, Any] = {
     "total_dnf_count": 0,
     "classified_driver_count": 0,
     "race_disruption_score": 0,
+    "fastf1_race_control_available": 0,
+    "fastf1_race_control_messages_count": 0,
+    "fastf1_safety_car_count": 0,
+    "fastf1_virtual_safety_car_count": 0,
+    "fastf1_red_flag_count": 0,
+    "fastf1_yellow_flag_count": 0,
+    "fastf1_double_yellow_count": 0,
+    "fastf1_black_flag_count": 0,
+    "fastf1_track_limits_count": 0,
+    "fastf1_investigation_count": 0,
+    "fastf1_penalty_count": 0,
+    "fastf1_incident_count": 0,
+    "fastf1_drs_disabled_count": 0,
+    "fastf1_deleted_lap_count": 0,
+    "fastf1_slippery_track_count": 0,
+    "fastf1_clear_count": 0,
+    "fastf1_race_disruption_score": 0,
 }
+
+RACE_CONTROL_HISTORY_COLUMNS = [
+    "race_control_history_available",
+    "circuit_race_control_races_previous_3",
+    "circuit_safety_car_rate_previous_3",
+    "circuit_vsc_rate_previous_3",
+    "circuit_red_flag_rate_previous_3",
+    "circuit_yellow_flags_avg_previous_3",
+    "circuit_incidents_avg_previous_3",
+    "circuit_penalties_avg_previous_3",
+    "circuit_track_limits_avg_previous_3",
+    "circuit_race_disruption_score_avg_previous_3",
+    "season_race_control_races_previous_3",
+    "season_safety_car_rate_previous_3",
+    "season_vsc_rate_previous_3",
+    "season_red_flag_rate_previous_3",
+    "season_race_disruption_score_avg_previous_3",
+]
 
 
 def parse_args() -> argparse.Namespace:
@@ -67,6 +102,12 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--data", type=Path, default=DATA_PATH)
     parser.add_argument("--model", type=Path, default=MODEL_PATH)
+    parser.add_argument(
+        "--position-model",
+        type=Path,
+        default=None,
+        help="Optional finish-position model used to add predicted finishing order.",
+    )
     parser.add_argument("--season", type=int, default=date.today().year)
     parser.add_argument("--count", type=int, default=4, help="Number of upcoming races to score.")
     parser.add_argument("--top-n", type=int, default=10)
@@ -354,6 +395,60 @@ def historical_weather(df: pd.DataFrame, circuit_id: str) -> tuple[dict[str, Any
     return row, "circuit_history"
 
 
+def historical_race_control(df: pd.DataFrame, circuit_id: str, season: int) -> dict[str, Any]:
+    if "fastf1_race_control_available" not in df.columns:
+        return {column: 0.0 for column in RACE_CONTROL_HISTORY_COLUMNS}
+
+    races = (
+        df.drop_duplicates("race_id")
+        .sort_values(["season", "round"])
+        .copy()
+    )
+    available = pd.to_numeric(
+        races["fastf1_race_control_available"],
+        errors="coerce",
+    ).fillna(0) > 0
+    races = races[available]
+
+    circuit_history = races[races["circuit_id"] == circuit_id].tail(3)
+    season_history = races[races["season"] == season].tail(3)
+
+    def mean_value(history: pd.DataFrame, column: str) -> float:
+        if history.empty or column not in history.columns:
+            return 0.0
+        return safe_mean(history[column], 0.0)
+
+    def rate_value(history: pd.DataFrame, column: str) -> float:
+        if history.empty or column not in history.columns:
+            return 0.0
+        values = pd.to_numeric(history[column], errors="coerce").fillna(0)
+        return float((values > 0).mean()) if len(values) else 0.0
+
+    return {
+        "race_control_history_available": int(not circuit_history.empty or not season_history.empty),
+        "circuit_race_control_races_previous_3": int(len(circuit_history)),
+        "circuit_safety_car_rate_previous_3": rate_value(circuit_history, "fastf1_safety_car_count"),
+        "circuit_vsc_rate_previous_3": rate_value(circuit_history, "fastf1_virtual_safety_car_count"),
+        "circuit_red_flag_rate_previous_3": rate_value(circuit_history, "fastf1_red_flag_count"),
+        "circuit_yellow_flags_avg_previous_3": mean_value(circuit_history, "fastf1_yellow_flag_count"),
+        "circuit_incidents_avg_previous_3": mean_value(circuit_history, "fastf1_incident_count"),
+        "circuit_penalties_avg_previous_3": mean_value(circuit_history, "fastf1_penalty_count"),
+        "circuit_track_limits_avg_previous_3": mean_value(circuit_history, "fastf1_track_limits_count"),
+        "circuit_race_disruption_score_avg_previous_3": mean_value(
+            circuit_history,
+            "fastf1_race_disruption_score",
+        ),
+        "season_race_control_races_previous_3": int(len(season_history)),
+        "season_safety_car_rate_previous_3": rate_value(season_history, "fastf1_safety_car_count"),
+        "season_vsc_rate_previous_3": rate_value(season_history, "fastf1_virtual_safety_car_count"),
+        "season_red_flag_rate_previous_3": rate_value(season_history, "fastf1_red_flag_count"),
+        "season_race_disruption_score_avg_previous_3": mean_value(
+            season_history,
+            "fastf1_race_disruption_score",
+        ),
+    }
+
+
 def fetch_weather_forecast(race: dict[str, Any]) -> tuple[dict[str, Any] | None, str]:
     if pd.isna(race.get("latitude")) or pd.isna(race.get("longitude")):
         return None, "missing_coordinates"
@@ -639,6 +734,10 @@ def build_upcoming_race_rows(
         if column in rows.columns:
             rows[column] = value
 
+    for column, value in historical_race_control(df, race["circuit_id"], race["season"]).items():
+        if column in rows.columns:
+            rows[column] = value
+
     rows = rows.drop(
         columns=[
             column
@@ -691,8 +790,13 @@ def output_columns(df: pd.DataFrame) -> list[str]:
         "grid",
         "qualifying_position",
         "top10_probability",
+        "top10_probability_rank",
+        "predicted_top10_by_probability",
         "predicted_rank",
         "predicted_top10",
+        "predicted_finish_position_raw",
+        "predicted_finish_rank",
+        "predicted_top10_position",
         "driver_points_before_race",
         "constructor_points_before_race",
         "top10_rate_previous_5",
@@ -706,6 +810,8 @@ def output_columns(df: pd.DataFrame) -> list[str]:
         "fastf1_soft_lap_rate_previous_3",
         "fastf1_medium_lap_rate_previous_3",
         "fastf1_hard_lap_rate_previous_3",
+        "circuit_safety_car_rate_previous_3",
+        "circuit_race_disruption_score_avg_previous_3",
         "prediction_weather_source",
         "prediction_qualifying_source",
     ]
@@ -720,9 +826,14 @@ def main() -> None:
         raise FileNotFoundError(f"Missing dataset: {args.data}")
     if not args.model.exists():
         raise FileNotFoundError(f"Missing model: {args.model}. Run scripts/train_model.py first.")
+    if args.position_model is not None and not args.position_model.exists():
+        raise FileNotFoundError(
+            f"Missing position model: {args.position_model}. Run scripts/train_position_model.py first."
+        )
 
     df = pd.read_csv(args.data)
     model = joblib.load(args.model)
+    position_model = joblib.load(args.position_model) if args.position_model is not None else None
 
     session = requests.Session()
     schedule = fetch_schedule(session, args.season)
@@ -771,6 +882,22 @@ def main() -> None:
         race_rows = race_rows.sort_values("top10_probability", ascending=False).reset_index(drop=True)
         race_rows["predicted_rank"] = race_rows.index + 1
         race_rows["predicted_top10"] = (race_rows["predicted_rank"] <= args.top_n).astype(int)
+
+        if position_model is not None:
+            race_rows["top10_probability_rank"] = race_rows["predicted_rank"]
+            race_rows["predicted_top10_by_probability"] = race_rows["predicted_top10"]
+            raw_positions = np.clip(position_model.predict(build_features(race_rows[df.columns])), 1, len(race_rows))
+            race_rows["predicted_finish_position_raw"] = raw_positions
+            race_rows["predicted_finish_rank"] = (
+                race_rows["predicted_finish_position_raw"].rank(method="first", ascending=True).astype(int)
+            )
+            race_rows["predicted_top10_position"] = race_rows["predicted_finish_rank"].where(
+                race_rows["predicted_finish_rank"] <= args.top_n,
+                0,
+            )
+            race_rows["predicted_rank"] = race_rows["predicted_finish_rank"]
+            race_rows["predicted_top10"] = (race_rows["predicted_finish_rank"] <= args.top_n).astype(int)
+            race_rows = race_rows.sort_values("predicted_finish_rank").reset_index(drop=True)
 
         readable = race_rows[output_columns(race_rows)].copy()
         readable_path = (

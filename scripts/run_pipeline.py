@@ -21,6 +21,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--skip-prediction", action="store_true")
     parser.add_argument("--skip-pit-stops", action="store_true")
     parser.add_argument("--with-historical-weather", action="store_true")
+    parser.add_argument("--with-race-control", action="store_true")
     parser.add_argument("--with-fastf1", action="store_true")
     parser.add_argument("--fastf1-start-year", type=int, default=2018)
     parser.add_argument("--fastf1-end-year", type=int, default=date.today().year)
@@ -88,6 +89,18 @@ def main() -> None:
                 str(args.end_year),
             ]
         )
+
+    if args.with_race_control:
+        race_control_command = [
+            python,
+            str(SCRIPTS_PATH / "generate_fastf1_race_control.py"),
+            "--start-year",
+            str(args.fastf1_start_year),
+            "--end-year",
+            str(args.fastf1_end_year),
+            "--incremental",
+        ]
+        run_step(race_control_command)
 
     run_step([python, str(SCRIPTS_PATH / "generate_final_dataset.py")])
     run_step([python, str(SCRIPTS_PATH / "train_model.py"), "--model", args.model])

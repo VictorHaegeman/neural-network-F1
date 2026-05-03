@@ -71,6 +71,23 @@ LEAKAGE_COLUMNS = [
     "total_dnf_count",
     "classified_driver_count",
     "race_disruption_score",
+    "fastf1_race_control_available",
+    "fastf1_race_control_messages_count",
+    "fastf1_safety_car_count",
+    "fastf1_virtual_safety_car_count",
+    "fastf1_red_flag_count",
+    "fastf1_yellow_flag_count",
+    "fastf1_double_yellow_count",
+    "fastf1_black_flag_count",
+    "fastf1_track_limits_count",
+    "fastf1_investigation_count",
+    "fastf1_penalty_count",
+    "fastf1_incident_count",
+    "fastf1_drs_disabled_count",
+    "fastf1_deleted_lap_count",
+    "fastf1_slippery_track_count",
+    "fastf1_clear_count",
+    "fastf1_race_disruption_score",
 ]
 
 NON_FEATURE_COLUMNS = [

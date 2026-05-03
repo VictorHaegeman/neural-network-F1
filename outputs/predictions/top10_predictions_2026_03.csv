@@ -1,23 +1,23 @@
 race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_name,grid,final_position,top10_finish,top10_probability,predicted_rank,predicted_top10
-2026_03,2026,3,Japanese Grand Prix,russell,RUS,George Russell,Mercedes,2,4,1,0.9562480333818822,1,1
-2026_03,2026,3,Japanese Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,4,3,1,0.935220471741605,2,1
-2026_03,2026,3,Japanese Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,1,1,1,0.9189804649291613,3,1
-2026_03,2026,3,Japanese Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,6,6,1,0.8916771742160657,4,1
-2026_03,2026,3,Japanese Grand Prix,norris,NOR,Lando Norris,McLaren,5,5,1,0.8486573348802846,5,1
-2026_03,2026,3,Japanese Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,11,8,1,0.786749402213726,6,1
-2026_03,2026,3,Japanese Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,7,7,1,0.7859289324957017,7,1
-2026_03,2026,3,Japanese Grand Prix,piastri,PIA,Oscar Piastri,McLaren,3,2,1,0.7514641348046839,8,1
-2026_03,2026,3,Japanese Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,14,9,1,0.5756380871736213,9,1
-2026_03,2026,3,Japanese Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,12,10,1,0.5434455732219021,10,1
-2026_03,2026,3,Japanese Grand Prix,hadjar,HAD,Isack Hadjar,Red Bull,8,12,0,0.4085892950714888,11,0
-2026_03,2026,3,Japanese Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,RB F1 Team,10,14,0,0.2930916939811247,12,0
-2026_03,2026,3,Japanese Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Audi,9,13,0,0.29221582381148475,13,0
-2026_03,2026,3,Japanese Grand Prix,sainz,SAI,Carlos Sainz,Williams,16,15,0,0.24509298846318192,14,0
-2026_03,2026,3,Japanese Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,18,22,0,0.20401332925068286,15,0
-2026_03,2026,3,Japanese Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Audi,13,11,0,0.19855125753220784,16,0
-2026_03,2026,3,Japanese Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,15,16,0,0.17585878457194087,17,0
-2026_03,2026,3,Japanese Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,21,18,0,0.12298304274664026,18,0
-2026_03,2026,3,Japanese Grand Prix,perez,PER,Sergio Pérez,Cadillac F1 Team,19,17,0,0.1069891574750443,19,0
-2026_03,2026,3,Japanese Grand Prix,stroll,STR,Lance Stroll,Aston Martin,22,21,0,0.06946061997556473,20,0
-2026_03,2026,3,Japanese Grand Prix,albon,ALB,Alexander Albon,Williams,17,20,0,0.05377079199483182,21,0
-2026_03,2026,3,Japanese Grand Prix,bottas,BOT,Valtteri Bottas,Cadillac F1 Team,20,19,0,0.04665240813647877,22,0
+2026_03,2026,3,Japanese Grand Prix,russell,RUS,George Russell,Mercedes,2,4,1,0.956956255006699,1,1
+2026_03,2026,3,Japanese Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,4,3,1,0.9412869305352466,2,1
+2026_03,2026,3,Japanese Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,1,1,1,0.9140906828077289,3,1
+2026_03,2026,3,Japanese Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,6,6,1,0.9069367794219727,4,1
+2026_03,2026,3,Japanese Grand Prix,norris,NOR,Lando Norris,McLaren,5,5,1,0.8334400371254812,5,1
+2026_03,2026,3,Japanese Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,11,8,1,0.81568359890626,6,1
+2026_03,2026,3,Japanese Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,7,7,1,0.794217641244413,7,1
+2026_03,2026,3,Japanese Grand Prix,piastri,PIA,Oscar Piastri,McLaren,3,2,1,0.7776984910089105,8,1
+2026_03,2026,3,Japanese Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,12,10,1,0.5748476675921039,9,1
+2026_03,2026,3,Japanese Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,14,9,1,0.5526809748226447,10,1
+2026_03,2026,3,Japanese Grand Prix,hadjar,HAD,Isack Hadjar,Red Bull,8,12,0,0.40923445803484804,11,0
+2026_03,2026,3,Japanese Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,RB F1 Team,10,14,0,0.2973580317810367,12,0
+2026_03,2026,3,Japanese Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Audi,9,13,0,0.2927534480219155,13,0
+2026_03,2026,3,Japanese Grand Prix,sainz,SAI,Carlos Sainz,Williams,16,15,0,0.23289347430036592,14,0
+2026_03,2026,3,Japanese Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Audi,13,11,0,0.2213775668147716,15,0
+2026_03,2026,3,Japanese Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,18,22,0,0.21778224375684258,16,0
+2026_03,2026,3,Japanese Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,15,16,0,0.16591097223098344,17,0
+2026_03,2026,3,Japanese Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,21,18,0,0.09484853845126658,18,0
+2026_03,2026,3,Japanese Grand Prix,perez,PER,Sergio Pérez,Cadillac F1 Team,19,17,0,0.09363269854612792,19,0
+2026_03,2026,3,Japanese Grand Prix,albon,ALB,Alexander Albon,Williams,17,20,0,0.08458832910978463,20,0
+2026_03,2026,3,Japanese Grand Prix,stroll,STR,Lance Stroll,Aston Martin,22,21,0,0.07695228089624238,21,0
+2026_03,2026,3,Japanese Grand Prix,bottas,BOT,Valtteri Bottas,Cadillac F1 Team,20,19,0,0.04091658449500133,22,0

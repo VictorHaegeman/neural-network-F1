@@ -12,13 +12,16 @@ Done:
 - Jolpica data from 2011 to 2026
 - real Jolpica pit-stop events
 - Open-Meteo historical race-day weather for all 313 local race-result events
+- FastF1 race-control messages for 163/173 attempted races, plus historical
+  pre-race circuit/season disruption features
 - optional FastF1 features extended beyond 2024-2025 where the timing API and
   rate limits allowed it
-- final dataset with 6521 rows and 166 columns
+- final dataset with 6521 rows and 198 columns
 - no missing values in the final dataset
 - model comparison across logistic regression, random forest, extra trees,
   histogram gradient boosting and neural network MLP
 - dedicated neural network tuning across several MLP configurations
+- finish-position/ranking model to predict likely order inside the top 10
 - expanding-window season backtest
 - data coverage audit against Jolpica API
 - targeted upcoming qualifying import script
@@ -40,10 +43,12 @@ Done:
 
 ## Medium Priority
 
-- [ ] Add better race-control/safety-car features from a richer source.
+- [x] Add better race-control/safety-car features from FastF1 messages.
 - [ ] Re-run raw import after Miami 2026 race results are available.
 - [ ] Resume FastF1 incremental import after the API rate limit resets to fill
   the remaining 2020-2023 gaps.
+- [ ] Resume FastF1 race-control incremental import after the API rate limit
+  resets to fill the final 10 missing 2025 rounds.
 - [x] Add a small CLI option to predict a future race once entry list data is
   available.
 - [ ] Add model calibration charts.
@@ -61,6 +66,7 @@ Done:
 
 For submission, the project now has a solid V0 with real historical weather,
 real Jolpica pit-stop events, model comparison and upcoming-race prediction.
-The largest remaining scientific improvements are fuller FastF1 lap/tyre
-coverage after API limits reset, richer race-control features and calibration
-analysis.
+It also has a separate finish-position model for ranking the predicted top 10.
+The largest remaining scientific improvements are fuller FastF1 lap/tyre and
+race-control coverage after API limits reset, calibration analysis and richer
+telemetry.
