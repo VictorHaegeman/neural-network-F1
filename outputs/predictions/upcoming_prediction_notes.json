@@ -4,7 +4,7 @@
     "grand_prix": "Miami Grand Prix",
     "race_date": "2026-05-03",
     "weather_source": "open_meteo_forecast",
-    "qualifying_source": "estimated_strength_order",
+    "qualifying_source": "jolpica_actual_qualifying",
     "output": "outputs\\predictions\\upcoming_top10_predictions_2026_round04_miami_grand_prix.csv"
   },
   {

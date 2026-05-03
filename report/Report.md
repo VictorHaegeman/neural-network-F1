@@ -104,6 +104,21 @@ Across the rolling backtest, random forest remains the most stable model:
 - average ROC-AUC: 0.847
 - average race precision@10: 0.775
 
+## Latest Data Coverage Check
+
+The latest data audit on 2026-05-03 found:
+
+- 22 scheduled races for the 2026 season
+- 3 race-result rounds available in Jolpica and already present locally
+- 4 qualifying rounds available in Jolpica after Miami qualifying was published
+- 4 qualifying rounds now present locally after importing Miami qualifying
+- no Miami race result available yet, so the supervised training dataset still
+  ends at 2026 round 3
+
+Because the final supervised dataset did not receive new race-result rows, the
+models did not require retraining. Upcoming-race predictions were regenerated
+with actual Miami qualifying data.
+
 ## How to Run
 
 ```powershell

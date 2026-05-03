@@ -69,6 +69,8 @@ python scripts/train_model.py
 python scripts/tune_neural_network.py
 python scripts/evaluate_models.py
 python scripts/make_charts.py
+python scripts/audit_data_coverage.py --season 2026
+python scripts/fetch_upcoming_qualifying.py --season 2026 --round 4 --merge-history
 python scripts/predict_top10.py
 python scripts/predict_upcoming_races.py --season 2026 --count 4 --current-date 2026-05-02
 python scripts/predict_upcoming_races.py --season 2026 --count 4 --current-date 2026-05-02 --model outputs/models/top10_neural_network_mlp.joblib --output-dir outputs/predictions/neural_network
@@ -102,8 +104,10 @@ Main outputs:
 
 - `data/raw/*.csv`: fetched and derived raw feature tables
 - `data/raw/pit_stop_events.csv`: real pit-stop events from Jolpica
+- `data/raw/upcoming_qualifying_results.csv`: latest imported upcoming qualifying snapshot
 - `data/raw/fastf1_*.csv`: optional FastF1 enrichment tables
 - `data/final/f1_top10_model_dataset.csv`: model-ready dataset
+- `outputs/data_coverage_report.csv`: local/API data coverage audit
 - `outputs/models/top10_classifier.joblib`: trained model
 - `outputs/metrics.json`: validation metrics
 - `outputs/model_comparison.csv`: holdout comparison by algorithm

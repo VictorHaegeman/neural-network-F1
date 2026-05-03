@@ -18,6 +18,8 @@ Done:
   histogram gradient boosting and neural network MLP
 - dedicated neural network tuning across several MLP configurations
 - expanding-window season backtest
+- data coverage audit against Jolpica API
+- targeted upcoming qualifying import script
 - readable top-10 prediction export
 - pre-race upcoming-race prediction export
 - figures and metrics
@@ -29,6 +31,7 @@ Done:
 - [x] Generate a real `report/Report.docx` from the Markdown report.
 - [x] Add a project validation script that checks important artifacts.
 - [x] Rebuild the submission ZIP after artifact generation.
+- [x] Add data coverage audit and import currently available Miami qualifying.
 - [ ] Optionally generate `report/Report.pdf` if a PDF engine is available.
 - [ ] Extend FastF1 coverage beyond 2024-2025.
 - [x] Train and compare dedicated neural network configurations.
@@ -36,6 +39,7 @@ Done:
 ## Medium Priority
 
 - [ ] Add better race-control/safety-car features from a richer source.
+- [ ] Re-run raw import after Miami 2026 race results are available.
 - [x] Add a small CLI option to predict a future race once entry list data is
   available.
 - [ ] Add model calibration charts.

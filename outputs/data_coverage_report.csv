@@ -1,0 +1,23 @@
+race_id,season,round,grand_prix,race_date,circuit_id,api_has_results,local_has_results,api_has_qualifying,local_has_qualifying,local_has_fastf1_weather,local_has_final_dataset_rows
+2026_01,2026,1,Australian Grand Prix,2026-03-08,albert_park,True,True,True,True,False,True
+2026_02,2026,2,Chinese Grand Prix,2026-03-15,shanghai,True,True,True,True,False,True
+2026_03,2026,3,Japanese Grand Prix,2026-03-29,suzuka,True,True,True,True,False,True
+2026_04,2026,4,Miami Grand Prix,2026-05-03,miami,False,False,True,True,False,False
+2026_05,2026,5,Canadian Grand Prix,2026-05-24,villeneuve,False,False,False,False,False,False
+2026_06,2026,6,Monaco Grand Prix,2026-06-07,monaco,False,False,False,False,False,False
+2026_07,2026,7,Barcelona Grand Prix,2026-06-14,catalunya,False,False,False,False,False,False
+2026_08,2026,8,Austrian Grand Prix,2026-06-28,red_bull_ring,False,False,False,False,False,False
+2026_09,2026,9,British Grand Prix,2026-07-05,silverstone,False,False,False,False,False,False
+2026_10,2026,10,Belgian Grand Prix,2026-07-19,spa,False,False,False,False,False,False
+2026_11,2026,11,Hungarian Grand Prix,2026-07-26,hungaroring,False,False,False,False,False,False
+2026_12,2026,12,Dutch Grand Prix,2026-08-23,zandvoort,False,False,False,False,False,False
+2026_13,2026,13,Italian Grand Prix,2026-09-06,monza,False,False,False,False,False,False
+2026_14,2026,14,Spanish Grand Prix,2026-09-13,madring,False,False,False,False,False,False
+2026_15,2026,15,Azerbaijan Grand Prix,2026-09-26,baku,False,False,False,False,False,False
+2026_16,2026,16,Singapore Grand Prix,2026-10-11,marina_bay,False,False,False,False,False,False
+2026_17,2026,17,United States Grand Prix,2026-10-25,americas,False,False,False,False,False,False
+2026_18,2026,18,Mexico City Grand Prix,2026-11-01,rodriguez,False,False,False,False,False,False
+2026_19,2026,19,Brazilian Grand Prix,2026-11-08,interlagos,False,False,False,False,False,False
+2026_20,2026,20,Las Vegas Grand Prix,2026-11-22,vegas,False,False,False,False,False,False
+2026_21,2026,21,Qatar Grand Prix,2026-11-29,losail,False,False,False,False,False,False
+2026_22,2026,22,Abu Dhabi Grand Prix,2026-12-06,yas_marina,False,False,False,False,False,False
