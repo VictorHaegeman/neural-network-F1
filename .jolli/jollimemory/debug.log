@@ -1,0 +1,28 @@
+[2026-05-03T07:24:39.283Z] INFO  [SkillInstaller] Wrote SKILL.md (version 0.98.0) to C:\Users\victo\Desktop\EFREI\Machine learning\Projet\f1-top10-prediction\.claude\skills\jolli-recall\SKILL.md
+[2026-05-03T07:24:39.293Z] INFO  [GitHookInstaller] Git post-commit hook installed
+[2026-05-03T07:24:39.299Z] INFO  [GitHookInstaller] Git post-rewrite hook installed
+[2026-05-03T07:24:39.304Z] INFO  [GitHookInstaller] Git prepare-commit-msg hook installed
+[2026-05-03T07:24:39.305Z] INFO  [SessionTracker] Config saved to C:\Users\victo\.jolli\jollimemory
+[2026-05-03T07:24:39.305Z] INFO  [Installer] Codex CLI detected — enabled Codex session discovery
+[2026-05-03T07:24:39.307Z] INFO  [Installer] Installation complete
+[2026-05-03T07:24:39.307Z] INFO  [Installer] Checking Jolli Memory status
+[2026-05-03T07:24:39.401Z] INFO  [CodexDiscoverer] Discovered 1 Codex session(s)
+[2026-05-03T07:24:39.455Z] INFO  [CodexDiscoverer] Discovered 1 Codex session(s)
+[2026-05-03T07:24:39.466Z] INFO  [Installer] Checking Jolli Memory status
+[2026-05-03T07:24:39.467Z] INFO  [plans] detectPlans found 0 plans (0 in registry)
+[2026-05-03T07:24:39.468Z] INFO  [notes] detectNotes found 0 notes (0 in registry)
+[2026-05-03T07:24:39.483Z] INFO  [Installer] Status: enabled=false, claude=false, git=false, geminiHook=false, worktreeHooks=false, sessions=1, summaries=0, codex=true/true, gemini=false/undefined, enabledWorktrees=1, opencode=false/undefined
+[2026-05-03T07:24:39.533Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=false, worktreeHooks=true, sessions=1, summaries=0, codex=true/true, gemini=false/undefined, enabledWorktrees=1, opencode=false/undefined
+[2026-05-03T07:24:39.535Z] INFO  [Installer] Checking Jolli Memory status
+[2026-05-03T07:24:39.629Z] INFO  [CodexDiscoverer] Discovered 1 Codex session(s)
+[2026-05-03T07:24:39.637Z] INFO  [bridge] Merged mode activated {"branch":"main","creationPoint":"2174fcd6","author":"M8Ghost"}
+[2026-05-03T07:24:39.684Z] INFO  [CodexDiscoverer] Discovered 1 Codex session(s)
+[2026-05-03T07:24:39.701Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=false, worktreeHooks=true, sessions=1, summaries=0, codex=true/true, gemini=false/undefined, enabledWorktrees=1, opencode=false/undefined
+[2026-05-03T07:24:39.759Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=false, worktreeHooks=true, sessions=1, summaries=0, codex=true/true, gemini=false/undefined, enabledWorktrees=1, opencode=false/undefined
+[2026-05-03T07:24:39.761Z] INFO  [Installer] Checking Jolli Memory status
+[2026-05-03T07:24:39.911Z] INFO  [CodexDiscoverer] Discovered 1 Codex session(s)
+[2026-05-03T07:24:39.981Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=false, worktreeHooks=true, sessions=1, summaries=0, codex=true/true, gemini=false/undefined, enabledWorktrees=1, opencode=false/undefined
+[2026-05-03T07:24:41.053Z] INFO  [initialLoad] All panels loaded — updating status bar
+[2026-05-03T07:24:41.053Z] INFO  [Installer] Checking Jolli Memory status
+[2026-05-03T07:24:41.221Z] INFO  [CodexDiscoverer] Discovered 1 Codex session(s)
+[2026-05-03T07:24:41.289Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=false, worktreeHooks=true, sessions=1, summaries=0, codex=true/true, gemini=false/undefined, enabledWorktrees=1, opencode=false/undefined
