@@ -15,6 +15,7 @@ REQUIRED_NONEMPTY_FILES = [
     "requirements.txt",
     "docs/PROJECT_PLAN.md",
     "docs/REMAINING_TASKS.md",
+    "data/raw/weather_data.csv",
     "data/raw/upcoming_qualifying_results.csv",
     "data/final/f1_top10_model_dataset.csv",
     "outputs/data_coverage_report.csv",
@@ -30,7 +31,7 @@ REQUIRED_NONEMPTY_FILES = [
     "outputs/figures/model_comparison.png",
     "outputs/figures/neural_network_tuning.png",
     "outputs/figures/rolling_backtest.png",
-    "outputs/predictions/top10_predictions_2025_24.csv",
+    "outputs/predictions/top10_predictions_2026_03.csv",
     "outputs/predictions/upcoming_top10_predictions.csv",
     "outputs/predictions/upcoming_prediction_notes.json",
     "outputs/predictions/neural_network/upcoming_top10_predictions.csv",
@@ -44,6 +45,7 @@ REQUIRED_NONEMPTY_FILES = [
 REQUIRED_SCRIPTS = [
     "scripts/run_pipeline.py",
     "scripts/generate_raw_data.py",
+    "scripts/generate_historical_weather.py",
     "scripts/generate_fastf1_features.py",
     "scripts/generate_final_dataset.py",
     "scripts/train_model.py",
@@ -127,6 +129,28 @@ def check_dataset(failures: list[str]) -> None:
         pass_check(f"Season coverage: {seasons[0]}-{seasons[-1]}")
 
 
+def check_weather_data(failures: list[str]) -> None:
+    path = PROJECT_ROOT / "data/raw/weather_data.csv"
+    if not path.exists() or path.stat().st_size == 0:
+        return
+
+    weather = pd.read_csv(path)
+    if "weather_data_available" not in weather.columns:
+        fail("weather_data.csv is missing weather_data_available", failures)
+        return
+
+    available = int(weather["weather_data_available"].fillna(0).sum())
+    if len(weather) < 300:
+        fail(f"Weather table has too few races: {len(weather)}", failures)
+    else:
+        pass_check(f"Weather race rows: {len(weather)}")
+
+    if available < 300:
+        fail(f"Weather table has too few available rows: {available}", failures)
+    else:
+        pass_check(f"Weather rows available: {available}")
+
+
 def check_metrics(failures: list[str]) -> None:
     path = PROJECT_ROOT / "outputs/metrics.json"
     if not path.exists() or path.stat().st_size == 0:
@@ -182,6 +206,7 @@ def main() -> None:
     check_nonempty_files(failures)
     check_scripts(failures)
     check_dataset(failures)
+    check_weather_data(failures)
     check_metrics(failures)
     check_submission_zip(failures)
 

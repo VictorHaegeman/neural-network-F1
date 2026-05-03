@@ -20,10 +20,16 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--skip-evaluation", action="store_true")
     parser.add_argument("--skip-prediction", action="store_true")
     parser.add_argument("--skip-pit-stops", action="store_true")
+    parser.add_argument("--with-historical-weather", action="store_true")
     parser.add_argument("--with-fastf1", action="store_true")
     parser.add_argument("--fastf1-start-year", type=int, default=2018)
     parser.add_argument("--fastf1-end-year", type=int, default=date.today().year)
     parser.add_argument("--fastf1-max-races", type=int, default=None)
+    parser.add_argument(
+        "--fastf1-force-refresh",
+        action="store_true",
+        help="Refetch FastF1 rows from scratch instead of extending existing local files.",
+    )
     return parser.parse_args()
 
 
@@ -65,7 +71,23 @@ def main() -> None:
         ]
         if args.fastf1_max_races is not None:
             fastf1_command.extend(["--max-races", str(args.fastf1_max_races)])
+        if args.fastf1_force_refresh:
+            fastf1_command.append("--force")
+        else:
+            fastf1_command.append("--incremental")
         run_step(fastf1_command)
+
+    if args.with_historical_weather:
+        run_step(
+            [
+                python,
+                str(SCRIPTS_PATH / "generate_historical_weather.py"),
+                "--start-year",
+                str(args.start_year),
+                "--end-year",
+                str(args.end_year),
+            ]
+        )
 
     run_step([python, str(SCRIPTS_PATH / "generate_final_dataset.py")])
     run_step([python, str(SCRIPTS_PATH / "train_model.py"), "--model", args.model])

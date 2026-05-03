@@ -4,4 +4,5 @@ __pycache__/
 .ipynb_checkpoints/
 .pytest_cache/
 outputs/models/
+outputs/logs/
 .fastf1_cache/

@@ -8,10 +8,11 @@ problem where the target variable is `top10_finish`.
 
 ## Data
 
-The project uses two public data sources:
+The project uses three public data sources:
 
 - Jolpica F1 API, an Ergast-compatible API, for historical race results,
   qualifying results, drivers, constructors, circuits, standings and pit stops.
+- Open-Meteo Archive for historical race-day weather enrichment.
 - FastF1 for optional race-session enrichment, including weather and lap-based
   historical form features for supported recent seasons.
 
@@ -33,6 +34,7 @@ feature families include:
 - reliability over previous races
 - historical pit-stop performance
 - circuit characteristics
+- historical race-day weather
 - optional FastF1 rolling lap and strategy features
 
 Post-race leakage columns such as final position, points, laps completed, race
@@ -59,15 +61,15 @@ A separate neural-network tuning step compares several MLP configurations
 without replacing the main champion model. The best dedicated MLP configuration
 uses two hidden layers:
 
-- hidden layers: 128 and 64 neurons
+- hidden layers: 96 and 48 neurons
 - activation: ReLU
-- alpha: 0.002
-- learning rate: 0.0005
-- race precision@10: 0.771
+- alpha: 0.003
+- learning rate: 0.0008
+- race precision@10: 0.779
 
 This improves the neural-network branch compared with the default MLP baseline,
-but the tree-based models still remain more stable overall on this tabular
-dataset.
+but tree-based models still remain more stable overall in the rolling
+season-by-season backtest.
 
 ## Validation Strategy
 
@@ -90,19 +92,24 @@ Current holdout season: 2025.
 The current best holdout model by race precision@10 is histogram gradient
 boosting:
 
-- accuracy: 0.770
-- precision: 0.778
-- recall: 0.758
-- F1: 0.768
-- ROC-AUC: 0.836
-- race precision@10: 0.775
+- accuracy: 0.768
+- precision: 0.763
+- recall: 0.779
+- F1: 0.771
+- ROC-AUC: 0.835
+- race precision@10: 0.767
 
 Across the rolling backtest, random forest remains the most stable model:
 
-- average accuracy: 0.782
-- average F1: 0.781
-- average ROC-AUC: 0.847
-- average race precision@10: 0.775
+- average accuracy: 0.780
+- average F1: 0.779
+- average ROC-AUC: 0.848
+- average race precision@10: 0.768
+
+The dedicated tuned neural network reaches a higher 2025 holdout
+race precision@10 of 0.779, but its rolling-backtest average is lower than the
+random forest. This makes it a useful secondary model rather than the safest
+champion model.
 
 ## Latest Data Coverage Check
 
@@ -114,10 +121,14 @@ The latest data audit on 2026-05-03 found:
 - 4 qualifying rounds now present locally after importing Miami qualifying
 - no Miami race result available yet, so the supervised training dataset still
   ends at 2026 round 3
+- Open-Meteo historical weather is available for all 313 local race-result
+  events
+- FastF1 currently has 173 race rows, with 96 fully available race-session
+  weather/lap rows and 77 unavailable rows due to timing API limits
 
-Because the final supervised dataset did not receive new race-result rows, the
-models did not require retraining. Upcoming-race predictions were regenerated
-with actual Miami qualifying data.
+The final dataset was regenerated and all models were retrained after adding
+historical weather. Upcoming-race predictions were regenerated with actual
+Miami qualifying data and Open-Meteo forecast weather for Miami.
 
 ## How to Run
 
@@ -128,7 +139,7 @@ python scripts/run_pipeline.py
 To run with optional FastF1 enrichment:
 
 ```powershell
-python scripts/run_pipeline.py --with-fastf1
+python scripts/run_pipeline.py --with-fastf1 --with-historical-weather
 ```
 
 To compare all algorithms:
@@ -149,8 +160,9 @@ Some important racing factors are still approximate:
 
 - race-control events and safety cars are not fully modeled
 - full telemetry is not used directly
-- FastF1 enrichment currently covers recent seasons only
-- actual weather is used as a proxy for race weather information
+- FastF1 enrichment is partial because the timing API is rate limited
+- Open-Meteo weather is historical race-day weather, not exact live race sensor
+  weather
 
 The next major improvement would be to expand FastF1 coverage and build
 sequence-based features from lap-by-lap race evolution.

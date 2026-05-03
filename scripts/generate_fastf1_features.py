@@ -29,6 +29,16 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max-races", type=int, default=None)
     parser.add_argument("--cache-dir", type=Path, default=CACHE_PATH)
     parser.add_argument("--race-results", type=Path, default=RACE_RESULTS_PATH)
+    parser.add_argument(
+        "--incremental",
+        action="store_true",
+        help="Keep existing FastF1 rows and fetch only missing races in the requested range.",
+    )
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="With --incremental, refetch races even if they already exist locally.",
+    )
     return parser.parse_args()
 
 
@@ -239,6 +249,30 @@ def write_csv(path: Path, df: pd.DataFrame) -> None:
     print(f"Wrote {path}: {df.shape[0]} rows, {df.shape[1]} columns")
 
 
+def load_existing(path: Path) -> pd.DataFrame:
+    if not path.exists() or path.stat().st_size == 0:
+        return pd.DataFrame()
+    return pd.read_csv(path)
+
+
+def combine_existing(existing: pd.DataFrame, new: pd.DataFrame, keys: list[str]) -> pd.DataFrame:
+    if existing.empty:
+        combined = new.copy()
+    elif new.empty:
+        combined = existing.copy()
+    else:
+        combined = pd.concat([existing, new], ignore_index=True, sort=False)
+
+    if combined.empty:
+        return combined
+
+    combined = combined.drop_duplicates(keys, keep="last")
+    sort_columns = [column for column in ["race_id", "driver_id"] if column in combined.columns]
+    if sort_columns:
+        combined = combined.sort_values(sort_columns)
+    return combined.reset_index(drop=True)
+
+
 def main() -> None:
     args = parse_args()
     if not args.race_results.exists():
@@ -246,6 +280,15 @@ def main() -> None:
 
     race_results = pd.read_csv(args.race_results)
     races = get_existing_races(race_results, args.start_year, args.end_year)
+
+    existing_weather = load_existing(FASTF1_WEATHER_PATH) if args.incremental else pd.DataFrame()
+    existing_laps = load_existing(FASTF1_LAP_SUMMARIES_PATH) if args.incremental else pd.DataFrame()
+    existing_race_ids = set(existing_weather.get("race_id", pd.Series(dtype=str)).astype(str))
+    if args.incremental and not args.force:
+        before_count = len(races)
+        races = races[~races["race_id"].astype(str).isin(existing_race_ids)].copy()
+        print(f"Incremental mode skipped {before_count - len(races)} already fetched races")
+
     if args.max_races is not None:
         races = races.head(args.max_races)
 
@@ -277,8 +320,8 @@ def main() -> None:
                 }
             )
 
-    weather_df = pd.DataFrame(weather_rows)
-    lap_summaries_df = pd.DataFrame(lap_rows)
+    weather_df = combine_existing(existing_weather, pd.DataFrame(weather_rows), ["race_id"])
+    lap_summaries_df = combine_existing(existing_laps, pd.DataFrame(lap_rows), ["race_id", "driver_id"])
     driver_form_df = build_driver_form(race_results, lap_summaries_df)
 
     write_csv(FASTF1_WEATHER_PATH, weather_df)

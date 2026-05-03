@@ -12,19 +12,22 @@ Implemented:
 - Jolpica/Ergast-compatible data import from 2011 to 2026
 - race results, qualifying, drivers, constructors, circuits and standings
 - real Jolpica pit-stop events and previous-race pit-stop features
+- Open-Meteo historical race-day weather enrichment for local race results
 - final model dataset with no missing values
 - multiple algorithms: logistic regression, random forest, extra trees,
   histogram gradient boosting, neural network MLP
 - season holdout validation and expanding-window rolling backtest
 - project charts and model comparison outputs
 - one-command pipeline through `scripts/run_pipeline.py`
-- optional FastF1 smoke-test feature generation
+- optional incremental FastF1 feature generation
 
 Current limitations:
 
-- weather features are mostly placeholders unless optional FastF1 is generated
+- Open-Meteo weather is historical race-day weather, not exact live race sensor
+  weather
 - race-control/safety-car features are still placeholders/proxies
 - telemetry features are still proxies, not real FastF1 telemetry
+- FastF1 coverage is partial because the timing API is rate limited
 - neural network is a tabular MLP baseline, not a sequence model
 - submission ZIP/report/notebook need final validation before hand-in
 
@@ -79,7 +82,7 @@ Planned tasks:
 Validation:
 
 ```powershell
-python scripts/generate_fastf1_features.py --start-year 2024 --end-year 2024 --max-races 1
+python scripts/generate_fastf1_features.py --start-year 2018 --end-year 2025 --incremental
 python scripts/generate_final_dataset.py
 python scripts/train_model.py --model random_forest
 ```
