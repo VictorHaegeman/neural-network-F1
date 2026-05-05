@@ -13,6 +13,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 REQUIRED_NONEMPTY_FILES = [
     "README.md",
     "requirements.txt",
+    "docs/ASSIGNMENT_ALIGNMENT.md",
     "docs/PROJECT_PLAN.md",
     "docs/REMAINING_TASKS.md",
     "data/raw/fastf1_race_control.csv",

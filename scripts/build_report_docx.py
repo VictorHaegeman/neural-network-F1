@@ -4,7 +4,7 @@ import argparse
 from pathlib import Path
 
 from docx import Document
-from docx.shared import Inches
+from docx.shared import Inches, Pt
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -39,6 +39,38 @@ def add_markdown_line(document: Document, line: str) -> None:
         document.add_paragraph(stripped.replace("`", ""))
 
 
+def is_table_line(line: str) -> bool:
+    stripped = line.strip()
+    return stripped.startswith("|") and stripped.endswith("|")
+
+
+def is_table_separator(line: str) -> bool:
+    cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
+    return bool(cells) and all(set(cell) <= {"-", ":"} and "-" in cell for cell in cells)
+
+
+def add_markdown_table(document: Document, lines: list[str]) -> None:
+    rows = []
+    for line in lines:
+        if is_table_separator(line):
+            continue
+        rows.append([cell.strip().replace("`", "") for cell in line.strip().strip("|").split("|")])
+
+    if not rows:
+        return
+
+    table = document.add_table(rows=len(rows), cols=len(rows[0]))
+    table.style = "Table Grid"
+    for row_index, row in enumerate(rows):
+        for col_index, value in enumerate(row):
+            cell = table.cell(row_index, col_index)
+            cell.text = value
+            if row_index == 0:
+                for paragraph in cell.paragraphs:
+                    for run in paragraph.runs:
+                        run.bold = True
+
+
 def add_figures(document: Document) -> None:
     figure_names = [
         "target_distribution.png",
@@ -71,8 +103,24 @@ def main() -> None:
         raise FileNotFoundError(f"Missing report markdown: {input_path}")
 
     document = Document()
-    for line in input_path.read_text(encoding="utf-8").splitlines():
+    styles = document.styles
+    styles["Normal"].font.name = "Arial"
+    styles["Normal"].font.size = Pt(12)
+
+    lines = input_path.read_text(encoding="utf-8").splitlines()
+    index = 0
+    while index < len(lines):
+        line = lines[index]
+        if is_table_line(line):
+            table_lines = []
+            while index < len(lines) and is_table_line(lines[index]):
+                table_lines.append(lines[index])
+                index += 1
+            add_markdown_table(document, table_lines)
+            continue
+
         add_markdown_line(document, line)
+        index += 1
 
     add_figures(document)
     output_path.parent.mkdir(parents=True, exist_ok=True)

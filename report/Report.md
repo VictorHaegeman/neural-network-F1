@@ -1,209 +1,183 @@
-# F1 Top 10 Prediction Report
+# F1 Top-10 Finish Prediction with Machine Learning
 
-## Objective
+## Abstract
 
-The objective of this project is to predict whether a Formula 1 driver will
-finish a race in the top 10. The task is framed as a binary classification
-problem where the target variable is `top10_finish`.
+This project investigates whether machine learning can predict if a Formula 1 driver will finish a Grand Prix in the top 10. This is a useful sporting analytics problem because top-10 classification is directly linked to points scoring, race strategy and team performance evaluation. A single model-ready dataset was built from public Formula 1 data covering 2010 to 2026, combining race results, qualifying, standings, circuit information, historical pit-stop indicators, weather, and selected FastF1-derived features. The dataset was cleaned, merged and transformed into 6,999 driver-race observations with 198 variables and no missing values. The main predictive task is binary classification with `top10_finish` as the target. Logistic regression, random forest, extra trees, histogram gradient boosting and a multilayer perceptron were compared using temporal validation. The best holdout model is histogram gradient boosting, with 2025 race precision@10 of 0.779. A separate neural-network regressor was also trained as a ranking extension for predicted finishing order, but the primary assignment result remains the comparison and validation of predictive models on the tabular top-10 classification task.
 
-## Data
+## Introduction, Aim and Objectives
 
-The project uses three public data sources:
+Formula 1 results are influenced by many interacting factors: car performance, driver ability, qualifying position, reliability, circuit type, weather and race strategy. This makes the problem more challenging than a simple ranking by previous points. The goal of this project is to use historical and pre-race information to estimate whether each driver will finish inside the top 10.
 
-- Jolpica F1 API, an Ergast-compatible API, for historical race results,
-  qualifying results, drivers, constructors, circuits, standings and pit stops.
-- Open-Meteo Archive for historical race-day weather enrichment.
-- FastF1 for optional race-session enrichment, including weather, lap-based
-  historical form features and race-control messages for supported recent
-  seasons.
+The aim is to build, evaluate and compare machine learning models for Formula 1 top-10 finish prediction.
 
-The current model-ready dataset contains:
+The objectives are:
 
-- 6521 driver-race rows
-- seasons from 2010 to 2026
-- 198 columns after optional FastF1 race, weather, lap and race-control
-  enrichment
-- no missing values after preprocessing
+- collect and consolidate a reasonably large, non-trivial Formula 1 dataset
+- include both numeric and categorical features
+- perform exploratory data analysis and preprocessing
+- engineer predictive features that avoid direct post-race leakage
+- train at least two predictive machine learning models
+- tune and compare models using appropriate validation metrics
+- interpret the results and recommend the most suitable model
 
-## Feature Engineering
+The scope is supervised prediction at driver-race level. The main output is a probability and ranking of likely top-10 finishers. Exact race simulation, live telemetry modelling and lap-by-lap race strategy optimization are treated as future work rather than core assignment requirements.
 
-The model uses only pre-race or historical features where possible. Important
-feature families include:
+## Related Works
 
-- qualifying position and qualifying gaps
-- driver and constructor standings before the race
-- recent driver form over the previous 5 races
-- reliability over previous races
-- historical pit-stop performance
-- circuit characteristics
-- historical race-day weather
-- optional FastF1 rolling lap and strategy features
-- FastF1-derived pre-race circuit and season disruption history, such as safety
-  car rate, red-flag rate and average disruption score
+Previous Formula 1 analytics work often focuses on lap-time prediction, race outcome prediction, tire degradation or separating driver and constructor effects. These studies informed the feature choices in this project: qualifying position and team strength are important baseline predictors, while circuit, weather, tire and historical form features can improve the model.
 
-Post-race leakage columns such as final position, points, laps completed, race
-status, fastest lap information and same-race race-control counts are kept for
-analysis but excluded during top-10 training. Only historical race-control
-aggregates from previous races are used as predictive features.
+| Source | Focus | Relevance to this project |
+|---|---|---|
+| Breiman (2001) | Random forests | Motivates using tree ensembles for mixed tabular data |
+| Friedman (2001) | Gradient boosting machines | Supports boosting as a strong tabular baseline |
+| Pedregosa et al. (2011) | scikit-learn | Main software library used for modelling pipelines |
+| Nigro (2020) | F1 race predictor | Shows practical race prediction using historical F1 data |
+| Zhao (2024) | Deep neural network lap-time forecasting | Shows neural networks can model F1 performance signals |
+| Jafri (2024) | F1 race outcome prediction | Uses historical race data for race prediction |
+| Noe and Patel (2024) | Telemetry-based lap prediction | Motivates lap and performance features |
+| Cappello and Hoegh (2026) | Tire degradation modelling | Supports the value of tire and strategy variables |
+| race-outcome decomposition work (2025) | Driver vs constructor effects | Motivates separating driver and constructor strength |
+| Jolpica F1 API | Ergast-compatible data source | Provides race, qualifying, standings and pit-stop data |
+| FastF1 | Timing, lap and race-control data | Optional enrichment for recent seasons |
+| Open-Meteo Archive | Historical weather | Adds race-day weather context |
 
-## Models
+Compared with much of the related work, this project does not try to predict the race winner only. It predicts top-10 classification for every driver-race row, which creates a larger supervised dataset and aligns with the points-scoring structure of modern F1.
 
-The project compares several machine learning algorithms:
+## Methods
+
+The final dataset is `data/final/f1_top10_model_dataset.csv`. It contains 6,999 rows, 198 columns, 174 numeric/bool columns and 24 categorical/text columns. Each row represents one driver in one race. The label is `top10_finish`, equal to 1 when the final classified result is tenth place or better, and 0 otherwise.
+
+The main software packages are:
+
+- pandas and numpy for data manipulation
+- scikit-learn for preprocessing, pipelines, model training and metrics
+- matplotlib and seaborn for EDA figures
+- joblib for model serialization
+- Plotly for optional neural-network visualization
+
+The main models compared are:
 
 - logistic regression
-- random forest
-- extra trees
-- histogram gradient boosting
-- neural network MLP
-- finish-position regressors for predicted race order
+- random forest classifier
+- extra trees classifier
+- histogram gradient boosting classifier
+- multilayer perceptron classifier
 
-The neural network is included as a baseline, but the dataset is still tabular
-and relatively small. In this context, tree-based methods remain strong and
-more stable.
+The primary evaluation metrics are accuracy, precision, recall, F1, ROC-AUC and race precision@10. Race precision@10 is important because the practical output is a race-level top-10 list rather than only independent row-level labels.
 
-## Dedicated Neural Network Tuning
+## Dataset Preparation and EDA
 
-A separate neural-network tuning step compares several MLP configurations
-without replacing the main champion model. The best dedicated MLP configuration
-uses two hidden layers:
+The assignment requires one reasonably large dataset with categorical and numeric data. Although several public sources were used, they are merged into one final modelling dataset. The raw tables are retained for reproducibility, while the final CSV is the single dataset used for modelling.
 
-- hidden layers: 128 and 64 neurons
-- activation: ReLU
-- alpha: 0.002
-- learning rate: 0.0005
-- race precision@10: 0.771
+Dataset summary:
 
-This improves the neural-network branch compared with the default MLP baseline,
-but tree-based models still remain more stable overall in the rolling
-season-by-season backtest.
+- rows: 6,999 driver-race observations
+- seasons: 2010 to 2026
+- target classes: 3,330 top-10 rows and 3,669 non-top-10 rows
+- missing values after preprocessing: 0
+- weather coverage: 333/333 local race-result events
+- 2026 coverage on 2026-05-05: 4 completed races and 4 qualifying sessions locally available
 
-## Finish-Position Model
+The dataset is not perfectly clean in its original form. Race APIs use different identifiers, some historical pit-stop data is unavailable before 2011, FastF1 timing coverage is partial, and weather data is an external historical approximation rather than exact FIA sensor data. The preprocessing pipeline handles these issues by using availability flags, deterministic fallbacks, imputation and careful feature merging.
 
-The project now includes a second modeling task: predicting the likely finishing
-order. This is trained as a regression/ranking problem on `final_position` and
-is used to add `predicted_finish_rank` to upcoming-race exports.
+Key EDA observations:
 
-The best holdout finish-position model is a neural-network MLP regressor:
+- The target is reasonably balanced for a binary classification task: about 48% top-10 rows and 52% non-top-10 rows.
+- Rows per season vary because the number of races and drivers changes over time.
+- Qualifying/grid position is strongly related to finishing position, but it is not enough alone because reliability, circuit, weather and team performance can change the outcome.
+- Categorical fields such as driver, constructor, circuit and weather condition require encoding before model training.
 
-- race precision@10: 0.779
-- raw position MAE: 3.20 positions
-- actual-top-10 rank MAE: 2.66 positions
-- mean race Spearman correlation: 0.660
+Preprocessing steps:
 
-This model complements the binary top-10 classifier. The classifier estimates
-top-10 probability, while the position model gives an expected ordering among
-the drivers.
+- merge raw race, qualifying, standings, weather, circuit and optional FastF1 tables
+- create target variable `top10_finish`
+- remove or exclude post-race leakage features during training, such as final position, points, fastest lap and same-race race-control counts
+- impute numeric features with median values
+- impute categorical features with the most frequent value
+- one-hot encode categorical variables
+- scale numeric features for logistic regression and neural-network models
 
-## Validation Strategy
+The generated figures in `outputs/figures/` document target distribution, rows by season, top-10 rate by season, grid versus finish, model comparison, rolling backtest, feature importance and confusion matrix. These figures support the EDA and model validation sections.
 
-The project uses temporal validation instead of a random split. This better
-matches the real use case because the model should learn from past seasons and
-predict future races.
+## Model Implementation
 
-Two validation views are used:
-
-- a holdout season test
-- an expanding-window season-by-season backtest
-
-The main race-level metric is `race_precision_at_10`, which checks how many of
-the predicted top 10 drivers actually finished in the top 10 for each race.
-
-## Current Results
-
-Current holdout season: 2025.
-
-The current best holdout model by race precision@10 is histogram gradient
-boosting:
-
-- accuracy: 0.785
-- precision: 0.789
-- recall: 0.779
-- F1: 0.784
-- ROC-AUC: 0.831
-- race precision@10: 0.779
-
-Across the rolling backtest, random forest remains the most stable model:
-
-- average accuracy: 0.777
-- average F1: 0.777
-- average ROC-AUC: 0.849
-- average race precision@10: 0.767
-
-The dedicated tuned top-10 neural network reaches a 2025 holdout race
-precision@10 of 0.771. It remains useful as a secondary model and for hidden
-space visualization, while tree-based models remain the safer champion.
-
-## Latest Data Coverage Check
-
-The latest data audit on 2026-05-05 found:
-
-- 22 scheduled races for the 2026 season
-- 4 race-result rounds available in Jolpica and already present locally
-- 4 qualifying rounds available in Jolpica and already present locally
-- Miami 2026 race results and pit stops were imported incrementally without
-  refetching older races
-- 2010 was imported incrementally, adding 19 races and 456 supervised rows
-- Open-Meteo historical weather is available for all 333 local race-result
-  events
-- FastF1 currently has 177 race rows, with 100 fully available race-session
-  weather/lap rows and 77 unavailable rows due to timing API limits
-- FastF1 race-control messages are available for 167/177 attempted races; the
-  final 10 unavailable rows are caused by API rate limits
-
-The final dataset was regenerated and all models were retrained after adding
-2010, Miami results, historical weather and race-control history. Upcoming-race
-predictions now start from Canada 2026 and include a finish-position ranking
-model. A 3D Plotly visualization is included for the neural-network hidden
-representation and KMeans clusters.
-
-## How to Run
+The modelling workflow is script-driven and reproducible:
 
 ```powershell
-python scripts/run_pipeline.py
-```
-
-To run with optional FastF1 enrichment:
-
-```powershell
-python scripts/run_pipeline.py --with-fastf1 --with-historical-weather --with-race-control
-```
-
-To compare all algorithms:
-
-```powershell
+python scripts/generate_final_dataset.py
 python scripts/evaluate_models.py
-```
-
-To export readable race predictions:
-
-```powershell
-python scripts/predict_top10.py
-```
-
-To train and use the finish-position ranking model:
-
-```powershell
+python scripts/train_model.py --model hist_gradient_boosting
 python scripts/train_position_model.py
-python scripts/predict_upcoming_races.py --season 2026 --count 4 --current-date 2026-05-05 --position-model outputs/models/finish_position_regressor.joblib
+python scripts/make_charts.py
+python scripts/validate_project.py
 ```
 
-To visualize the neural-network hidden space in 3D:
+For the main classification task, the selected champion model is histogram gradient boosting. This model was selected because it achieved the best 2025 holdout race precision@10 and handles non-linear interactions in tabular data well. Random forest remains the most stable model in rolling backtest, so it is kept as an important comparison baseline.
 
-```powershell
-python scripts/visualize_neural_network_3d.py --color-by cluster
-```
+Hyperparameter optimization is included through fixed, documented model configurations and a dedicated neural-network tuning script. The neural-network tuning compares multiple MLP architectures and learning rates. The best dedicated classifier MLP uses hidden layers of 128 and 64 neurons with ReLU activation, alpha 0.002 and learning rate 0.0005.
 
-## Limitations
+## Model Validation
 
-Some important racing factors are still approximate:
+A temporal validation strategy is used instead of a random split. This is more realistic because a model should learn from past seasons and predict future races. The main holdout test season is 2025. An expanding-window rolling backtest is also used to compare stability across seasons.
 
-- race-control events and safety cars are not fully modeled
-- full telemetry is not used directly
-- FastF1 enrichment is partial because the timing API is rate limited
-- Open-Meteo weather is historical race-day weather, not exact live race sensor
-  weather
-- finish-position prediction is approximate and should be read as a ranked
-  expectation, not an exact finishing order
+Current holdout results on the 2025 season:
 
-The next major improvement would be to expand FastF1 coverage and build
-sequence-based features from lap-by-lap race evolution.
+| Model | Accuracy | F1 | ROC-AUC | Race precision@10 |
+|---|---:|---:|---:|---:|
+| Histogram gradient boosting | 0.785 | 0.784 | 0.831 | 0.779 |
+| Random forest | 0.779 | 0.786 | 0.844 | 0.775 |
+| Neural network MLP | 0.766 | 0.771 | 0.829 | 0.771 |
+| Extra trees | 0.752 | 0.761 | 0.833 | 0.750 |
+| Logistic regression | 0.743 | 0.698 | 0.811 | 0.746 |
+
+Rolling backtest averages show that random forest is the most stable model by race precision@10, with an average of 0.767. Histogram gradient boosting is still selected as the holdout champion because it has the strongest latest-season top-10 performance.
+
+## Analysis and Recommendations
+
+The results are broadly in line with expectations. Tree-based models perform strongly because the dataset is tabular, mixed-type and feature-engineered. Logistic regression is useful as a simple baseline but is less able to capture non-linear interactions such as driver-team-circuit effects. The neural-network classifier is competitive but does not clearly beat tree ensembles on this dataset. This supports the decision to present the neural network as an extension rather than the primary assignment result.
+
+Adding the 2010 season increased the dataset from 6,543 to 6,999 rows. The holdout accuracy and F1 improved for the champion classifier, while race precision@10 stayed at 0.779. This suggests that extra historical data helps general classification stability, but very old F1 seasons are not always directly representative of modern seasons.
+
+The separate finish-position ranking model is useful for producing ordered race predictions. Its best current version is a neural-network MLP regressor with race precision@10 of 0.779 and mean race Spearman correlation of 0.660. This is helpful for interpretation, but it should remain secondary because the assignment asks mainly for predictive model comparison.
+
+Recommended final model:
+
+- main assignment model: histogram gradient boosting classifier
+- supporting baseline: random forest classifier
+- optional extension: tuned MLP classifier and finish-position regressor
+
+Recommended future improvements:
+
+- add calibration plots for probability quality
+- add permutation importance for model interpretability
+- fill remaining FastF1 gaps after rate limits reset
+- test whether older seasons should be down-weighted because modern F1 regulations differ
+- improve the report with more domain-specific literature if more time is available
+
+## Conclusion
+
+This project satisfies the core assignment requirement by building a machine learning solution on one reasonably large, mixed-type and non-trivial dataset. The work includes data collection, cleaning, feature engineering, EDA, preprocessing, multiple predictive models, tuning, validation and comparison. The strongest model for the main top-10 classification task is histogram gradient boosting, with 2025 holdout race precision@10 of 0.779. The project also shows that neural networks are interesting but not automatically superior for this tabular problem. The main weakness is that some racing signals, especially full telemetry and older pit-stop details, are incomplete in public data. Overall, the project is a solid V0 for the assignment, with neural-network and 3D visualization work best positioned as optional extensions.
+
+## References
+
+Breiman, L. (2001). Random forests. Machine Learning, 45, 5-32.
+
+Cappello, C., & Hoegh, A. (2026). A state-space approach to modeling tire degradation in Formula 1 racing. Journal of Quantitative Analysis in Sports.
+
+FastF1. (2026). FastF1 documentation. https://docs.fastf1.dev/
+
+Friedman, J. H. (2001). Greedy function approximation: A gradient boosting machine. Annals of Statistics, 29(5), 1189-1232.
+
+Jafri, A. (2024). Predicting Formula 1 race outcomes: A machine learning approach. https://aliabdullahjafri.com/
+
+Jolpica. (2026). Jolpica F1 API. https://github.com/jolpica/jolpica-f1
+
+Nigro, V. (2020). Formula 1 race predictor: A machine learning approach. Towards Data Science.
+
+Noe, C., & Patel, N. (2024). Utilizing telemetry data for machine learning-driven lap prediction. University of Rochester.
+
+Open-Meteo. (2026). Historical Weather API. https://open-meteo.com/
+
+Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., et al. (2011). Scikit-learn: Machine learning in Python. Journal of Machine Learning Research, 12, 2825-2830.
+
+Zhao, Y. (2024). Deep neural network-based lap time forecasting of Formula 1 racing. Applied and Computational Engineering.

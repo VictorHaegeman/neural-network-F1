@@ -114,6 +114,7 @@ python scripts/open_neural_network_3d.py
 
 Main outputs:
 
+- `docs/ASSIGNMENT_ALIGNMENT.md`: checklist mapping the project to assignment requirements
 - `data/raw/*.csv`: fetched and derived raw feature tables
 - `data/raw/pit_stop_events.csv`: real pit-stop events from Jolpica
 - `data/raw/weather_data.csv`: Open-Meteo race-day weather enrichment
@@ -142,6 +143,11 @@ Main outputs:
 The 3D neural-network HTML export is standalone and browser-interactive: drag
 to rotate, scroll to zoom, hover to inspect driver/race points, and use the
 legend to isolate clusters.
+
+For the graded assignment narrative, the project should be presented primarily
+as a supervised tabular ML comparison project. The neural network and 3D view
+are useful extensions, but the core deliverable is the dataset preparation,
+EDA, preprocessing, model comparison and validation.
 
 ## Current V0 results
 
