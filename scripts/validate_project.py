@@ -64,6 +64,7 @@ REQUIRED_SCRIPTS = [
     "scripts/evaluate_models.py",
     "scripts/make_charts.py",
     "scripts/visualize_neural_network_3d.py",
+    "scripts/open_neural_network_3d.py",
     "scripts/audit_data_coverage.py",
     "scripts/fetch_upcoming_qualifying.py",
     "scripts/predict_top10.py",

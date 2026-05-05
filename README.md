@@ -106,6 +106,12 @@ To compare all models and run an expanding-window season backtest:
 python scripts/evaluate_models.py
 ```
 
+To open the interactive 3D neural-network view directly in your browser:
+
+```powershell
+python scripts/open_neural_network_3d.py
+```
+
 Main outputs:
 
 - `data/raw/*.csv`: fetched and derived raw feature tables
