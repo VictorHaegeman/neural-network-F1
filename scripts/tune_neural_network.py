@@ -4,7 +4,6 @@ import argparse
 import json
 import warnings
 from pathlib import Path
-from typing import Any
 
 import joblib
 import matplotlib
@@ -13,14 +12,11 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
-from sklearn.compose import ColumnTransformer
 from sklearn.exceptions import ConvergenceWarning
-from sklearn.impute import SimpleImputer
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, roc_auc_score
-from sklearn.neural_network import MLPClassifier
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
+from algorithms.neural_network import MLP_CONFIGS, build_mlp_pipeline
 from train_model import (
     DATA_PATH,
     FIGURES_PATH,
@@ -37,49 +33,6 @@ SUMMARY_PATH = OUTPUT_PATH / "neural_network_summary.json"
 MODEL_PATH = OUTPUT_PATH / "models" / "top10_neural_network_mlp.joblib"
 
 RANDOM_STATE = 42
-
-MLP_CONFIGS: list[dict[str, Any]] = [
-    {
-        "config_name": "mlp_64_32_baseline",
-        "hidden_layer_sizes": (64, 32),
-        "activation": "relu",
-        "alpha": 0.001,
-        "learning_rate_init": 0.001,
-        "batch_size": 64,
-    },
-    {
-        "config_name": "mlp_96_48_regularized",
-        "hidden_layer_sizes": (96, 48),
-        "activation": "relu",
-        "alpha": 0.003,
-        "learning_rate_init": 0.0008,
-        "batch_size": 64,
-    },
-    {
-        "config_name": "mlp_128_64_small_lr",
-        "hidden_layer_sizes": (128, 64),
-        "activation": "relu",
-        "alpha": 0.002,
-        "learning_rate_init": 0.0005,
-        "batch_size": 64,
-    },
-    {
-        "config_name": "mlp_128_64_32_deep",
-        "hidden_layer_sizes": (128, 64, 32),
-        "activation": "relu",
-        "alpha": 0.004,
-        "learning_rate_init": 0.0006,
-        "batch_size": 64,
-    },
-    {
-        "config_name": "mlp_80_40_tanh",
-        "hidden_layer_sizes": (80, 40),
-        "activation": "tanh",
-        "alpha": 0.002,
-        "learning_rate_init": 0.0007,
-        "batch_size": 64,
-    },
-]
 
 
 def parse_args() -> argparse.Namespace:
@@ -98,82 +51,19 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def build_mlp_pipeline(
-    X: pd.DataFrame,
-    config: dict[str, Any],
-    max_iter: int,
-    validation_fraction: float,
-) -> Pipeline:
-    numeric_features = X.select_dtypes(include=["number", "bool"]).columns.tolist()
-    categorical_features = [col for col in X.columns if col not in numeric_features]
-
-    preprocessor = ColumnTransformer(
-        transformers=[
-            (
-                "num",
-                Pipeline(
-                    steps=[
-                        ("imputer", SimpleImputer(strategy="median")),
-                        ("scaler", StandardScaler()),
-                    ]
-                ),
-                numeric_features,
-            ),
-            (
-                "cat",
-                Pipeline(
-                    steps=[
-                        ("imputer", SimpleImputer(strategy="most_frequent")),
-                        (
-                            "onehot",
-                            OneHotEncoder(
-                                handle_unknown="ignore",
-                                min_frequency=2,
-                                sparse_output=False,
-                            ),
-                        ),
-                    ]
-                ),
-                categorical_features,
-            ),
-        ],
-        sparse_threshold=0.0,
-    )
-
-    classifier = MLPClassifier(
-        hidden_layer_sizes=config["hidden_layer_sizes"],
-        activation=config["activation"],
-        alpha=config["alpha"],
-        batch_size=config["batch_size"],
-        early_stopping=True,
-        learning_rate_init=config["learning_rate_init"],
-        max_iter=max_iter,
-        n_iter_no_change=35,
-        random_state=RANDOM_STATE,
-        validation_fraction=validation_fraction,
-    )
-
-    return Pipeline(
-        steps=[
-            ("preprocessor", preprocessor),
-            ("classifier", classifier),
-        ]
-    )
-
-
 def evaluate_config(
-    config: dict[str, Any],
+    config: dict[str, object],
     train_df: pd.DataFrame,
     test_df: pd.DataFrame,
     max_iter: int,
     validation_fraction: float,
-) -> tuple[dict[str, Any], Pipeline]:
+) -> tuple[dict[str, object], Pipeline]:
     X_train = build_features(train_df)
     y_train = train_df[TARGET].astype(int)
     X_test = build_features(test_df)
     y_test = test_df[TARGET].astype(int)
 
-    model = build_mlp_pipeline(X_train, config, max_iter, validation_fraction)
+    model = build_mlp_pipeline(X_train, config, max_iter, validation_fraction, random_state=RANDOM_STATE)
     with warnings.catch_warnings():
         warnings.simplefilter("ignore", ConvergenceWarning)
         model.fit(X_train, y_train)
@@ -182,7 +72,7 @@ def evaluate_config(
     probabilities = model.predict_proba(X_test)[:, 1]
     classifier = model.named_steps["classifier"]
 
-    metrics: dict[str, Any] = {
+    metrics: dict[str, object] = {
         "config_name": config["config_name"],
         "hidden_layer_sizes": str(config["hidden_layer_sizes"]),
         "activation": config["activation"],
@@ -244,7 +134,7 @@ def main() -> None:
         results = pd.read_csv(TUNING_PATH)
         print(f"Reusing existing tuning results from {TUNING_PATH}. Use --force to recompute.")
     else:
-        rows: list[dict[str, Any]] = []
+        rows: list[dict[str, object]] = []
         for config in MLP_CONFIGS:
             metrics, model = evaluate_config(
                 config=config,
@@ -274,7 +164,13 @@ def main() -> None:
     if args.refit_full:
         final_X = build_features(df)
         final_y = df[TARGET].astype(int)
-        saved_model = build_mlp_pipeline(final_X, best_config, args.max_iter, args.validation_fraction)
+        saved_model = build_mlp_pipeline(
+            final_X,
+            best_config,
+            args.max_iter,
+            args.validation_fraction,
+            random_state=RANDOM_STATE,
+        )
         with warnings.catch_warnings():
             warnings.simplefilter("ignore", ConvergenceWarning)
             saved_model.fit(final_X, final_y)
@@ -285,7 +181,13 @@ def main() -> None:
     else:
         X_train = build_features(train_df)
         y_train = train_df[TARGET].astype(int)
-        saved_model = build_mlp_pipeline(X_train, best_config, args.max_iter, args.validation_fraction)
+        saved_model = build_mlp_pipeline(
+            X_train,
+            best_config,
+            args.max_iter,
+            args.validation_fraction,
+            random_state=RANDOM_STATE,
+        )
         with warnings.catch_warnings():
             warnings.simplefilter("ignore", ConvergenceWarning)
             saved_model.fit(X_train, y_train)

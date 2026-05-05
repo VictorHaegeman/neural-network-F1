@@ -12,14 +12,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
-from sklearn.compose import ColumnTransformer
-from sklearn.ensemble import HistGradientBoostingRegressor, RandomForestRegressor
-from sklearn.impute import SimpleImputer
 from sklearn.metrics import mean_absolute_error, mean_squared_error
-from sklearn.neural_network import MLPRegressor
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
+from algorithms.regression import REGRESSION_MODEL_NAMES, build_regression_pipeline as build_position_pipeline
 from train_model import DATA_PATH, RANDOM_STATE, build_features, latest_season_split
 
 
@@ -32,11 +28,7 @@ COMPARISON_PATH = OUTPUT_PATH / "position_model_comparison.csv"
 PREDICTION_PATH = OUTPUT_PATH / "predictions" / "position_predictions_holdout.csv"
 TARGET = "final_position"
 
-MODEL_NAMES = [
-    "hist_gradient_boosting_regressor",
-    "random_forest_regressor",
-    "neural_network_mlp_regressor",
-]
+MODEL_NAMES = REGRESSION_MODEL_NAMES
 
 
 def parse_args() -> argparse.Namespace:
@@ -48,73 +40,7 @@ def parse_args() -> argparse.Namespace:
 
 
 def build_regression_pipeline(X: pd.DataFrame, model_name: str) -> Pipeline:
-    numeric_features = X.select_dtypes(include=["number", "bool"]).columns.tolist()
-    categorical_features = [column for column in X.columns if column not in numeric_features]
-    is_neural = model_name == "neural_network_mlp_regressor"
-    dense_output = model_name in {"hist_gradient_boosting_regressor", "neural_network_mlp_regressor"}
-
-    numeric_steps = [("imputer", SimpleImputer(strategy="median"))]
-    if is_neural:
-        numeric_steps.append(("scaler", StandardScaler()))
-
-    numeric_transformer = Pipeline(steps=numeric_steps)
-    categorical_transformer = Pipeline(
-        steps=[
-            ("imputer", SimpleImputer(strategy="most_frequent")),
-            (
-                "onehot",
-                OneHotEncoder(
-                    handle_unknown="ignore",
-                    min_frequency=2,
-                    sparse_output=not dense_output,
-                ),
-            ),
-        ]
-    )
-    preprocessor = ColumnTransformer(
-        transformers=[
-            ("num", numeric_transformer, numeric_features),
-            ("cat", categorical_transformer, categorical_features),
-        ],
-        sparse_threshold=0.0 if dense_output else 0.3,
-    )
-
-    if model_name == "hist_gradient_boosting_regressor":
-        regressor = HistGradientBoostingRegressor(
-            max_iter=300,
-            learning_rate=0.05,
-            max_leaf_nodes=31,
-            l2_regularization=0.05,
-            random_state=RANDOM_STATE,
-        )
-    elif model_name == "random_forest_regressor":
-        regressor = RandomForestRegressor(
-            n_estimators=500,
-            min_samples_leaf=3,
-            random_state=RANDOM_STATE,
-            n_jobs=-1,
-        )
-    elif model_name == "neural_network_mlp_regressor":
-        regressor = MLPRegressor(
-            hidden_layer_sizes=(96, 48),
-            activation="relu",
-            alpha=0.003,
-            batch_size=64,
-            early_stopping=True,
-            learning_rate_init=0.0008,
-            max_iter=450,
-            n_iter_no_change=30,
-            random_state=RANDOM_STATE,
-        )
-    else:
-        raise ValueError(f"Unknown position model: {model_name}")
-
-    return Pipeline(
-        steps=[
-            ("preprocessor", preprocessor),
-            ("regressor", regressor),
-        ]
-    )
+    return build_position_pipeline(X, model_name=model_name, random_state=RANDOM_STATE)
 
 
 def add_rank_predictions(test_df: pd.DataFrame, raw_predictions: np.ndarray) -> pd.DataFrame:

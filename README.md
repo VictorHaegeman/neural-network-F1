@@ -5,6 +5,7 @@ Pipeline for predicting whether a Formula 1 driver finishes in the top 10.
 ## Project structure
 
 - `scripts/`: data import, feature generation, training, evaluation and plotting scripts
+- `scripts/algorithms/`: isolated model definitions and neural-network configs
 - `data/raw/`: fetched and derived raw feature tables
 - `data/final/`: model-ready dataset
 - `outputs/`: metrics, comparison files, figures and locally generated models
@@ -102,6 +103,12 @@ Available algorithms:
 - `hist_gradient_boosting`
 - `neural_network_mlp`
 
+The algorithm definitions are intentionally isolated in `scripts/algorithms/`:
+
+- `scripts/algorithms/classification.py`: top-10 classifiers
+- `scripts/algorithms/regression.py`: finish-position ranking models
+- `scripts/algorithms/neural_network.py`: MLP architectures used by the tuning script
+
 To compare all models and run an expanding-window season backtest:
 
 ```powershell
@@ -117,6 +124,7 @@ python scripts/open_neural_network_3d.py
 Main outputs:
 
 - `docs/ASSIGNMENT_ALIGNMENT.md`: checklist mapping the project to assignment requirements
+- `docs/ALGORITHMS.md`: quick map of where the algorithms and neural network live
 - `data/raw/*.csv`: fetched and derived raw feature tables
 - `data/raw/pit_stop_events.csv`: real pit-stop events from Jolpica
 - `data/raw/weather_data.csv`: Open-Meteo race-day weather enrichment

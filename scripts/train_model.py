@@ -12,10 +12,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
-from sklearn.compose import ColumnTransformer
-from sklearn.ensemble import ExtraTreesClassifier, HistGradientBoostingClassifier, RandomForestClassifier
-from sklearn.impute import SimpleImputer
-from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (
     accuracy_score,
     confusion_matrix,
@@ -24,9 +20,9 @@ from sklearn.metrics import (
     recall_score,
     roc_auc_score,
 )
-from sklearn.neural_network import MLPClassifier
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
+
+from algorithms.classification import CLASSIFICATION_MODEL_NAMES, build_classification_pipeline
 
 
 DATA_PATH = Path("data/final/f1_top10_model_dataset.csv")
@@ -36,13 +32,7 @@ FIGURES_PATH = Path("outputs/figures")
 
 TARGET = "top10_finish"
 RANDOM_STATE = 42
-MODEL_NAMES = [
-    "logistic_regression",
-    "random_forest",
-    "extra_trees",
-    "hist_gradient_boosting",
-    "neural_network_mlp",
-]
+MODEL_NAMES = CLASSIFICATION_MODEL_NAMES
 
 LEAKAGE_COLUMNS = [
     TARGET,
@@ -149,91 +139,7 @@ def build_features(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def build_pipeline(X: pd.DataFrame, model_name: str = "random_forest") -> Pipeline:
-    numeric_features = X.select_dtypes(include=["number", "bool"]).columns.tolist()
-    categorical_features = [col for col in X.columns if col not in numeric_features]
-    scale_numeric = model_name in {"logistic_regression", "neural_network_mlp"}
-    dense_output = model_name in {"hist_gradient_boosting", "neural_network_mlp"}
-
-    numeric_steps = [("imputer", SimpleImputer(strategy="median"))]
-    if scale_numeric:
-        numeric_steps.append(("scaler", StandardScaler()))
-
-    numeric_transformer = Pipeline(
-        steps=numeric_steps
-    )
-    categorical_transformer = Pipeline(
-        steps=[
-            ("imputer", SimpleImputer(strategy="most_frequent")),
-            (
-                "onehot",
-                OneHotEncoder(
-                    handle_unknown="ignore",
-                    min_frequency=2,
-                    sparse_output=not dense_output,
-                ),
-            ),
-        ]
-    )
-
-    preprocessor = ColumnTransformer(
-        transformers=[
-            ("num", numeric_transformer, numeric_features),
-            ("cat", categorical_transformer, categorical_features),
-        ],
-        sparse_threshold=0.0 if dense_output else 0.3,
-    )
-
-    if model_name == "logistic_regression":
-        classifier = LogisticRegression(
-            max_iter=1500,
-            class_weight="balanced",
-            random_state=RANDOM_STATE,
-        )
-    elif model_name == "random_forest":
-        classifier = RandomForestClassifier(
-            n_estimators=500,
-            min_samples_leaf=3,
-            class_weight="balanced",
-            random_state=RANDOM_STATE,
-            n_jobs=-1,
-        )
-    elif model_name == "extra_trees":
-        classifier = ExtraTreesClassifier(
-            n_estimators=500,
-            min_samples_leaf=3,
-            class_weight="balanced",
-            random_state=RANDOM_STATE,
-            n_jobs=-1,
-        )
-    elif model_name == "hist_gradient_boosting":
-        classifier = HistGradientBoostingClassifier(
-            max_iter=300,
-            learning_rate=0.05,
-            max_leaf_nodes=31,
-            l2_regularization=0.05,
-            random_state=RANDOM_STATE,
-        )
-    elif model_name == "neural_network_mlp":
-        classifier = MLPClassifier(
-            hidden_layer_sizes=(64, 32),
-            activation="relu",
-            alpha=0.001,
-            batch_size=64,
-            early_stopping=True,
-            learning_rate_init=0.001,
-            max_iter=350,
-            n_iter_no_change=25,
-            random_state=RANDOM_STATE,
-        )
-    else:
-        raise ValueError(f"Unknown model: {model_name}")
-
-    return Pipeline(
-        steps=[
-            ("preprocessor", preprocessor),
-            ("classifier", classifier),
-        ]
-    )
+    return build_classification_pipeline(X, model_name=model_name, random_state=RANDOM_STATE)
 
 
 def top10_by_race_score(test_df: pd.DataFrame, probabilities: np.ndarray) -> dict[str, float]:

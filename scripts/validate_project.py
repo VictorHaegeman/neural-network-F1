@@ -13,6 +13,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 REQUIRED_NONEMPTY_FILES = [
     "README.md",
     "requirements.txt",
+    "docs/ALGORITHMS.md",
     "docs/ASSIGNMENT_ALIGNMENT.md",
     "docs/PROJECT_PLAN.md",
     "docs/REMAINING_TASKS.md",
@@ -58,6 +59,11 @@ REQUIRED_NONEMPTY_FILES = [
 
 REQUIRED_SCRIPTS = [
     "scripts/run_pipeline.py",
+    "scripts/algorithms/README.md",
+    "scripts/algorithms/__init__.py",
+    "scripts/algorithms/classification.py",
+    "scripts/algorithms/regression.py",
+    "scripts/algorithms/neural_network.py",
     "scripts/generate_raw_data.py",
     "scripts/import_missing_completed_races.py",
     "scripts/generate_historical_weather.py",
