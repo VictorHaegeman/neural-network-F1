@@ -76,7 +76,7 @@ python scripts/tune_neural_network.py --force
 python scripts/train_position_model.py
 python scripts/evaluate_models.py
 python scripts/make_charts.py
-python scripts/visualize_neural_network_3d.py --color-by cluster
+python scripts/visualize_neural_network_3d.py --color-by cluster --open
 python scripts/predict_top10.py
 python scripts/predict_upcoming_races.py --season 2026 --count 4 --current-date 2026-05-05 --position-model outputs/models/finish_position_regressor.joblib
 python scripts/predict_upcoming_races.py --season 2026 --count 4 --current-date 2026-05-05 --model outputs/models/top10_neural_network_mlp.joblib --position-model outputs/models/finish_position_regressor.joblib --output-dir outputs/predictions/neural_network
@@ -132,6 +132,10 @@ Main outputs:
 - `outputs/figures/*.png`: EDA and model figures
 - `outputs/figures/neural_network_embedding_3d.html`: interactive 3D neural-network cluster view
 - `submission/IML_Assignment_GroupX.zip`: reproducible submission archive
+
+The 3D neural-network HTML export is standalone and browser-interactive: drag
+to rotate, scroll to zoom, hover to inspect driver/race points, and use the
+legend to isolate clusters.
 
 ## Current V0 results
 

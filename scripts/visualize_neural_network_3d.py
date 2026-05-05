@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import webbrowser
 from pathlib import Path
 
 import joblib
@@ -32,6 +33,16 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--csv-output", type=Path, default=CSV_OUTPUT_PATH)
     parser.add_argument("--max-rows", type=int, default=3500)
     parser.add_argument("--clusters", type=int, default=8)
+    parser.add_argument(
+        "--cdn",
+        action="store_true",
+        help="Write a smaller HTML file that loads Plotly from CDN instead of embedding it.",
+    )
+    parser.add_argument(
+        "--open",
+        action="store_true",
+        help="Open the generated interactive HTML visualization in the default browser.",
+    )
     parser.add_argument(
         "--color-by",
         choices=["cluster", "target", "probability", "season"],
@@ -152,17 +163,39 @@ def main() -> None:
     )
     fig.update_traces(marker={"size": 4})
     fig.update_layout(
+        title={
+            "text": "Neural network hidden-space embedding - drag to rotate, scroll to zoom",
+            "x": 0.5,
+            "xanchor": "center",
+        },
         scene={
             "xaxis_title": "PCA 1",
             "yaxis_title": "PCA 2",
             "zaxis_title": "PCA 3",
         },
+        legend_title_text=args.color_by,
         margin={"l": 0, "r": 0, "t": 55, "b": 0},
     )
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.csv_output.parent.mkdir(parents=True, exist_ok=True)
-    fig.write_html(args.output, include_plotlyjs="cdn")
+    fig.write_html(
+        args.output,
+        include_plotlyjs="cdn" if args.cdn else True,
+        full_html=True,
+        config={
+            "displaylogo": False,
+            "responsive": True,
+            "scrollZoom": True,
+            "toImageButtonOptions": {
+                "format": "png",
+                "filename": "neural_network_embedding_3d",
+                "height": 900,
+                "width": 1400,
+                "scale": 2,
+            },
+        },
+    )
     points.to_csv(args.csv_output, index=False)
 
     explained = ", ".join(f"{value:.1%}" for value in pca.explained_variance_ratio_)
@@ -170,6 +203,10 @@ def main() -> None:
     print(f"Wrote {args.csv_output}")
     print(f"PCA explained variance: {explained}")
     print(f"Rows visualized: {len(points)}")
+    print("Interaction: drag to rotate, scroll to zoom, hover points for race/driver details.")
+
+    if args.open:
+        webbrowser.open(args.output.resolve().as_uri())
 
 
 if __name__ == "__main__":
