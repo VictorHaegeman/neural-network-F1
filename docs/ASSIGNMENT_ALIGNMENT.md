@@ -18,7 +18,8 @@ This checklist maps the current project to the CX016-2.5-3-IML group assignment 
 
 | Required section | Current status | Evidence |
 |---|---|---|
-| Title and abstract | Satisfied | `report/Report.md`, `report/Report.docx`, `report/Report.pdf` |
+| Title and abstract | Satisfied | Styled cover page plus abstract in `report/Report.md`, `report/Report.docx`, `report/Report.pdf` |
+| APU-style readability | Satisfied | 12pt report export, generated cover page, table of contents, styled tables and labelled figures |
 | Introduction, aim and objectives | Satisfied | Report section added |
 | Related works | Satisfied, can still be polished | Report includes related-work summary and references |
 | Methods | Satisfied | Report describes data, features, models, packages and metrics |
@@ -29,6 +30,7 @@ This checklist maps the current project to the CX016-2.5-3-IML group assignment 
 | Analysis and recommendations | Satisfied | Report compares models and recommends HGB classifier |
 | Conclusion | Satisfied | Report includes project self-evaluation and future work |
 | References | Satisfied, can still be improved | APA-style reference list added |
+| Acknowledgements | Satisfied | Report includes an acknowledgements section as requested by the brief |
 
 ## Code and Submission Requirements
 
@@ -36,6 +38,7 @@ This checklist maps the current project to the CX016-2.5-3-IML group assignment 
 |---|---|---|
 | All source code in `.ipynb` format | Satisfied | `notebooks/ML_Project_Code.ipynb` provides assignment-facing code |
 | Reproducible scripts | Satisfied | `scripts/` contains import, preprocessing, training, evaluation and validation scripts |
+| Code documentation | Satisfied | `README.md`, `docs/ALGORITHMS.md`, report code map and notebook explain the source code organization |
 | Original/final dataset included | Satisfied | `data/` is included in the submission zip |
 | Compressed submission | Satisfied | `submission/IML_Assignment_GroupX.zip` |
 | Caches and model binaries excluded | Satisfied | validation checks exclude `.venv`, FastF1 cache and model binaries |

@@ -152,6 +152,10 @@ Main outputs:
 - `report/Report.pdf`: PDF report generated from `report/Report.md`
 - `submission/IML_Assignment_GroupX.zip`: reproducible submission archive
 
+The generated DOCX/PDF report includes a cover page, table of contents, styled
+tables, labelled figures, acknowledgements and an assignment compliance
+snapshot.
+
 The 3D neural-network HTML export is standalone and browser-interactive: drag
 to rotate, scroll to zoom, hover to inspect driver/race points, and use the
 legend to isolate clusters.

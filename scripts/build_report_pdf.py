@@ -17,63 +17,28 @@ DEFAULT_INPUT = PROJECT_ROOT / "report" / "Report.md"
 DEFAULT_OUTPUT = PROJECT_ROOT / "report" / "Report.pdf"
 FIGURES_PATH = PROJECT_ROOT / "outputs" / "figures"
 
+PRIMARY = colors.HexColor("#123C43")
+SECONDARY = colors.HexColor("#D8A31A")
+LIGHT = colors.HexColor("#F5F2E8")
+PALE_BLUE = colors.HexColor("#EAF3F4")
+ROW_ALT = colors.HexColor("#F7F7F7")
+TEXT = colors.HexColor("#222222")
+
 FIGURES = [
-    (
-        "assignment_pipeline_overview.png",
-        "Figure 1. End-to-end project pipeline from raw data sources to validated assignment outputs.",
-    ),
-    (
-        "target_distribution.png",
-        "Figure 2. Target distribution for the binary top-10 classification task.",
-    ),
-    (
-        "rows_by_season.png",
-        "Figure 3. Number of driver-race rows available per season.",
-    ),
-    (
-        "top10_rate_by_season.png",
-        "Figure 4. Top-10 target rate by season, used to check class stability over time.",
-    ),
-    (
-        "grid_vs_finish.png",
-        "Figure 5. Relationship between starting grid and final position.",
-    ),
-    (
-        "algorithm_holdout_summary.png",
-        "Figure 6. Holdout comparison of the main classification algorithms on the 2025 season.",
-    ),
-    (
-        "model_metrics_table.png",
-        "Figure 7. Validation metric table for the compared classification algorithms.",
-    ),
-    (
-        "model_comparison.png",
-        "Figure 8. Compact model comparison across F1, ROC-AUC and race precision@10.",
-    ),
-    (
-        "algorithm_validation_summary.png",
-        "Figure 9. Expanding-window validation showing model stability across seasons.",
-    ),
-    (
-        "rolling_backtest.png",
-        "Figure 10. Rolling backtest race precision@10 by model and test season.",
-    ),
-    (
-        "feature_importance.png",
-        "Figure 11. Most influential features for the selected top-10 classifier.",
-    ),
-    (
-        "confusion_matrix.png",
-        "Figure 12. Confusion matrix for the selected holdout classifier.",
-    ),
-    (
-        "neural_network_tuning.png",
-        "Figure 13. Neural-network classifier tuning results, included as an extension.",
-    ),
-    (
-        "position_model_comparison.png",
-        "Figure 14. Finish-position ranking model comparison, included as an extension.",
-    ),
+    ("assignment_pipeline_overview.png", "Figure 1. End-to-end project pipeline from raw data sources to validated assignment outputs."),
+    ("target_distribution.png", "Figure 2. Target distribution for the binary top-10 classification task."),
+    ("rows_by_season.png", "Figure 3. Number of driver-race rows available per season."),
+    ("top10_rate_by_season.png", "Figure 4. Top-10 target rate by season, used to check class stability over time."),
+    ("grid_vs_finish.png", "Figure 5. Relationship between starting grid and final position."),
+    ("algorithm_holdout_summary.png", "Figure 6. Holdout comparison of the main classification algorithms on the 2025 season."),
+    ("model_metrics_table.png", "Figure 7. Validation metric table for the compared classification algorithms."),
+    ("model_comparison.png", "Figure 8. Compact model comparison across F1, ROC-AUC and race precision@10."),
+    ("algorithm_validation_summary.png", "Figure 9. Expanding-window validation showing model stability across seasons."),
+    ("rolling_backtest.png", "Figure 10. Rolling backtest race precision@10 by model and test season."),
+    ("feature_importance.png", "Figure 11. Most influential features for the selected top-10 classifier."),
+    ("confusion_matrix.png", "Figure 12. Confusion matrix for the selected holdout classifier."),
+    ("neural_network_tuning.png", "Figure 13. Neural-network classifier tuning results, included as an extension."),
+    ("position_model_comparison.png", "Figure 14. Finish-position ranking model comparison, included as an extension."),
 ]
 
 
@@ -86,14 +51,35 @@ def parse_args() -> argparse.Namespace:
 
 def make_styles() -> dict[str, ParagraphStyle]:
     sample = getSampleStyleSheet()
-    styles = {
+    return {
+        "CoverTitle": ParagraphStyle(
+            "CoverTitle",
+            parent=sample["Title"],
+            fontName="Helvetica-Bold",
+            fontSize=28,
+            leading=33,
+            alignment=1,
+            textColor=PRIMARY,
+            spaceAfter=12,
+        ),
+        "CoverSubtitle": ParagraphStyle(
+            "CoverSubtitle",
+            parent=sample["BodyText"],
+            fontName="Helvetica",
+            fontSize=13,
+            leading=17,
+            alignment=1,
+            textColor=colors.HexColor("#555555"),
+            spaceAfter=20,
+        ),
         "Title": ParagraphStyle(
             "ProjectTitle",
             parent=sample["Title"],
             fontName="Helvetica-Bold",
             fontSize=20,
             leading=24,
-            spaceAfter=18,
+            textColor=PRIMARY,
+            spaceAfter=16,
         ),
         "Heading2": ParagraphStyle(
             "ProjectHeading2",
@@ -101,6 +87,10 @@ def make_styles() -> dict[str, ParagraphStyle]:
             fontName="Helvetica-Bold",
             fontSize=15,
             leading=19,
+            textColor=PRIMARY,
+            borderColor=SECONDARY,
+            borderWidth=0,
+            borderPadding=0,
             spaceBefore=14,
             spaceAfter=8,
         ),
@@ -110,6 +100,7 @@ def make_styles() -> dict[str, ParagraphStyle]:
             fontName="Helvetica-Bold",
             fontSize=12,
             leading=15,
+            textColor=PRIMARY,
             spaceBefore=10,
             spaceAfter=6,
         ),
@@ -119,6 +110,7 @@ def make_styles() -> dict[str, ParagraphStyle]:
             fontName="Helvetica",
             fontSize=10.5,
             leading=14,
+            textColor=TEXT,
             spaceAfter=7,
         ),
         "Bullet": ParagraphStyle(
@@ -127,6 +119,7 @@ def make_styles() -> dict[str, ParagraphStyle]:
             fontName="Helvetica",
             fontSize=10.5,
             leading=14,
+            textColor=TEXT,
             leftIndent=18,
             bulletIndent=6,
             spaceAfter=4,
@@ -139,8 +132,8 @@ def make_styles() -> dict[str, ParagraphStyle]:
             leading=11,
             leftIndent=8,
             rightIndent=8,
-            backColor=colors.HexColor("#f2f2f2"),
-            borderColor=colors.HexColor("#dddddd"),
+            backColor=colors.HexColor("#F1F1F1"),
+            borderColor=colors.HexColor("#DDDDDD"),
             borderWidth=0.5,
             borderPadding=6,
             spaceAfter=8,
@@ -157,7 +150,6 @@ def make_styles() -> dict[str, ParagraphStyle]:
             spaceAfter=8,
         ),
     }
-    return styles
 
 
 def clean_inline_markdown(text: str) -> str:
@@ -178,6 +170,41 @@ def is_table_separator(line: str) -> bool:
     return bool(cells) and all(set(cell) <= {"-", ":"} and "-" in cell for cell in cells)
 
 
+def add_cover_page(story: list, styles: dict[str, ParagraphStyle], width: float) -> None:
+    story.append(Spacer(1, 1.05 * inch))
+    story.append(Paragraph("F1 Top-10 Finish Prediction<br/>with Machine Learning", styles["CoverTitle"]))
+    story.append(Paragraph("CX016-2.5-3-IML - Introduction to Machine Learning<br/>Group Assignment", styles["CoverSubtitle"]))
+
+    metadata = [
+        ["Module", "CX016-2.5-3-IML - Introduction to Machine Learning"],
+        ["Deliverable", "Report, notebook, dataset, scripts and submission ZIP"],
+        ["Main task", "Predict whether each Formula 1 driver finishes in the top 10"],
+        ["Dataset", "6,999 driver-race rows, 198 variables, seasons 2010-2026"],
+        ["Primary model", "Histogram Gradient Boosting classifier"],
+    ]
+    table = Table(metadata, colWidths=[1.45 * inch, width - 1.45 * inch])
+    table.setStyle(
+        TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (0, -1), PRIMARY),
+                ("TEXTCOLOR", (0, 0), (0, -1), colors.white),
+                ("FONTNAME", (0, 0), (0, -1), "Helvetica-Bold"),
+                ("BACKGROUND", (1, 0), (1, -1), LIGHT),
+                ("GRID", (0, 0), (-1, -1), 0.35, colors.HexColor("#B8B8B8")),
+                ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                ("LEFTPADDING", (0, 0), (-1, -1), 7),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 7),
+                ("TOPPADDING", (0, 0), (-1, -1), 7),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 7),
+            ]
+        )
+    )
+    story.append(table)
+    story.append(Spacer(1, 0.35 * inch))
+    story.append(Paragraph("Generated from report/Report.md using scripts/build_report_pdf.py", styles["Caption"]))
+    story.append(PageBreak())
+
+
 def add_markdown_table(story: list, lines: list[str], styles: dict[str, ParagraphStyle], width: float) -> None:
     rows: list[list[Paragraph]] = []
     for line in lines:
@@ -194,12 +221,12 @@ def add_markdown_table(story: list, lines: list[str], styles: dict[str, Paragrap
     table.setStyle(
         TableStyle(
             [
-                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#2f5d62")),
+                ("BACKGROUND", (0, 0), (-1, 0), PRIMARY),
                 ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
                 ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
-                ("GRID", (0, 0), (-1, -1), 0.35, colors.HexColor("#b8b8b8")),
+                ("GRID", (0, 0), (-1, -1), 0.35, colors.HexColor("#B8B8B8")),
                 ("VALIGN", (0, 0), (-1, -1), "TOP"),
-                ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#f7f7f7")]),
+                ("ROWBACKGROUNDS", (0, 1), (-1, -1), [PALE_BLUE, ROW_ALT]),
                 ("LEFTPADDING", (0, 0), (-1, -1), 4),
                 ("RIGHTPADDING", (0, 0), (-1, -1), 4),
                 ("TOPPADDING", (0, 0), (-1, -1), 4),
@@ -225,6 +252,8 @@ def add_markdown_line(story: list, line: str, styles: dict[str, ParagraphStyle])
         story.append(Paragraph(clean_inline_markdown(stripped[4:]), styles["Heading3"]))
     elif stripped.startswith("- "):
         story.append(Paragraph(clean_inline_markdown(stripped[2:]), styles["Bullet"], bulletText="-"))
+    elif len(stripped) > 3 and stripped[0].isdigit() and ". " in stripped[:4]:
+        story.append(Paragraph(clean_inline_markdown(stripped.split(". ", 1)[1]), styles["Bullet"], bulletText=stripped.split(". ", 1)[0] + "."))
     else:
         story.append(Paragraph(clean_inline_markdown(stripped), styles["Body"]))
 
@@ -239,7 +268,7 @@ def add_figures(story: list, styles: dict[str, ParagraphStyle], max_width: float
             continue
 
         image = Image(str(figure_path))
-        scale = min(max_width / image.drawWidth, 4.8 * inch / image.drawHeight, 1)
+        scale = min(max_width / image.drawWidth, 4.7 * inch / image.drawHeight, 1)
         image.drawWidth *= scale
         image.drawHeight *= scale
         story.append(Paragraph(caption, styles["Caption"]))
@@ -249,21 +278,33 @@ def add_figures(story: list, styles: dict[str, ParagraphStyle], max_width: float
 
 def add_page_number(canvas, document) -> None:
     canvas.saveState()
+    canvas.setFillColor(PRIMARY)
+    canvas.rect(0, document.pagesize[1] - 0.32 * inch, document.pagesize[0], 0.08 * inch, stroke=0, fill=1)
     canvas.setFont("Helvetica", 8)
     canvas.setFillColor(colors.HexColor("#555555"))
+    canvas.drawString(0.65 * inch, 0.45 * inch, "F1 Top-10 Prediction | CX016-2.5-3-IML")
     canvas.drawRightString(document.pagesize[0] - 0.65 * inch, 0.45 * inch, f"Page {document.page}")
     canvas.restoreState()
 
 
 def build_story(input_path: Path, styles: dict[str, ParagraphStyle], width: float) -> list:
     story: list = []
+    add_cover_page(story, styles, width)
+
     lines = input_path.read_text(encoding="utf-8").splitlines()
     index = 0
     in_code = False
     code_lines: list[str] = []
+    skipped_title = False
 
     while index < len(lines):
         line = lines[index]
+
+        if not skipped_title and line.startswith("# "):
+            skipped_title = True
+            index += 1
+            continue
+
         if line.strip().startswith("```"):
             if in_code:
                 code_text = "<br/>".join(html.escape(code_line) for code_line in code_lines)
@@ -309,7 +350,7 @@ def main() -> None:
         pagesize=A4,
         rightMargin=0.65 * inch,
         leftMargin=0.65 * inch,
-        topMargin=0.65 * inch,
+        topMargin=0.7 * inch,
         bottomMargin=0.65 * inch,
         title="F1 Top-10 Finish Prediction with Machine Learning",
     )
