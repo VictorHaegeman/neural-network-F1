@@ -34,6 +34,10 @@ REQUIRED_NONEMPTY_FILES = [
     "outputs/neural_network_embedding_3d.csv",
     "outputs/figures/confusion_matrix.png",
     "outputs/figures/feature_importance.png",
+    "outputs/figures/algorithm_holdout_summary.png",
+    "outputs/figures/algorithm_validation_summary.png",
+    "outputs/figures/assignment_pipeline_overview.png",
+    "outputs/figures/model_metrics_table.png",
     "outputs/figures/model_comparison.png",
     "outputs/figures/neural_network_embedding_3d.html",
     "outputs/figures/neural_network_tuning.png",
@@ -48,6 +52,7 @@ REQUIRED_NONEMPTY_FILES = [
     "notebooks/ML_Project_Code.ipynb",
     "report/Report.md",
     "report/Report.docx",
+    "report/Report.pdf",
     "submission/IML_Assignment_GroupX.zip",
 ]
 
@@ -71,6 +76,7 @@ REQUIRED_SCRIPTS = [
     "scripts/predict_top10.py",
     "scripts/predict_upcoming_races.py",
     "scripts/build_report_docx.py",
+    "scripts/build_report_pdf.py",
     "scripts/build_submission.py",
     "scripts/validate_project.py",
 ]
@@ -245,6 +251,7 @@ def check_submission_zip(failures: list[str]) -> None:
         "requirements.txt",
         "report/Report.md",
         "report/Report.docx",
+        "report/Report.pdf",
         "notebooks/ML_Project_Code.ipynb",
         "data/final/f1_top10_model_dataset.csv",
         "scripts/run_pipeline.py",

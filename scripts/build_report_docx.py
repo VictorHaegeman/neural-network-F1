@@ -12,6 +12,65 @@ DEFAULT_INPUT = PROJECT_ROOT / "report" / "Report.md"
 DEFAULT_OUTPUT = PROJECT_ROOT / "report" / "Report.docx"
 FIGURES_PATH = PROJECT_ROOT / "outputs" / "figures"
 
+FIGURES = [
+    (
+        "assignment_pipeline_overview.png",
+        "Figure 1. End-to-end project pipeline from raw data sources to validated assignment outputs.",
+    ),
+    (
+        "target_distribution.png",
+        "Figure 2. Target distribution for the binary top-10 classification task.",
+    ),
+    (
+        "rows_by_season.png",
+        "Figure 3. Number of driver-race rows available per season.",
+    ),
+    (
+        "top10_rate_by_season.png",
+        "Figure 4. Top-10 target rate by season, used to check class stability over time.",
+    ),
+    (
+        "grid_vs_finish.png",
+        "Figure 5. Relationship between starting grid and final position.",
+    ),
+    (
+        "algorithm_holdout_summary.png",
+        "Figure 6. Holdout comparison of the main classification algorithms on the 2025 season.",
+    ),
+    (
+        "model_metrics_table.png",
+        "Figure 7. Validation metric table for the compared classification algorithms.",
+    ),
+    (
+        "model_comparison.png",
+        "Figure 8. Compact model comparison across F1, ROC-AUC and race precision@10.",
+    ),
+    (
+        "algorithm_validation_summary.png",
+        "Figure 9. Expanding-window validation showing model stability across seasons.",
+    ),
+    (
+        "rolling_backtest.png",
+        "Figure 10. Rolling backtest race precision@10 by model and test season.",
+    ),
+    (
+        "feature_importance.png",
+        "Figure 11. Most influential features for the selected top-10 classifier.",
+    ),
+    (
+        "confusion_matrix.png",
+        "Figure 12. Confusion matrix for the selected holdout classifier.",
+    ),
+    (
+        "neural_network_tuning.png",
+        "Figure 13. Neural-network classifier tuning results, included as an extension.",
+    ),
+    (
+        "position_model_comparison.png",
+        "Figure 14. Finish-position ranking model comparison, included as an extension.",
+    ),
+]
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build report/Report.docx from report/Report.md.")
@@ -72,25 +131,13 @@ def add_markdown_table(document: Document, lines: list[str]) -> None:
 
 
 def add_figures(document: Document) -> None:
-    figure_names = [
-        "target_distribution.png",
-        "rows_by_season.png",
-        "top10_rate_by_season.png",
-        "model_comparison.png",
-        "neural_network_tuning.png",
-        "position_model_comparison.png",
-        "rolling_backtest.png",
-        "feature_importance.png",
-        "confusion_matrix.png",
-    ]
-
     document.add_heading("Figures", level=2)
-    for figure_name in figure_names:
+    for figure_name, caption in FIGURES:
         figure_path = FIGURES_PATH / figure_name
         if not figure_path.exists() or figure_path.stat().st_size == 0:
             continue
 
-        document.add_paragraph(figure_name)
+        document.add_paragraph(caption)
         document.add_picture(str(figure_path), width=Inches(5.8))
 
 

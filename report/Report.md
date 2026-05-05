@@ -97,7 +97,7 @@ Preprocessing steps:
 - one-hot encode categorical variables
 - scale numeric features for logistic regression and neural-network models
 
-The generated figures in `outputs/figures/` document target distribution, rows by season, top-10 rate by season, grid versus finish, model comparison, rolling backtest, feature importance and confusion matrix. These figures support the EDA and model validation sections.
+The generated figures in `outputs/figures/` document target distribution, rows by season, top-10 rate by season, grid versus finish, model comparison, rolling backtest, feature importance and confusion matrix. Additional assignment-facing PNGs summarize the full pipeline, holdout algorithm results, validation metric table and expanding-window stability. These figures support the EDA, model implementation and validation sections with labelled evidence.
 
 ## Model Implementation
 
@@ -109,6 +109,8 @@ python scripts/evaluate_models.py
 python scripts/train_model.py --model hist_gradient_boosting
 python scripts/train_position_model.py
 python scripts/make_charts.py
+python scripts/build_report_docx.py
+python scripts/build_report_pdf.py
 python scripts/validate_project.py
 ```
 
@@ -145,6 +147,13 @@ Recommended final model:
 - main assignment model: histogram gradient boosting classifier
 - supporting baseline: random forest classifier
 - optional extension: tuned MLP classifier and finish-position regressor
+
+Generated report deliverables:
+
+- `report/Report.md`: editable report source
+- `report/Report.docx`: Word report version
+- `report/Report.pdf`: PDF report version generated from the same source
+- `outputs/figures/*.png`: labelled EDA, algorithm and validation figures used as report evidence
 
 Recommended future improvements:
 

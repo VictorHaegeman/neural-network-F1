@@ -80,6 +80,8 @@ python scripts/visualize_neural_network_3d.py --color-by cluster --open
 python scripts/predict_top10.py
 python scripts/predict_upcoming_races.py --season 2026 --count 4 --current-date 2026-05-05 --position-model outputs/models/finish_position_regressor.joblib
 python scripts/predict_upcoming_races.py --season 2026 --count 4 --current-date 2026-05-05 --model outputs/models/top10_neural_network_mlp.joblib --position-model outputs/models/finish_position_regressor.joblib --output-dir outputs/predictions/neural_network
+python scripts/build_report_docx.py
+python scripts/build_report_pdf.py
 python scripts/build_submission.py
 python scripts/validate_project.py
 ```
@@ -138,6 +140,8 @@ Main outputs:
 - `outputs/predictions/upcoming_top10_predictions.csv`: pre-race predictions for upcoming races
 - `outputs/figures/*.png`: EDA and model figures
 - `outputs/figures/neural_network_embedding_3d.html`: interactive 3D neural-network cluster view
+- `report/Report.docx`: Word report generated from `report/Report.md`
+- `report/Report.pdf`: PDF report generated from `report/Report.md`
 - `submission/IML_Assignment_GroupX.zip`: reproducible submission archive
 
 The 3D neural-network HTML export is standalone and browser-interactive: drag

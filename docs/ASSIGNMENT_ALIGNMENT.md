@@ -18,14 +18,14 @@ This checklist maps the current project to the CX016-2.5-3-IML group assignment 
 
 | Required section | Current status | Evidence |
 |---|---|---|
-| Title and abstract | Satisfied | `report/Report.md`, `report/Report.docx` |
+| Title and abstract | Satisfied | `report/Report.md`, `report/Report.docx`, `report/Report.pdf` |
 | Introduction, aim and objectives | Satisfied | Report section added |
 | Related works | Satisfied, can still be polished | Report includes related-work summary and references |
 | Methods | Satisfied | Report describes data, features, models, packages and metrics |
-| Dataset preparation and EDA | Satisfied | Report plus generated EDA figures |
+| Dataset preparation and EDA | Satisfied | Report plus generated labelled EDA PNG figures |
 | Model implementation | Satisfied | At least five classifiers compared; two-model minimum exceeded |
 | Optimization/tuning | Satisfied | Model configurations and MLP tuning documented |
-| Model validation | Satisfied | 2025 holdout and expanding-window rolling backtest |
+| Model validation | Satisfied | 2025 holdout, expanding-window rolling backtest and labelled algorithm PNG summaries |
 | Analysis and recommendations | Satisfied | Report compares models and recommends HGB classifier |
 | Conclusion | Satisfied | Report includes project self-evaluation and future work |
 | References | Satisfied, can still be improved | APA-style reference list added |
