@@ -65,20 +65,21 @@ Or run each step manually:
 
 ```powershell
 python scripts/generate_raw_data.py --start-year 2011 --end-year 2026
-python scripts/generate_historical_weather.py --start-year 2011 --end-year 2026
-python scripts/generate_fastf1_features.py --start-year 2018 --end-year 2025 --incremental
-python scripts/generate_fastf1_race_control.py --start-year 2018 --end-year 2025 --incremental
+python scripts/audit_data_coverage.py --season 2026
+python scripts/import_missing_completed_races.py --season 2026
+python scripts/generate_historical_weather.py --start-year 2011 --end-year 2026 --incremental
+python scripts/generate_fastf1_features.py --start-year 2018 --end-year 2026 --incremental
+python scripts/generate_fastf1_race_control.py --start-year 2018 --end-year 2026 --incremental
 python scripts/generate_final_dataset.py
-python scripts/train_model.py
+python scripts/train_model.py --model hist_gradient_boosting
 python scripts/tune_neural_network.py --force
 python scripts/train_position_model.py
 python scripts/evaluate_models.py
 python scripts/make_charts.py
-python scripts/audit_data_coverage.py --season 2026
-python scripts/fetch_upcoming_qualifying.py --season 2026 --round 4 --merge-history
+python scripts/visualize_neural_network_3d.py --color-by cluster
 python scripts/predict_top10.py
-python scripts/predict_upcoming_races.py --season 2026 --count 4 --current-date 2026-05-03 --position-model outputs/models/finish_position_regressor.joblib
-python scripts/predict_upcoming_races.py --season 2026 --count 4 --current-date 2026-05-03 --model outputs/models/top10_neural_network_mlp.joblib --position-model outputs/models/finish_position_regressor.joblib --output-dir outputs/predictions/neural_network
+python scripts/predict_upcoming_races.py --season 2026 --count 4 --current-date 2026-05-05 --position-model outputs/models/finish_position_regressor.joblib
+python scripts/predict_upcoming_races.py --season 2026 --count 4 --current-date 2026-05-05 --model outputs/models/top10_neural_network_mlp.joblib --position-model outputs/models/finish_position_regressor.joblib --output-dir outputs/predictions/neural_network
 python scripts/build_submission.py
 python scripts/validate_project.py
 ```
@@ -125,25 +126,27 @@ Main outputs:
 - `outputs/position_model_metrics.json`: best finish-position model summary
 - `outputs/rolling_backtest.csv`: progressive season-by-season validation
 - `outputs/model_selection_summary.json`: best model summary
+- `outputs/neural_network_embedding_3d.csv`: neural-network hidden-space PCA/clusters
 - `outputs/predictions/*.csv`: readable race-level prediction exports
 - `outputs/predictions/upcoming_top10_predictions.csv`: pre-race predictions for upcoming races
 - `outputs/figures/*.png`: EDA and model figures
+- `outputs/figures/neural_network_embedding_3d.html`: interactive 3D neural-network cluster view
 - `submission/IML_Assignment_GroupX.zip`: reproducible submission archive
 
 ## Current V0 results
 
 On the 2025 holdout season, `hist_gradient_boosting` currently performs best
-among the standard model comparison set by race precision@10 (`0.775`). Across
+among the standard model comparison set by race precision@10 (`0.779`). Across
 the expanding-window rolling backtest, `random_forest` is currently the most
-stable model on average (`0.774` race precision@10). The dedicated tuned neural
-network reaches `0.771` race precision@10 with the `mlp_128_64_small_lr`
+stable model on average (`0.773` race precision@10). The dedicated tuned neural
+network reaches `0.771` race precision@10 with the `mlp_128_64_32_deep`
 configuration, so it is kept as a secondary top-10 classifier rather than the
 safest champion.
 
 A separate finish-position model predicts race order directly. The best
-position model is currently a neural-network MLP regressor, with 2025 holdout
-race precision@10 of `0.771`, actual-top-10 rank MAE of `2.65` positions and
-mean race Spearman correlation of `0.655`. Upcoming-race exports therefore now
+position model is currently a histogram gradient boosting regressor, with 2025
+holdout race precision@10 of `0.775`, actual-top-10 rank MAE of `2.60`
+positions and mean race Spearman correlation of `0.648`. Upcoming-race exports therefore now
 include both `top10_probability` and `predicted_finish_rank`.
 
 Upcoming-race predictions use the latest completed race as the driver/team
@@ -153,12 +156,11 @@ FastF1-derived historical tyre/lap features where available.
 
 Current coverage notes:
 
-- Open-Meteo historical weather: 313/313 local race-result events.
-- FastF1 optional enrichment: 173 race rows, 96 with available timing/weather
+- Open-Meteo historical weather: 314/314 local race-result events.
+- FastF1 optional enrichment: 177 race rows, 100 with available timing/weather
   data and 77 unavailable rows because of API limits.
-- FastF1 race-control messages: 163/173 attempted race rows available; the
+- FastF1 race-control messages: 167/177 attempted race rows available; the
   last 10 rounds of 2025 were rate-limited and can be filled by rerunning the
   incremental script later.
-- 2026 data audit on 2026-05-03: 3 race-result rounds and 4 qualifying rounds
-  available locally; Miami qualifying is imported but Miami race results are not
-  available yet.
+- 2026 data audit on 2026-05-05: 4 race-result rounds, 4 qualifying rounds,
+  4 FastF1 weather rows and 4 final-dataset races are available locally.

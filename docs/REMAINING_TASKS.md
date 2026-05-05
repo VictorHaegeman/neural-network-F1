@@ -11,12 +11,13 @@ Done:
   `notebooks/` and `submission/`
 - Jolpica data from 2011 to 2026
 - real Jolpica pit-stop events
-- Open-Meteo historical race-day weather for all 313 local race-result events
-- FastF1 race-control messages for 163/173 attempted races, plus historical
+- Open-Meteo historical race-day weather for all 314 local race-result events
+- FastF1 race-control messages for 167/177 attempted races, plus historical
   pre-race circuit/season disruption features
 - optional FastF1 features extended beyond 2024-2025 where the timing API and
   rate limits allowed it
-- final dataset with 6521 rows and 198 columns
+- incremental missing-race importer that skips already-local `race_id` rows
+- final dataset with 6543 rows and 198 columns
 - no missing values in the final dataset
 - model comparison across logistic regression, random forest, extra trees,
   histogram gradient boosting and neural network MLP
@@ -27,6 +28,7 @@ Done:
 - targeted upcoming qualifying import script
 - readable top-10 prediction export
 - pre-race upcoming-race prediction export
+- interactive 3D neural-network hidden-space cluster visualization
 - figures and metrics
 - reproducible ZIP builder
 
@@ -37,6 +39,7 @@ Done:
 - [x] Add a project validation script that checks important artifacts.
 - [x] Rebuild the submission ZIP after artifact generation.
 - [x] Add data coverage audit and import currently available Miami qualifying.
+- [x] Import Miami 2026 race results and pit stops incrementally once available.
 - [ ] Optionally generate `report/Report.pdf` if a PDF engine is available.
 - [x] Extend FastF1 coverage beyond 2024-2025 where API limits allow it.
 - [x] Train and compare dedicated neural network configurations.
@@ -44,7 +47,6 @@ Done:
 ## Medium Priority
 
 - [x] Add better race-control/safety-car features from FastF1 messages.
-- [ ] Re-run raw import after Miami 2026 race results are available.
 - [ ] Resume FastF1 incremental import after the API rate limit resets to fill
   the remaining 2020-2023 gaps.
 - [ ] Resume FastF1 race-control incremental import after the API rate limit
@@ -54,6 +56,7 @@ Done:
 - [ ] Add model calibration charts.
 - [ ] Add permutation importance for models that do not expose feature
   importances.
+- [x] Add a 3D neural-network cluster visualization.
 
 ## Low Priority
 
@@ -68,5 +71,5 @@ For submission, the project now has a solid V0 with real historical weather,
 real Jolpica pit-stop events, model comparison and upcoming-race prediction.
 It also has a separate finish-position model for ranking the predicted top 10.
 The largest remaining scientific improvements are fuller FastF1 lap/tyre and
-race-control coverage after API limits reset, calibration analysis and richer
-telemetry.
+race-control coverage after API limits reset, calibration analysis, permutation
+importance and richer telemetry.

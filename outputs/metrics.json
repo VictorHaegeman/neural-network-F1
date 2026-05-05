@@ -1,13 +1,13 @@
 {
-  "model": "random_forest",
+  "model": "hist_gradient_boosting",
   "train_rows": 5976,
   "test_rows": 479,
   "test_season": 2025,
   "accuracy": 0.7682672233820459,
-  "precision": 0.7654320987654321,
-  "recall": 0.775,
-  "f1": 0.7701863354037267,
-  "roc_auc": 0.8429393305439331,
-  "race_precision_at_10": 0.7583333333333333,
+  "precision": 0.763265306122449,
+  "recall": 0.7791666666666667,
+  "f1": 0.7711340206185567,
+  "roc_auc": 0.8334902370990238,
+  "race_precision_at_10": 0.7791666666666667,
   "exact_top10_set_rate": 0.041666666666666664
 }

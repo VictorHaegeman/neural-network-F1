@@ -65,12 +65,12 @@ more stable.
 
 A separate neural-network tuning step compares several MLP configurations
 without replacing the main champion model. The best dedicated MLP configuration
-uses two hidden layers:
+uses three hidden layers:
 
-- hidden layers: 128 and 64 neurons
+- hidden layers: 128, 64 and 32 neurons
 - activation: ReLU
-- alpha: 0.002
-- learning rate: 0.0005
+- alpha: 0.004
+- learning rate: 0.0006
 - race precision@10: 0.771
 
 This improves the neural-network branch compared with the default MLP baseline,
@@ -83,12 +83,13 @@ The project now includes a second modeling task: predicting the likely finishing
 order. This is trained as a regression/ranking problem on `final_position` and
 is used to add `predicted_finish_rank` to upcoming-race exports.
 
-The best holdout finish-position model is a neural-network MLP regressor:
+The best holdout finish-position model is a histogram gradient boosting
+regressor:
 
-- race precision@10: 0.771
-- raw position MAE: 3.24 positions
-- actual-top-10 rank MAE: 2.65 positions
-- mean race Spearman correlation: 0.655
+- race precision@10: 0.775
+- raw position MAE: 3.25 positions
+- actual-top-10 rank MAE: 2.60 positions
+- mean race Spearman correlation: 0.648
 
 This model complements the binary top-10 classifier. The classifier estimates
 top-10 probability, while the position model gives an expected ordering among
@@ -116,44 +117,44 @@ The current best holdout model by race precision@10 is histogram gradient
 boosting:
 
 - accuracy: 0.770
-- precision: 0.778
-- recall: 0.758
-- F1: 0.768
-- ROC-AUC: 0.836
-- race precision@10: 0.775
+- precision: 0.763
+- recall: 0.779
+- F1: 0.771
+- ROC-AUC: 0.833
+- race precision@10: 0.779
 
 Across the rolling backtest, random forest remains the most stable model:
 
 - average accuracy: 0.782
 - average F1: 0.780
-- average ROC-AUC: 0.849
-- average race precision@10: 0.774
+- average ROC-AUC: 0.851
+- average race precision@10: 0.773
 
 The dedicated tuned top-10 neural network reaches a 2025 holdout race
-precision@10 of 0.771. The neural-network finish-position model is more useful
-for ranking the predicted top 10 than for replacing the champion classifier.
+precision@10 of 0.771. It remains useful as a secondary model and for hidden
+space visualization, while tree-based models remain the safer champion.
 
 ## Latest Data Coverage Check
 
-The latest data audit on 2026-05-03 found:
+The latest data audit on 2026-05-05 found:
 
 - 22 scheduled races for the 2026 season
-- 3 race-result rounds available in Jolpica and already present locally
-- 4 qualifying rounds available in Jolpica after Miami qualifying was published
-- 4 qualifying rounds now present locally after importing Miami qualifying
-- no Miami race result available yet, so the supervised training dataset still
-  ends at 2026 round 3
-- Open-Meteo historical weather is available for all 313 local race-result
+- 4 race-result rounds available in Jolpica and already present locally
+- 4 qualifying rounds available in Jolpica and already present locally
+- Miami 2026 race results and pit stops were imported incrementally without
+  refetching older races
+- Open-Meteo historical weather is available for all 314 local race-result
   events
-- FastF1 currently has 173 race rows, with 96 fully available race-session
+- FastF1 currently has 177 race rows, with 100 fully available race-session
   weather/lap rows and 77 unavailable rows due to timing API limits
-- FastF1 race-control messages are available for 163/173 attempted races; the
+- FastF1 race-control messages are available for 167/177 attempted races; the
   final 10 unavailable rows are caused by API rate limits
 
 The final dataset was regenerated and all models were retrained after adding
-historical weather and race-control history. Upcoming-race predictions were
-regenerated with actual Miami qualifying data, Open-Meteo forecast weather for
-Miami and a finish-position ranking model.
+Miami results, historical weather and race-control history. Upcoming-race
+predictions now start from Canada 2026 and include a finish-position ranking
+model. A 3D Plotly visualization was also added for the neural-network hidden
+representation and KMeans clusters.
 
 ## How to Run
 
@@ -183,7 +184,13 @@ To train and use the finish-position ranking model:
 
 ```powershell
 python scripts/train_position_model.py
-python scripts/predict_upcoming_races.py --season 2026 --count 4 --current-date 2026-05-03 --position-model outputs/models/finish_position_regressor.joblib
+python scripts/predict_upcoming_races.py --season 2026 --count 4 --current-date 2026-05-05 --position-model outputs/models/finish_position_regressor.joblib
+```
+
+To visualize the neural-network hidden space in 3D:
+
+```powershell
+python scripts/visualize_neural_network_3d.py --color-by cluster
 ```
 
 ## Limitations

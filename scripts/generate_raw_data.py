@@ -194,15 +194,20 @@ def jolpica_get(session: requests.Session, endpoint: str, sleep_seconds: float) 
     url = f"{BASE_URL}/{endpoint.lstrip('/')}"
     last_error: Exception | None = None
 
-    for attempt in range(3):
+    for attempt in range(5):
         try:
             response = session.get(url, timeout=30)
+            if response.status_code == 429:
+                retry_after = as_float(response.headers.get("Retry-After"), default=0.0)
+                wait_seconds = retry_after if retry_after > 0 else min(60.0, 5.0 * (attempt + 1))
+                time.sleep(wait_seconds)
+                continue
             response.raise_for_status()
             time.sleep(sleep_seconds)
             return response.json()
         except requests.RequestException as exc:
             last_error = exc
-            time.sleep(1 + attempt)
+            time.sleep(min(30.0, 2.0 * (attempt + 1)))
 
     raise RuntimeError(f"Unable to fetch {url}") from last_error
 

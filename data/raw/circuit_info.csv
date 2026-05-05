@@ -312,3 +312,4 @@ race_id,circuit_length_km,total_laps,race_distance_km,track_type,overtaking_diff
 2026_01,5.278,58,306.12399999999997,street,medium,1
 2026_02,5.451,56,305.256,permanent,easy,0
 2026_03,5.807,53,307.771,permanent,medium,0
+2026_04,5.412,57,308.484,street,medium,1

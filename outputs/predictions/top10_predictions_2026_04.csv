@@ -1,0 +1,23 @@
+race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_name,grid,final_position,top10_finish,top10_probability,predicted_rank,predicted_top10
+2026_04,2026,4,Miami Grand Prix,norris,NOR,Lando Norris,McLaren,4,2,1,0.988902666113926,1,1
+2026_04,2026,4,Miami Grand Prix,russell,RUS,George Russell,Mercedes,5,4,1,0.9857389423449555,2,1
+2026_04,2026,4,Miami Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,3,8,1,0.980565505901177,3,1
+2026_04,2026,4,Miami Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,1,1,1,0.9782694927734626,4,1
+2026_04,2026,4,Miami Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,6,6,1,0.9544600113307528,5,1
+2026_04,2026,4,Miami Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,2,5,1,0.9419413682854878,6,1
+2026_04,2026,4,Miami Grand Prix,piastri,PIA,Oscar Piastri,McLaren,7,3,1,0.9026060597029135,7,1
+2026_04,2026,4,Miami Grand Prix,albon,ALB,Alexander Albon,Williams,15,10,1,0.7605565134439374,8,1
+2026_04,2026,4,Miami Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,8,7,1,0.6897912188197589,9,1
+2026_04,2026,4,Miami Grand Prix,sainz,SAI,Carlos Sainz,Williams,13,9,1,0.5737245630473439,10,1
+2026_04,2026,4,Miami Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,12,11,0,0.2825133202148758,11,0
+2026_04,2026,4,Miami Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,11,20,0,0.2542038083405247,12,0
+2026_04,2026,4,Miami Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,9,21,0,0.2163090468565844,13,0
+2026_04,2026,4,Miami Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,14,13,0,0.1715990969755606,14,0
+2026_04,2026,4,Miami Grand Prix,hadjar,HAD,Isack Hadjar,Red Bull,22,22,0,0.1333620116214916,15,0
+2026_04,2026,4,Miami Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Audi,10,19,0,0.08763370404818552,16,0
+2026_04,2026,4,Miami Grand Prix,arvid_lindblad,LIN,Arvid Lindblad,RB F1 Team,16,14,0,0.07701890847876322,17,0
+2026_04,2026,4,Miami Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,17,15,0,0.0060213524782922875,18,0
+2026_04,2026,4,Miami Grand Prix,perez,PER,Sergio Pérez,Cadillac F1 Team,20,16,0,0.005696979975344724,19,0
+2026_04,2026,4,Miami Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Audi,21,12,0,0.005527220150319396,20,0
+2026_04,2026,4,Miami Grand Prix,stroll,STR,Lance Stroll,Aston Martin,18,17,0,0.0028743135615153675,21,0
+2026_04,2026,4,Miami Grand Prix,bottas,BOT,Valtteri Bottas,Cadillac F1 Team,19,18,0,0.0025114663686219723,22,0

@@ -24,6 +24,16 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--sleep", type=float, default=0.15)
     parser.add_argument("--race-results", type=Path, default=RACE_RESULTS_PATH)
     parser.add_argument("--output", type=Path, default=OUTPUT_PATH)
+    parser.add_argument(
+        "--incremental",
+        action="store_true",
+        help="Keep available local rows and fetch only missing/unavailable race weather.",
+    )
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="With --incremental, refetch rows even if they are already available locally.",
+    )
     return parser.parse_args()
 
 
@@ -201,6 +211,12 @@ def placeholder_weather(race_id_value: str) -> dict[str, Any]:
     }
 
 
+def load_existing_weather(path: Path) -> pd.DataFrame:
+    if not path.exists() or path.stat().st_size == 0:
+        return pd.DataFrame()
+    return pd.read_csv(path)
+
+
 def main() -> None:
     args = parse_args()
     if not args.race_results.exists():
@@ -212,6 +228,14 @@ def main() -> None:
     session = requests.Session()
     schedule = fetch_schedule(session, args.start_year, args.end_year)
     schedule = schedule[schedule["race_id"].isin(race_ids)].sort_values(["season", "round"])
+
+    existing_weather = load_existing_weather(args.output)
+    if args.incremental and not args.force and not existing_weather.empty:
+        available = existing_weather[
+            pd.to_numeric(existing_weather.get("weather_data_available", 0), errors="coerce").fillna(0) > 0
+        ]
+        available_race_ids = set(available["race_id"].astype(str))
+        schedule = schedule[~schedule["race_id"].astype(str).isin(available_race_ids)]
 
     rows: list[dict[str, Any]] = []
     total = len(schedule)
@@ -226,13 +250,30 @@ def main() -> None:
             rows.append(placeholder_weather(str(race.race_id)))
         time.sleep(args.sleep)
 
-    weather = pd.DataFrame(rows)
+    new_weather = pd.DataFrame(rows)
+    if args.incremental and not existing_weather.empty:
+        if new_weather.empty:
+            weather = existing_weather.copy()
+        else:
+            replaced_race_ids = set(new_weather["race_id"].astype(str))
+            kept_weather = existing_weather[
+                ~existing_weather["race_id"].astype(str).isin(replaced_race_ids)
+            ].copy()
+            weather = pd.concat([kept_weather, new_weather], ignore_index=True)
+    else:
+        weather = new_weather
+
+    if not weather.empty:
+        weather = weather.sort_values("race_id").reset_index(drop=True)
+
     args.output.parent.mkdir(parents=True, exist_ok=True)
     weather.to_csv(args.output, index=False)
 
     available = int(weather["weather_data_available"].sum()) if not weather.empty else 0
     print(f"Wrote {args.output}: {weather.shape[0]} rows, {weather.shape[1]} columns")
     print(f"Weather available: {available}/{len(weather)} races")
+    if args.incremental:
+        print(f"Fetched new weather rows this run: {len(new_weather)}")
 
 
 if __name__ == "__main__":

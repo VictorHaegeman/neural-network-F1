@@ -1,13 +1,5 @@
 [
   {
-    "race_id": "2026_04",
-    "grand_prix": "Miami Grand Prix",
-    "race_date": "2026-05-03",
-    "weather_source": "open_meteo_forecast",
-    "qualifying_source": "jolpica_actual_qualifying",
-    "output": "outputs\\predictions\\upcoming_top10_predictions_2026_round04_miami_grand_prix.csv"
-  },
-  {
     "race_id": "2026_05",
     "grand_prix": "Canadian Grand Prix",
     "race_date": "2026-05-24",
@@ -30,5 +22,13 @@
     "weather_source": "circuit_history",
     "qualifying_source": "estimated_strength_order",
     "output": "outputs\\predictions\\upcoming_top10_predictions_2026_round07_barcelona_grand_prix.csv"
+  },
+  {
+    "race_id": "2026_08",
+    "grand_prix": "Austrian Grand Prix",
+    "race_date": "2026-06-28",
+    "weather_source": "circuit_history",
+    "qualifying_source": "estimated_strength_order",
+    "output": "outputs\\predictions\\upcoming_top10_predictions_2026_round08_austrian_grand_prix.csv"
   }
 ]

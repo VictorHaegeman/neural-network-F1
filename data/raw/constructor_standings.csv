@@ -3261,3 +3261,14 @@ race_id,constructor_id,constructor_position_before_race,constructor_points_befor
 2026_03,williams,9,2.0,0,2.0
 2026_03,cadillac,11,0.0,0,0.0
 2026_03,aston_martin,10,0.0,0,0.0
+2026_04,mercedes,1,123.0,3,153.0
+2026_04,mclaren,3,38.0,0,38.0
+2026_04,red_bull,6,16.0,0,16.0
+2026_04,ferrari,2,77.0,0,77.0
+2026_04,alpine,5,16.0,0,16.0
+2026_04,williams,9,2.0,0,2.0
+2026_04,haas,4,17.0,0,17.0
+2026_04,audi,8,2.0,0,2.0
+2026_04,rb,7,12.0,0,12.0
+2026_04,aston_martin,10,0.0,0,0.0
+2026_04,cadillac,11,0.0,0,0.0

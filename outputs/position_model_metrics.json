@@ -1,17 +1,17 @@
 {
-  "best_position_model": "neural_network_mlp_regressor",
+  "best_position_model": "hist_gradient_boosting_regressor",
   "best_holdout": {
-    "model": "neural_network_mlp_regressor",
+    "model": "hist_gradient_boosting_regressor",
     "train_rows": 5976,
     "test_rows": 479,
     "test_season": 2025,
-    "position_mae_raw": 3.2422566957034413,
-    "position_rmse_raw": 4.573160154075418,
-    "race_precision_at_10": 0.7708333333333334,
-    "all_rank_mae": 3.375,
-    "actual_top10_rank_mae": 2.645833333333333,
-    "predicted_top10_rank_mae": 3.15,
-    "mean_spearman_by_race": 0.6551587301587302
+    "position_mae_raw": 3.25271530109328,
+    "position_rmse_raw": 4.3486667189763555,
+    "race_precision_at_10": 0.775,
+    "all_rank_mae": 3.402850877192982,
+    "actual_top10_rank_mae": 2.6,
+    "predicted_top10_rank_mae": 3.1791666666666667,
+    "mean_spearman_by_race": 0.6482873851294905
   },
   "model_path": "outputs\\models\\finish_position_regressor.joblib",
   "neural_model_path": "outputs\\models\\finish_position_neural_network_mlp.joblib",

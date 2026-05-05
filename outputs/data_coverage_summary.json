@@ -1,12 +1,12 @@
 {
   "season": 2026,
   "scheduled_races": 22,
-  "api_result_races": 3,
-  "local_result_races": 3,
+  "api_result_races": 4,
+  "local_result_races": 4,
   "api_qualifying_races": 4,
   "local_qualifying_races": 4,
-  "local_fastf1_weather_races": 0,
-  "final_dataset_races": 3,
+  "local_fastf1_weather_races": 4,
+  "final_dataset_races": 4,
   "missing_local_results_available_in_api": [],
   "missing_local_qualifying_available_in_api": [],
   "api_results_without_final_rows": []
