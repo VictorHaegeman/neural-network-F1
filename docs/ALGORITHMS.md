@@ -36,6 +36,7 @@ The neural-network code is split into three parts:
 | `scripts/visualize_neural_network_3d.py` | 3D hidden-space visualisation generation |
 | `outputs/figures/neural_network_tuning.png` | PNG comparison of MLP configs |
 | `outputs/figures/neural_network_embedding_3d.html` | Interactive 3D cluster view |
+| `outputs/figures/neural_network_embedding_3d.png` | Static 3D cluster image for the report |
 
 To open the live 3D view in a browser:
 

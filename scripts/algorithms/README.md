@@ -35,6 +35,7 @@ The most useful visual outputs are:
 
 - `outputs/figures/neural_network_tuning.png`
 - `outputs/figures/neural_network_embedding_3d.html`
+- `outputs/figures/neural_network_embedding_3d.png`
 - `outputs/figures/position_model_comparison.png`
 
 The trained model files are generated in `outputs/models/`, but they are not

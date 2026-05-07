@@ -3,6 +3,8 @@
   "summary_path": "outputs\\predictions\\race_model_renders\\race_model_summary_2025.csv",
   "figure_dir": "outputs\\figures\\predictions",
   "race_card_dir": "outputs\\figures\\predictions\\race_cards",
+  "race_overview_dir": "outputs\\figures\\predictions\\race_overviews",
+  "race_overviews_generated": 24,
   "race_cards_generated": 24,
   "headshots_available": 21,
   "headshot_source": "OpenF1 drivers endpoint headshot_url when --with-headshots is used; local fallback initials otherwise.",

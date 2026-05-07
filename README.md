@@ -149,8 +149,11 @@ Main outputs:
 - `outputs/predictions/upcoming_top10_predictions.csv`: pre-race predictions for upcoming races
 - `outputs/predictions/race_model_renders/*.csv`: per-race, per-model prediction rankings and analysis
 - `outputs/figures/*.png`: EDA and model figures
-- `outputs/figures/predictions/*.png`: race-level model comparison figures and virtual podium renders
+- `outputs/figures/predictions/*.png`: race-level model comparison figures
+- `outputs/figures/predictions/race_overviews/*.png`: readable one-page race visual summaries with real results and model predictions
+- `outputs/figures/predictions/race_cards/*.png`: detailed virtual podium and predicted top-10 cards
 - `outputs/figures/neural_network_embedding_3d.html`: interactive 3D neural-network cluster view
+- `outputs/figures/neural_network_embedding_3d.png`: static 3D neural-network cluster image for the report
 - `report/Report.docx`: Word report generated from `report/Report.md`
 - `report/Report.pdf`: PDF report generated from `report/Report.md`
 - `submission/IML_Assignment_GroupX.zip`: reproducible submission archive

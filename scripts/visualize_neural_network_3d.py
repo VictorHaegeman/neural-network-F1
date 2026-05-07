@@ -5,6 +5,10 @@ import webbrowser
 from pathlib import Path
 
 import joblib
+import matplotlib
+
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import plotly.express as px
@@ -19,6 +23,7 @@ from train_model import TARGET, build_features
 DATA_PATH = Path("data/final/f1_top10_model_dataset.csv")
 MODEL_PATH = Path("outputs/models/top10_neural_network_mlp.joblib")
 HTML_OUTPUT_PATH = Path("outputs/figures/neural_network_embedding_3d.html")
+PNG_OUTPUT_PATH = Path("outputs/figures/neural_network_embedding_3d.png")
 CSV_OUTPUT_PATH = Path("outputs/neural_network_embedding_3d.csv")
 RANDOM_STATE = 42
 
@@ -30,6 +35,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--data", type=Path, default=DATA_PATH)
     parser.add_argument("--model", type=Path, default=MODEL_PATH)
     parser.add_argument("--output", type=Path, default=HTML_OUTPUT_PATH)
+    parser.add_argument("--png-output", type=Path, default=PNG_OUTPUT_PATH)
     parser.add_argument("--csv-output", type=Path, default=CSV_OUTPUT_PATH)
     parser.add_argument("--max-rows", type=int, default=3500)
     parser.add_argument("--clusters", type=int, default=8)
@@ -49,6 +55,67 @@ def parse_args() -> argparse.Namespace:
         default="cluster",
     )
     return parser.parse_args()
+
+
+def save_static_3d_plot(points: pd.DataFrame, color_column: str, output_path: Path) -> None:
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    fig = plt.figure(figsize=(13.5, 8.5))
+    ax = fig.add_subplot(111, projection="3d")
+    fig.patch.set_facecolor("#F5F2E8")
+    ax.set_facecolor("#FFFFFF")
+
+    if color_column in {"cluster", "target"}:
+        categories = sorted(points[color_column].astype(str).unique())
+        cmap = plt.get_cmap("tab10")
+        for index, category in enumerate(categories):
+            mask = points[color_column].astype(str) == category
+            ax.scatter(
+                points.loc[mask, "x"],
+                points.loc[mask, "y"],
+                points.loc[mask, "z"],
+                s=12,
+                alpha=0.76,
+                color=cmap(index % 10),
+                label=f"{color_column} {category}",
+                depthshade=True,
+            )
+        ax.legend(loc="upper left", bbox_to_anchor=(1.02, 0.96), frameon=False, fontsize=9)
+    else:
+        scatter = ax.scatter(
+            points["x"],
+            points["y"],
+            points["z"],
+            c=points[color_column],
+            cmap="viridis",
+            s=12,
+            alpha=0.76,
+            depthshade=True,
+        )
+        cbar = fig.colorbar(scatter, ax=ax, shrink=0.72, pad=0.1)
+        cbar.set_label(color_column.replace("_", " ").title())
+
+    ax.set_title(
+        "Neural Network Hidden-Space Embedding\n3D PCA projection of the MLP internal representation",
+        fontsize=18,
+        fontweight="bold",
+        color="#123C43",
+        pad=18,
+    )
+    ax.set_xlabel("PCA 1")
+    ax.set_ylabel("PCA 2")
+    ax.set_zlabel("PCA 3")
+    ax.view_init(elev=22, azim=135)
+    ax.grid(True, alpha=0.35)
+    fig.text(
+        0.03,
+        0.035,
+        "Each point is a driver-race row. Colors show the selected cluster/target/probability/season view.",
+        fontsize=10,
+        color="#333333",
+    )
+    plt.tight_layout(rect=(0, 0.05, 0.92, 0.98))
+    fig.savefig(output_path, dpi=180)
+    plt.close(fig)
 
 
 def load_pipeline(path: Path) -> Pipeline:
@@ -197,9 +264,11 @@ def main() -> None:
         },
     )
     points.to_csv(args.csv_output, index=False)
+    save_static_3d_plot(points, color_column, args.png_output)
 
     explained = ", ".join(f"{value:.1%}" for value in pca.explained_variance_ratio_)
     print(f"Wrote {args.output}")
+    print(f"Wrote {args.png_output}")
     print(f"Wrote {args.csv_output}")
     print(f"PCA explained variance: {explained}")
     print(f"Rows visualized: {len(points)}")

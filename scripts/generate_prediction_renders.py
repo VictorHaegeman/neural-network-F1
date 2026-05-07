@@ -29,6 +29,7 @@ PREDICTIONS_PATH = OUTPUTS_PATH / "predictions"
 RENDER_PATH = PREDICTIONS_PATH / "race_model_renders"
 FIGURE_PATH = FIGURES_PATH / "predictions"
 RACE_CARD_PATH = FIGURE_PATH / "race_cards"
+RACE_OVERVIEW_PATH = FIGURE_PATH / "race_overviews"
 HEADSHOT_PATH = OUTPUTS_PATH / "driver_headshots"
 OPENF1_BASE_URL = "https://api.openf1.org/v1"
 
@@ -74,6 +75,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--with-headshots", action="store_true", help="Fetch OpenF1/F1 CDN driver headshots.")
     parser.add_argument("--max-races", type=int, default=None, help="Optional cap for generated race cards.")
     parser.add_argument("--skip-cards", action="store_true")
+    parser.add_argument("--skip-overviews", action="store_true")
     return parser.parse_args()
 
 
@@ -407,6 +409,38 @@ def draw_text_fit(
     draw.text(xy, text[: max(8, max_width // 8)], fill=fill, font=font(10, bold=bold))
 
 
+def draw_wrapped_text(
+    draw: ImageDraw.ImageDraw,
+    xy: tuple[int, int],
+    text: str,
+    max_width: int,
+    line_height: int,
+    size: int,
+    fill: str,
+    bold: bool = False,
+    max_lines: int = 3,
+) -> None:
+    words = text.split()
+    lines: list[str] = []
+    current = ""
+    fnt = font(size, bold=bold)
+    for word in words:
+        candidate = f"{current} {word}".strip()
+        if draw.textlength(candidate, font=fnt) <= max_width:
+            current = candidate
+            continue
+        if current:
+            lines.append(current)
+        current = word
+        if len(lines) == max_lines:
+            break
+    if current and len(lines) < max_lines:
+        lines.append(current)
+    for index, line in enumerate(lines[:max_lines]):
+        suffix = "..." if index == max_lines - 1 and len(lines) > max_lines else ""
+        draw.text((xy[0], xy[1] + index * line_height), line + suffix, fill=fill, font=fnt)
+
+
 def render_race_card(
     race_id: str,
     race_rankings: pd.DataFrame,
@@ -517,6 +551,153 @@ def render_race_card(
     image.save(output_path)
 
 
+def render_race_overview(
+    race_id: str,
+    race_rankings: pd.DataFrame,
+    race_summary: pd.DataFrame,
+    image_map: dict[str, Path],
+    output_path: Path,
+) -> None:
+    race_summary = race_summary.copy()
+    race_summary["model_priority"] = race_summary["model"].map(MODEL_PRIORITY).fillna(999).astype(int)
+    race_summary = race_summary.sort_values(
+        ["race_rank_among_models", "model_priority"],
+        ascending=[True, True],
+    )
+
+    race_name = str(race_rankings["grand_prix"].iloc[0])
+    season = int(race_rankings["season"].iloc[0])
+    round_number = int(race_rankings["round"].iloc[0])
+    best_models = set(str(race_summary.iloc[0].get("best_models_for_race", "")).split("|"))
+
+    width, height = 2200, 1400
+    image = Image.new("RGB", (width, height), "#F3F0E8")
+    draw = ImageDraw.Draw(image)
+
+    draw.rectangle((0, 0, width, 150), fill="#123C43")
+    draw.text((58, 40), f"{season} Round {round_number:02d} - {race_name}", fill="white", font=font(40, bold=True))
+    draw.text(
+        (58, 98),
+        "Race overview: real top 10, model scoreboard, virtual podiums and per-model predicted top 10.",
+        fill="#D8A31A",
+        font=font(21),
+    )
+
+    actual_top10 = (
+        race_rankings.drop_duplicates("driver_id")
+        .sort_values("final_position")
+        .head(10)
+        [["driver_code", "driver_name", "constructor_name", "final_position", "points"]]
+    )
+
+    left = 60
+    top = 185
+    panel_w = 610
+    panel_h = 1128
+    draw_rounded(draw, (left, top, left + panel_w, top + panel_h), "#FFFFFF", "#D8A31A", 3)
+    draw.text((left + 26, top + 24), "Real race result - top 10", fill="#123C43", font=font(26, bold=True))
+    y = top + 76
+    for _, row in actual_top10.iterrows():
+        color = constructor_color(str(row["constructor_name"]))
+        row_fill = "#F7F7F7" if int(row["final_position"]) % 2 else "#EAF3F4"
+        draw.rounded_rectangle((left + 22, y, left + panel_w - 22, y + 82), radius=12, fill=row_fill)
+        avatar = circular_driver_image(str(row["driver_code"]), str(row["driver_name"]), image_map, 58, color)
+        image.paste(avatar, (left + 36, y + 12), avatar)
+        draw.text((left + 108, y + 13), f"P{int(row['final_position'])} {row['driver_code']}", fill="#111111", font=font(20, bold=True))
+        draw_text_fit(draw, (left + 108, y + 39), str(row["driver_name"]), 330, 15, "#333333")
+        draw.text((left + panel_w - 110, y + 28), f"{row['points']:.0f} pts", fill="#123C43", font=font(18, bold=True))
+        y += 94
+
+    middle = 705
+    middle_w = 610
+    draw_rounded(draw, (middle, top, middle + middle_w, top + 540), "#FFFFFF", "#D0D0D0", 2)
+    draw.text((middle + 26, top + 24), "Model scoreboard", fill="#123C43", font=font(26, bold=True))
+    draw.text((middle + 28, top + 64), "hits / points / podium", fill="#666666", font=font(15))
+    y = top + 100
+    for _, row in race_summary.iterrows():
+        model_name = str(row["model"])
+        is_best = model_name in best_models
+        fill = "#FFF4CF" if is_best else "#F7F7F7"
+        outline = "#D8A31A" if is_best else "#DDDDDD"
+        draw.rounded_rectangle((middle + 22, y, middle + middle_w - 22, y + 72), radius=13, fill=fill, outline=outline, width=2)
+        draw.text((middle + 42, y + 13), model_label(model_name).replace("\n", " "), fill="#123C43", font=font(18, bold=True))
+        draw.text(
+            (middle + 42, y + 42),
+            f"{int(row['top10_hits'])}/10 hits | {row['predicted_top10_actual_points']:.0f} pts | {int(row['podium_hits'])}/3 podium",
+            fill="#333333",
+            font=font(15),
+        )
+        badge = str(row.get("model_result_label", "RANK"))
+        badge_fill = "#D8A31A" if is_best else "#E7E1D3"
+        draw.rounded_rectangle((middle + middle_w - 140, y + 20, middle + middle_w - 42, y + 48), radius=9, fill=badge_fill)
+        draw.text((middle + middle_w - 126, y + 27), badge.replace("TIED BEST", "TIED"), fill="#123C43", font=font(12, bold=True))
+        y += 84
+
+    draw_rounded(draw, (middle, top + 575, middle + middle_w, top + panel_h), "#FFFFFF", "#D0D0D0", 2)
+    draw.text((middle + 26, top + 600), "Virtual podiums", fill="#123C43", font=font(26, bold=True))
+    y = top + 652
+    for _, row in race_summary.iterrows():
+        model_name = str(row["model"])
+        model_df = race_rankings[race_rankings["model"] == model_name].sort_values("predicted_rank").head(3)
+        podium_codes = []
+        for _, podium_row in model_df.iterrows():
+            podium_codes.append(f"{int(podium_row['predicted_rank'])}. {podium_row['driver_code']} (real P{int(podium_row['final_position'])})")
+        draw_text_fit(draw, (middle + 30, y), model_label(model_name).replace("\n", " "), middle_w - 70, 16, "#123C43", bold=True)
+        draw_wrapped_text(draw, (middle + 30, y + 26), " | ".join(podium_codes), middle_w - 70, 19, 14, "#333333", max_lines=2)
+        y += 86
+
+    right = 1350
+    right_w = 790
+    draw_rounded(draw, (right, top, right + right_w, top + panel_h), "#FFFFFF", "#D0D0D0", 2)
+    draw.text((right + 26, top + 24), "Predicted top 10 by model", fill="#123C43", font=font(26, bold=True))
+    draw.text((right + 28, top + 64), "Green chips finished in the real top 10; red chips missed it.", fill="#666666", font=font(15))
+    best_text = str(race_summary.iloc[0].get("race_explanation", ""))
+    draw.rounded_rectangle((right + 28, top + 112, right + right_w - 28, top + 172), radius=10, outline="#D8A31A", width=2)
+    draw_wrapped_text(draw, (right + 45, top + 126), best_text, right_w - 100, 18, 13, "#333333", max_lines=2)
+
+    y = top + 205
+    chip_w = 48
+    chip_gap = 4
+    for _, summary_row in race_summary.iterrows():
+        model_name = str(summary_row["model"])
+        model_df = race_rankings[race_rankings["model"] == model_name].sort_values("predicted_rank").head(10)
+        draw_text_fit(draw, (right + 28, y + 11), model_label(model_name).replace("\n", " "), 210, 16, "#123C43", bold=True)
+        x = right + 250
+        for _, row in model_df.iterrows():
+            hit = int(row["hit_top10"]) == 1
+            chip_fill = "#DFF0E5" if hit else "#F4DCD8"
+            chip_outline = "#92B69E" if hit else "#CC9992"
+            draw.rounded_rectangle((x, y, x + chip_w, y + 42), radius=10, fill=chip_fill, outline=chip_outline, width=1)
+            draw.text((x + chip_w / 2, y + 11), str(row["driver_code"]), fill="#111111", font=font(10, bold=True), anchor="ma")
+            x += chip_w + chip_gap
+        y += 62
+
+    consensus = (
+        race_rankings[race_rankings["predicted_top10"] == 1]
+        .groupby(["driver_code", "driver_name", "constructor_name", "final_position", "points"], as_index=False)
+        .agg(model_votes=("model", "nunique"))
+        .sort_values(["model_votes", "points", "final_position"], ascending=[False, False, True])
+        .head(5)
+    )
+    draw.text((right + 28, top + 750), "Consensus picks", fill="#123C43", font=font(22, bold=True))
+    y = top + 795
+    for _, row in consensus.iterrows():
+        hit = int(row["final_position"]) <= 10
+        fill = "#DFF0E5" if hit else "#F4DCD8"
+        draw.rounded_rectangle((right + 28, y, right + right_w - 28, y + 48), radius=10, fill=fill)
+        draw.text((right + 46, y + 13), f"{row['driver_code']} {row['driver_name']}", fill="#111111", font=font(15, bold=True))
+        draw.text(
+            (right + right_w - 250, y + 13),
+            f"{int(row['model_votes'])}/{len(race_summary)} models | real P{int(row['final_position'])} | {row['points']:.0f} pts",
+            fill="#333333",
+            font=font(14),
+        )
+        y += 58
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    image.save(output_path)
+
+
 def save_summary_figures(rankings: pd.DataFrame, summary: pd.DataFrame) -> None:
     FIGURE_PATH.mkdir(parents=True, exist_ok=True)
     plot_summary = summary.copy()
@@ -581,6 +762,7 @@ def main() -> None:
     RENDER_PATH.mkdir(parents=True, exist_ok=True)
     FIGURE_PATH.mkdir(parents=True, exist_ok=True)
     RACE_CARD_PATH.mkdir(parents=True, exist_ok=True)
+    RACE_OVERVIEW_PATH.mkdir(parents=True, exist_ok=True)
 
     rankings, summary = generate_predictions(df, args.test_season, args.models)
     rankings_path = RENDER_PATH / f"race_model_rankings_{args.test_season}.csv"
@@ -594,11 +776,27 @@ def main() -> None:
 
     save_summary_figures(rankings, summary)
 
+    races = rankings[["race_id", "round", "grand_prix"]].drop_duplicates().sort_values("round")
+    if args.max_races is not None:
+        races = races.head(args.max_races)
+
+    race_overviews: list[str] = []
+    if not args.skip_overviews:
+        for _, race in races.iterrows():
+            race_id = str(race["race_id"])
+            race_name = str(race["grand_prix"])
+            output = RACE_OVERVIEW_PATH / f"{race_id}_{slugify(race_name)}.png"
+            render_race_overview(
+                race_id=race_id,
+                race_rankings=rankings[rankings["race_id"] == race_id],
+                race_summary=summary[summary["race_id"] == race_id],
+                image_map=image_map,
+                output_path=output,
+            )
+            race_overviews.append(str(output))
+
     race_cards: list[str] = []
     if not args.skip_cards:
-        races = rankings[["race_id", "round", "grand_prix"]].drop_duplicates().sort_values("round")
-        if args.max_races is not None:
-            races = races.head(args.max_races)
         for _, race in races.iterrows():
             race_id = str(race["race_id"])
             race_name = str(race["grand_prix"])
@@ -617,6 +815,8 @@ def main() -> None:
         "summary_path": str(summary_path),
         "figure_dir": str(FIGURE_PATH),
         "race_card_dir": str(RACE_CARD_PATH),
+        "race_overview_dir": str(RACE_OVERVIEW_PATH),
+        "race_overviews_generated": len(race_overviews),
         "race_cards_generated": len(race_cards),
         "headshots_available": len(image_map),
         "headshot_source": "OpenF1 drivers endpoint headshot_url when --with-headshots is used; local fallback initials otherwise.",
@@ -629,6 +829,7 @@ def main() -> None:
     print(f"Rankings: {rankings_path}")
     print(f"Summary: {summary_path}")
     print(f"Figures: {FIGURE_PATH}")
+    print(f"Race overviews: {len(race_overviews)}")
     print(f"Race cards: {len(race_cards)}")
     print(f"Headshots available: {len(image_map)}")
 

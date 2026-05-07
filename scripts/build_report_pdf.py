@@ -38,11 +38,13 @@ FIGURES = [
     ("feature_importance.png", "Figure 11. Most influential features for the selected top-10 classifier."),
     ("confusion_matrix.png", "Figure 12. Confusion matrix for the selected holdout classifier."),
     ("neural_network_tuning.png", "Figure 13. Neural-network classifier tuning results, included as an extension."),
-    ("position_model_comparison.png", "Figure 14. Finish-position ranking model comparison, included as an extension."),
-    ("predictions/model_precision_by_race.png", "Figure 15. Correct predicted top-10 drivers per race and model on the 2025 holdout season."),
-    ("predictions/model_hit_heatmap.png", "Figure 16. Race-level heatmap of top-10 hits by model."),
-    ("predictions/model_points_captured.png", "Figure 17. Average actual points captured by each model's predicted top 10."),
-    ("predictions/race_cards/2025_08_monaco_grand_prix.png", "Figure 18. Example race card showing actual podium, virtual podiums and predicted top 10 lists."),
+    ("neural_network_embedding_3d.png", "Figure 14. Static view of the interactive 3D neural-network hidden-space embedding."),
+    ("position_model_comparison.png", "Figure 15. Finish-position ranking model comparison, included as an extension."),
+    ("predictions/model_precision_by_race.png", "Figure 16. Correct predicted top-10 drivers per race and model on the 2025 holdout season."),
+    ("predictions/model_hit_heatmap.png", "Figure 17. Race-level heatmap of top-10 hits by model."),
+    ("predictions/model_points_captured.png", "Figure 18. Average actual points captured by each model's predicted top 10."),
+    ("predictions/race_overviews/2025_08_monaco_grand_prix.png", "Figure 19. Example race overview with real result, model scoreboard, consensus picks and predicted top 10 chips."),
+    ("predictions/race_cards/2025_08_monaco_grand_prix.png", "Figure 20. Detailed race card showing actual podium, virtual podiums and predicted top 10 lists."),
 ]
 
 
