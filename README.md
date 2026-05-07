@@ -134,6 +134,7 @@ python scripts/validate_project.py
 | `outputs/model_comparison.csv` | Holdout metrics by algorithm |
 | `outputs/rolling_backtest.csv` | Season-by-season validation |
 | `outputs/metrics.json` | Champion model metrics |
+| `docs/DATA_IMPORT_RECOMMENDATIONS.md` | Data coverage audit and next import priorities |
 | `outputs/figures/*.png` | EDA and model-comparison figures |
 | `outputs/figures/predictions/race_overviews/*.png` | One-page race prediction visuals |
 | `outputs/figures/predictions/race_cards/*.png` | Detailed virtual podium and top-10 cards |
