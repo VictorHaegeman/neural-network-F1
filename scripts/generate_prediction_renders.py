@@ -55,6 +55,14 @@ MODEL_LABELS = {
     "neural_network_mlp": "Neural\nNetwork MLP",
 }
 
+MODEL_PRIORITY = {model_name: index for index, model_name in enumerate(MODEL_NAMES)}
+MODEL_SCORE_COLUMNS = [
+    "top10_hits",
+    "predicted_top10_actual_points",
+    "podium_hits",
+    "midfield_top10_hits",
+]
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
@@ -279,37 +287,70 @@ def generate_predictions(
 def add_race_explanations(summary: pd.DataFrame) -> pd.DataFrame:
     rows = []
     for _, race_group in summary.groupby("race_id"):
+        race_group = race_group.copy()
+        race_group["model_priority"] = race_group["model"].map(MODEL_PRIORITY).fillna(999).astype(int)
         ordered = race_group.sort_values(
-            ["top10_hits", "predicted_top10_actual_points", "podium_hits"],
-            ascending=[False, False, False],
+            MODEL_SCORE_COLUMNS + ["model_priority"],
+            ascending=[False, False, False, False, True],
         )
         best = ordered.iloc[0]
+        best_score = tuple(best[column] for column in MODEL_SCORE_COLUMNS)
+        best_models = ordered[
+            ordered.apply(lambda row: tuple(row[column] for column in MODEL_SCORE_COLUMNS) == best_score, axis=1)
+        ]["model"].astype(str).tolist()
         second = ordered.iloc[1] if len(ordered) > 1 else best
+
+        unique_scores = (
+            ordered[MODEL_SCORE_COLUMNS]
+            .drop_duplicates()
+            .sort_values(MODEL_SCORE_COLUMNS, ascending=[False, False, False, False])
+        )
+        score_to_rank = {
+            tuple(row[column] for column in MODEL_SCORE_COLUMNS): rank
+            for rank, (_, row) in enumerate(unique_scores.iterrows(), start=1)
+        }
+
         for _, row in race_group.iterrows():
-            if row["model"] == best["model"]:
+            row_score = tuple(row[column] for column in MODEL_SCORE_COLUMNS)
+            race_rank = score_to_rank[row_score]
+            if str(row["model"]) in best_models:
+                result_label = "TIED BEST" if len(best_models) > 1 else "BEST"
                 reason = (
-                    f"Best race-level model: {model_label(str(row['model'])).replace(chr(10), ' ')} found "
-                    f"{int(row['top10_hits'])}/10 actual top-10 drivers and captured "
-                    f"{int(row['midfield_top10_hits'])} top-10 finisher(s) starting outside the top 10."
+                    f"{result_label.title()} race-level model: {model_label(str(row['model'])).replace(chr(10), ' ')} "
+                    f"found {int(row['top10_hits'])}/10 actual top-10 drivers, captured "
+                    f"{row['predicted_top10_actual_points']:.0f} actual points and got "
+                    f"{int(row['podium_hits'])}/3 podium driver(s)."
                 )
             else:
                 gap = int(best["top10_hits"] - row["top10_hits"])
+                points_gap = float(best["predicted_top10_actual_points"] - row["predicted_top10_actual_points"])
                 if gap == 0:
-                    reason = (
-                        f"Tied on top-10 hits with the best model group at {int(row['top10_hits'])}/10. "
-                        f"The selected best model captured slightly more actual race points or podium hits."
-                    )
+                    if points_gap > 0:
+                        reason = (
+                            f"Matched the best group on top-10 hits ({int(row['top10_hits'])}/10), "
+                            f"but captured {points_gap:.0f} fewer actual point(s) in its predicted top 10."
+                        )
+                    else:
+                        reason = (
+                            f"Matched the best group on top-10 hits and points, but ranked lower on podium "
+                            f"or midfield tie-break indicators."
+                        )
                 else:
                     reason = (
                         f"Behind the best model by {gap} top-10 hit(s). It missed "
                         f"{int(row['actual_top10_missed'])} actual top-10 driver(s), while the best model "
                         f"reached {int(best['top10_hits'])}/10 hits."
                     )
+                result_label = f"RANK {race_rank}"
             row_dict = row.to_dict()
             row_dict["best_model_for_race"] = best["model"]
+            row_dict["best_models_for_race"] = "|".join(best_models)
             row_dict["best_model_top10_hits"] = int(best["top10_hits"])
             row_dict["runner_up_model_for_race"] = second["model"]
+            row_dict["race_rank_among_models"] = int(race_rank)
+            row_dict["model_result_label"] = result_label
             row_dict["race_explanation"] = reason
+            row_dict.pop("model_priority", None)
             rows.append(row_dict)
     return pd.DataFrame(rows).sort_values(["season", "round", "model"])
 
@@ -373,8 +414,14 @@ def render_race_card(
     image_map: dict[str, Path],
     output_path: Path,
 ) -> None:
-    available = set(race_summary["model"].unique())
-    models = [model for model in MODEL_NAMES if model in available]
+    race_summary = race_summary.copy()
+    race_summary["model_priority"] = race_summary["model"].map(MODEL_PRIORITY).fillna(999).astype(int)
+    race_summary = race_summary.sort_values(
+        ["race_rank_among_models", "model_priority"],
+        ascending=[True, True],
+    )
+    models = race_summary["model"].astype(str).tolist()
+    best_models = set(str(race_summary.iloc[0].get("best_models_for_race", "")).split("|"))
     race_name = str(race_rankings["grand_prix"].iloc[0])
     season = int(race_rankings["season"].iloc[0])
     round_number = int(race_rankings["round"].iloc[0])
@@ -386,7 +433,7 @@ def render_race_card(
     draw.text((60, 42), f"{season} Round {round_number:02d} - {race_name}", fill="white", font=font(40, bold=True))
     draw.text(
         (60, 98),
-        "Virtual podium and predicted top 10 by model. Green rows finished in the real top 10; points are actual race points.",
+        "Models are sorted by this race's score. Green rows finished top 10; red rows missed it; points are actual race points.",
         fill="#D8A31A",
         font=font(20),
     )
@@ -412,39 +459,58 @@ def render_race_card(
     for index, model_name in enumerate(models):
         model_df = race_rankings[race_rankings["model"] == model_name].sort_values("predicted_rank")
         summary_row = race_summary[race_summary["model"] == model_name].iloc[0]
+        result_label = str(summary_row.get("model_result_label", f"RANK {index + 1}"))
+        is_best = model_name in best_models
         left = 60 + index * (card_width + 24)
         right = left + card_width
-        draw_rounded(draw, (left, card_top, right, height - 55), "#FFFFFF", "#D0D0D0", 2)
-        draw.rectangle((left, card_top, right, card_top + 82), fill="#123C43")
+        outline = "#D8A31A" if is_best else "#D0D0D0"
+        outline_width = 5 if is_best else 2
+        header_fill = "#123C43" if is_best else "#263E47"
+        draw_rounded(draw, (left, card_top, right, height - 55), "#FFFFFF", outline, outline_width)
+        draw.rectangle((left, card_top, right, card_top + 92), fill=header_fill)
         draw.text((left + 18, card_top + 16), model_label(model_name), fill="white", font=font(22, bold=True))
+        badge_fill = "#D8A31A" if is_best else "#E7E1D3"
+        badge_text = "#123C43" if is_best else "#333333"
+        badge_x1 = right - 122
+        draw.rounded_rectangle((badge_x1, card_top + 16, right - 18, card_top + 45), radius=9, fill=badge_fill)
+        draw.text((badge_x1 + 12, card_top + 22), result_label.replace("TIED BEST", "TIED"), fill=badge_text, font=font(12, bold=True))
         draw.text(
             (left + 18, card_top + 58),
-            f"{int(summary_row['top10_hits'])}/10 hits | {summary_row['predicted_top10_actual_points']:.0f} pts",
+            f"{int(summary_row['top10_hits'])}/10 hits | {summary_row['predicted_top10_actual_points']:.0f} pts | {int(summary_row['podium_hits'])}/3 podium",
             fill="#D8A31A",
             font=font(15, bold=True),
         )
 
         podium = model_df.head(3)
-        y = card_top + 105
+        y = card_top + 116
         for _, row in podium.iterrows():
             color = constructor_color(str(row["constructor_name"]))
             avatar = circular_driver_image(str(row["driver_code"]), str(row["driver_name"]), image_map, 66, color)
             image.paste(avatar, (left + 18, y), avatar)
             draw.text((left + 96, y + 3), f"#{int(row['predicted_rank'])} {row['driver_code']}", fill="#111111", font=font(18, bold=True))
-            draw.text((left + 96, y + 27), f"Actual P{int(row['final_position'])} | {row['points']:.0f} pts", fill="#555555", font=font(14))
+            draw.text(
+                (left + 96, y + 27),
+                f"Actual P{int(row['final_position'])} | {row['points']:.0f} pts | {row['top10_probability']:.0%}",
+                fill="#555555",
+                font=font(14),
+            )
             y += 76
 
         y += 14
         draw.text((left + 18, y), "Predicted top 10", fill="#123C43", font=font(17, bold=True))
+        draw.text((right - 155, y + 3), "prob", fill="#666666", font=font(11, bold=True))
+        draw.text((right - 106, y + 3), "real", fill="#666666", font=font(11, bold=True))
+        draw.text((right - 59, y + 3), "pts", fill="#666666", font=font(11, bold=True))
         y += 30
         for _, row in model_df.head(10).iterrows():
             hit = int(row["hit_top10"]) == 1
             row_fill = "#E7F4EA" if hit else "#F7E4E1"
             draw.rounded_rectangle((left + 16, y, right - 16, y + 44), radius=9, fill=row_fill)
             draw.text((left + 28, y + 11), f"{int(row['predicted_rank']):02d}", fill="#111111", font=font(13, bold=True))
-            draw_text_fit(draw, (left + 62, y + 9), f"{row['driver_code']} {row['driver_name']}", card_width - 190, 14, "#222222", bold=True)
-            draw.text((right - 120, y + 9), f"P{int(row['final_position'])}", fill="#222222", font=font(13, bold=True))
-            draw.text((right - 72, y + 9), f"{row['points']:.0f} pts", fill="#555555", font=font(13))
+            draw_text_fit(draw, (left + 62, y + 9), f"{row['driver_code']} {row['driver_name']}", card_width - 245, 14, "#222222", bold=True)
+            draw.text((right - 156, y + 9), f"{row['top10_probability']:.0%}", fill="#555555", font=font(13, bold=True))
+            draw.text((right - 107, y + 9), f"P{int(row['final_position'])}", fill="#222222", font=font(13, bold=True))
+            draw.text((right - 59, y + 9), f"{row['points']:.0f}", fill="#555555", font=font(13))
             y += 50
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -453,13 +519,15 @@ def render_race_card(
 
 def save_summary_figures(rankings: pd.DataFrame, summary: pd.DataFrame) -> None:
     FIGURE_PATH.mkdir(parents=True, exist_ok=True)
+    plot_summary = summary.copy()
+    plot_summary["model_display"] = plot_summary["model"].map(lambda value: model_label(str(value)).replace("\n", " "))
 
     plt.figure(figsize=(14, 6))
     sns.lineplot(
-        data=summary,
+        data=plot_summary,
         x="round",
         y="top10_hits",
-        hue="model",
+        hue="model_display",
         marker="o",
     )
     plt.ylim(0, 10)
@@ -470,8 +538,8 @@ def save_summary_figures(rankings: pd.DataFrame, summary: pd.DataFrame) -> None:
     plt.savefig(FIGURE_PATH / "model_precision_by_race.png", dpi=180)
     plt.close()
 
-    heatmap = summary.pivot_table(index="grand_prix", columns="model", values="top10_hits", aggfunc="mean")
-    heatmap = heatmap.loc[summary.sort_values("round")["grand_prix"].drop_duplicates()]
+    heatmap = plot_summary.pivot_table(index="grand_prix", columns="model_display", values="top10_hits", aggfunc="mean")
+    heatmap = heatmap.loc[plot_summary.sort_values("round")["grand_prix"].drop_duplicates()]
     plt.figure(figsize=(11, 10))
     sns.heatmap(heatmap, annot=True, fmt=".0f", cmap="YlGnBu", vmin=0, vmax=10, cbar_kws={"label": "Top-10 hits"})
     plt.title("Race-Level Top-10 Hits Heatmap")
@@ -481,10 +549,10 @@ def save_summary_figures(rankings: pd.DataFrame, summary: pd.DataFrame) -> None:
     plt.savefig(FIGURE_PATH / "model_hit_heatmap.png", dpi=180)
     plt.close()
 
-    points = summary.pivot_table(index="model", values="predicted_top10_actual_points", aggfunc="mean").reset_index()
+    points = plot_summary.pivot_table(index="model_display", values="predicted_top10_actual_points", aggfunc="mean").reset_index()
     points = points.sort_values("predicted_top10_actual_points", ascending=False)
     plt.figure(figsize=(9, 5))
-    sns.barplot(data=points, x="predicted_top10_actual_points", y="model", color="#D8A31A")
+    sns.barplot(data=points, x="predicted_top10_actual_points", y="model_display", color="#D8A31A")
     plt.title("Average Actual Points Captured by Each Model's Predicted Top 10")
     plt.xlabel("Average actual points among predicted top-10 drivers")
     plt.ylabel("")

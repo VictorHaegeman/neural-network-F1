@@ -3,10 +3,10 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_01,2025,1,Australian Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,3,2,18.0,1,extra_trees,0.8307180482163028,2,1,1,1,1
 2025_01,2025,1,Australian Grand Prix,piastri,PIA,Oscar Piastri,McLaren,2,9,2.0,1,extra_trees,0.8130670718964352,3,1,1,1,0
 2025_01,2025,1,Australian Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,8,10,1.0,1,extra_trees,0.7946016003702435,4,1,1,0,0
-2025_01,2025,1,Australian Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,7,8,4.0,1,extra_trees,0.7705107688620565,5,1,1,0,0
+2025_01,2025,1,Australian Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,7,8,4.0,1,extra_trees,0.7705107688620566,5,1,1,0,0
 2025_01,2025,1,Australian Grand Prix,russell,RUS,George Russell,Mercedes,4,3,15.0,1,extra_trees,0.7598875687575243,6,1,1,0,0
 2025_01,2025,1,Australian Grand Prix,sainz,SAI,Carlos Sainz,Williams,10,18,0.0,0,extra_trees,0.6957476658850668,7,1,0,0,0
-2025_01,2025,1,Australian Grand Prix,tsunoda,TSU,Yuki Tsunoda,RB F1 Team,5,12,0.0,0,extra_trees,0.6665874761800483,8,1,0,0,0
+2025_01,2025,1,Australian Grand Prix,tsunoda,TSU,Yuki Tsunoda,RB F1 Team,5,12,0.0,0,extra_trees,0.6665874761800484,8,1,0,0,0
 2025_01,2025,1,Australian Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,9,11,0.0,0,extra_trees,0.6140069438661383,9,1,0,0,0
 2025_01,2025,1,Australian Grand Prix,albon,ALB,Alexander Albon,Williams,6,5,10.0,1,extra_trees,0.4684250031941124,10,1,1,0,0
 2025_01,2025,1,Australian Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,12,17,0.0,0,extra_trees,0.43616974239008033,11,0,0,0,0
@@ -79,23 +79,23 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_01,2025,1,Australian Grand Prix,doohan,DOO,Jack Doohan,Alpine F1 Team,14,19,0.0,0,neural_network_mlp,0.11830916307756342,18,0,0,0,0
 2025_01,2025,1,Australian Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,20,14,0.0,0,neural_network_mlp,0.11709130694468328,19,0,0,0,0
 2025_01,2025,1,Australian Grand Prix,lawson,LAW,Liam Lawson,Red Bull,18,15,0.0,0,neural_network_mlp,0.11409785924110534,20,0,0,0,0
-2025_01,2025,1,Australian Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,3,2,18.0,1,random_forest,0.8099172124026975,1,1,1,1,1
+2025_01,2025,1,Australian Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,3,2,18.0,1,random_forest,0.8099172124026974,1,1,1,1,1
 2025_01,2025,1,Australian Grand Prix,norris,NOR,Lando Norris,McLaren,1,1,25.0,1,random_forest,0.8002988409805272,2,1,1,1,1
 2025_01,2025,1,Australian Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,7,8,4.0,1,random_forest,0.7927774780645024,3,1,1,1,0
 2025_01,2025,1,Australian Grand Prix,russell,RUS,George Russell,Mercedes,4,3,15.0,1,random_forest,0.7904130424883073,4,1,1,0,0
 2025_01,2025,1,Australian Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,8,10,1.0,1,random_forest,0.7797406194321111,5,1,1,0,0
-2025_01,2025,1,Australian Grand Prix,piastri,PIA,Oscar Piastri,McLaren,2,9,2.0,1,random_forest,0.7692044355301476,6,1,1,0,0
-2025_01,2025,1,Australian Grand Prix,sainz,SAI,Carlos Sainz,Williams,10,18,0.0,0,random_forest,0.6997019575399146,7,1,0,0,0
+2025_01,2025,1,Australian Grand Prix,piastri,PIA,Oscar Piastri,McLaren,2,9,2.0,1,random_forest,0.7692044355301477,6,1,1,0,0
+2025_01,2025,1,Australian Grand Prix,sainz,SAI,Carlos Sainz,Williams,10,18,0.0,0,random_forest,0.6997019575399145,7,1,0,0,0
 2025_01,2025,1,Australian Grand Prix,tsunoda,TSU,Yuki Tsunoda,RB F1 Team,5,12,0.0,0,random_forest,0.6567432264570123,8,1,0,0,0
-2025_01,2025,1,Australian Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,9,11,0.0,0,random_forest,0.6511659038719487,9,1,0,0,0
+2025_01,2025,1,Australian Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,9,11,0.0,0,random_forest,0.651165903871949,9,1,0,0,0
 2025_01,2025,1,Australian Grand Prix,albon,ALB,Alexander Albon,Williams,6,5,10.0,1,random_forest,0.5115516176403125,10,1,1,0,0
 2025_01,2025,1,Australian Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,12,17,0.0,0,random_forest,0.40734416412238195,11,0,0,0,0
-2025_01,2025,1,Australian Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,11,20,0.0,0,random_forest,0.3735789785135882,12,0,0,0,0
+2025_01,2025,1,Australian Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,11,20,0.0,0,random_forest,0.3735789785135881,12,0,0,0,0
 2025_01,2025,1,Australian Grand Prix,stroll,STR,Lance Stroll,Aston Martin,13,6,8.0,1,random_forest,0.336691068657482,13,0,0,0,0
 2025_01,2025,1,Australian Grand Prix,doohan,DOO,Jack Doohan,Alpine F1 Team,14,19,0.0,0,random_forest,0.3337252906469818,14,0,0,0,0
 2025_01,2025,1,Australian Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,19,13,0.0,0,random_forest,0.3129764297073305,15,0,0,0,0
 2025_01,2025,1,Australian Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,17,7,6.0,1,random_forest,0.3118910853140059,16,0,0,0,0
-2025_01,2025,1,Australian Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,16,4,12.0,1,random_forest,0.3054385116573719,17,0,0,0,0
+2025_01,2025,1,Australian Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,16,4,12.0,1,random_forest,0.30543851165737196,17,0,0,0,0
 2025_01,2025,1,Australian Grand Prix,lawson,LAW,Liam Lawson,Red Bull,18,15,0.0,0,random_forest,0.30510727420671646,18,0,0,0,0
 2025_01,2025,1,Australian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,15,16,0.0,0,random_forest,0.2844136588011065,19,0,0,0,0
 2025_01,2025,1,Australian Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,20,14,0.0,0,random_forest,0.2639665083360497,20,0,0,0,0
@@ -108,9 +108,9 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_02,2025,2,Chinese Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,8,6,8.0,1,extra_trees,0.7649121663318439,7,1,1,0,0
 2025_02,2025,2,Chinese Grand Prix,tsunoda,TSU,Yuki Tsunoda,RB F1 Team,9,16,0.0,0,extra_trees,0.5050583688440768,8,1,0,0,0
 2025_02,2025,2,Chinese Grand Prix,sainz,SAI,Carlos Sainz,Williams,15,10,1.0,1,extra_trees,0.48398695480633613,9,1,1,0,0
-2025_02,2025,2,Chinese Grand Prix,albon,ALB,Alexander Albon,Williams,10,7,6.0,1,extra_trees,0.46723948346174243,10,1,1,0,0
+2025_02,2025,2,Chinese Grand Prix,albon,ALB,Alexander Albon,Williams,10,7,6.0,1,extra_trees,0.4672394834617425,10,1,1,0,0
 2025_02,2025,2,Chinese Grand Prix,lawson,LAW,Liam Lawson,Red Bull,20,12,0.0,0,extra_trees,0.43749562890380417,11,0,0,0,0
-2025_02,2025,2,Chinese Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,12,15,0.0,0,extra_trees,0.4114525631899749,12,0,0,0,0
+2025_02,2025,2,Chinese Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,12,15,0.0,0,extra_trees,0.41145256318997486,12,0,0,0,0
 2025_02,2025,2,Chinese Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,7,11,0.0,0,extra_trees,0.40801352824282017,13,0,0,0,0
 2025_02,2025,2,Chinese Grand Prix,stroll,STR,Lance Stroll,Aston Martin,14,9,2.0,1,extra_trees,0.35246305920927373,14,0,0,0,0
 2025_02,2025,2,Chinese Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,13,17,0.0,0,extra_trees,0.3501163264747534,15,0,0,0,0
@@ -182,7 +182,7 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_02,2025,2,Chinese Grand Prix,norris,NOR,Lando Norris,McLaren,3,2,18.0,1,random_forest,0.8589523747043188,1,1,1,1,1
 2025_02,2025,2,Chinese Grand Prix,russell,RUS,George Russell,Mercedes,2,3,15.0,1,random_forest,0.8551134334613331,2,1,1,1,1
 2025_02,2025,2,Chinese Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,4,4,12.0,1,random_forest,0.853377678649916,3,1,1,1,0
-2025_02,2025,2,Chinese Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,5,19,0.0,0,random_forest,0.8018339966519155,4,1,0,0,0
+2025_02,2025,2,Chinese Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,5,19,0.0,0,random_forest,0.8018339966519156,4,1,0,0,0
 2025_02,2025,2,Chinese Grand Prix,piastri,PIA,Oscar Piastri,McLaren,1,1,25.0,1,random_forest,0.8001702924025464,5,1,1,0,0
 2025_02,2025,2,Chinese Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,6,18,0.0,0,random_forest,0.7887890933373706,6,1,0,0,0
 2025_02,2025,2,Chinese Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,8,6,8.0,1,random_forest,0.6537622941685308,7,1,1,0,0
@@ -194,29 +194,29 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_02,2025,2,Chinese Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,11,5,10.0,1,random_forest,0.37251008234826455,13,0,0,0,0
 2025_02,2025,2,Chinese Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,16,20,0.0,0,random_forest,0.34718264449748004,14,0,0,0,0
 2025_02,2025,2,Chinese Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,13,17,0.0,0,random_forest,0.3443149104844656,15,0,0,0,0
-2025_02,2025,2,Chinese Grand Prix,stroll,STR,Lance Stroll,Aston Martin,14,9,2.0,1,random_forest,0.3390675935553021,16,0,0,0,0
+2025_02,2025,2,Chinese Grand Prix,stroll,STR,Lance Stroll,Aston Martin,14,9,2.0,1,random_forest,0.33906759355530214,16,0,0,0,0
 2025_02,2025,2,Chinese Grand Prix,lawson,LAW,Liam Lawson,Red Bull,20,12,0.0,0,random_forest,0.27067886729426577,17,0,0,0,0
-2025_02,2025,2,Chinese Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,19,14,0.0,0,random_forest,0.2014166383472112,18,0,0,0,0
+2025_02,2025,2,Chinese Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,19,14,0.0,0,random_forest,0.20141663834721119,18,0,0,0,0
 2025_02,2025,2,Chinese Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,17,8,4.0,1,random_forest,0.1849631896792122,19,0,0,0,0
-2025_02,2025,2,Chinese Grand Prix,doohan,DOO,Jack Doohan,Alpine F1 Team,18,13,0.0,0,random_forest,0.16956147931934995,20,0,0,0,0
-2025_03,2025,3,Japanese Grand Prix,norris,NOR,Lando Norris,McLaren,2,2,18.0,1,extra_trees,0.9082906660740011,1,1,1,1,1
+2025_02,2025,2,Chinese Grand Prix,doohan,DOO,Jack Doohan,Alpine F1 Team,18,13,0.0,0,random_forest,0.16956147931934998,20,0,0,0,0
+2025_03,2025,3,Japanese Grand Prix,norris,NOR,Lando Norris,McLaren,2,2,18.0,1,extra_trees,0.9082906660740012,1,1,1,1,1
 2025_03,2025,3,Japanese Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,1,1,25.0,1,extra_trees,0.8934106018872753,2,1,1,1,1
 2025_03,2025,3,Japanese Grand Prix,piastri,PIA,Oscar Piastri,McLaren,3,3,15.0,1,extra_trees,0.8934051121865642,3,1,1,1,1
 2025_03,2025,3,Japanese Grand Prix,russell,RUS,George Russell,Mercedes,5,5,10.0,1,extra_trees,0.846849847887887,4,1,1,0,0
 2025_03,2025,3,Japanese Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,4,4,12.0,1,extra_trees,0.7905848328311071,5,1,1,0,0
 2025_03,2025,3,Japanese Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,8,7,6.0,1,extra_trees,0.7847409490347106,6,1,1,0,0
 2025_03,2025,3,Japanese Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,6,6,8.0,1,extra_trees,0.7493900089522015,7,1,1,0,0
-2025_03,2025,3,Japanese Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,14,12,0.0,0,extra_trees,0.5479006908665331,8,1,0,0,0
+2025_03,2025,3,Japanese Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,14,12,0.0,0,extra_trees,0.5479006908665333,8,1,0,0,0
 2025_03,2025,3,Japanese Grand Prix,albon,ALB,Alexander Albon,Williams,9,9,2.0,1,extra_trees,0.5065776811896573,9,1,1,0,0
 2025_03,2025,3,Japanese Grand Prix,sainz,SAI,Carlos Sainz,Williams,15,14,0.0,0,extra_trees,0.5055607443992434,10,1,0,0,0
 2025_03,2025,3,Japanese Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,10,10,1.0,1,extra_trees,0.49330055627402486,11,0,0,0,0
 2025_03,2025,3,Japanese Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,7,8,4.0,1,extra_trees,0.4854013743433061,12,0,0,0,0
 2025_03,2025,3,Japanese Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,11,13,0.0,0,extra_trees,0.44433972330972404,13,0,0,0,0
-2025_03,2025,3,Japanese Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,12,11,0.0,0,extra_trees,0.36825370978445965,14,0,0,0,0
-2025_03,2025,3,Japanese Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,18,18,0.0,0,extra_trees,0.23962704090808906,15,0,0,0,0
-2025_03,2025,3,Japanese Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,16,16,0.0,0,extra_trees,0.23195843434576272,16,0,0,0,0
+2025_03,2025,3,Japanese Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,12,11,0.0,0,extra_trees,0.3682537097844596,14,0,0,0,0
+2025_03,2025,3,Japanese Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,18,18,0.0,0,extra_trees,0.2396270409080891,15,0,0,0,0
+2025_03,2025,3,Japanese Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,16,16,0.0,0,extra_trees,0.23195843434576274,16,0,0,0,0
 2025_03,2025,3,Japanese Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,13,17,0.0,0,extra_trees,0.2248307240264986,17,0,0,0,0
-2025_03,2025,3,Japanese Grand Prix,doohan,DOO,Jack Doohan,Alpine F1 Team,19,15,0.0,0,extra_trees,0.1751649789609903,18,0,0,0,0
+2025_03,2025,3,Japanese Grand Prix,doohan,DOO,Jack Doohan,Alpine F1 Team,19,15,0.0,0,extra_trees,0.17516497896099031,18,0,0,0,0
 2025_03,2025,3,Japanese Grand Prix,stroll,STR,Lance Stroll,Aston Martin,20,20,0.0,0,extra_trees,0.15605549536977692,19,0,0,0,0
 2025_03,2025,3,Japanese Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,17,19,0.0,0,extra_trees,0.08904545850563704,20,0,0,0,0
 2025_03,2025,3,Japanese Grand Prix,norris,NOR,Lando Norris,McLaren,2,2,18.0,1,hist_gradient_boosting,0.9755123814062595,1,1,1,1,1
@@ -280,35 +280,35 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_03,2025,3,Japanese Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,17,19,0.0,0,neural_network_mlp,0.07441096391688588,19,0,0,0,0
 2025_03,2025,3,Japanese Grand Prix,doohan,DOO,Jack Doohan,Alpine F1 Team,19,15,0.0,0,neural_network_mlp,0.04057603979011716,20,0,0,0,0
 2025_03,2025,3,Japanese Grand Prix,norris,NOR,Lando Norris,McLaren,2,2,18.0,1,random_forest,0.8632401397133098,1,1,1,1,1
-2025_03,2025,3,Japanese Grand Prix,piastri,PIA,Oscar Piastri,McLaren,3,3,15.0,1,random_forest,0.8520147365184862,2,1,1,1,1
+2025_03,2025,3,Japanese Grand Prix,piastri,PIA,Oscar Piastri,McLaren,3,3,15.0,1,random_forest,0.8520147365184865,2,1,1,1,1
 2025_03,2025,3,Japanese Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,1,1,25.0,1,random_forest,0.8416745464562463,3,1,1,1,1
 2025_03,2025,3,Japanese Grand Prix,russell,RUS,George Russell,Mercedes,5,5,10.0,1,random_forest,0.8141808810386721,4,1,1,0,0
-2025_03,2025,3,Japanese Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,4,4,12.0,1,random_forest,0.7360150910648293,5,1,1,0,0
+2025_03,2025,3,Japanese Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,4,4,12.0,1,random_forest,0.7360150910648294,5,1,1,0,0
 2025_03,2025,3,Japanese Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,8,7,6.0,1,random_forest,0.7189190384874078,6,1,1,0,0
-2025_03,2025,3,Japanese Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,6,6,8.0,1,random_forest,0.6976936719993915,7,1,1,0,0
+2025_03,2025,3,Japanese Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,6,6,8.0,1,random_forest,0.6976936719993914,7,1,1,0,0
 2025_03,2025,3,Japanese Grand Prix,albon,ALB,Alexander Albon,Williams,9,9,2.0,1,random_forest,0.6188424158794377,8,1,1,0,0
 2025_03,2025,3,Japanese Grand Prix,sainz,SAI,Carlos Sainz,Williams,15,14,0.0,0,random_forest,0.5464789597042912,9,1,0,0,0
 2025_03,2025,3,Japanese Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,7,8,4.0,1,random_forest,0.5275307241186594,10,1,1,0,0
 2025_03,2025,3,Japanese Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,10,10,1.0,1,random_forest,0.49456773543757776,11,0,0,0,0
-2025_03,2025,3,Japanese Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,11,13,0.0,0,random_forest,0.43796005995122905,12,0,0,0,0
+2025_03,2025,3,Japanese Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,11,13,0.0,0,random_forest,0.437960059951229,12,0,0,0,0
 2025_03,2025,3,Japanese Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,14,12,0.0,0,random_forest,0.3750969918019814,13,0,0,0,0
 2025_03,2025,3,Japanese Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,12,11,0.0,0,random_forest,0.3613473301236087,14,0,0,0,0
 2025_03,2025,3,Japanese Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,18,18,0.0,0,random_forest,0.3549848348191392,15,0,0,0,0
 2025_03,2025,3,Japanese Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,16,16,0.0,0,random_forest,0.30156608504654764,16,0,0,0,0
 2025_03,2025,3,Japanese Grand Prix,stroll,STR,Lance Stroll,Aston Martin,20,20,0.0,0,random_forest,0.2594313399749919,17,0,0,0,0
-2025_03,2025,3,Japanese Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,13,17,0.0,0,random_forest,0.22098893746318052,18,0,0,0,0
+2025_03,2025,3,Japanese Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,13,17,0.0,0,random_forest,0.2209889374631805,18,0,0,0,0
 2025_03,2025,3,Japanese Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,17,19,0.0,0,random_forest,0.17893095399526404,19,0,0,0,0
 2025_03,2025,3,Japanese Grand Prix,doohan,DOO,Jack Doohan,Alpine F1 Team,19,15,0.0,0,random_forest,0.17162783232331222,20,0,0,0,0
 2025_04,2025,4,Bahrain Grand Prix,russell,RUS,George Russell,Mercedes,3,2,18.0,1,extra_trees,0.9104375230024532,1,1,1,1,1
-2025_04,2025,4,Bahrain Grand Prix,norris,NOR,Lando Norris,McLaren,6,3,15.0,1,extra_trees,0.8837070546985273,2,1,1,1,1
-2025_04,2025,4,Bahrain Grand Prix,piastri,PIA,Oscar Piastri,McLaren,1,1,25.0,1,extra_trees,0.8723935965029023,3,1,1,1,1
+2025_04,2025,4,Bahrain Grand Prix,norris,NOR,Lando Norris,McLaren,6,3,15.0,1,extra_trees,0.8837070546985274,2,1,1,1,1
+2025_04,2025,4,Bahrain Grand Prix,piastri,PIA,Oscar Piastri,McLaren,1,1,25.0,1,extra_trees,0.8723935965029024,3,1,1,1,1
 2025_04,2025,4,Bahrain Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,5,11,0.0,0,extra_trees,0.8432078411643057,4,1,0,0,0
 2025_04,2025,4,Bahrain Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,7,6,8.0,1,extra_trees,0.8317831323455688,5,1,1,0,0
 2025_04,2025,4,Bahrain Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,2,4,12.0,1,extra_trees,0.8311716662201912,6,1,1,0,0
 2025_04,2025,4,Bahrain Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,9,5,10.0,1,extra_trees,0.8237426505257459,7,1,1,0,0
 2025_04,2025,4,Bahrain Grand Prix,sainz,SAI,Carlos Sainz,Williams,8,19,0.0,0,extra_trees,0.6741818082318776,8,1,0,0,0
 2025_04,2025,4,Bahrain Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,10,9,2.0,1,extra_trees,0.6569742131225598,9,1,1,0,0
-2025_04,2025,4,Bahrain Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,4,7,6.0,1,extra_trees,0.5825210585155965,10,1,1,0,0
+2025_04,2025,4,Bahrain Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,4,7,6.0,1,extra_trees,0.5825210585155964,10,1,1,0,0
 2025_04,2025,4,Bahrain Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,13,15,0.0,0,extra_trees,0.3614015860276164,11,0,0,0,0
 2025_04,2025,4,Bahrain Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,12,13,0.0,0,extra_trees,0.2839989545762229,12,0,0,0,0
 2025_04,2025,4,Bahrain Grand Prix,doohan,DOO,Jack Doohan,Alpine F1 Team,11,14,0.0,0,extra_trees,0.2620208829040862,13,0,0,0,0
@@ -379,17 +379,17 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_04,2025,4,Bahrain Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,18,18,0.0,0,neural_network_mlp,0.04372918610242502,18,0,0,0,0
 2025_04,2025,4,Bahrain Grand Prix,stroll,STR,Lance Stroll,Aston Martin,19,17,0.0,0,neural_network_mlp,0.033417534320003266,19,0,0,0,0
 2025_04,2025,4,Bahrain Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,16,20,0.0,0,neural_network_mlp,0.03289333813577567,20,0,0,0,0
-2025_04,2025,4,Bahrain Grand Prix,russell,RUS,George Russell,Mercedes,3,2,18.0,1,random_forest,0.8719753034839217,1,1,1,1,1
-2025_04,2025,4,Bahrain Grand Prix,piastri,PIA,Oscar Piastri,McLaren,1,1,25.0,1,random_forest,0.8665477204885674,2,1,1,1,1
+2025_04,2025,4,Bahrain Grand Prix,russell,RUS,George Russell,Mercedes,3,2,18.0,1,random_forest,0.8719753034839218,1,1,1,1,1
+2025_04,2025,4,Bahrain Grand Prix,piastri,PIA,Oscar Piastri,McLaren,1,1,25.0,1,random_forest,0.8665477204885673,2,1,1,1,1
 2025_04,2025,4,Bahrain Grand Prix,norris,NOR,Lando Norris,McLaren,6,3,15.0,1,random_forest,0.8529400801079197,3,1,1,1,1
 2025_04,2025,4,Bahrain Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,7,6,8.0,1,random_forest,0.8389280869726082,4,1,1,0,0
-2025_04,2025,4,Bahrain Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,2,4,12.0,1,random_forest,0.823543508853643,5,1,1,0,0
+2025_04,2025,4,Bahrain Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,2,4,12.0,1,random_forest,0.8235435088536431,5,1,1,0,0
 2025_04,2025,4,Bahrain Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,5,11,0.0,0,random_forest,0.788345401649555,6,1,0,0,0
 2025_04,2025,4,Bahrain Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,9,5,10.0,1,random_forest,0.7592682542287006,7,1,1,0,0
 2025_04,2025,4,Bahrain Grand Prix,sainz,SAI,Carlos Sainz,Williams,8,19,0.0,0,random_forest,0.6761010985600886,8,1,0,0,0
-2025_04,2025,4,Bahrain Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,4,7,6.0,1,random_forest,0.6229377242235674,9,1,1,0,0
-2025_04,2025,4,Bahrain Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,10,9,2.0,1,random_forest,0.5229839556061896,10,1,1,0,0
-2025_04,2025,4,Bahrain Grand Prix,albon,ALB,Alexander Albon,Williams,15,12,0.0,0,random_forest,0.38431785745845853,11,0,0,0,0
+2025_04,2025,4,Bahrain Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,4,7,6.0,1,random_forest,0.6229377242235675,9,1,1,0,0
+2025_04,2025,4,Bahrain Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,10,9,2.0,1,random_forest,0.5229839556061897,10,1,1,0,0
+2025_04,2025,4,Bahrain Grand Prix,albon,ALB,Alexander Albon,Williams,15,12,0.0,0,random_forest,0.3843178574584586,11,0,0,0,0
 2025_04,2025,4,Bahrain Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,13,15,0.0,0,random_forest,0.3099614513176278,12,0,0,0,0
 2025_04,2025,4,Bahrain Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,12,13,0.0,0,random_forest,0.29927912480437996,13,0,0,0,0
 2025_04,2025,4,Bahrain Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,14,8,4.0,1,random_forest,0.2711328179819043,14,0,0,0,0
@@ -399,7 +399,7 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_04,2025,4,Bahrain Grand Prix,stroll,STR,Lance Stroll,Aston Martin,19,17,0.0,0,random_forest,0.18729965651081282,18,0,0,0,0
 2025_04,2025,4,Bahrain Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,17,16,0.0,0,random_forest,0.1393365582595027,19,0,0,0,0
 2025_04,2025,4,Bahrain Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,18,18,0.0,0,random_forest,0.12276444290997823,20,0,0,0,0
-2025_05,2025,5,Saudi Arabian Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,1,2,18.0,1,extra_trees,0.9138172624054868,1,1,1,1,1
+2025_05,2025,5,Saudi Arabian Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,1,2,18.0,1,extra_trees,0.9138172624054867,1,1,1,1,1
 2025_05,2025,5,Saudi Arabian Grand Prix,russell,RUS,George Russell,Mercedes,3,5,10.0,1,extra_trees,0.9001935724965334,2,1,1,1,0
 2025_05,2025,5,Saudi Arabian Grand Prix,piastri,PIA,Oscar Piastri,McLaren,2,1,25.0,1,extra_trees,0.8991790328509254,3,1,1,1,1
 2025_05,2025,5,Saudi Arabian Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,4,3,15.0,1,extra_trees,0.8962928496761007,4,1,1,0,0
@@ -408,16 +408,16 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_05,2025,5,Saudi Arabian Grand Prix,norris,NOR,Lando Norris,McLaren,10,4,12.0,1,extra_trees,0.8258473829394715,7,1,1,0,0
 2025_05,2025,5,Saudi Arabian Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,8,19,0.0,0,extra_trees,0.6939123722411343,8,1,0,0,0
 2025_05,2025,5,Saudi Arabian Grand Prix,sainz,SAI,Carlos Sainz,Williams,6,8,4.0,1,extra_trees,0.5744667016191352,9,1,1,0,0
-2025_05,2025,5,Saudi Arabian Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,9,20,0.0,0,extra_trees,0.5685636646627038,10,1,0,0,0
+2025_05,2025,5,Saudi Arabian Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,9,20,0.0,0,extra_trees,0.5685636646627037,10,1,0,0,0
 2025_05,2025,5,Saudi Arabian Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,13,11,0.0,0,extra_trees,0.3788453581723969,11,0,0,0,0
 2025_05,2025,5,Saudi Arabian Grand Prix,albon,ALB,Alexander Albon,Williams,11,9,2.0,1,extra_trees,0.3299444242064856,12,0,0,0,0
-2025_05,2025,5,Saudi Arabian Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,15,13,0.0,0,extra_trees,0.28786962124216686,13,0,0,0,0
-2025_05,2025,5,Saudi Arabian Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,12,12,0.0,0,extra_trees,0.2475319063277898,14,0,0,0,0
-2025_05,2025,5,Saudi Arabian Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,14,10,1.0,1,extra_trees,0.23980995487283324,15,0,0,0,0
-2025_05,2025,5,Saudi Arabian Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,19,14,0.0,0,extra_trees,0.16943421957126378,16,0,0,0,0
-2025_05,2025,5,Saudi Arabian Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,18,15,0.0,0,extra_trees,0.15718669217842318,17,0,0,0,0
+2025_05,2025,5,Saudi Arabian Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,15,13,0.0,0,extra_trees,0.2878696212421669,13,0,0,0,0
+2025_05,2025,5,Saudi Arabian Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,12,12,0.0,0,extra_trees,0.24753190632778976,14,0,0,0,0
+2025_05,2025,5,Saudi Arabian Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,14,10,1.0,1,extra_trees,0.23980995487283327,15,0,0,0,0
+2025_05,2025,5,Saudi Arabian Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,19,14,0.0,0,extra_trees,0.16943421957126376,16,0,0,0,0
+2025_05,2025,5,Saudi Arabian Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,18,15,0.0,0,extra_trees,0.15718669217842315,17,0,0,0,0
 2025_05,2025,5,Saudi Arabian Grand Prix,doohan,DOO,Jack Doohan,Alpine F1 Team,17,17,0.0,0,extra_trees,0.1545812355272606,18,0,0,0,0
-2025_05,2025,5,Saudi Arabian Grand Prix,stroll,STR,Lance Stroll,Aston Martin,16,16,0.0,0,extra_trees,0.11378166976991888,19,0,0,0,0
+2025_05,2025,5,Saudi Arabian Grand Prix,stroll,STR,Lance Stroll,Aston Martin,16,16,0.0,0,extra_trees,0.1137816697699189,19,0,0,0,0
 2025_05,2025,5,Saudi Arabian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,20,18,0.0,0,extra_trees,0.07923355453653717,20,0,0,0,0
 2025_05,2025,5,Saudi Arabian Grand Prix,russell,RUS,George Russell,Mercedes,3,5,10.0,1,hist_gradient_boosting,0.9815009533736258,1,1,1,1,0
 2025_05,2025,5,Saudi Arabian Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,1,2,18.0,1,hist_gradient_boosting,0.9635488207519601,2,1,1,1,1
@@ -479,26 +479,26 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_05,2025,5,Saudi Arabian Grand Prix,stroll,STR,Lance Stroll,Aston Martin,16,16,0.0,0,neural_network_mlp,0.06100683672305966,18,0,0,0,0
 2025_05,2025,5,Saudi Arabian Grand Prix,doohan,DOO,Jack Doohan,Alpine F1 Team,17,17,0.0,0,neural_network_mlp,0.03418694456255553,19,0,0,0,0
 2025_05,2025,5,Saudi Arabian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,20,18,0.0,0,neural_network_mlp,0.028511671382643725,20,0,0,0,0
-2025_05,2025,5,Saudi Arabian Grand Prix,piastri,PIA,Oscar Piastri,McLaren,2,1,25.0,1,random_forest,0.8830187158218099,1,1,1,1,1
-2025_05,2025,5,Saudi Arabian Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,1,2,18.0,1,random_forest,0.8651299277917858,2,1,1,1,1
+2025_05,2025,5,Saudi Arabian Grand Prix,piastri,PIA,Oscar Piastri,McLaren,2,1,25.0,1,random_forest,0.88301871582181,1,1,1,1,1
+2025_05,2025,5,Saudi Arabian Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,1,2,18.0,1,random_forest,0.8651299277917857,2,1,1,1,1
 2025_05,2025,5,Saudi Arabian Grand Prix,russell,RUS,George Russell,Mercedes,3,5,10.0,1,random_forest,0.865019127430031,3,1,1,1,0
 2025_05,2025,5,Saudi Arabian Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,4,3,15.0,1,random_forest,0.8319405881310505,4,1,1,0,0
 2025_05,2025,5,Saudi Arabian Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,7,7,6.0,1,random_forest,0.8043301026612,5,1,1,0,0
 2025_05,2025,5,Saudi Arabian Grand Prix,norris,NOR,Lando Norris,McLaren,10,4,12.0,1,random_forest,0.8006335950974347,6,1,1,0,0
-2025_05,2025,5,Saudi Arabian Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,5,6,8.0,1,random_forest,0.7803365000869124,7,1,1,0,0
+2025_05,2025,5,Saudi Arabian Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,5,6,8.0,1,random_forest,0.7803365000869125,7,1,1,0,0
 2025_05,2025,5,Saudi Arabian Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,8,19,0.0,0,random_forest,0.5980754191605804,8,1,0,0,0
 2025_05,2025,5,Saudi Arabian Grand Prix,sainz,SAI,Carlos Sainz,Williams,6,8,4.0,1,random_forest,0.5951905594222723,9,1,1,0,0
 2025_05,2025,5,Saudi Arabian Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,9,20,0.0,0,random_forest,0.5721655229645259,10,1,0,0,0
-2025_05,2025,5,Saudi Arabian Grand Prix,albon,ALB,Alexander Albon,Williams,11,9,2.0,1,random_forest,0.4601520914072555,11,0,0,0,0
-2025_05,2025,5,Saudi Arabian Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,13,11,0.0,0,random_forest,0.3388317467150186,12,0,0,0,0
+2025_05,2025,5,Saudi Arabian Grand Prix,albon,ALB,Alexander Albon,Williams,11,9,2.0,1,random_forest,0.46015209140725544,11,0,0,0,0
+2025_05,2025,5,Saudi Arabian Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,13,11,0.0,0,random_forest,0.33883174671501864,12,0,0,0,0
 2025_05,2025,5,Saudi Arabian Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,15,13,0.0,0,random_forest,0.2935297644454542,13,0,0,0,0
 2025_05,2025,5,Saudi Arabian Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,14,10,1.0,1,random_forest,0.2783016783638344,14,0,0,0,0
-2025_05,2025,5,Saudi Arabian Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,12,12,0.0,0,random_forest,0.26291034597190627,15,0,0,0,0
+2025_05,2025,5,Saudi Arabian Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,12,12,0.0,0,random_forest,0.2629103459719063,15,0,0,0,0
 2025_05,2025,5,Saudi Arabian Grand Prix,stroll,STR,Lance Stroll,Aston Martin,16,16,0.0,0,random_forest,0.2419135555047313,16,0,0,0,0
 2025_05,2025,5,Saudi Arabian Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,19,14,0.0,0,random_forest,0.24165766307678987,17,0,0,0,0
-2025_05,2025,5,Saudi Arabian Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,18,15,0.0,0,random_forest,0.19978806005697128,18,0,0,0,0
+2025_05,2025,5,Saudi Arabian Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,18,15,0.0,0,random_forest,0.19978806005697125,18,0,0,0,0
 2025_05,2025,5,Saudi Arabian Grand Prix,doohan,DOO,Jack Doohan,Alpine F1 Team,17,17,0.0,0,random_forest,0.18251822326858305,19,0,0,0,0
-2025_05,2025,5,Saudi Arabian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,20,18,0.0,0,random_forest,0.10723971223520426,20,0,0,0,0
+2025_05,2025,5,Saudi Arabian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,20,18,0.0,0,random_forest,0.10723971223520429,20,0,0,0,0
 2025_06,2025,6,Miami Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,1,4,12.0,1,extra_trees,0.9237282567037601,1,1,1,1,0
 2025_06,2025,6,Miami Grand Prix,norris,NOR,Lando Norris,McLaren,2,2,18.0,1,extra_trees,0.9095191665524136,2,1,1,1,1
 2025_06,2025,6,Miami Grand Prix,russell,RUS,George Russell,Mercedes,5,3,15.0,1,extra_trees,0.8896637080980123,3,1,1,1,1
@@ -506,7 +506,7 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_06,2025,6,Miami Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,3,6,8.0,1,extra_trees,0.8367327584356552,5,1,1,0,0
 2025_06,2025,6,Miami Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,8,7,6.0,1,extra_trees,0.7830398847931885,6,1,1,0,0
 2025_06,2025,6,Miami Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,12,8,4.0,1,extra_trees,0.7075193158955444,7,1,1,0,0
-2025_06,2025,6,Miami Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,10,10,1.0,1,extra_trees,0.6885432300675461,8,1,1,0,0
+2025_06,2025,6,Miami Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,10,10,1.0,1,extra_trees,0.6885432300675463,8,1,1,0,0
 2025_06,2025,6,Miami Grand Prix,albon,ALB,Alexander Albon,Williams,7,5,10.0,1,extra_trees,0.620143259819262,9,1,1,0,0
 2025_06,2025,6,Miami Grand Prix,sainz,SAI,Carlos Sainz,Williams,6,9,2.0,1,extra_trees,0.5749777232183421,10,1,1,0,0
 2025_06,2025,6,Miami Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,9,12,0.0,0,extra_trees,0.46785771201159354,11,0,0,0,0
@@ -515,10 +515,10 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_06,2025,6,Miami Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,17,15,0.0,0,extra_trees,0.2653560693000699,14,0,0,0,0
 2025_06,2025,6,Miami Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,15,17,0.0,0,extra_trees,0.23667699876462395,15,0,0,0,0
 2025_06,2025,6,Miami Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,20,13,0.0,0,extra_trees,0.1762540131912695,16,0,0,0,0
-2025_06,2025,6,Miami Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,13,18,0.0,0,extra_trees,0.17584612261049584,17,0,0,0,0
+2025_06,2025,6,Miami Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,13,18,0.0,0,extra_trees,0.17584612261049587,17,0,0,0,0
 2025_06,2025,6,Miami Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,19,19,0.0,0,extra_trees,0.17358065575556791,18,0,0,0,0
 2025_06,2025,6,Miami Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,16,14,0.0,0,extra_trees,0.16311200441240212,19,0,0,0,0
-2025_06,2025,6,Miami Grand Prix,stroll,STR,Lance Stroll,Aston Martin,18,16,0.0,0,extra_trees,0.14466194725806028,20,0,0,0,0
+2025_06,2025,6,Miami Grand Prix,stroll,STR,Lance Stroll,Aston Martin,18,16,0.0,0,extra_trees,0.1446619472580603,20,0,0,0,0
 2025_06,2025,6,Miami Grand Prix,piastri,PIA,Oscar Piastri,McLaren,4,1,25.0,1,hist_gradient_boosting,0.9750335988193346,1,1,1,1,1
 2025_06,2025,6,Miami Grand Prix,norris,NOR,Lando Norris,McLaren,2,2,18.0,1,hist_gradient_boosting,0.9729846078262043,2,1,1,1,1
 2025_06,2025,6,Miami Grand Prix,russell,RUS,George Russell,Mercedes,5,3,15.0,1,hist_gradient_boosting,0.9526048104935179,3,1,1,1,1
@@ -580,30 +580,30 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_06,2025,6,Miami Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,19,19,0.0,0,neural_network_mlp,0.055622139169963614,19,0,0,0,0
 2025_06,2025,6,Miami Grand Prix,stroll,STR,Lance Stroll,Aston Martin,18,16,0.0,0,neural_network_mlp,0.035124240856293544,20,0,0,0,0
 2025_06,2025,6,Miami Grand Prix,norris,NOR,Lando Norris,McLaren,2,2,18.0,1,random_forest,0.9027424197537163,1,1,1,1,1
-2025_06,2025,6,Miami Grand Prix,piastri,PIA,Oscar Piastri,McLaren,4,1,25.0,1,random_forest,0.9006098256746433,2,1,1,1,1
+2025_06,2025,6,Miami Grand Prix,piastri,PIA,Oscar Piastri,McLaren,4,1,25.0,1,random_forest,0.9006098256746434,2,1,1,1,1
 2025_06,2025,6,Miami Grand Prix,russell,RUS,George Russell,Mercedes,5,3,15.0,1,random_forest,0.890794450817502,3,1,1,1,1
-2025_06,2025,6,Miami Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,1,4,12.0,1,random_forest,0.8681059295153444,4,1,1,0,0
+2025_06,2025,6,Miami Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,1,4,12.0,1,random_forest,0.8681059295153443,4,1,1,0,0
 2025_06,2025,6,Miami Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,3,6,8.0,1,random_forest,0.8352846959243537,5,1,1,0,0
-2025_06,2025,6,Miami Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,8,7,6.0,1,random_forest,0.8126803956198828,6,1,1,0,0
+2025_06,2025,6,Miami Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,8,7,6.0,1,random_forest,0.8126803956198827,6,1,1,0,0
 2025_06,2025,6,Miami Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,12,8,4.0,1,random_forest,0.6817900440335917,7,1,1,0,0
-2025_06,2025,6,Miami Grand Prix,albon,ALB,Alexander Albon,Williams,7,5,10.0,1,random_forest,0.6769715507710028,8,1,1,0,0
+2025_06,2025,6,Miami Grand Prix,albon,ALB,Alexander Albon,Williams,7,5,10.0,1,random_forest,0.6769715507710029,8,1,1,0,0
 2025_06,2025,6,Miami Grand Prix,sainz,SAI,Carlos Sainz,Williams,6,9,2.0,1,random_forest,0.6024171032177522,9,1,1,0,0
 2025_06,2025,6,Miami Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,9,12,0.0,0,random_forest,0.5409795322737825,10,1,0,0,0
-2025_06,2025,6,Miami Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,10,10,1.0,1,random_forest,0.5401982549086215,11,0,0,0,0
+2025_06,2025,6,Miami Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,10,10,1.0,1,random_forest,0.5401982549086216,11,0,0,0,0
 2025_06,2025,6,Miami Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,11,11,0.0,0,random_forest,0.35259020510730227,12,0,0,0,0
 2025_06,2025,6,Miami Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,17,15,0.0,0,random_forest,0.28632519198760403,13,0,0,0,0
 2025_06,2025,6,Miami Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,20,13,0.0,0,random_forest,0.2378933826020444,14,0,0,0,0
 2025_06,2025,6,Miami Grand Prix,doohan,DOO,Jack Doohan,Alpine F1 Team,14,20,0.0,0,random_forest,0.2255493194181206,15,0,0,0,0
 2025_06,2025,6,Miami Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,15,17,0.0,0,random_forest,0.20882943355036448,16,0,0,0,0
 2025_06,2025,6,Miami Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,19,19,0.0,0,random_forest,0.20365670030007943,17,0,0,0,0
-2025_06,2025,6,Miami Grand Prix,stroll,STR,Lance Stroll,Aston Martin,18,16,0.0,0,random_forest,0.18232370176179571,18,0,0,0,0
+2025_06,2025,6,Miami Grand Prix,stroll,STR,Lance Stroll,Aston Martin,18,16,0.0,0,random_forest,0.18232370176179574,18,0,0,0,0
 2025_06,2025,6,Miami Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,13,18,0.0,0,random_forest,0.18211518517846717,19,0,0,0,0
 2025_06,2025,6,Miami Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,16,14,0.0,0,random_forest,0.17239254314719638,20,0,0,0,0
 2025_07,2025,7,Emilia Romagna Grand Prix,norris,NOR,Lando Norris,McLaren,4,2,18.0,1,extra_trees,0.9401473421618053,1,1,1,1,1
-2025_07,2025,7,Emilia Romagna Grand Prix,piastri,PIA,Oscar Piastri,McLaren,1,3,15.0,1,extra_trees,0.9288065234894776,2,1,1,1,1
+2025_07,2025,7,Emilia Romagna Grand Prix,piastri,PIA,Oscar Piastri,McLaren,1,3,15.0,1,extra_trees,0.9288065234894777,2,1,1,1,1
 2025_07,2025,7,Emilia Romagna Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,2,1,25.0,1,extra_trees,0.9109718732099366,3,1,1,1,1
 2025_07,2025,7,Emilia Romagna Grand Prix,russell,RUS,George Russell,Mercedes,3,7,6.0,1,extra_trees,0.8887936009429063,4,1,1,0,0
-2025_07,2025,7,Emilia Romagna Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,13,19,0.0,0,extra_trees,0.7017315583152828,5,1,0,0,0
+2025_07,2025,7,Emilia Romagna Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,13,19,0.0,0,extra_trees,0.7017315583152827,5,1,0,0,0
 2025_07,2025,7,Emilia Romagna Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,12,4,12.0,1,extra_trees,0.6944149493639731,6,1,1,0,0
 2025_07,2025,7,Emilia Romagna Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,11,6,8.0,1,extra_trees,0.6590083164410734,7,1,1,0,0
 2025_07,2025,7,Emilia Romagna Grand Prix,albon,ALB,Alexander Albon,Williams,7,5,10.0,1,extra_trees,0.6575883897773738,8,1,1,0,0
@@ -617,7 +617,7 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_07,2025,7,Emilia Romagna Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,18,20,0.0,0,extra_trees,0.16832279485936963,16,0,0,0,0
 2025_07,2025,7,Emilia Romagna Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,19,17,0.0,0,extra_trees,0.16117940722653779,17,0,0,0,0
 2025_07,2025,7,Emilia Romagna Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,16,16,0.0,0,extra_trees,0.15898620345141895,18,0,0,0,0
-2025_07,2025,7,Emilia Romagna Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,14,18,0.0,0,extra_trees,0.15321295748104732,19,0,0,0,0
+2025_07,2025,7,Emilia Romagna Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,14,18,0.0,0,extra_trees,0.1532129574810473,19,0,0,0,0
 2025_07,2025,7,Emilia Romagna Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,17,12,0.0,0,extra_trees,0.15308912211636133,20,0,0,0,0
 2025_07,2025,7,Emilia Romagna Grand Prix,piastri,PIA,Oscar Piastri,McLaren,1,3,15.0,1,hist_gradient_boosting,0.9865040556933937,1,1,1,1,1
 2025_07,2025,7,Emilia Romagna Grand Prix,norris,NOR,Lando Norris,McLaren,4,2,18.0,1,hist_gradient_boosting,0.9758950702706447,2,1,1,1,1
@@ -679,45 +679,45 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_07,2025,7,Emilia Romagna Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,18,20,0.0,0,neural_network_mlp,0.10732876417132856,18,0,0,0,0
 2025_07,2025,7,Emilia Romagna Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,19,17,0.0,0,neural_network_mlp,0.09859024245805965,19,0,0,0,0
 2025_07,2025,7,Emilia Romagna Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,15,14,0.0,0,neural_network_mlp,0.08523782353441317,20,0,0,0,0
-2025_07,2025,7,Emilia Romagna Grand Prix,norris,NOR,Lando Norris,McLaren,4,2,18.0,1,random_forest,0.9024812410704176,1,1,1,1,1
+2025_07,2025,7,Emilia Romagna Grand Prix,norris,NOR,Lando Norris,McLaren,4,2,18.0,1,random_forest,0.9024812410704177,1,1,1,1,1
 2025_07,2025,7,Emilia Romagna Grand Prix,piastri,PIA,Oscar Piastri,McLaren,1,3,15.0,1,random_forest,0.8983539007417457,2,1,1,1,1
-2025_07,2025,7,Emilia Romagna Grand Prix,russell,RUS,George Russell,Mercedes,3,7,6.0,1,random_forest,0.8965678213874668,3,1,1,1,0
-2025_07,2025,7,Emilia Romagna Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,2,1,25.0,1,random_forest,0.8901483300552778,4,1,1,0,0
+2025_07,2025,7,Emilia Romagna Grand Prix,russell,RUS,George Russell,Mercedes,3,7,6.0,1,random_forest,0.8965678213874669,3,1,1,1,0
+2025_07,2025,7,Emilia Romagna Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,2,1,25.0,1,random_forest,0.8901483300552779,4,1,1,0,0
 2025_07,2025,7,Emilia Romagna Grand Prix,albon,ALB,Alexander Albon,Williams,7,5,10.0,1,random_forest,0.7017171315621044,5,1,1,0,0
 2025_07,2025,7,Emilia Romagna Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,11,6,8.0,1,random_forest,0.7012427105353425,6,1,1,0,0
 2025_07,2025,7,Emilia Romagna Grand Prix,sainz,SAI,Carlos Sainz,Williams,6,8,4.0,1,random_forest,0.6843433293900663,7,1,1,0,0
-2025_07,2025,7,Emilia Romagna Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,13,19,0.0,0,random_forest,0.6751099784135423,8,1,0,0,0
+2025_07,2025,7,Emilia Romagna Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,13,19,0.0,0,random_forest,0.6751099784135421,8,1,0,0,0
 2025_07,2025,7,Emilia Romagna Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,12,4,12.0,1,random_forest,0.6642353150207567,9,1,1,0,0
 2025_07,2025,7,Emilia Romagna Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,10,13,0.0,0,random_forest,0.596215310888342,10,1,0,0,0
 2025_07,2025,7,Emilia Romagna Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,9,9,2.0,1,random_forest,0.5723851604285582,11,0,0,0,0
-2025_07,2025,7,Emilia Romagna Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,5,11,0.0,0,random_forest,0.5602233480431045,12,0,0,0,0
+2025_07,2025,7,Emilia Romagna Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,5,11,0.0,0,random_forest,0.5602233480431046,12,0,0,0,0
 2025_07,2025,7,Emilia Romagna Grand Prix,stroll,STR,Lance Stroll,Aston Martin,8,15,0.0,0,random_forest,0.5433585614082219,13,0,0,0,0
 2025_07,2025,7,Emilia Romagna Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,20,10,1.0,1,random_forest,0.39071038276247055,14,0,0,0,0
 2025_07,2025,7,Emilia Romagna Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,18,20,0.0,0,random_forest,0.2464391303402062,15,0,0,0,0
 2025_07,2025,7,Emilia Romagna Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,19,17,0.0,0,random_forest,0.21206036043339768,16,0,0,0,0
-2025_07,2025,7,Emilia Romagna Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,15,14,0.0,0,random_forest,0.13610535121574352,17,0,0,0,0
+2025_07,2025,7,Emilia Romagna Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,15,14,0.0,0,random_forest,0.13610535121574355,17,0,0,0,0
 2025_07,2025,7,Emilia Romagna Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,17,12,0.0,0,random_forest,0.1272327765968391,18,0,0,0,0
 2025_07,2025,7,Emilia Romagna Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,14,18,0.0,0,random_forest,0.10983262815189204,19,0,0,0,0
 2025_07,2025,7,Emilia Romagna Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,16,16,0.0,0,random_forest,0.1061907046357045,20,0,0,0,0
 2025_08,2025,8,Monaco Grand Prix,norris,NOR,Lando Norris,McLaren,1,1,25.0,1,extra_trees,0.9443347597674506,1,1,1,1,1
 2025_08,2025,8,Monaco Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,4,4,12.0,1,extra_trees,0.9353098112635105,2,1,1,1,0
-2025_08,2025,8,Monaco Grand Prix,piastri,PIA,Oscar Piastri,McLaren,3,3,15.0,1,extra_trees,0.933058957860171,3,1,1,1,1
-2025_08,2025,8,Monaco Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,2,2,18.0,1,extra_trees,0.8877112351850874,4,1,1,0,0
-2025_08,2025,8,Monaco Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,7,5,10.0,1,extra_trees,0.8719673813124431,5,1,1,0,0
-2025_08,2025,8,Monaco Grand Prix,russell,RUS,George Russell,Mercedes,14,11,0.0,0,extra_trees,0.7300825342669711,6,1,0,0,0
-2025_08,2025,8,Monaco Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,6,19,0.0,0,extra_trees,0.6996647261871703,7,1,0,0,0
+2025_08,2025,8,Monaco Grand Prix,piastri,PIA,Oscar Piastri,McLaren,3,3,15.0,1,extra_trees,0.9330589578601711,3,1,1,1,1
+2025_08,2025,8,Monaco Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,2,2,18.0,1,extra_trees,0.8877112351850873,4,1,1,0,0
+2025_08,2025,8,Monaco Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,7,5,10.0,1,extra_trees,0.8719673813124432,5,1,1,0,0
+2025_08,2025,8,Monaco Grand Prix,russell,RUS,George Russell,Mercedes,14,11,0.0,0,extra_trees,0.7300825342669712,6,1,0,0,0
+2025_08,2025,8,Monaco Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,6,19,0.0,0,extra_trees,0.6996647261871702,7,1,0,0,0
 2025_08,2025,8,Monaco Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,5,6,8.0,1,extra_trees,0.6482986205802436,8,1,1,0,0
 2025_08,2025,8,Monaco Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,12,17,0.0,0,extra_trees,0.6172264152077142,9,1,0,0,0
 2025_08,2025,8,Monaco Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,15,18,0.0,0,extra_trees,0.6160774531525718,10,1,0,0,0
 2025_08,2025,8,Monaco Grand Prix,albon,ALB,Alexander Albon,Williams,10,9,2.0,1,extra_trees,0.604600354619603,11,0,0,0,0
 2025_08,2025,8,Monaco Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,9,8,4.0,1,extra_trees,0.5458813345371821,12,0,0,0,0
 2025_08,2025,8,Monaco Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,8,7,6.0,1,extra_trees,0.5298076135244308,13,0,0,0,0
-2025_08,2025,8,Monaco Grand Prix,sainz,SAI,Carlos Sainz,Williams,11,10,1.0,1,extra_trees,0.45327317267278117,14,0,0,0,0
+2025_08,2025,8,Monaco Grand Prix,sainz,SAI,Carlos Sainz,Williams,11,10,1.0,1,extra_trees,0.4532731726727812,14,0,0,0,0
 2025_08,2025,8,Monaco Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,13,16,0.0,0,extra_trees,0.26838410652488337,15,0,0,0,0
 2025_08,2025,8,Monaco Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,17,20,0.0,0,extra_trees,0.168200167939281,16,0,0,0,0
 2025_08,2025,8,Monaco Grand Prix,stroll,STR,Lance Stroll,Aston Martin,19,15,0.0,0,extra_trees,0.16050606299805614,17,0,0,0,0
 2025_08,2025,8,Monaco Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,18,13,0.0,0,extra_trees,0.12692045500455132,18,0,0,0,0
-2025_08,2025,8,Monaco Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,20,12,0.0,0,extra_trees,0.10894955024687548,19,0,0,0,0
+2025_08,2025,8,Monaco Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,20,12,0.0,0,extra_trees,0.10894955024687547,19,0,0,0,0
 2025_08,2025,8,Monaco Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,16,14,0.0,0,extra_trees,0.06406609153683837,20,0,0,0,0
 2025_08,2025,8,Monaco Grand Prix,norris,NOR,Lando Norris,McLaren,1,1,25.0,1,hist_gradient_boosting,0.9928565471333733,1,1,1,1,1
 2025_08,2025,8,Monaco Grand Prix,piastri,PIA,Oscar Piastri,McLaren,3,3,15.0,1,hist_gradient_boosting,0.9827000691360921,2,1,1,1,1
@@ -779,43 +779,43 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_08,2025,8,Monaco Grand Prix,stroll,STR,Lance Stroll,Aston Martin,19,15,0.0,0,neural_network_mlp,0.021400216799685234,18,0,0,0,0
 2025_08,2025,8,Monaco Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,16,14,0.0,0,neural_network_mlp,0.021042290758881865,19,0,0,0,0
 2025_08,2025,8,Monaco Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,20,12,0.0,0,neural_network_mlp,0.01957326622575432,20,0,0,0,0
-2025_08,2025,8,Monaco Grand Prix,norris,NOR,Lando Norris,McLaren,1,1,25.0,1,random_forest,0.9189419520639768,1,1,1,1,1
+2025_08,2025,8,Monaco Grand Prix,norris,NOR,Lando Norris,McLaren,1,1,25.0,1,random_forest,0.918941952063977,1,1,1,1,1
 2025_08,2025,8,Monaco Grand Prix,piastri,PIA,Oscar Piastri,McLaren,3,3,15.0,1,random_forest,0.9185310666482607,2,1,1,1,1
 2025_08,2025,8,Monaco Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,2,2,18.0,1,random_forest,0.9095626525799136,3,1,1,1,1
-2025_08,2025,8,Monaco Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,4,4,12.0,1,random_forest,0.8820813714598343,4,1,1,0,0
+2025_08,2025,8,Monaco Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,4,4,12.0,1,random_forest,0.8820813714598342,4,1,1,0,0
 2025_08,2025,8,Monaco Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,7,5,10.0,1,random_forest,0.8642305107233483,5,1,1,0,0
 2025_08,2025,8,Monaco Grand Prix,albon,ALB,Alexander Albon,Williams,10,9,2.0,1,random_forest,0.6954312236843677,6,1,1,0,0
-2025_08,2025,8,Monaco Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,6,19,0.0,0,random_forest,0.6539423884805351,7,1,0,0,0
+2025_08,2025,8,Monaco Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,6,19,0.0,0,random_forest,0.653942388480535,7,1,0,0,0
 2025_08,2025,8,Monaco Grand Prix,russell,RUS,George Russell,Mercedes,14,11,0.0,0,random_forest,0.6486005864839305,8,1,0,0,0
 2025_08,2025,8,Monaco Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,5,6,8.0,1,random_forest,0.6337382491346406,9,1,1,0,0
-2025_08,2025,8,Monaco Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,9,8,4.0,1,random_forest,0.5454096860398042,10,1,1,0,0
+2025_08,2025,8,Monaco Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,9,8,4.0,1,random_forest,0.5454096860398043,10,1,1,0,0
 2025_08,2025,8,Monaco Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,8,7,6.0,1,random_forest,0.5294658750270049,11,0,0,0,0
 2025_08,2025,8,Monaco Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,15,18,0.0,0,random_forest,0.5253067353249535,12,0,0,0,0
 2025_08,2025,8,Monaco Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,12,17,0.0,0,random_forest,0.44124442140245074,13,0,0,0,0
-2025_08,2025,8,Monaco Grand Prix,sainz,SAI,Carlos Sainz,Williams,11,10,1.0,1,random_forest,0.4398112825008316,14,0,0,0,0
+2025_08,2025,8,Monaco Grand Prix,sainz,SAI,Carlos Sainz,Williams,11,10,1.0,1,random_forest,0.43981128250083157,14,0,0,0,0
 2025_08,2025,8,Monaco Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,13,16,0.0,0,random_forest,0.21325447879090667,15,0,0,0,0
 2025_08,2025,8,Monaco Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,17,20,0.0,0,random_forest,0.1702409380702917,16,0,0,0,0
 2025_08,2025,8,Monaco Grand Prix,stroll,STR,Lance Stroll,Aston Martin,19,15,0.0,0,random_forest,0.16538250237528745,17,0,0,0,0
 2025_08,2025,8,Monaco Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,20,12,0.0,0,random_forest,0.14827517233237006,18,0,0,0,0
 2025_08,2025,8,Monaco Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,18,13,0.0,0,random_forest,0.07839861860677609,19,0,0,0,0
-2025_08,2025,8,Monaco Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,16,14,0.0,0,random_forest,0.07536410391714077,20,0,0,0,0
+2025_08,2025,8,Monaco Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,16,14,0.0,0,random_forest,0.07536410391714078,20,0,0,0,0
 2025_09,2025,9,Spanish Grand Prix,russell,RUS,George Russell,Mercedes,4,4,12.0,1,extra_trees,0.9169775142699705,1,1,1,1,0
 2025_09,2025,9,Spanish Grand Prix,piastri,PIA,Oscar Piastri,McLaren,1,1,25.0,1,extra_trees,0.9133813761295223,2,1,1,1,1
 2025_09,2025,9,Spanish Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,3,10,1.0,1,extra_trees,0.9120138940145593,3,1,1,1,0
 2025_09,2025,9,Spanish Grand Prix,norris,NOR,Lando Norris,McLaren,2,2,18.0,1,extra_trees,0.9047499539299833,4,1,1,0,0
-2025_09,2025,9,Spanish Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,5,6,8.0,1,extra_trees,0.8583725355444681,5,1,1,0,0
+2025_09,2025,9,Spanish Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,5,6,8.0,1,extra_trees,0.858372535544468,5,1,1,0,0
 2025_09,2025,9,Spanish Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,7,3,15.0,1,extra_trees,0.8346487260837582,6,1,1,0,0
 2025_09,2025,9,Spanish Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,6,18,0.0,0,extra_trees,0.784797403388721,7,1,0,0,0
-2025_09,2025,9,Spanish Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,8,8,4.0,1,extra_trees,0.5981078844436193,8,1,1,0,0
-2025_09,2025,9,Spanish Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,9,7,6.0,1,extra_trees,0.5721471832289958,9,1,1,0,0
+2025_09,2025,9,Spanish Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,8,8,4.0,1,extra_trees,0.5981078844436192,8,1,1,0,0
+2025_09,2025,9,Spanish Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,9,7,6.0,1,extra_trees,0.5721471832289957,9,1,1,0,0
 2025_09,2025,9,Spanish Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,19,13,0.0,0,extra_trees,0.5248251957553476,10,1,0,0,0
 2025_09,2025,9,Spanish Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,10,9,2.0,1,extra_trees,0.5041390479294094,11,0,0,0,0
 2025_09,2025,9,Spanish Grand Prix,albon,ALB,Alexander Albon,Williams,11,19,0.0,0,extra_trees,0.4876078497967334,12,0,0,0,0
-2025_09,2025,9,Spanish Grand Prix,sainz,SAI,Carlos Sainz,Williams,17,14,0.0,0,extra_trees,0.28862960109022984,13,0,0,0,0
-2025_09,2025,9,Spanish Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,13,11,0.0,0,extra_trees,0.2432882589097602,14,0,0,0,0
+2025_09,2025,9,Spanish Grand Prix,sainz,SAI,Carlos Sainz,Williams,17,14,0.0,0,extra_trees,0.2886296010902299,13,0,0,0,0
+2025_09,2025,9,Spanish Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,13,11,0.0,0,extra_trees,0.24328825890976022,14,0,0,0,0
 2025_09,2025,9,Spanish Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,14,17,0.0,0,extra_trees,0.23201728044507863,15,0,0,0,0
 2025_09,2025,9,Spanish Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,12,12,0.0,0,extra_trees,0.1838612974938687,16,0,0,0,0
-2025_09,2025,9,Spanish Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,16,16,0.0,0,extra_trees,0.15782600235760297,17,0,0,0,0
+2025_09,2025,9,Spanish Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,16,16,0.0,0,extra_trees,0.15782600235760294,17,0,0,0,0
 2025_09,2025,9,Spanish Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,15,5,10.0,1,extra_trees,0.15532904558982194,18,0,0,0,0
 2025_09,2025,9,Spanish Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,18,15,0.0,0,extra_trees,0.1420312029838876,19,0,0,0,0
 2025_09,2025,9,Spanish Grand Prix,piastri,PIA,Oscar Piastri,McLaren,1,1,25.0,1,hist_gradient_boosting,0.9705447509287805,1,1,1,1,1
@@ -875,9 +875,9 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_09,2025,9,Spanish Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,15,5,10.0,1,neural_network_mlp,0.07698426572896463,17,0,0,0,0
 2025_09,2025,9,Spanish Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,16,16,0.0,0,neural_network_mlp,0.06367754601185502,18,0,0,0,0
 2025_09,2025,9,Spanish Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,18,15,0.0,0,neural_network_mlp,0.03781313782943639,19,0,0,0,0
-2025_09,2025,9,Spanish Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,3,10,1.0,1,random_forest,0.881781242884542,1,1,1,1,0
+2025_09,2025,9,Spanish Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,3,10,1.0,1,random_forest,0.8817812428845421,1,1,1,1,0
 2025_09,2025,9,Spanish Grand Prix,norris,NOR,Lando Norris,McLaren,2,2,18.0,1,random_forest,0.8704011494426691,2,1,1,1,1
-2025_09,2025,9,Spanish Grand Prix,russell,RUS,George Russell,Mercedes,4,4,12.0,1,random_forest,0.8688621684035732,3,1,1,1,0
+2025_09,2025,9,Spanish Grand Prix,russell,RUS,George Russell,Mercedes,4,4,12.0,1,random_forest,0.8688621684035733,3,1,1,1,0
 2025_09,2025,9,Spanish Grand Prix,piastri,PIA,Oscar Piastri,McLaren,1,1,25.0,1,random_forest,0.8615607175737204,4,1,1,0,0
 2025_09,2025,9,Spanish Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,7,3,15.0,1,random_forest,0.8436654394385237,5,1,1,0,0
 2025_09,2025,9,Spanish Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,5,6,8.0,1,random_forest,0.8425467463773466,6,1,1,0,0
@@ -886,10 +886,10 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_09,2025,9,Spanish Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,9,7,6.0,1,random_forest,0.5721608768431836,9,1,1,0,0
 2025_09,2025,9,Spanish Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,8,8,4.0,1,random_forest,0.5360456804262442,10,1,1,0,0
 2025_09,2025,9,Spanish Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,10,9,2.0,1,random_forest,0.5236489426073269,11,0,0,0,0
-2025_09,2025,9,Spanish Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,19,13,0.0,0,random_forest,0.3781953241742102,12,0,0,0,0
-2025_09,2025,9,Spanish Grand Prix,sainz,SAI,Carlos Sainz,Williams,17,14,0.0,0,random_forest,0.3274211498099318,13,0,0,0,0
+2025_09,2025,9,Spanish Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,19,13,0.0,0,random_forest,0.37819532417421026,12,0,0,0,0
+2025_09,2025,9,Spanish Grand Prix,sainz,SAI,Carlos Sainz,Williams,17,14,0.0,0,random_forest,0.32742114980993187,13,0,0,0,0
 2025_09,2025,9,Spanish Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,13,11,0.0,0,random_forest,0.2782535970334645,14,0,0,0,0
-2025_09,2025,9,Spanish Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,14,17,0.0,0,random_forest,0.2337719307218942,15,0,0,0,0
+2025_09,2025,9,Spanish Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,14,17,0.0,0,random_forest,0.23377193072189417,15,0,0,0,0
 2025_09,2025,9,Spanish Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,16,16,0.0,0,random_forest,0.2325716145903226,16,0,0,0,0
 2025_09,2025,9,Spanish Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,12,12,0.0,0,random_forest,0.1914635843201746,17,0,0,0,0
 2025_09,2025,9,Spanish Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,15,5,10.0,1,random_forest,0.1462123111037775,18,0,0,0,0
@@ -899,21 +899,21 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_10,2025,10,Canadian Grand Prix,russell,RUS,George Russell,Mercedes,1,1,25.0,1,extra_trees,0.8772039385494041,3,1,1,1,1
 2025_10,2025,10,Canadian Grand Prix,norris,NOR,Lando Norris,McLaren,7,18,0.0,0,extra_trees,0.8678004707747767,4,1,0,0,0
 2025_10,2025,10,Canadian Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,5,6,8.0,1,extra_trees,0.8617442268248441,5,1,1,0,0
-2025_10,2025,10,Canadian Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,8,5,10.0,1,extra_trees,0.8169682143489827,6,1,1,0,0
+2025_10,2025,10,Canadian Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,8,5,10.0,1,extra_trees,0.8169682143489826,6,1,1,0,0
 2025_10,2025,10,Canadian Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,4,3,15.0,1,extra_trees,0.709979646041641,7,1,1,0,0
 2025_10,2025,10,Canadian Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,6,7,6.0,1,extra_trees,0.6968531928653156,8,1,1,0,0
-2025_10,2025,10,Canadian Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,18,12,0.0,0,extra_trees,0.5827448479399033,9,1,0,0,0
+2025_10,2025,10,Canadian Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,18,12,0.0,0,extra_trees,0.5827448479399034,9,1,0,0,0
 2025_10,2025,10,Canadian Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,12,16,0.0,0,extra_trees,0.5810781898566677,10,1,0,0,0
 2025_10,2025,10,Canadian Grand Prix,albon,ALB,Alexander Albon,Williams,9,20,0.0,0,extra_trees,0.5781138193945277,11,0,0,0,0
 2025_10,2025,10,Canadian Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,11,8,4.0,1,extra_trees,0.37596081341338355,12,0,0,0,0
 2025_10,2025,10,Canadian Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,10,13,0.0,0,extra_trees,0.32919848577874944,13,0,0,0,0
 2025_10,2025,10,Canadian Grand Prix,sainz,SAI,Carlos Sainz,Williams,16,10,1.0,1,extra_trees,0.28484107403473186,14,0,0,0,0
 2025_10,2025,10,Canadian Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,14,9,2.0,1,extra_trees,0.281540761401551,15,0,0,0,0
-2025_10,2025,10,Canadian Grand Prix,stroll,STR,Lance Stroll,Aston Martin,17,17,0.0,0,extra_trees,0.2646790638702552,16,0,0,0,0
-2025_10,2025,10,Canadian Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,20,15,0.0,0,extra_trees,0.2394391040580017,17,0,0,0,0
+2025_10,2025,10,Canadian Grand Prix,stroll,STR,Lance Stroll,Aston Martin,17,17,0.0,0,extra_trees,0.26467906387025514,16,0,0,0,0
+2025_10,2025,10,Canadian Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,20,15,0.0,0,extra_trees,0.23943910405800173,17,0,0,0,0
 2025_10,2025,10,Canadian Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,13,11,0.0,0,extra_trees,0.23543480194503696,18,0,0,0,0
 2025_10,2025,10,Canadian Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,19,19,0.0,0,extra_trees,0.21468440884816836,19,0,0,0,0
-2025_10,2025,10,Canadian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,15,14,0.0,0,extra_trees,0.12137081811641354,20,0,0,0,0
+2025_10,2025,10,Canadian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,15,14,0.0,0,extra_trees,0.12137081811641352,20,0,0,0,0
 2025_10,2025,10,Canadian Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,2,2,18.0,1,hist_gradient_boosting,0.984077263778077,1,1,1,1,1
 2025_10,2025,10,Canadian Grand Prix,russell,RUS,George Russell,Mercedes,1,1,25.0,1,hist_gradient_boosting,0.9776095703295488,2,1,1,1,1
 2025_10,2025,10,Canadian Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,4,3,15.0,1,hist_gradient_boosting,0.9674284385433259,3,1,1,1,1
@@ -974,22 +974,22 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_10,2025,10,Canadian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,15,14,0.0,0,neural_network_mlp,0.02436735239064002,18,0,0,0,0
 2025_10,2025,10,Canadian Grand Prix,stroll,STR,Lance Stroll,Aston Martin,17,17,0.0,0,neural_network_mlp,0.01818608186643968,19,0,0,0,0
 2025_10,2025,10,Canadian Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,19,19,0.0,0,neural_network_mlp,0.015356077265945674,20,0,0,0,0
-2025_10,2025,10,Canadian Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,2,2,18.0,1,random_forest,0.8662491080894824,1,1,1,1,1
+2025_10,2025,10,Canadian Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,2,2,18.0,1,random_forest,0.8662491080894823,1,1,1,1,1
 2025_10,2025,10,Canadian Grand Prix,piastri,PIA,Oscar Piastri,McLaren,3,4,12.0,1,random_forest,0.8434659661712394,2,1,1,1,0
 2025_10,2025,10,Canadian Grand Prix,russell,RUS,George Russell,Mercedes,1,1,25.0,1,random_forest,0.8383484706189591,3,1,1,1,1
 2025_10,2025,10,Canadian Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,5,6,8.0,1,random_forest,0.8351892153771512,4,1,1,0,0
-2025_10,2025,10,Canadian Grand Prix,norris,NOR,Lando Norris,McLaren,7,18,0.0,0,random_forest,0.8349861297359814,5,1,0,0,0
+2025_10,2025,10,Canadian Grand Prix,norris,NOR,Lando Norris,McLaren,7,18,0.0,0,random_forest,0.8349861297359815,5,1,0,0,0
 2025_10,2025,10,Canadian Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,8,5,10.0,1,random_forest,0.8060396506902551,6,1,1,0,0
 2025_10,2025,10,Canadian Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,4,3,15.0,1,random_forest,0.6897322655078498,7,1,1,0,0
-2025_10,2025,10,Canadian Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,6,7,6.0,1,random_forest,0.6382538940467275,8,1,1,0,0
+2025_10,2025,10,Canadian Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,6,7,6.0,1,random_forest,0.6382538940467274,8,1,1,0,0
 2025_10,2025,10,Canadian Grand Prix,albon,ALB,Alexander Albon,Williams,9,20,0.0,0,random_forest,0.636159786206619,9,1,0,0,0
 2025_10,2025,10,Canadian Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,12,16,0.0,0,random_forest,0.528277959233925,10,1,0,0,0
 2025_10,2025,10,Canadian Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,18,12,0.0,0,random_forest,0.4143652248501662,11,0,0,0,0
-2025_10,2025,10,Canadian Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,11,8,4.0,1,random_forest,0.3628806464233794,12,0,0,0,0
+2025_10,2025,10,Canadian Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,11,8,4.0,1,random_forest,0.36288064642337947,12,0,0,0,0
 2025_10,2025,10,Canadian Grand Prix,sainz,SAI,Carlos Sainz,Williams,16,10,1.0,1,random_forest,0.30207101465148095,13,0,0,0,0
 2025_10,2025,10,Canadian Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,10,13,0.0,0,random_forest,0.289500654790257,14,0,0,0,0
 2025_10,2025,10,Canadian Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,14,9,2.0,1,random_forest,0.26561775414977523,15,0,0,0,0
-2025_10,2025,10,Canadian Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,20,15,0.0,0,random_forest,0.22188818540730146,16,0,0,0,0
+2025_10,2025,10,Canadian Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,20,15,0.0,0,random_forest,0.22188818540730143,16,0,0,0,0
 2025_10,2025,10,Canadian Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,13,11,0.0,0,random_forest,0.21781658332127887,17,0,0,0,0
 2025_10,2025,10,Canadian Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,19,19,0.0,0,random_forest,0.21033462422599222,18,0,0,0,0
 2025_10,2025,10,Canadian Grand Prix,stroll,STR,Lance Stroll,Aston Martin,17,17,0.0,0,random_forest,0.17139766858649808,19,0,0,0,0
@@ -1001,19 +1001,19 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_11,2025,11,Austrian Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,2,3,15.0,1,extra_trees,0.8326277695208057,5,1,1,0,0
 2025_11,2025,11,Austrian Grand Prix,norris,NOR,Lando Norris,McLaren,1,1,25.0,1,extra_trees,0.8297287034122731,6,1,1,0,0
 2025_11,2025,11,Austrian Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,9,19,0.0,0,extra_trees,0.7385320079405565,7,1,0,0,0
-2025_11,2025,11,Austrian Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,6,6,8.0,1,extra_trees,0.5293383973491208,8,1,1,0,0
+2025_11,2025,11,Austrian Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,6,6,8.0,1,extra_trees,0.5293383973491207,8,1,1,0,0
 2025_11,2025,11,Austrian Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,10,13,0.0,0,extra_trees,0.5258550299008766,9,1,0,0,0
 2025_11,2025,11,Austrian Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,18,16,0.0,0,extra_trees,0.48513173996614467,10,1,0,0,0
 2025_11,2025,11,Austrian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,8,8,4.0,1,extra_trees,0.43943942001091074,11,0,0,0,0
-2025_11,2025,11,Austrian Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,11,7,6.0,1,extra_trees,0.39925037460582663,12,0,0,0,0
+2025_11,2025,11,Austrian Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,11,7,6.0,1,extra_trees,0.3992503746058267,12,0,0,0,0
 2025_11,2025,11,Austrian Grand Prix,albon,ALB,Alexander Albon,Williams,12,17,0.0,0,extra_trees,0.37246076329152233,13,0,0,0,0
-2025_11,2025,11,Austrian Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,13,12,0.0,0,extra_trees,0.3247130371190143,14,0,0,0,0
+2025_11,2025,11,Austrian Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,13,12,0.0,0,extra_trees,0.32471303711901434,14,0,0,0,0
 2025_11,2025,11,Austrian Grand Prix,sainz,SAI,Carlos Sainz,Williams,19,20,0.0,0,extra_trees,0.3053558920492701,15,0,0,0,0
-2025_11,2025,11,Austrian Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,14,15,0.0,0,extra_trees,0.29711051450019327,16,0,0,0,0
+2025_11,2025,11,Austrian Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,14,15,0.0,0,extra_trees,0.2971105145001933,16,0,0,0,0
 2025_11,2025,11,Austrian Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,15,11,0.0,0,extra_trees,0.2682386193867592,17,0,0,0,0
 2025_11,2025,11,Austrian Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,17,10,1.0,1,extra_trees,0.21340825861004944,18,0,0,0,0
 2025_11,2025,11,Austrian Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,20,9,2.0,1,extra_trees,0.20192649476448168,19,0,0,0,0
-2025_11,2025,11,Austrian Grand Prix,stroll,STR,Lance Stroll,Aston Martin,16,14,0.0,0,extra_trees,0.1737018296110785,20,0,0,0,0
+2025_11,2025,11,Austrian Grand Prix,stroll,STR,Lance Stroll,Aston Martin,16,14,0.0,0,extra_trees,0.17370182961107852,20,0,0,0,0
 2025_11,2025,11,Austrian Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,4,4,12.0,1,hist_gradient_boosting,0.9633824805375542,1,1,1,1,0
 2025_11,2025,11,Austrian Grand Prix,norris,NOR,Lando Norris,McLaren,1,1,25.0,1,hist_gradient_boosting,0.9211133782520651,2,1,1,1,1
 2025_11,2025,11,Austrian Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,2,3,15.0,1,hist_gradient_boosting,0.8988399452366671,3,1,1,1,1
@@ -1080,29 +1080,29 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_11,2025,11,Austrian Grand Prix,norris,NOR,Lando Norris,McLaren,1,1,25.0,1,random_forest,0.7885675994704784,4,1,1,0,0
 2025_11,2025,11,Austrian Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,7,18,0.0,0,random_forest,0.7588279862979251,5,1,0,0,0
 2025_11,2025,11,Austrian Grand Prix,russell,RUS,George Russell,Mercedes,5,5,10.0,1,random_forest,0.7532347451947748,6,1,1,0,0
-2025_11,2025,11,Austrian Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,9,19,0.0,0,random_forest,0.669462053718274,7,1,0,0,0
+2025_11,2025,11,Austrian Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,9,19,0.0,0,random_forest,0.6694620537182742,7,1,0,0,0
 2025_11,2025,11,Austrian Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,6,6,8.0,1,random_forest,0.552324692153551,8,1,1,0,0
 2025_11,2025,11,Austrian Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,10,13,0.0,0,random_forest,0.5195320388433085,9,1,0,0,0
 2025_11,2025,11,Austrian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,8,8,4.0,1,random_forest,0.5007375145166192,10,1,1,0,0
-2025_11,2025,11,Austrian Grand Prix,albon,ALB,Alexander Albon,Williams,12,17,0.0,0,random_forest,0.49837803347045906,11,0,0,0,0
-2025_11,2025,11,Austrian Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,11,7,6.0,1,random_forest,0.4011778176079098,12,0,0,0,0
+2025_11,2025,11,Austrian Grand Prix,albon,ALB,Alexander Albon,Williams,12,17,0.0,0,random_forest,0.498378033470459,11,0,0,0,0
+2025_11,2025,11,Austrian Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,11,7,6.0,1,random_forest,0.4011778176079099,12,0,0,0,0
 2025_11,2025,11,Austrian Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,18,16,0.0,0,random_forest,0.39280862762579666,13,0,0,0,0
 2025_11,2025,11,Austrian Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,13,12,0.0,0,random_forest,0.36950575830471455,14,0,0,0,0
 2025_11,2025,11,Austrian Grand Prix,sainz,SAI,Carlos Sainz,Williams,19,20,0.0,0,random_forest,0.35075112183524204,15,0,0,0,0
 2025_11,2025,11,Austrian Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,17,10,1.0,1,random_forest,0.2934209627998647,16,0,0,0,0
-2025_11,2025,11,Austrian Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,15,11,0.0,0,random_forest,0.2869152357727036,17,0,0,0,0
-2025_11,2025,11,Austrian Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,20,9,2.0,1,random_forest,0.2805591818899135,18,0,0,0,0
+2025_11,2025,11,Austrian Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,15,11,0.0,0,random_forest,0.28691523577270367,17,0,0,0,0
+2025_11,2025,11,Austrian Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,20,9,2.0,1,random_forest,0.28055918188991347,18,0,0,0,0
 2025_11,2025,11,Austrian Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,14,15,0.0,0,random_forest,0.23239524548680762,19,0,0,0,0
 2025_11,2025,11,Austrian Grand Prix,stroll,STR,Lance Stroll,Aston Martin,16,14,0.0,0,random_forest,0.21806077110815153,20,0,0,0,0
 2025_12,2025,12,British Grand Prix,norris,NOR,Lando Norris,McLaren,3,1,25.0,1,extra_trees,0.9048787591205034,1,1,1,1,1
-2025_12,2025,12,British Grand Prix,piastri,PIA,Oscar Piastri,McLaren,2,2,18.0,1,extra_trees,0.8676857227190109,2,1,1,1,1
+2025_12,2025,12,British Grand Prix,piastri,PIA,Oscar Piastri,McLaren,2,2,18.0,1,extra_trees,0.8676857227190108,2,1,1,1,1
 2025_12,2025,12,British Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,1,5,10.0,1,extra_trees,0.865429409680361,3,1,1,1,0
 2025_12,2025,12,British Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,5,4,12.0,1,extra_trees,0.8402389584557475,4,1,1,0,0
 2025_12,2025,12,British Grand Prix,russell,RUS,George Russell,Mercedes,4,10,1.0,1,extra_trees,0.7645148759316475,5,1,1,0,0
-2025_12,2025,12,British Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,6,14,0.0,0,extra_trees,0.7575879725934417,6,1,0,0,0
+2025_12,2025,12,British Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,6,14,0.0,0,extra_trees,0.7575879725934416,6,1,0,0,0
 2025_12,2025,12,British Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,10,16,0.0,0,extra_trees,0.6947559511298477,7,1,0,0,0
 2025_12,2025,12,British Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,7,9,2.0,1,extra_trees,0.6857720357345813,8,1,1,0,0
-2025_12,2025,12,British Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,8,6,8.0,1,extra_trees,0.6504536410320798,9,1,1,0,0
+2025_12,2025,12,British Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,8,6,8.0,1,extra_trees,0.6504536410320797,9,1,1,0,0
 2025_12,2025,12,British Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,11,15,0.0,0,extra_trees,0.5658778508843266,10,1,0,0,0
 2025_12,2025,12,British Grand Prix,sainz,SAI,Carlos Sainz,Williams,9,12,0.0,0,extra_trees,0.46230815613804127,11,0,0,0,0
 2025_12,2025,12,British Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,12,17,0.0,0,extra_trees,0.3658159089577336,12,0,0,0,0
@@ -1112,8 +1112,8 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_12,2025,12,British Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,15,19,0.0,0,extra_trees,0.25613206197744326,16,0,0,0,0
 2025_12,2025,12,British Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,19,3,15.0,1,extra_trees,0.24245808076191072,17,0,0,0,0
 2025_12,2025,12,British Grand Prix,stroll,STR,Lance Stroll,Aston Martin,17,7,6.0,1,extra_trees,0.21140169598396436,18,0,0,0,0
-2025_12,2025,12,British Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,20,20,0.0,0,extra_trees,0.18211555442967034,19,0,0,0,0
-2025_12,2025,12,British Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,16,18,0.0,0,extra_trees,0.14301575845230155,20,0,0,0,0
+2025_12,2025,12,British Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,20,20,0.0,0,extra_trees,0.18211555442967037,19,0,0,0,0
+2025_12,2025,12,British Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,16,18,0.0,0,extra_trees,0.14301575845230152,20,0,0,0,0
 2025_12,2025,12,British Grand Prix,norris,NOR,Lando Norris,McLaren,3,1,25.0,1,hist_gradient_boosting,0.9152126766435951,1,1,1,1,1
 2025_12,2025,12,British Grand Prix,piastri,PIA,Oscar Piastri,McLaren,2,2,18.0,1,hist_gradient_boosting,0.8557227286483319,2,1,1,1,1
 2025_12,2025,12,British Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,1,5,10.0,1,hist_gradient_boosting,0.839356562079926,3,1,1,1,0
@@ -1174,11 +1174,11 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_12,2025,12,British Grand Prix,stroll,STR,Lance Stroll,Aston Martin,17,7,6.0,1,neural_network_mlp,0.0644303155656629,18,0,0,0,0
 2025_12,2025,12,British Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,20,20,0.0,0,neural_network_mlp,0.05649707159454609,19,0,0,0,0
 2025_12,2025,12,British Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,19,3,15.0,1,neural_network_mlp,0.04163020366723012,20,0,0,0,0
-2025_12,2025,12,British Grand Prix,norris,NOR,Lando Norris,McLaren,3,1,25.0,1,random_forest,0.8721462804806314,1,1,1,1,1
+2025_12,2025,12,British Grand Prix,norris,NOR,Lando Norris,McLaren,3,1,25.0,1,random_forest,0.8721462804806315,1,1,1,1,1
 2025_12,2025,12,British Grand Prix,piastri,PIA,Oscar Piastri,McLaren,2,2,18.0,1,random_forest,0.8353650518046561,2,1,1,1,1
 2025_12,2025,12,British Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,5,4,12.0,1,random_forest,0.820105163037219,3,1,1,1,0
-2025_12,2025,12,British Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,1,5,10.0,1,random_forest,0.8166209599818298,4,1,1,0,0
-2025_12,2025,12,British Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,6,14,0.0,0,random_forest,0.8117581470190379,5,1,0,0,0
+2025_12,2025,12,British Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,1,5,10.0,1,random_forest,0.8166209599818297,4,1,1,0,0
+2025_12,2025,12,British Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,6,14,0.0,0,random_forest,0.8117581470190378,5,1,0,0,0
 2025_12,2025,12,British Grand Prix,russell,RUS,George Russell,Mercedes,4,10,1.0,1,random_forest,0.7796673049287597,6,1,1,0,0
 2025_12,2025,12,British Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,10,16,0.0,0,random_forest,0.6853743993569207,7,1,0,0,0
 2025_12,2025,12,British Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,7,9,2.0,1,random_forest,0.6369789703523755,8,1,1,0,0
@@ -1193,21 +1193,21 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_12,2025,12,British Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,15,19,0.0,0,random_forest,0.2990796640318912,17,0,0,0,0
 2025_12,2025,12,British Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,16,18,0.0,0,random_forest,0.20449188013081301,18,0,0,0,0
 2025_12,2025,12,British Grand Prix,stroll,STR,Lance Stroll,Aston Martin,17,7,6.0,1,random_forest,0.19196637157345325,19,0,0,0,0
-2025_12,2025,12,British Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,20,20,0.0,0,random_forest,0.13612650761007308,20,0,0,0,0
+2025_12,2025,12,British Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,20,20,0.0,0,random_forest,0.1361265076100731,20,0,0,0,0
 2025_13,2025,13,Belgian Grand Prix,norris,NOR,Lando Norris,McLaren,1,2,18.0,1,extra_trees,0.8750945729670304,1,1,1,1,1
 2025_13,2025,13,Belgian Grand Prix,piastri,PIA,Oscar Piastri,McLaren,2,1,25.0,1,extra_trees,0.8554852456312415,2,1,1,1,1
 2025_13,2025,13,Belgian Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,4,4,12.0,1,extra_trees,0.7980285543874672,3,1,1,1,0
-2025_13,2025,13,Belgian Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,3,3,15.0,1,extra_trees,0.7738989409103759,4,1,1,0,0
+2025_13,2025,13,Belgian Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,3,3,15.0,1,extra_trees,0.7738989409103758,4,1,1,0,0
 2025_13,2025,13,Belgian Grand Prix,russell,RUS,George Russell,Mercedes,6,5,10.0,1,extra_trees,0.7733904851353328,5,1,1,0,0
 2025_13,2025,13,Belgian Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,18,7,6.0,1,extra_trees,0.6620374816262234,6,1,1,0,0
 2025_13,2025,13,Belgian Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,7,13,0.0,0,extra_trees,0.6210867597852457,7,1,0,0,0
-2025_13,2025,13,Belgian Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,8,20,0.0,0,extra_trees,0.6018059894696988,8,1,0,0,0
+2025_13,2025,13,Belgian Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,8,20,0.0,0,extra_trees,0.6018059894696989,8,1,0,0,0
 2025_13,2025,13,Belgian Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,9,8,4.0,1,extra_trees,0.5640941765009324,9,1,1,0,0
 2025_13,2025,13,Belgian Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,19,16,0.0,0,extra_trees,0.5610811445916133,10,1,0,0,0
 2025_13,2025,13,Belgian Grand Prix,albon,ALB,Alexander Albon,Williams,5,6,8.0,1,extra_trees,0.5228151808380429,11,0,0,0,0
-2025_13,2025,13,Belgian Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,13,10,1.0,1,extra_trees,0.46130494024628593,12,0,0,0,0
+2025_13,2025,13,Belgian Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,13,10,1.0,1,extra_trees,0.4613049402462859,12,0,0,0,0
 2025_13,2025,13,Belgian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,10,9,2.0,1,extra_trees,0.41273960301206575,13,0,0,0,0
-2025_13,2025,13,Belgian Grand Prix,sainz,SAI,Carlos Sainz,Williams,17,18,0.0,0,extra_trees,0.39557661255860926,14,0,0,0,0
+2025_13,2025,13,Belgian Grand Prix,sainz,SAI,Carlos Sainz,Williams,17,18,0.0,0,extra_trees,0.3955766125586092,14,0,0,0,0
 2025_13,2025,13,Belgian Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,14,12,0.0,0,extra_trees,0.3798139029129022,15,0,0,0,0
 2025_13,2025,13,Belgian Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,11,15,0.0,0,extra_trees,0.3407206701501704,16,0,0,0,0
 2025_13,2025,13,Belgian Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,20,17,0.0,0,extra_trees,0.2742199338155468,17,0,0,0,0
@@ -1280,7 +1280,7 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_13,2025,13,Belgian Grand Prix,russell,RUS,George Russell,Mercedes,6,5,10.0,1,random_forest,0.7801415894033681,4,1,1,0,0
 2025_13,2025,13,Belgian Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,4,4,12.0,1,random_forest,0.76522226491591,5,1,1,0,0
 2025_13,2025,13,Belgian Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,18,7,6.0,1,random_forest,0.6571177169574764,6,1,1,0,0
-2025_13,2025,13,Belgian Grand Prix,albon,ALB,Alexander Albon,Williams,5,6,8.0,1,random_forest,0.5979009530666103,7,1,1,0,0
+2025_13,2025,13,Belgian Grand Prix,albon,ALB,Alexander Albon,Williams,5,6,8.0,1,random_forest,0.5979009530666102,7,1,1,0,0
 2025_13,2025,13,Belgian Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,9,8,4.0,1,random_forest,0.5262279303530523,8,1,1,0,0
 2025_13,2025,13,Belgian Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,8,20,0.0,0,random_forest,0.5242585131396047,9,1,0,0,0
 2025_13,2025,13,Belgian Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,7,13,0.0,0,random_forest,0.514145016178885,10,1,0,0,0
@@ -1288,23 +1288,23 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_13,2025,13,Belgian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,10,9,2.0,1,random_forest,0.46034366063869164,12,0,0,0,0
 2025_13,2025,13,Belgian Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,19,16,0.0,0,random_forest,0.4539760614476102,13,0,0,0,0
 2025_13,2025,13,Belgian Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,11,15,0.0,0,random_forest,0.4368940192919557,14,0,0,0,0
-2025_13,2025,13,Belgian Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,13,10,1.0,1,random_forest,0.4099226577192633,15,0,0,0,0
-2025_13,2025,13,Belgian Grand Prix,sainz,SAI,Carlos Sainz,Williams,17,18,0.0,0,random_forest,0.35929899099178886,16,0,0,0,0
+2025_13,2025,13,Belgian Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,13,10,1.0,1,random_forest,0.40992265771926323,15,0,0,0,0
+2025_13,2025,13,Belgian Grand Prix,sainz,SAI,Carlos Sainz,Williams,17,18,0.0,0,random_forest,0.3592989909917889,16,0,0,0,0
 2025_13,2025,13,Belgian Grand Prix,stroll,STR,Lance Stroll,Aston Martin,16,14,0.0,0,random_forest,0.32541238305112385,17,0,0,0,0
 2025_13,2025,13,Belgian Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,20,17,0.0,0,random_forest,0.3187730768269344,18,0,0,0,0
-2025_13,2025,13,Belgian Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,12,11,0.0,0,random_forest,0.2977971062773433,19,0,0,0,0
+2025_13,2025,13,Belgian Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,12,11,0.0,0,random_forest,0.29779710627734335,19,0,0,0,0
 2025_13,2025,13,Belgian Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,15,19,0.0,0,random_forest,0.20989549178538877,20,0,0,0,0
-2025_14,2025,14,Hungarian Grand Prix,norris,NOR,Lando Norris,McLaren,3,1,25.0,1,extra_trees,0.9370562308814666,1,1,1,1,1
+2025_14,2025,14,Hungarian Grand Prix,norris,NOR,Lando Norris,McLaren,3,1,25.0,1,extra_trees,0.9370562308814667,1,1,1,1,1
 2025_14,2025,14,Hungarian Grand Prix,piastri,PIA,Oscar Piastri,McLaren,2,2,18.0,1,extra_trees,0.932705143241602,2,1,1,1,1
-2025_14,2025,14,Hungarian Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,1,4,12.0,1,extra_trees,0.8740536471603605,3,1,1,1,0
+2025_14,2025,14,Hungarian Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,1,4,12.0,1,extra_trees,0.8740536471603604,3,1,1,1,0
 2025_14,2025,14,Hungarian Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,8,9,2.0,1,extra_trees,0.8712464159760599,4,1,1,0,0
 2025_14,2025,14,Hungarian Grand Prix,russell,RUS,George Russell,Mercedes,4,3,15.0,1,extra_trees,0.8696340199225451,5,1,1,0,0
 2025_14,2025,14,Hungarian Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,12,12,0.0,0,extra_trees,0.7750160169172566,6,1,0,0,0
-2025_14,2025,14,Hungarian Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,5,5,10.0,1,extra_trees,0.7021464310042996,7,1,1,0,0
+2025_14,2025,14,Hungarian Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,5,5,10.0,1,extra_trees,0.7021464310042995,7,1,1,0,0
 2025_14,2025,14,Hungarian Grand Prix,stroll,STR,Lance Stroll,Aston Martin,6,7,6.0,1,extra_trees,0.6766647357784044,8,1,1,0,0
-2025_14,2025,14,Hungarian Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,15,10,1.0,1,extra_trees,0.5903889466799729,9,1,1,0,0
+2025_14,2025,14,Hungarian Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,15,10,1.0,1,extra_trees,0.5903889466799728,9,1,1,0,0
 2025_14,2025,14,Hungarian Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,9,8,4.0,1,extra_trees,0.5466233361554241,10,1,1,0,0
-2025_14,2025,14,Hungarian Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,10,11,0.0,0,extra_trees,0.5264102197487264,11,0,0,0,0
+2025_14,2025,14,Hungarian Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,10,11,0.0,0,extra_trees,0.5264102197487265,11,0,0,0,0
 2025_14,2025,14,Hungarian Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,20,17,0.0,0,extra_trees,0.48052667542282995,12,0,0,0,0
 2025_14,2025,14,Hungarian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,7,6,8.0,1,extra_trees,0.4555994362125501,13,0,0,0,0
 2025_14,2025,14,Hungarian Grand Prix,sainz,SAI,Carlos Sainz,Williams,13,14,0.0,0,extra_trees,0.3679353061154597,14,0,0,0,0
@@ -1312,8 +1312,8 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_14,2025,14,Hungarian Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,14,18,0.0,0,extra_trees,0.27024030423988826,16,0,0,0,0
 2025_14,2025,14,Hungarian Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,11,20,0.0,0,extra_trees,0.23804428505529207,17,0,0,0,0
 2025_14,2025,14,Hungarian Grand Prix,albon,ALB,Alexander Albon,Williams,19,15,0.0,0,extra_trees,0.2201045579610488,18,0,0,0,0
-2025_14,2025,14,Hungarian Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,16,19,0.0,0,extra_trees,0.17046555088163212,19,0,0,0,0
-2025_14,2025,14,Hungarian Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,17,16,0.0,0,extra_trees,0.14832015590719,20,0,0,0,0
+2025_14,2025,14,Hungarian Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,16,19,0.0,0,extra_trees,0.17046555088163215,19,0,0,0,0
+2025_14,2025,14,Hungarian Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,17,16,0.0,0,extra_trees,0.14832015590718994,20,0,0,0,0
 2025_14,2025,14,Hungarian Grand Prix,piastri,PIA,Oscar Piastri,McLaren,2,2,18.0,1,hist_gradient_boosting,0.9915246263254643,1,1,1,1,1
 2025_14,2025,14,Hungarian Grand Prix,norris,NOR,Lando Norris,McLaren,3,1,25.0,1,hist_gradient_boosting,0.9891708719053489,2,1,1,1,1
 2025_14,2025,14,Hungarian Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,1,4,12.0,1,hist_gradient_boosting,0.9614673594608943,3,1,1,1,0
@@ -1375,22 +1375,22 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_14,2025,14,Hungarian Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,18,13,0.0,0,neural_network_mlp,0.017712020716033464,19,0,0,0,0
 2025_14,2025,14,Hungarian Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,17,16,0.0,0,neural_network_mlp,0.014240179661235447,20,0,0,0,0
 2025_14,2025,14,Hungarian Grand Prix,norris,NOR,Lando Norris,McLaren,3,1,25.0,1,random_forest,0.9193179604847833,1,1,1,1,1
-2025_14,2025,14,Hungarian Grand Prix,piastri,PIA,Oscar Piastri,McLaren,2,2,18.0,1,random_forest,0.9104472458746434,2,1,1,1,1
+2025_14,2025,14,Hungarian Grand Prix,piastri,PIA,Oscar Piastri,McLaren,2,2,18.0,1,random_forest,0.9104472458746433,2,1,1,1,1
 2025_14,2025,14,Hungarian Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,1,4,12.0,1,random_forest,0.8845168431775721,3,1,1,1,0
 2025_14,2025,14,Hungarian Grand Prix,russell,RUS,George Russell,Mercedes,4,3,15.0,1,random_forest,0.863450756533169,4,1,1,0,0
-2025_14,2025,14,Hungarian Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,8,9,2.0,1,random_forest,0.8159247680072457,5,1,1,0,0
-2025_14,2025,14,Hungarian Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,12,12,0.0,0,random_forest,0.7848795773744581,6,1,0,0,0
+2025_14,2025,14,Hungarian Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,8,9,2.0,1,random_forest,0.8159247680072456,5,1,1,0,0
+2025_14,2025,14,Hungarian Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,12,12,0.0,0,random_forest,0.784879577374458,6,1,0,0,0
 2025_14,2025,14,Hungarian Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,5,5,10.0,1,random_forest,0.6600745424178902,7,1,1,0,0
 2025_14,2025,14,Hungarian Grand Prix,stroll,STR,Lance Stroll,Aston Martin,6,7,6.0,1,random_forest,0.599235056553034,8,1,1,0,0
 2025_14,2025,14,Hungarian Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,9,8,4.0,1,random_forest,0.544987218022349,9,1,1,0,0
 2025_14,2025,14,Hungarian Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,15,10,1.0,1,random_forest,0.5251381076052636,10,1,1,0,0
 2025_14,2025,14,Hungarian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,7,6,8.0,1,random_forest,0.51313815165663,11,0,0,0,0
-2025_14,2025,14,Hungarian Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,10,11,0.0,0,random_forest,0.4992701673850416,12,0,0,0,0
-2025_14,2025,14,Hungarian Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,18,13,0.0,0,random_forest,0.3682174113997495,13,0,0,0,0
+2025_14,2025,14,Hungarian Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,10,11,0.0,0,random_forest,0.49927016738504154,12,0,0,0,0
+2025_14,2025,14,Hungarian Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,18,13,0.0,0,random_forest,0.36821741139974945,13,0,0,0,0
 2025_14,2025,14,Hungarian Grand Prix,albon,ALB,Alexander Albon,Williams,19,15,0.0,0,random_forest,0.3529305049008454,14,0,0,0,0
 2025_14,2025,14,Hungarian Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,20,17,0.0,0,random_forest,0.34788253934053814,15,0,0,0,0
 2025_14,2025,14,Hungarian Grand Prix,sainz,SAI,Carlos Sainz,Williams,13,14,0.0,0,random_forest,0.34354716613595837,16,0,0,0,0
-2025_14,2025,14,Hungarian Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,11,20,0.0,0,random_forest,0.27858192780660196,17,0,0,0,0
+2025_14,2025,14,Hungarian Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,11,20,0.0,0,random_forest,0.278581927806602,17,0,0,0,0
 2025_14,2025,14,Hungarian Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,16,19,0.0,0,random_forest,0.25544143949376386,18,0,0,0,0
 2025_14,2025,14,Hungarian Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,14,18,0.0,0,random_forest,0.20876425752570438,19,0,0,0,0
 2025_14,2025,14,Hungarian Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,17,16,0.0,0,random_forest,0.20461712412719557,20,0,0,0,0
@@ -1400,11 +1400,11 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_15,2025,15,Dutch Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,7,20,0.0,0,extra_trees,0.8766616148388297,4,1,0,0,0
 2025_15,2025,15,Dutch Grand Prix,russell,RUS,George Russell,Mercedes,5,4,12.0,1,extra_trees,0.8671527968007158,5,1,1,0,0
 2025_15,2025,15,Dutch Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,6,19,0.0,0,extra_trees,0.84448406003647,6,1,0,0,0
-2025_15,2025,15,Dutch Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,10,8,4.0,1,extra_trees,0.6877260510332086,7,1,1,0,0
+2025_15,2025,15,Dutch Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,10,8,4.0,1,extra_trees,0.6877260510332087,7,1,1,0,0
 2025_15,2025,15,Dutch Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,11,16,0.0,0,extra_trees,0.6285019476778038,8,1,0,0,0
 2025_15,2025,15,Dutch Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,8,12,0.0,0,extra_trees,0.5760190275880439,9,1,0,0,0
-2025_15,2025,15,Dutch Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,4,3,15.0,1,extra_trees,0.5289350727462887,10,1,1,0,0
-2025_15,2025,15,Dutch Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,12,9,2.0,1,extra_trees,0.5143158045817401,11,0,0,0,0
+2025_15,2025,15,Dutch Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,4,3,15.0,1,extra_trees,0.5289350727462888,10,1,1,0,0
+2025_15,2025,15,Dutch Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,12,9,2.0,1,extra_trees,0.5143158045817402,11,0,0,0,0
 2025_15,2025,15,Dutch Grand Prix,sainz,SAI,Carlos Sainz,Williams,9,13,0.0,0,extra_trees,0.5130649074014365,12,0,0,0,0
 2025_15,2025,15,Dutch Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,14,17,0.0,0,extra_trees,0.40978863806258686,13,0,0,0,0
 2025_15,2025,15,Dutch Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,13,15,0.0,0,extra_trees,0.3096148424494705,14,0,0,0,0
@@ -1475,16 +1475,16 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_15,2025,15,Dutch Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,18,10,1.0,1,neural_network_mlp,0.013324872983647554,19,0,0,0,0
 2025_15,2025,15,Dutch Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,16,11,0.0,0,neural_network_mlp,0.008064948152241843,20,0,0,0,0
 2025_15,2025,15,Dutch Grand Prix,norris,NOR,Lando Norris,McLaren,2,18,0.0,0,random_forest,0.9265718435551962,1,1,0,1,0
-2025_15,2025,15,Dutch Grand Prix,piastri,PIA,Oscar Piastri,McLaren,1,1,25.0,1,random_forest,0.911750843593064,2,1,1,1,1
+2025_15,2025,15,Dutch Grand Prix,piastri,PIA,Oscar Piastri,McLaren,1,1,25.0,1,random_forest,0.9117508435930641,2,1,1,1,1
 2025_15,2025,15,Dutch Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,6,19,0.0,0,random_forest,0.8773892078048922,3,1,0,1,0
 2025_15,2025,15,Dutch Grand Prix,russell,RUS,George Russell,Mercedes,5,4,12.0,1,random_forest,0.8740690955302818,4,1,1,0,0
-2025_15,2025,15,Dutch Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,3,2,18.0,1,random_forest,0.874046978544634,5,1,1,0,0
-2025_15,2025,15,Dutch Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,7,20,0.0,0,random_forest,0.8500763774807001,6,1,0,0,0
+2025_15,2025,15,Dutch Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,3,2,18.0,1,random_forest,0.8740469785446339,5,1,1,0,0
+2025_15,2025,15,Dutch Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,7,20,0.0,0,random_forest,0.8500763774807,6,1,0,0,0
 2025_15,2025,15,Dutch Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,10,8,4.0,1,random_forest,0.6702385144043246,7,1,1,0,0
-2025_15,2025,15,Dutch Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,8,12,0.0,0,random_forest,0.607014962709736,8,1,0,0,0
+2025_15,2025,15,Dutch Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,8,12,0.0,0,random_forest,0.6070149627097359,8,1,0,0,0
 2025_15,2025,15,Dutch Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,11,16,0.0,0,random_forest,0.5856418905703432,9,1,0,0,0
-2025_15,2025,15,Dutch Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,4,3,15.0,1,random_forest,0.5365073706286263,10,1,1,0,0
-2025_15,2025,15,Dutch Grand Prix,sainz,SAI,Carlos Sainz,Williams,9,13,0.0,0,random_forest,0.5218472768751963,11,0,0,0,0
+2025_15,2025,15,Dutch Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,4,3,15.0,1,random_forest,0.5365073706286262,10,1,1,0,0
+2025_15,2025,15,Dutch Grand Prix,sainz,SAI,Carlos Sainz,Williams,9,13,0.0,0,random_forest,0.5218472768751962,11,0,0,0,0
 2025_15,2025,15,Dutch Grand Prix,albon,ALB,Alexander Albon,Williams,15,5,10.0,1,random_forest,0.40434594669334833,12,0,0,0,0
 2025_15,2025,15,Dutch Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,12,9,2.0,1,random_forest,0.3617783543008762,13,0,0,0,0
 2025_15,2025,15,Dutch Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,13,15,0.0,0,random_forest,0.3617744472234367,14,0,0,0,0
@@ -1493,27 +1493,27 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_15,2025,15,Dutch Grand Prix,stroll,STR,Lance Stroll,Aston Martin,19,7,6.0,1,random_forest,0.26004273069391426,17,0,0,0,0
 2025_15,2025,15,Dutch Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,18,10,1.0,1,random_forest,0.18717505085370428,18,0,0,0,0
 2025_15,2025,15,Dutch Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,16,11,0.0,0,random_forest,0.16387743485400008,19,0,0,0,0
-2025_15,2025,15,Dutch Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,20,6,8.0,1,random_forest,0.12541491502841592,20,0,0,0,0
-2025_16,2025,16,Italian Grand Prix,norris,NOR,Lando Norris,McLaren,2,2,18.0,1,extra_trees,0.9537090316363722,1,1,1,1,1
+2025_15,2025,15,Dutch Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,20,6,8.0,1,random_forest,0.12541491502841595,20,0,0,0,0
+2025_16,2025,16,Italian Grand Prix,norris,NOR,Lando Norris,McLaren,2,2,18.0,1,extra_trees,0.9537090316363721,1,1,1,1,1
 2025_16,2025,16,Italian Grand Prix,piastri,PIA,Oscar Piastri,McLaren,3,3,15.0,1,extra_trees,0.9345303617899594,2,1,1,1,1
 2025_16,2025,16,Italian Grand Prix,russell,RUS,George Russell,Mercedes,5,5,10.0,1,extra_trees,0.9138416358772878,3,1,1,1,0
 2025_16,2025,16,Italian Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,4,4,12.0,1,extra_trees,0.9036723376881931,4,1,1,0,0
 2025_16,2025,16,Italian Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,10,6,8.0,1,extra_trees,0.878264807989808,5,1,1,0,0
 2025_16,2025,16,Italian Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,1,1,25.0,1,extra_trees,0.845519284449162,6,1,1,0,0
-2025_16,2025,16,Italian Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,6,9,2.0,1,extra_trees,0.7168531278699563,7,1,1,0,0
+2025_16,2025,16,Italian Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,6,9,2.0,1,extra_trees,0.7168531278699564,7,1,1,0,0
 2025_16,2025,16,Italian Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,8,19,0.0,0,extra_trees,0.6960353881263486,8,1,0,0,0
-2025_16,2025,16,Italian Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,9,13,0.0,0,extra_trees,0.6621649046645154,9,1,0,0,0
+2025_16,2025,16,Italian Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,9,13,0.0,0,extra_trees,0.6621649046645155,9,1,0,0,0
 2025_16,2025,16,Italian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,7,8,4.0,1,extra_trees,0.5304404636111546,10,1,1,0,0
 2025_16,2025,16,Italian Grand Prix,albon,ALB,Alexander Albon,Williams,14,7,6.0,1,extra_trees,0.38719186684617024,11,0,0,0,0
 2025_16,2025,16,Italian Grand Prix,sainz,SAI,Carlos Sainz,Williams,13,11,0.0,0,extra_trees,0.36216669718226546,12,0,0,0,0
-2025_16,2025,16,Italian Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,12,20,0.0,0,extra_trees,0.35558037511454915,13,0,0,0,0
+2025_16,2025,16,Italian Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,12,20,0.0,0,extra_trees,0.3555803751145492,13,0,0,0,0
 2025_16,2025,16,Italian Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,11,12,0.0,0,extra_trees,0.3228112149205645,14,0,0,0,0
 2025_16,2025,16,Italian Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,15,15,0.0,0,extra_trees,0.2347988484970278,15,0,0,0,0
-2025_16,2025,16,Italian Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,19,10,1.0,1,extra_trees,0.17449602043598117,16,0,0,0,0
+2025_16,2025,16,Italian Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,19,10,1.0,1,extra_trees,0.17449602043598114,16,0,0,0,0
 2025_16,2025,16,Italian Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,20,16,0.0,0,extra_trees,0.14939676369289281,17,0,0,0,0
 2025_16,2025,16,Italian Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,18,14,0.0,0,extra_trees,0.14560482404141983,18,0,0,0,0
 2025_16,2025,16,Italian Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,17,17,0.0,0,extra_trees,0.13606898740182247,19,0,0,0,0
-2025_16,2025,16,Italian Grand Prix,stroll,STR,Lance Stroll,Aston Martin,16,18,0.0,0,extra_trees,0.1324131048744902,20,0,0,0,0
+2025_16,2025,16,Italian Grand Prix,stroll,STR,Lance Stroll,Aston Martin,16,18,0.0,0,extra_trees,0.13241310487449018,20,0,0,0,0
 2025_16,2025,16,Italian Grand Prix,piastri,PIA,Oscar Piastri,McLaren,3,3,15.0,1,hist_gradient_boosting,0.9857238885928344,1,1,1,1,1
 2025_16,2025,16,Italian Grand Prix,norris,NOR,Lando Norris,McLaren,2,2,18.0,1,hist_gradient_boosting,0.9788180920953681,2,1,1,1,1
 2025_16,2025,16,Italian Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,4,4,12.0,1,hist_gradient_boosting,0.9453842531515156,3,1,1,1,0
@@ -1574,7 +1574,7 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_16,2025,16,Italian Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,20,16,0.0,0,neural_network_mlp,0.06150499770765804,18,0,0,0,0
 2025_16,2025,16,Italian Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,18,14,0.0,0,neural_network_mlp,0.060978092386794275,19,0,0,0,0
 2025_16,2025,16,Italian Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,17,17,0.0,0,neural_network_mlp,0.016314167080186084,20,0,0,0,0
-2025_16,2025,16,Italian Grand Prix,norris,NOR,Lando Norris,McLaren,2,2,18.0,1,random_forest,0.9321370871785255,1,1,1,1,1
+2025_16,2025,16,Italian Grand Prix,norris,NOR,Lando Norris,McLaren,2,2,18.0,1,random_forest,0.9321370871785256,1,1,1,1,1
 2025_16,2025,16,Italian Grand Prix,piastri,PIA,Oscar Piastri,McLaren,3,3,15.0,1,random_forest,0.922846844620385,2,1,1,1,1
 2025_16,2025,16,Italian Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,4,4,12.0,1,random_forest,0.9020221299315916,3,1,1,1,0
 2025_16,2025,16,Italian Grand Prix,russell,RUS,George Russell,Mercedes,5,5,10.0,1,random_forest,0.8954510950405666,4,1,1,0,0
@@ -1582,12 +1582,12 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_16,2025,16,Italian Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,10,6,8.0,1,random_forest,0.835132318020152,6,1,1,0,0
 2025_16,2025,16,Italian Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,8,19,0.0,0,random_forest,0.6924355753004665,7,1,0,0,0
 2025_16,2025,16,Italian Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,6,9,2.0,1,random_forest,0.6544885619473748,8,1,1,0,0
-2025_16,2025,16,Italian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,7,8,4.0,1,random_forest,0.6059397434168368,9,1,1,0,0
+2025_16,2025,16,Italian Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,7,8,4.0,1,random_forest,0.6059397434168367,9,1,1,0,0
 2025_16,2025,16,Italian Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,9,13,0.0,0,random_forest,0.5741312585100373,10,1,0,0,0
-2025_16,2025,16,Italian Grand Prix,albon,ALB,Alexander Albon,Williams,14,7,6.0,1,random_forest,0.5070420861529615,11,0,0,0,0
+2025_16,2025,16,Italian Grand Prix,albon,ALB,Alexander Albon,Williams,14,7,6.0,1,random_forest,0.5070420861529614,11,0,0,0,0
 2025_16,2025,16,Italian Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,12,20,0.0,0,random_forest,0.3840366072703459,12,0,0,0,0
 2025_16,2025,16,Italian Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,11,12,0.0,0,random_forest,0.35431973993923765,13,0,0,0,0
-2025_16,2025,16,Italian Grand Prix,sainz,SAI,Carlos Sainz,Williams,13,11,0.0,0,random_forest,0.3280400325218617,14,0,0,0,0
+2025_16,2025,16,Italian Grand Prix,sainz,SAI,Carlos Sainz,Williams,13,11,0.0,0,random_forest,0.32804003252186165,14,0,0,0,0
 2025_16,2025,16,Italian Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,19,10,1.0,1,random_forest,0.2825878102264065,15,0,0,0,0
 2025_16,2025,16,Italian Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,15,15,0.0,0,random_forest,0.2759391554080306,16,0,0,0,0
 2025_16,2025,16,Italian Grand Prix,stroll,STR,Lance Stroll,Aston Martin,16,18,0.0,0,random_forest,0.2626852213351611,17,0,0,0,0
@@ -1597,23 +1597,23 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_17,2025,17,Azerbaijan Grand Prix,norris,NOR,Lando Norris,McLaren,7,7,6.0,1,extra_trees,0.89702045141169,1,1,1,1,0
 2025_17,2025,17,Azerbaijan Grand Prix,piastri,PIA,Oscar Piastri,McLaren,9,20,0.0,0,extra_trees,0.8611359256284881,2,1,0,1,0
 2025_17,2025,17,Azerbaijan Grand Prix,russell,RUS,George Russell,Mercedes,5,2,18.0,1,extra_trees,0.8308283465512137,3,1,1,1,1
-2025_17,2025,17,Azerbaijan Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,1,1,25.0,1,extra_trees,0.8273601584594801,4,1,1,0,0
+2025_17,2025,17,Azerbaijan Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,1,1,25.0,1,extra_trees,0.82736015845948,4,1,1,0,0
 2025_17,2025,17,Azerbaijan Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,12,8,4.0,1,extra_trees,0.7221504571860795,5,1,1,0,0
-2025_17,2025,17,Azerbaijan Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,4,4,12.0,1,extra_trees,0.6794531303238566,6,1,1,0,0
+2025_17,2025,17,Azerbaijan Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,4,4,12.0,1,extra_trees,0.6794531303238567,6,1,1,0,0
 2025_17,2025,17,Azerbaijan Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,10,9,2.0,1,extra_trees,0.6529934017973592,7,1,1,0,0
 2025_17,2025,17,Azerbaijan Grand Prix,sainz,SAI,Carlos Sainz,Williams,2,3,15.0,1,extra_trees,0.637447489949796,8,1,1,0,0
 2025_17,2025,17,Azerbaijan Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,6,6,8.0,1,extra_trees,0.6358898721467355,9,1,1,0,0
 2025_17,2025,17,Azerbaijan Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,3,5,10.0,1,extra_trees,0.6137170922834039,10,1,1,0,0
 2025_17,2025,17,Azerbaijan Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,8,10,1.0,1,extra_trees,0.5803590671855621,11,0,0,0,0
-2025_17,2025,17,Azerbaijan Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,11,15,0.0,0,extra_trees,0.46414562314620883,12,0,0,0,0
+2025_17,2025,17,Azerbaijan Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,11,15,0.0,0,extra_trees,0.4641456231462088,12,0,0,0,0
 2025_17,2025,17,Azerbaijan Grand Prix,albon,ALB,Alexander Albon,Williams,19,13,0.0,0,extra_trees,0.373180939835496,13,0,0,0,0
-2025_17,2025,17,Azerbaijan Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,13,11,0.0,0,extra_trees,0.3350002872066898,14,0,0,0,0
-2025_17,2025,17,Azerbaijan Grand Prix,stroll,STR,Lance Stroll,Aston Martin,14,17,0.0,0,extra_trees,0.30823786669215697,15,0,0,0,0
+2025_17,2025,17,Azerbaijan Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,13,11,0.0,0,extra_trees,0.33500028720668984,14,0,0,0,0
+2025_17,2025,17,Azerbaijan Grand Prix,stroll,STR,Lance Stroll,Aston Martin,14,17,0.0,0,extra_trees,0.3082378666921569,15,0,0,0,0
 2025_17,2025,17,Azerbaijan Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,17,16,0.0,0,extra_trees,0.21817362084470865,16,0,0,0,0
-2025_17,2025,17,Azerbaijan Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,15,12,0.0,0,extra_trees,0.19092997732166808,17,0,0,0,0
-2025_17,2025,17,Azerbaijan Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,16,19,0.0,0,extra_trees,0.18109225755565236,18,0,0,0,0
+2025_17,2025,17,Azerbaijan Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,15,12,0.0,0,extra_trees,0.1909299773216681,17,0,0,0,0
+2025_17,2025,17,Azerbaijan Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,16,19,0.0,0,extra_trees,0.18109225755565234,18,0,0,0,0
 2025_17,2025,17,Azerbaijan Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,18,18,0.0,0,extra_trees,0.16521533528943633,19,0,0,0,0
-2025_17,2025,17,Azerbaijan Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,20,14,0.0,0,extra_trees,0.154345984465487,20,0,0,0,0
+2025_17,2025,17,Azerbaijan Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,20,14,0.0,0,extra_trees,0.15434598446548703,20,0,0,0,0
 2025_17,2025,17,Azerbaijan Grand Prix,norris,NOR,Lando Norris,McLaren,7,7,6.0,1,hist_gradient_boosting,0.9864864848923893,1,1,1,1,0
 2025_17,2025,17,Azerbaijan Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,4,4,12.0,1,hist_gradient_boosting,0.9771925279077229,2,1,1,1,0
 2025_17,2025,17,Azerbaijan Grand Prix,piastri,PIA,Oscar Piastri,McLaren,9,20,0.0,0,hist_gradient_boosting,0.9739515127860169,3,1,0,1,0
@@ -1684,15 +1684,15 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_17,2025,17,Azerbaijan Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,8,10,1.0,1,random_forest,0.6365914993747824,8,1,1,0,0
 2025_17,2025,17,Azerbaijan Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,3,5,10.0,1,random_forest,0.6124393723128461,9,1,1,0,0
 2025_17,2025,17,Azerbaijan Grand Prix,sainz,SAI,Carlos Sainz,Williams,2,3,15.0,1,random_forest,0.5859823374930886,10,1,1,0,0
-2025_17,2025,17,Azerbaijan Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,6,6,8.0,1,random_forest,0.5717247259586113,11,0,0,0,0
+2025_17,2025,17,Azerbaijan Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,6,6,8.0,1,random_forest,0.5717247259586115,11,0,0,0,0
 2025_17,2025,17,Azerbaijan Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,11,15,0.0,0,random_forest,0.4977824921369561,12,0,0,0,0
-2025_17,2025,17,Azerbaijan Grand Prix,albon,ALB,Alexander Albon,Williams,19,13,0.0,0,random_forest,0.4167914437661887,13,0,0,0,0
+2025_17,2025,17,Azerbaijan Grand Prix,albon,ALB,Alexander Albon,Williams,19,13,0.0,0,random_forest,0.41679144376618876,13,0,0,0,0
 2025_17,2025,17,Azerbaijan Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,13,11,0.0,0,random_forest,0.40106702017361995,14,0,0,0,0
 2025_17,2025,17,Azerbaijan Grand Prix,stroll,STR,Lance Stroll,Aston Martin,14,17,0.0,0,random_forest,0.3701010662912378,15,0,0,0,0
 2025_17,2025,17,Azerbaijan Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,17,16,0.0,0,random_forest,0.2805714858166869,16,0,0,0,0
 2025_17,2025,17,Azerbaijan Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,15,12,0.0,0,random_forest,0.2590876801584619,17,0,0,0,0
 2025_17,2025,17,Azerbaijan Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,18,18,0.0,0,random_forest,0.25900448838682133,18,0,0,0,0
-2025_17,2025,17,Azerbaijan Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,20,14,0.0,0,random_forest,0.23658847784304948,19,0,0,0,0
+2025_17,2025,17,Azerbaijan Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,20,14,0.0,0,random_forest,0.23658847784304946,19,0,0,0,0
 2025_17,2025,17,Azerbaijan Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,16,19,0.0,0,random_forest,0.1859935234014514,20,0,0,0,0
 2025_18,2025,18,Singapore Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,2,2,18.0,1,extra_trees,0.9387581187458117,1,1,1,1,1
 2025_18,2025,18,Singapore Grand Prix,norris,NOR,Lando Norris,McLaren,5,3,15.0,1,extra_trees,0.9310620215823866,2,1,1,1,1
@@ -1701,18 +1701,18 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_18,2025,18,Singapore Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,6,8,4.0,1,extra_trees,0.8469361315023552,5,1,1,0,0
 2025_18,2025,18,Singapore Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,7,6,8.0,1,extra_trees,0.8466135835205717,6,1,1,0,0
 2025_18,2025,18,Singapore Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,4,5,10.0,1,extra_trees,0.8075843823175184,7,1,1,0,0
-2025_18,2025,18,Singapore Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,13,12,0.0,0,extra_trees,0.6666210573236048,8,1,0,0,0
+2025_18,2025,18,Singapore Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,13,12,0.0,0,extra_trees,0.6666210573236049,8,1,0,0,0
 2025_18,2025,18,Singapore Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,10,7,6.0,1,extra_trees,0.6033807580144758,9,1,1,0,0
 2025_18,2025,18,Singapore Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,8,11,0.0,0,extra_trees,0.5595615690043925,10,1,0,0,0
 2025_18,2025,18,Singapore Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,9,9,2.0,1,extra_trees,0.49483904684612395,11,0,0,0,0
 2025_18,2025,18,Singapore Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,12,15,0.0,0,extra_trees,0.3731445757010647,12,0,0,0,0
 2025_18,2025,18,Singapore Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,11,20,0.0,0,extra_trees,0.35691738715469534,13,0,0,0,0
-2025_18,2025,18,Singapore Grand Prix,albon,ALB,Alexander Albon,Williams,20,14,0.0,0,extra_trees,0.3288983961383534,14,0,0,0,0
+2025_18,2025,18,Singapore Grand Prix,albon,ALB,Alexander Albon,Williams,20,14,0.0,0,extra_trees,0.32889839613835337,14,0,0,0,0
 2025_18,2025,18,Singapore Grand Prix,sainz,SAI,Carlos Sainz,Williams,18,10,1.0,1,extra_trees,0.30155054708537576,15,0,0,0,0
 2025_18,2025,18,Singapore Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,14,17,0.0,0,extra_trees,0.229867744613953,16,0,0,0,0
 2025_18,2025,18,Singapore Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,16,16,0.0,0,extra_trees,0.17685188121648324,17,0,0,0,0
 2025_18,2025,18,Singapore Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,19,19,0.0,0,extra_trees,0.1727488190630981,18,0,0,0,0
-2025_18,2025,18,Singapore Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,17,18,0.0,0,extra_trees,0.1570509042195759,19,0,0,0,0
+2025_18,2025,18,Singapore Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,17,18,0.0,0,extra_trees,0.15705090421957588,19,0,0,0,0
 2025_18,2025,18,Singapore Grand Prix,stroll,STR,Lance Stroll,Aston Martin,15,13,0.0,0,extra_trees,0.1533426037275051,20,0,0,0,0
 2025_18,2025,18,Singapore Grand Prix,piastri,PIA,Oscar Piastri,McLaren,3,4,12.0,1,hist_gradient_boosting,0.989481354758505,1,1,1,1,0
 2025_18,2025,18,Singapore Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,2,2,18.0,1,hist_gradient_boosting,0.9818512858917522,2,1,1,1,1
@@ -1774,15 +1774,15 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_18,2025,18,Singapore Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,19,19,0.0,0,neural_network_mlp,0.02521577066134274,18,0,0,0,0
 2025_18,2025,18,Singapore Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,11,20,0.0,0,neural_network_mlp,0.023620327337191032,19,0,0,0,0
 2025_18,2025,18,Singapore Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,17,18,0.0,0,neural_network_mlp,0.014071390477355028,20,0,0,0,0
-2025_18,2025,18,Singapore Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,2,2,18.0,1,random_forest,0.9048386590459665,1,1,1,1,1
+2025_18,2025,18,Singapore Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,2,2,18.0,1,random_forest,0.9048386590459667,1,1,1,1,1
 2025_18,2025,18,Singapore Grand Prix,piastri,PIA,Oscar Piastri,McLaren,3,4,12.0,1,random_forest,0.8754030248582321,2,1,1,1,0
 2025_18,2025,18,Singapore Grand Prix,norris,NOR,Lando Norris,McLaren,5,3,15.0,1,random_forest,0.8676669890967319,3,1,1,1,1
 2025_18,2025,18,Singapore Grand Prix,russell,RUS,George Russell,Mercedes,1,1,25.0,1,random_forest,0.8675571719713941,4,1,1,0,0
-2025_18,2025,18,Singapore Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,7,6,8.0,1,random_forest,0.8171633065149477,5,1,1,0,0
+2025_18,2025,18,Singapore Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,7,6,8.0,1,random_forest,0.8171633065149476,5,1,1,0,0
 2025_18,2025,18,Singapore Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,6,8,4.0,1,random_forest,0.7818240981438145,6,1,1,0,0
-2025_18,2025,18,Singapore Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,4,5,10.0,1,random_forest,0.7815933760240457,7,1,1,0,0
+2025_18,2025,18,Singapore Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,4,5,10.0,1,random_forest,0.7815933760240455,7,1,1,0,0
 2025_18,2025,18,Singapore Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,8,11,0.0,0,random_forest,0.6066080597141926,8,1,0,0,0
-2025_18,2025,18,Singapore Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,10,7,6.0,1,random_forest,0.5903383753532145,9,1,1,0,0
+2025_18,2025,18,Singapore Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,10,7,6.0,1,random_forest,0.5903383753532147,9,1,1,0,0
 2025_18,2025,18,Singapore Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,13,12,0.0,0,random_forest,0.5428083450927583,10,1,0,0,0
 2025_18,2025,18,Singapore Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,9,9,2.0,1,random_forest,0.5001290762776748,11,0,0,0,0
 2025_18,2025,18,Singapore Grand Prix,albon,ALB,Alexander Albon,Williams,20,14,0.0,0,random_forest,0.4759054952027519,12,0,0,0,0
@@ -1793,24 +1793,24 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_18,2025,18,Singapore Grand Prix,stroll,STR,Lance Stroll,Aston Martin,15,13,0.0,0,random_forest,0.27059966254500806,17,0,0,0,0
 2025_18,2025,18,Singapore Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,17,18,0.0,0,random_forest,0.19472525920970193,18,0,0,0,0
 2025_18,2025,18,Singapore Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,19,19,0.0,0,random_forest,0.19381242348661015,19,0,0,0,0
-2025_18,2025,18,Singapore Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,16,16,0.0,0,random_forest,0.17023480352029602,20,0,0,0,0
+2025_18,2025,18,Singapore Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,16,16,0.0,0,random_forest,0.170234803520296,20,0,0,0,0
 2025_19,2025,19,United States Grand Prix,norris,NOR,Lando Norris,McLaren,2,2,18.0,1,extra_trees,0.9276226256581663,1,1,1,1,1
-2025_19,2025,19,United States Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,1,1,25.0,1,extra_trees,0.9181563381573016,2,1,1,1,1
+2025_19,2025,19,United States Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,1,1,25.0,1,extra_trees,0.9181563381573015,2,1,1,1,1
 2025_19,2025,19,United States Grand Prix,russell,RUS,George Russell,Mercedes,4,6,8.0,1,extra_trees,0.9159852933663556,3,1,1,1,0
-2025_19,2025,19,United States Grand Prix,piastri,PIA,Oscar Piastri,McLaren,6,5,10.0,1,extra_trees,0.8926694092621839,4,1,1,0,0
+2025_19,2025,19,United States Grand Prix,piastri,PIA,Oscar Piastri,McLaren,6,5,10.0,1,extra_trees,0.8926694092621837,4,1,1,0,0
 2025_19,2025,19,United States Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,3,3,15.0,1,extra_trees,0.8376707541900368,5,1,1,0,0
 2025_19,2025,19,United States Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,5,4,12.0,1,extra_trees,0.8301383683143267,6,1,1,0,0
 2025_19,2025,19,United States Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,7,13,0.0,0,extra_trees,0.8289084293000395,7,1,0,0,0
 2025_19,2025,19,United States Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,13,7,6.0,1,extra_trees,0.6764265743222695,8,1,1,0,0
 2025_19,2025,19,United States Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,10,10,1.0,1,extra_trees,0.5913066632577921,9,1,1,0,0
-2025_19,2025,19,United States Grand Prix,sainz,SAI,Carlos Sainz,Williams,9,20,0.0,0,extra_trees,0.5856475548358162,10,1,0,0,0
-2025_19,2025,19,United States Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,8,9,2.0,1,extra_trees,0.4258623651237232,11,0,0,0,0
+2025_19,2025,19,United States Grand Prix,sainz,SAI,Carlos Sainz,Williams,9,20,0.0,0,extra_trees,0.5856475548358163,10,1,0,0,0
+2025_19,2025,19,United States Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,8,9,2.0,1,extra_trees,0.4258623651237233,11,0,0,0,0
 2025_19,2025,19,United States Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,11,8,4.0,1,extra_trees,0.3350592239385754,12,0,0,0,0
 2025_19,2025,19,United States Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,12,11,0.0,0,extra_trees,0.3289770646694626,13,0,0,0,0
-2025_19,2025,19,United States Grand Prix,albon,ALB,Alexander Albon,Williams,18,14,0.0,0,extra_trees,0.3006155179075956,14,0,0,0,0
+2025_19,2025,19,United States Grand Prix,albon,ALB,Alexander Albon,Williams,18,14,0.0,0,extra_trees,0.30061551790759555,14,0,0,0,0
 2025_19,2025,19,United States Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,20,16,0.0,0,extra_trees,0.25433067873039183,15,0,0,0,0
-2025_19,2025,19,United States Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,16,18,0.0,0,extra_trees,0.24080673264192126,16,0,0,0,0
-2025_19,2025,19,United States Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,14,19,0.0,0,extra_trees,0.23806367340612206,17,0,0,0,0
+2025_19,2025,19,United States Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,16,18,0.0,0,extra_trees,0.2408067326419213,16,0,0,0,0
+2025_19,2025,19,United States Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,14,19,0.0,0,extra_trees,0.23806367340612203,17,0,0,0,0
 2025_19,2025,19,United States Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,17,15,0.0,0,extra_trees,0.22178648277299517,18,0,0,0,0
 2025_19,2025,19,United States Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,15,17,0.0,0,extra_trees,0.2060071210678369,19,0,0,0,0
 2025_19,2025,19,United States Grand Prix,stroll,STR,Lance Stroll,Aston Martin,19,12,0.0,0,extra_trees,0.17334237795543586,20,0,0,0,0
@@ -1874,24 +1874,24 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_19,2025,19,United States Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,11,8,4.0,1,neural_network_mlp,0.13817533845559715,18,0,0,0,0
 2025_19,2025,19,United States Grand Prix,stroll,STR,Lance Stroll,Aston Martin,19,12,0.0,0,neural_network_mlp,0.10535243895509158,19,0,0,0,0
 2025_19,2025,19,United States Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,17,15,0.0,0,neural_network_mlp,0.07548849782211738,20,0,0,0,0
-2025_19,2025,19,United States Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,1,1,25.0,1,random_forest,0.9156645225776646,1,1,1,1,1
+2025_19,2025,19,United States Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,1,1,25.0,1,random_forest,0.9156645225776647,1,1,1,1,1
 2025_19,2025,19,United States Grand Prix,russell,RUS,George Russell,Mercedes,4,6,8.0,1,random_forest,0.8838435028854515,2,1,1,1,0
-2025_19,2025,19,United States Grand Prix,norris,NOR,Lando Norris,McLaren,2,2,18.0,1,random_forest,0.8821444347953471,3,1,1,1,1
+2025_19,2025,19,United States Grand Prix,norris,NOR,Lando Norris,McLaren,2,2,18.0,1,random_forest,0.8821444347953472,3,1,1,1,1
 2025_19,2025,19,United States Grand Prix,piastri,PIA,Oscar Piastri,McLaren,6,5,10.0,1,random_forest,0.8711823236146564,4,1,1,0,0
-2025_19,2025,19,United States Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,7,13,0.0,0,random_forest,0.8158852993768363,5,1,0,0,0
+2025_19,2025,19,United States Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,7,13,0.0,0,random_forest,0.8158852993768362,5,1,0,0,0
 2025_19,2025,19,United States Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,3,3,15.0,1,random_forest,0.8158154152137577,6,1,1,0,0
-2025_19,2025,19,United States Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,5,4,12.0,1,random_forest,0.7746568279103826,7,1,1,0,0
+2025_19,2025,19,United States Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,5,4,12.0,1,random_forest,0.7746568279103825,7,1,1,0,0
 2025_19,2025,19,United States Grand Prix,sainz,SAI,Carlos Sainz,Williams,9,20,0.0,0,random_forest,0.6145515995194132,8,1,0,0,0
 2025_19,2025,19,United States Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,10,10,1.0,1,random_forest,0.5891836693621645,9,1,1,0,0
 2025_19,2025,19,United States Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,13,7,6.0,1,random_forest,0.5156898765341357,10,1,1,0,0
 2025_19,2025,19,United States Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,8,9,2.0,1,random_forest,0.48491719791914983,11,0,0,0,0
-2025_19,2025,19,United States Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,12,11,0.0,0,random_forest,0.4146969212402875,12,0,0,0,0
-2025_19,2025,19,United States Grand Prix,albon,ALB,Alexander Albon,Williams,18,14,0.0,0,random_forest,0.3708596073294123,13,0,0,0,0
+2025_19,2025,19,United States Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,12,11,0.0,0,random_forest,0.41469692124028745,12,0,0,0,0
+2025_19,2025,19,United States Grand Prix,albon,ALB,Alexander Albon,Williams,18,14,0.0,0,random_forest,0.37085960732941237,13,0,0,0,0
 2025_19,2025,19,United States Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,11,8,4.0,1,random_forest,0.34594942990364264,14,0,0,0,0
-2025_19,2025,19,United States Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,20,16,0.0,0,random_forest,0.3425135637771513,15,0,0,0,0
-2025_19,2025,19,United States Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,16,18,0.0,0,random_forest,0.3011461205599967,16,0,0,0,0
-2025_19,2025,19,United States Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,14,19,0.0,0,random_forest,0.26792659831742505,17,0,0,0,0
-2025_19,2025,19,United States Grand Prix,stroll,STR,Lance Stroll,Aston Martin,19,12,0.0,0,random_forest,0.2584764631299658,18,0,0,0,0
+2025_19,2025,19,United States Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,20,16,0.0,0,random_forest,0.34251356377715136,15,0,0,0,0
+2025_19,2025,19,United States Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,16,18,0.0,0,random_forest,0.30114612055999673,16,0,0,0,0
+2025_19,2025,19,United States Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,14,19,0.0,0,random_forest,0.267926598317425,17,0,0,0,0
+2025_19,2025,19,United States Grand Prix,stroll,STR,Lance Stroll,Aston Martin,19,12,0.0,0,random_forest,0.25847646312996586,18,0,0,0,0
 2025_19,2025,19,United States Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,17,15,0.0,0,random_forest,0.23455286660278332,19,0,0,0,0
 2025_19,2025,19,United States Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,15,17,0.0,0,random_forest,0.21713118363534556,20,0,0,0,0
 2025_20,2025,20,Mexico City Grand Prix,russell,RUS,George Russell,Mercedes,4,7,6.0,1,extra_trees,0.934770683414494,1,1,1,1,0
@@ -1901,17 +1901,17 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_20,2025,20,Mexico City Grand Prix,piastri,PIA,Oscar Piastri,McLaren,7,5,10.0,1,extra_trees,0.8862112665963878,5,1,1,0,0
 2025_20,2025,20,Mexico City Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,3,8,4.0,1,extra_trees,0.8823578016048201,6,1,1,0,0
 2025_20,2025,20,Mexico City Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,6,6,8.0,1,extra_trees,0.8417738325786709,7,1,1,0,0
-2025_20,2025,20,Mexico City Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,10,11,0.0,0,extra_trees,0.7027293292660498,8,1,0,0,0
+2025_20,2025,20,Mexico City Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,10,11,0.0,0,extra_trees,0.7027293292660499,8,1,0,0,0
 2025_20,2025,20,Mexico City Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,8,13,0.0,0,extra_trees,0.5993074477970635,9,1,0,0,0
 2025_20,2025,20,Mexico City Grand Prix,sainz,SAI,Carlos Sainz,Williams,12,17,0.0,0,extra_trees,0.5365875863435343,10,1,0,0,0
-2025_20,2025,20,Mexico City Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,9,4,12.0,1,extra_trees,0.48647833848561844,11,0,0,0,0
+2025_20,2025,20,Mexico City Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,9,4,12.0,1,extra_trees,0.4864783384856184,11,0,0,0,0
 2025_20,2025,20,Mexico City Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,13,19,0.0,0,extra_trees,0.3913226592489345,12,0,0,0,0
 2025_20,2025,20,Mexico City Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,14,18,0.0,0,extra_trees,0.2882642711418923,13,0,0,0,0
 2025_20,2025,20,Mexico City Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,11,9,2.0,1,extra_trees,0.2882364738668738,14,0,0,0,0
 2025_20,2025,20,Mexico City Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,15,20,0.0,0,extra_trees,0.2513833414128829,15,0,0,0,0
 2025_20,2025,20,Mexico City Grand Prix,albon,ALB,Alexander Albon,Williams,17,12,0.0,0,extra_trees,0.24808612529965782,16,0,0,0,0
 2025_20,2025,20,Mexico City Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,18,15,0.0,0,extra_trees,0.18225879632641917,17,0,0,0,0
-2025_20,2025,20,Mexico City Grand Prix,stroll,STR,Lance Stroll,Aston Martin,19,14,0.0,0,extra_trees,0.15825317293300006,18,0,0,0,0
+2025_20,2025,20,Mexico City Grand Prix,stroll,STR,Lance Stroll,Aston Martin,19,14,0.0,0,extra_trees,0.1582531729330001,18,0,0,0,0
 2025_20,2025,20,Mexico City Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,16,10,1.0,1,extra_trees,0.14983856296701967,19,0,0,0,0
 2025_20,2025,20,Mexico City Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,20,16,0.0,0,extra_trees,0.14228168596129576,20,0,0,0,0
 2025_20,2025,20,Mexico City Grand Prix,norris,NOR,Lando Norris,McLaren,1,1,25.0,1,hist_gradient_boosting,0.9952461373793444,1,1,1,1,1
@@ -1978,21 +1978,21 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_20,2025,20,Mexico City Grand Prix,norris,NOR,Lando Norris,McLaren,1,1,25.0,1,random_forest,0.896426216888556,2,1,1,1,1
 2025_20,2025,20,Mexico City Grand Prix,russell,RUS,George Russell,Mercedes,4,7,6.0,1,random_forest,0.8834824557717289,3,1,1,1,0
 2025_20,2025,20,Mexico City Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,2,2,18.0,1,random_forest,0.8739626259341361,4,1,1,0,0
-2025_20,2025,20,Mexico City Grand Prix,piastri,PIA,Oscar Piastri,McLaren,7,5,10.0,1,random_forest,0.858971529036583,5,1,1,0,0
+2025_20,2025,20,Mexico City Grand Prix,piastri,PIA,Oscar Piastri,McLaren,7,5,10.0,1,random_forest,0.8589715290365829,5,1,1,0,0
 2025_20,2025,20,Mexico City Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,3,8,4.0,1,random_forest,0.8456129592506588,6,1,1,0,0
 2025_20,2025,20,Mexico City Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,6,6,8.0,1,random_forest,0.8095123213450491,7,1,1,0,0
-2025_20,2025,20,Mexico City Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,8,13,0.0,0,random_forest,0.5942335987756272,8,1,0,0,0
+2025_20,2025,20,Mexico City Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,8,13,0.0,0,random_forest,0.5942335987756273,8,1,0,0,0
 2025_20,2025,20,Mexico City Grand Prix,sainz,SAI,Carlos Sainz,Williams,12,17,0.0,0,random_forest,0.5561763443565934,9,1,0,0,0
 2025_20,2025,20,Mexico City Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,10,11,0.0,0,random_forest,0.5358296794316825,10,1,0,0,0
 2025_20,2025,20,Mexico City Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,9,4,12.0,1,random_forest,0.48887911676745077,11,0,0,0,0
-2025_20,2025,20,Mexico City Grand Prix,albon,ALB,Alexander Albon,Williams,17,12,0.0,0,random_forest,0.35560787887786877,12,0,0,0,0
+2025_20,2025,20,Mexico City Grand Prix,albon,ALB,Alexander Albon,Williams,17,12,0.0,0,random_forest,0.3556078788778688,12,0,0,0,0
 2025_20,2025,20,Mexico City Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,15,20,0.0,0,random_forest,0.35200290934542827,13,0,0,0,0
 2025_20,2025,20,Mexico City Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,14,18,0.0,0,random_forest,0.33851361890334547,14,0,0,0,0
 2025_20,2025,20,Mexico City Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,13,19,0.0,0,random_forest,0.3358534203224031,15,0,0,0,0
 2025_20,2025,20,Mexico City Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,11,9,2.0,1,random_forest,0.2925318471781998,16,0,0,0,0
 2025_20,2025,20,Mexico City Grand Prix,stroll,STR,Lance Stroll,Aston Martin,19,14,0.0,0,random_forest,0.24390863011545394,17,0,0,0,0
 2025_20,2025,20,Mexico City Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,16,10,1.0,1,random_forest,0.21891826613636262,18,0,0,0,0
-2025_20,2025,20,Mexico City Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,18,15,0.0,0,random_forest,0.1680717700083313,19,0,0,0,0
+2025_20,2025,20,Mexico City Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,18,15,0.0,0,random_forest,0.16807177000833126,19,0,0,0,0
 2025_20,2025,20,Mexico City Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,20,16,0.0,0,random_forest,0.14281198056454955,20,0,0,0,0
 2025_21,2025,21,São Paulo Grand Prix,norris,NOR,Lando Norris,McLaren,1,1,25.0,1,extra_trees,0.9210996213519442,1,1,1,1,1
 2025_21,2025,21,São Paulo Grand Prix,piastri,PIA,Oscar Piastri,McLaren,4,5,10.0,1,extra_trees,0.8690609865480952,2,1,1,1,0
@@ -2002,10 +2002,10 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_21,2025,21,São Paulo Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,3,19,0.0,0,extra_trees,0.8052784212710271,6,1,0,0,0
 2025_21,2025,21,São Paulo Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,13,18,0.0,0,extra_trees,0.7027793307537339,7,1,0,0,0
 2025_21,2025,21,São Paulo Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,5,8,4.0,1,extra_trees,0.6290909291161875,8,1,1,0,0
-2025_21,2025,21,São Paulo Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,7,7,6.0,1,extra_trees,0.6141703510885829,9,1,1,0,0
-2025_21,2025,21,São Paulo Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,9,10,1.0,1,extra_trees,0.536618711286163,10,1,1,0,0
+2025_21,2025,21,São Paulo Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,7,7,6.0,1,extra_trees,0.6141703510885831,9,1,1,0,0
+2025_21,2025,21,São Paulo Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,9,10,1.0,1,extra_trees,0.5366187112861631,10,1,1,0,0
 2025_21,2025,21,São Paulo Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,17,17,0.0,0,extra_trees,0.5312760197159189,11,0,0,0,0
-2025_21,2025,21,São Paulo Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,10,9,2.0,1,extra_trees,0.5196930384649447,12,0,0,0,0
+2025_21,2025,21,São Paulo Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,10,9,2.0,1,extra_trees,0.5196930384649449,12,0,0,0,0
 2025_21,2025,21,São Paulo Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,8,6,8.0,1,extra_trees,0.5045337778490557,13,0,0,0,0
 2025_21,2025,21,São Paulo Grand Prix,sainz,SAI,Carlos Sainz,Williams,15,13,0.0,0,extra_trees,0.45117597630955525,14,0,0,0,0
 2025_21,2025,21,São Paulo Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,11,14,0.0,0,extra_trees,0.38343225652607615,15,0,0,0,0
@@ -2013,7 +2013,7 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_21,2025,21,São Paulo Grand Prix,stroll,STR,Lance Stroll,Aston Martin,14,16,0.0,0,extra_trees,0.3081535543691235,17,0,0,0,0
 2025_21,2025,21,São Paulo Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,18,20,0.0,0,extra_trees,0.2554842250204474,18,0,0,0,0
 2025_21,2025,21,São Paulo Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,20,12,0.0,0,extra_trees,0.17830688314474064,19,0,0,0,0
-2025_21,2025,21,São Paulo Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,16,15,0.0,0,extra_trees,0.1762539287855261,20,0,0,0,0
+2025_21,2025,21,São Paulo Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,16,15,0.0,0,extra_trees,0.17625392878552607,20,0,0,0,0
 2025_21,2025,21,São Paulo Grand Prix,norris,NOR,Lando Norris,McLaren,1,1,25.0,1,hist_gradient_boosting,0.9921203454523867,1,1,1,1,1
 2025_21,2025,21,São Paulo Grand Prix,piastri,PIA,Oscar Piastri,McLaren,4,5,10.0,1,hist_gradient_boosting,0.9672443694345122,2,1,1,1,0
 2025_21,2025,21,São Paulo Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,3,19,0.0,0,hist_gradient_boosting,0.9360679357410265,3,1,0,1,0
@@ -2080,24 +2080,24 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_21,2025,21,São Paulo Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,3,19,0.0,0,random_forest,0.8533357859436533,4,1,0,0,0
 2025_21,2025,21,São Paulo Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,2,2,18.0,1,random_forest,0.8029990211704968,5,1,1,0,0
 2025_21,2025,21,São Paulo Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,19,3,15.0,1,random_forest,0.760901501162236,6,1,1,0,0
-2025_21,2025,21,São Paulo Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,13,18,0.0,0,random_forest,0.7063087108220747,7,1,0,0,0
+2025_21,2025,21,São Paulo Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,13,18,0.0,0,random_forest,0.7063087108220746,7,1,0,0,0
 2025_21,2025,21,São Paulo Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,5,8,4.0,1,random_forest,0.6557660963953457,8,1,1,0,0
 2025_21,2025,21,São Paulo Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,7,7,6.0,1,random_forest,0.6338654619274169,9,1,1,0,0
-2025_21,2025,21,São Paulo Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,8,6,8.0,1,random_forest,0.5876252503578503,10,1,1,0,0
+2025_21,2025,21,São Paulo Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,8,6,8.0,1,random_forest,0.5876252503578502,10,1,1,0,0
 2025_21,2025,21,São Paulo Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,10,9,2.0,1,random_forest,0.5315464388527058,11,0,0,0,0
-2025_21,2025,21,São Paulo Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,9,10,1.0,1,random_forest,0.5192051979677595,12,0,0,0,0
+2025_21,2025,21,São Paulo Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,9,10,1.0,1,random_forest,0.5192051979677594,12,0,0,0,0
 2025_21,2025,21,São Paulo Grand Prix,sainz,SAI,Carlos Sainz,Williams,15,13,0.0,0,random_forest,0.4596991875328989,13,0,0,0,0
 2025_21,2025,21,São Paulo Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,11,14,0.0,0,random_forest,0.45439061775237444,14,0,0,0,0
 2025_21,2025,21,São Paulo Grand Prix,albon,ALB,Alexander Albon,Williams,12,11,0.0,0,random_forest,0.4480968100494161,15,0,0,0,0
 2025_21,2025,21,São Paulo Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,17,17,0.0,0,random_forest,0.44612682218389793,16,0,0,0,0
 2025_21,2025,21,São Paulo Grand Prix,stroll,STR,Lance Stroll,Aston Martin,14,16,0.0,0,random_forest,0.3306894520664412,17,0,0,0,0
-2025_21,2025,21,São Paulo Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,18,20,0.0,0,random_forest,0.2729553654976462,18,0,0,0,0
+2025_21,2025,21,São Paulo Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,18,20,0.0,0,random_forest,0.27295536549764615,18,0,0,0,0
 2025_21,2025,21,São Paulo Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,20,12,0.0,0,random_forest,0.23902769560035775,19,0,0,0,0
 2025_21,2025,21,São Paulo Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,16,15,0.0,0,random_forest,0.19008887512304867,20,0,0,0,0
 2025_22,2025,22,Las Vegas Grand Prix,norris,NOR,Lando Norris,McLaren,1,19,0.0,0,extra_trees,0.9383037489071374,1,1,0,1,0
 2025_22,2025,22,Las Vegas Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,2,1,25.0,1,extra_trees,0.9234218112525198,2,1,1,1,1
 2025_22,2025,22,Las Vegas Grand Prix,piastri,PIA,Oscar Piastri,McLaren,5,20,0.0,0,extra_trees,0.8790982966952986,3,1,0,1,0
-2025_22,2025,22,Las Vegas Grand Prix,russell,RUS,George Russell,Mercedes,4,2,18.0,1,extra_trees,0.8725934427273194,4,1,1,0,0
+2025_22,2025,22,Las Vegas Grand Prix,russell,RUS,George Russell,Mercedes,4,2,18.0,1,extra_trees,0.8725934427273192,4,1,1,0,0
 2025_22,2025,22,Las Vegas Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,9,4,12.0,1,extra_trees,0.787584313757684,5,1,1,0,0
 2025_22,2025,22,Las Vegas Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,17,3,15.0,1,extra_trees,0.6830265132556753,6,1,1,0,0
 2025_22,2025,22,Las Vegas Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,19,8,4.0,1,extra_trees,0.6493602193506908,7,1,1,0,0
@@ -2112,7 +2112,7 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_22,2025,22,Las Vegas Grand Prix,stroll,STR,Lance Stroll,Aston Martin,12,18,0.0,0,extra_trees,0.3360094326919657,16,0,0,0,0
 2025_22,2025,22,Las Vegas Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,13,9,2.0,1,extra_trees,0.27610297249754906,17,0,0,0,0
 2025_22,2025,22,Las Vegas Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,15,15,0.0,0,extra_trees,0.22984881541178034,18,0,0,0,0
-2025_22,2025,22,Las Vegas Grand Prix,albon,ALB,Alexander Albon,Williams,16,16,0.0,0,extra_trees,0.21073641601244614,19,0,0,0,0
+2025_22,2025,22,Las Vegas Grand Prix,albon,ALB,Alexander Albon,Williams,16,16,0.0,0,extra_trees,0.2107364160124461,19,0,0,0,0
 2025_22,2025,22,Las Vegas Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,18,17,0.0,0,extra_trees,0.13145948525908127,20,0,0,0,0
 2025_22,2025,22,Las Vegas Grand Prix,norris,NOR,Lando Norris,McLaren,1,19,0.0,0,hist_gradient_boosting,0.9889270461421218,1,1,0,1,0
 2025_22,2025,22,Las Vegas Grand Prix,piastri,PIA,Oscar Piastri,McLaren,5,20,0.0,0,hist_gradient_boosting,0.9816521470021551,2,1,0,1,0
@@ -2178,33 +2178,33 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_22,2025,22,Las Vegas Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,2,1,25.0,1,random_forest,0.8886111463006474,2,1,1,1,1
 2025_22,2025,22,Las Vegas Grand Prix,piastri,PIA,Oscar Piastri,McLaren,5,20,0.0,0,random_forest,0.8278488644949732,3,1,0,1,0
 2025_22,2025,22,Las Vegas Grand Prix,russell,RUS,George Russell,Mercedes,4,2,18.0,1,random_forest,0.8132198036718782,4,1,1,0,0
-2025_22,2025,22,Las Vegas Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,9,4,12.0,1,random_forest,0.7308425499135888,5,1,1,0,0
+2025_22,2025,22,Las Vegas Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,9,4,12.0,1,random_forest,0.7308425499135887,5,1,1,0,0
 2025_22,2025,22,Las Vegas Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,17,3,15.0,1,random_forest,0.6159468513267997,6,1,1,0,0
-2025_22,2025,22,Las Vegas Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,7,11,0.0,0,random_forest,0.6044950579430538,7,1,0,0,0
+2025_22,2025,22,Las Vegas Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,7,11,0.0,0,random_forest,0.6044950579430539,7,1,0,0,0
 2025_22,2025,22,Las Vegas Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,19,8,4.0,1,random_forest,0.6012017949964884,8,1,1,0,0
 2025_22,2025,22,Las Vegas Grand Prix,sainz,SAI,Carlos Sainz,Williams,3,5,10.0,1,random_forest,0.5969092306008327,9,1,1,0,0
 2025_22,2025,22,Las Vegas Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,8,6,8.0,1,random_forest,0.5423548713077005,10,1,1,0,0
 2025_22,2025,22,Las Vegas Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,6,14,0.0,0,random_forest,0.49768016606112886,11,0,0,0,0
 2025_22,2025,22,Las Vegas Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,10,13,0.0,0,random_forest,0.4245330098997321,12,0,0,0,0
-2025_22,2025,22,Las Vegas Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,20,12,0.0,0,random_forest,0.42256490919977,13,0,0,0,0
+2025_22,2025,22,Las Vegas Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,20,12,0.0,0,random_forest,0.4225649091997699,13,0,0,0,0
 2025_22,2025,22,Las Vegas Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,14,10,1.0,1,random_forest,0.4154432185766191,14,0,0,0,0
 2025_22,2025,22,Las Vegas Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,11,7,6.0,1,random_forest,0.39318330809951524,15,0,0,0,0
-2025_22,2025,22,Las Vegas Grand Prix,stroll,STR,Lance Stroll,Aston Martin,12,18,0.0,0,random_forest,0.34049166403473446,16,0,0,0,0
+2025_22,2025,22,Las Vegas Grand Prix,stroll,STR,Lance Stroll,Aston Martin,12,18,0.0,0,random_forest,0.3404916640347345,16,0,0,0,0
 2025_22,2025,22,Las Vegas Grand Prix,albon,ALB,Alexander Albon,Williams,16,16,0.0,0,random_forest,0.3190080914731716,17,0,0,0,0
-2025_22,2025,22,Las Vegas Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,13,9,2.0,1,random_forest,0.2756209704039143,18,0,0,0,0
+2025_22,2025,22,Las Vegas Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,13,9,2.0,1,random_forest,0.27562097040391426,18,0,0,0,0
 2025_22,2025,22,Las Vegas Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,18,17,0.0,0,random_forest,0.23414918846692678,19,0,0,0,0
 2025_22,2025,22,Las Vegas Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,15,15,0.0,0,random_forest,0.22609639038134868,20,0,0,0,0
 2025_23,2025,23,Qatar Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,3,1,25.0,1,extra_trees,0.9383690418686238,1,1,1,1,1
 2025_23,2025,23,Qatar Grand Prix,norris,NOR,Lando Norris,McLaren,2,4,12.0,1,extra_trees,0.9299835923774669,2,1,1,1,0
 2025_23,2025,23,Qatar Grand Prix,piastri,PIA,Oscar Piastri,McLaren,1,2,18.0,1,extra_trees,0.9060372406072056,3,1,1,1,1
 2025_23,2025,23,Qatar Grand Prix,russell,RUS,George Russell,Mercedes,4,6,8.0,1,extra_trees,0.8638590018007889,4,1,1,0,0
-2025_23,2025,23,Qatar Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,5,5,10.0,1,extra_trees,0.819285357669273,5,1,1,0,0
+2025_23,2025,23,Qatar Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,5,5,10.0,1,extra_trees,0.8192853576692729,5,1,1,0,0
 2025_23,2025,23,Qatar Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,10,8,4.0,1,extra_trees,0.7851936697188554,6,1,1,0,0
 2025_23,2025,23,Qatar Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,8,7,6.0,1,extra_trees,0.677732281092259,7,1,1,0,0
 2025_23,2025,23,Qatar Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,17,12,0.0,0,extra_trees,0.616953379920871,8,1,0,0,0
 2025_23,2025,23,Qatar Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,6,18,0.0,0,extra_trees,0.6137577896868013,9,1,0,0,0
-2025_23,2025,23,Qatar Grand Prix,sainz,SAI,Carlos Sainz,Williams,7,3,15.0,1,extra_trees,0.6120082500292835,10,1,1,0,0
-2025_23,2025,23,Qatar Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,9,16,0.0,0,extra_trees,0.579653144310026,11,0,0,0,0
+2025_23,2025,23,Qatar Grand Prix,sainz,SAI,Carlos Sainz,Williams,7,3,15.0,1,extra_trees,0.6120082500292834,10,1,1,0,0
+2025_23,2025,23,Qatar Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,9,16,0.0,0,extra_trees,0.5796531443100261,11,0,0,0,0
 2025_23,2025,23,Qatar Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,15,10,1.0,1,extra_trees,0.5336086352543062,12,0,0,0,0
 2025_23,2025,23,Qatar Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,13,19,0.0,0,extra_trees,0.44215332917419836,13,0,0,0,0
 2025_23,2025,23,Qatar Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,11,20,0.0,0,extra_trees,0.4355431038903846,14,0,0,0,0
@@ -2213,7 +2213,7 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_23,2025,23,Qatar Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,19,13,0.0,0,extra_trees,0.24295854276430978,17,0,0,0,0
 2025_23,2025,23,Qatar Grand Prix,stroll,STR,Lance Stroll,Aston Martin,18,17,0.0,0,extra_trees,0.16373322659191233,18,0,0,0,0
 2025_23,2025,23,Qatar Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,16,15,0.0,0,extra_trees,0.15932847606488607,19,0,0,0,0
-2025_23,2025,23,Qatar Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,20,14,0.0,0,extra_trees,0.14817384122437285,20,0,0,0,0
+2025_23,2025,23,Qatar Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,20,14,0.0,0,extra_trees,0.14817384122437288,20,0,0,0,0
 2025_23,2025,23,Qatar Grand Prix,piastri,PIA,Oscar Piastri,McLaren,1,2,18.0,1,hist_gradient_boosting,0.9912757472583666,1,1,1,1,1
 2025_23,2025,23,Qatar Grand Prix,norris,NOR,Lando Norris,McLaren,2,4,12.0,1,hist_gradient_boosting,0.9893908290209418,2,1,1,1,0
 2025_23,2025,23,Qatar Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,3,1,25.0,1,hist_gradient_boosting,0.9744526823687198,3,1,1,1,1
@@ -2278,22 +2278,22 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_23,2025,23,Qatar Grand Prix,norris,NOR,Lando Norris,McLaren,2,4,12.0,1,random_forest,0.899732683413111,2,1,1,1,0
 2025_23,2025,23,Qatar Grand Prix,piastri,PIA,Oscar Piastri,McLaren,1,2,18.0,1,random_forest,0.8680280878043735,3,1,1,1,1
 2025_23,2025,23,Qatar Grand Prix,russell,RUS,George Russell,Mercedes,4,6,8.0,1,random_forest,0.8648248191013562,4,1,1,0,0
-2025_23,2025,23,Qatar Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,5,5,10.0,1,random_forest,0.8312528016253431,5,1,1,0,0
-2025_23,2025,23,Qatar Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,10,8,4.0,1,random_forest,0.7946847843641625,6,1,1,0,0
+2025_23,2025,23,Qatar Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,5,5,10.0,1,random_forest,0.8312528016253432,5,1,1,0,0
+2025_23,2025,23,Qatar Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,10,8,4.0,1,random_forest,0.7946847843641627,6,1,1,0,0
 2025_23,2025,23,Qatar Grand Prix,sainz,SAI,Carlos Sainz,Williams,7,3,15.0,1,random_forest,0.6554551056067803,7,1,1,0,0
-2025_23,2025,23,Qatar Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,8,7,6.0,1,random_forest,0.6381139789912501,8,1,1,0,0
+2025_23,2025,23,Qatar Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,8,7,6.0,1,random_forest,0.6381139789912502,8,1,1,0,0
 2025_23,2025,23,Qatar Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,6,18,0.0,0,random_forest,0.6330542049498092,9,1,0,0,0
 2025_23,2025,23,Qatar Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,17,12,0.0,0,random_forest,0.6154973757073542,10,1,0,0,0
-2025_23,2025,23,Qatar Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,9,16,0.0,0,random_forest,0.5310237540240271,11,0,0,0,0
+2025_23,2025,23,Qatar Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,9,16,0.0,0,random_forest,0.5310237540240272,11,0,0,0,0
 2025_23,2025,23,Qatar Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,13,19,0.0,0,random_forest,0.5060826560835968,12,0,0,0,0
 2025_23,2025,23,Qatar Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,11,20,0.0,0,random_forest,0.48283403877087355,13,0,0,0,0
 2025_23,2025,23,Qatar Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,15,10,1.0,1,random_forest,0.3860898435425298,14,0,0,0,0
 2025_23,2025,23,Qatar Grand Prix,albon,ALB,Alexander Albon,Williams,14,11,0.0,0,random_forest,0.37775667145795305,15,0,0,0,0
 2025_23,2025,23,Qatar Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,12,9,2.0,1,random_forest,0.35824006684964516,16,0,0,0,0
 2025_23,2025,23,Qatar Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,19,13,0.0,0,random_forest,0.2534799260237794,17,0,0,0,0
-2025_23,2025,23,Qatar Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,16,15,0.0,0,random_forest,0.23778171675903967,18,0,0,0,0
-2025_23,2025,23,Qatar Grand Prix,stroll,STR,Lance Stroll,Aston Martin,18,17,0.0,0,random_forest,0.19542292691041277,19,0,0,0,0
-2025_23,2025,23,Qatar Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,20,14,0.0,0,random_forest,0.14270605600874894,20,0,0,0,0
+2025_23,2025,23,Qatar Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,16,15,0.0,0,random_forest,0.23778171675903964,18,0,0,0,0
+2025_23,2025,23,Qatar Grand Prix,stroll,STR,Lance Stroll,Aston Martin,18,17,0.0,0,random_forest,0.19542292691041274,19,0,0,0,0
+2025_23,2025,23,Qatar Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,20,14,0.0,0,random_forest,0.14270605600874892,20,0,0,0,0
 2025_24,2025,24,Abu Dhabi Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,1,1,25.0,1,extra_trees,0.9531996750740221,1,1,1,1,1
 2025_24,2025,24,Abu Dhabi Grand Prix,norris,NOR,Lando Norris,McLaren,2,3,15.0,1,extra_trees,0.9469996277951034,2,1,1,1,1
 2025_24,2025,24,Abu Dhabi Grand Prix,russell,RUS,George Russell,Mercedes,4,5,10.0,1,extra_trees,0.9290707049164363,3,1,1,1,0
@@ -2301,11 +2301,11 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_24,2025,24,Abu Dhabi Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,5,4,12.0,1,extra_trees,0.888715907797614,5,1,1,0,0
 2025_24,2025,24,Abu Dhabi Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,14,15,0.0,0,extra_trees,0.7837046924316498,6,1,0,0,0
 2025_24,2025,24,Abu Dhabi Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,6,6,8.0,1,extra_trees,0.6993656681600667,7,1,1,0,0
-2025_24,2025,24,Abu Dhabi Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,16,8,4.0,1,extra_trees,0.6283068179073678,8,1,1,0,0
+2025_24,2025,24,Abu Dhabi Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,16,8,4.0,1,extra_trees,0.6283068179073676,8,1,1,0,0
 2025_24,2025,24,Abu Dhabi Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,10,14,0.0,0,extra_trees,0.6180432845620514,9,1,0,0,0
 2025_24,2025,24,Abu Dhabi Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,9,17,0.0,0,extra_trees,0.5447714563844525,10,1,0,0,0
 2025_24,2025,24,Abu Dhabi Grand Prix,sainz,SAI,Carlos Sainz,Williams,12,13,0.0,0,extra_trees,0.5063729699982717,11,0,0,0,0
-2025_24,2025,24,Abu Dhabi Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,8,7,6.0,1,extra_trees,0.47025526717372645,12,0,0,0,0
+2025_24,2025,24,Abu Dhabi Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,8,7,6.0,1,extra_trees,0.4702552671737264,12,0,0,0,0
 2025_24,2025,24,Abu Dhabi Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,7,11,0.0,0,extra_trees,0.3985884450654026,13,0,0,0,0
 2025_24,2025,24,Abu Dhabi Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,11,12,0.0,0,extra_trees,0.3931300727322935,14,0,0,0,0
 2025_24,2025,24,Abu Dhabi Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,13,18,0.0,0,extra_trees,0.2705383896277243,15,0,0,0,0
@@ -2376,21 +2376,21 @@ race_id,season,round,grand_prix,driver_id,driver_code,driver_name,constructor_na
 2025_24,2025,24,Abu Dhabi Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,20,20,0.0,0,neural_network_mlp,0.015058113306610893,20,0,0,0,0
 2025_24,2025,24,Abu Dhabi Grand Prix,max_verstappen,VER,Max Verstappen,Red Bull,1,1,25.0,1,random_forest,0.9245331286324646,1,1,1,1,1
 2025_24,2025,24,Abu Dhabi Grand Prix,norris,NOR,Lando Norris,McLaren,2,3,15.0,1,random_forest,0.9078440867261077,2,1,1,1,1
-2025_24,2025,24,Abu Dhabi Grand Prix,russell,RUS,George Russell,Mercedes,4,5,10.0,1,random_forest,0.8950787208674246,3,1,1,1,0
+2025_24,2025,24,Abu Dhabi Grand Prix,russell,RUS,George Russell,Mercedes,4,5,10.0,1,random_forest,0.8950787208674247,3,1,1,1,0
 2025_24,2025,24,Abu Dhabi Grand Prix,piastri,PIA,Oscar Piastri,McLaren,3,2,18.0,1,random_forest,0.8841389333280261,4,1,1,0,0
-2025_24,2025,24,Abu Dhabi Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,5,4,12.0,1,random_forest,0.8526636140631719,5,1,1,0,0
-2025_24,2025,24,Abu Dhabi Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,14,15,0.0,0,random_forest,0.7575317839222185,6,1,0,0,0
+2025_24,2025,24,Abu Dhabi Grand Prix,leclerc,LEC,Charles Leclerc,Ferrari,5,4,12.0,1,random_forest,0.852663614063172,5,1,1,0,0
+2025_24,2025,24,Abu Dhabi Grand Prix,antonelli,ANT,Andrea Kimi Antonelli,Mercedes,14,15,0.0,0,random_forest,0.7575317839222184,6,1,0,0,0
 2025_24,2025,24,Abu Dhabi Grand Prix,alonso,ALO,Fernando Alonso,Aston Martin,6,6,8.0,1,random_forest,0.702884139547489,7,1,1,0,0
 2025_24,2025,24,Abu Dhabi Grand Prix,hamilton,HAM,Lewis Hamilton,Ferrari,16,8,4.0,1,random_forest,0.6011816853037711,8,1,1,0,0
 2025_24,2025,24,Abu Dhabi Grand Prix,hadjar,HAD,Isack Hadjar,RB F1 Team,9,17,0.0,0,random_forest,0.5983599794324789,9,1,0,0,0
-2025_24,2025,24,Abu Dhabi Grand Prix,sainz,SAI,Carlos Sainz,Williams,12,13,0.0,0,random_forest,0.5907708931771443,10,1,0,0,0
+2025_24,2025,24,Abu Dhabi Grand Prix,sainz,SAI,Carlos Sainz,Williams,12,13,0.0,0,random_forest,0.5907708931771444,10,1,0,0,0
 2025_24,2025,24,Abu Dhabi Grand Prix,ocon,OCO,Esteban Ocon,Haas F1 Team,8,7,6.0,1,random_forest,0.522498851796298,11,0,0,0,0
 2025_24,2025,24,Abu Dhabi Grand Prix,tsunoda,TSU,Yuki Tsunoda,Red Bull,10,14,0.0,0,random_forest,0.5034494212806334,12,0,0,0,0
-2025_24,2025,24,Abu Dhabi Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,11,12,0.0,0,random_forest,0.4618195593268703,13,0,0,0,0
+2025_24,2025,24,Abu Dhabi Grand Prix,bearman,BEA,Oliver Bearman,Haas F1 Team,11,12,0.0,0,random_forest,0.46181955932687035,13,0,0,0,0
 2025_24,2025,24,Abu Dhabi Grand Prix,bortoleto,BOR,Gabriel Bortoleto,Sauber,7,11,0.0,0,random_forest,0.4445124100999296,14,0,0,0,0
 2025_24,2025,24,Abu Dhabi Grand Prix,hulkenberg,HUL,Nico Hülkenberg,Sauber,18,9,2.0,1,random_forest,0.35521535163004553,15,0,0,0,0
-2025_24,2025,24,Abu Dhabi Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,13,18,0.0,0,random_forest,0.32844873787182083,16,0,0,0,0
+2025_24,2025,24,Abu Dhabi Grand Prix,lawson,LAW,Liam Lawson,RB F1 Team,13,18,0.0,0,random_forest,0.3284487378718209,16,0,0,0,0
 2025_24,2025,24,Abu Dhabi Grand Prix,albon,ALB,Alexander Albon,Williams,17,16,0.0,0,random_forest,0.30676372534803115,17,0,0,0,0
-2025_24,2025,24,Abu Dhabi Grand Prix,stroll,STR,Lance Stroll,Aston Martin,15,10,1.0,1,random_forest,0.2588910332806025,18,0,0,0,0
+2025_24,2025,24,Abu Dhabi Grand Prix,stroll,STR,Lance Stroll,Aston Martin,15,10,1.0,1,random_forest,0.25889103328060253,18,0,0,0,0
 2025_24,2025,24,Abu Dhabi Grand Prix,gasly,GAS,Pierre Gasly,Alpine F1 Team,19,19,0.0,0,random_forest,0.1933418515782545,19,0,0,0,0
 2025_24,2025,24,Abu Dhabi Grand Prix,colapinto,COL,Franco Colapinto,Alpine F1 Team,20,20,0.0,0,random_forest,0.13909398535824685,20,0,0,0,0
