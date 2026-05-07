@@ -39,6 +39,10 @@ FIGURES = [
     ("confusion_matrix.png", "Figure 12. Confusion matrix for the selected holdout classifier."),
     ("neural_network_tuning.png", "Figure 13. Neural-network classifier tuning results, included as an extension."),
     ("position_model_comparison.png", "Figure 14. Finish-position ranking model comparison, included as an extension."),
+    ("predictions/model_precision_by_race.png", "Figure 15. Correct predicted top-10 drivers per race and model on the 2025 holdout season."),
+    ("predictions/model_hit_heatmap.png", "Figure 16. Race-level heatmap of top-10 hits by model."),
+    ("predictions/model_points_captured.png", "Figure 17. Average actual points captured by each model's predicted top 10."),
+    ("predictions/race_cards/2025_08_monaco_grand_prix.png", "Figure 18. Example race card showing actual podium, virtual podiums and predicted top 10 lists."),
 ]
 
 

@@ -28,6 +28,7 @@ This checklist maps the current project to the CX016-2.5-3-IML group assignment 
 | Optimization/tuning | Satisfied | Model configurations and MLP tuning documented |
 | Model validation | Satisfied | 2025 holdout, expanding-window rolling backtest and labelled algorithm PNG summaries |
 | Analysis and recommendations | Satisfied | Report compares models and recommends HGB classifier |
+| Concrete experiment outputs | Satisfied | Race-level prediction CSVs and virtual podium PNG renders are generated for the 2025 holdout season |
 | Conclusion | Satisfied | Report includes project self-evaluation and future work |
 | References | Satisfied, can still be improved | APA-style reference list added |
 | Acknowledgements | Satisfied | Report includes an acknowledgements section as requested by the brief |

@@ -77,6 +77,7 @@ python scripts/tune_neural_network.py --force
 python scripts/train_position_model.py
 python scripts/evaluate_models.py
 python scripts/make_charts.py
+python scripts/generate_prediction_renders.py --test-season 2025 --with-headshots
 python scripts/visualize_neural_network_3d.py --color-by cluster --open
 python scripts/predict_top10.py
 python scripts/predict_upcoming_races.py --season 2026 --count 4 --current-date 2026-05-05 --position-model outputs/models/finish_position_regressor.joblib
@@ -146,7 +147,9 @@ Main outputs:
 - `outputs/neural_network_embedding_3d.csv`: neural-network hidden-space PCA/clusters
 - `outputs/predictions/*.csv`: readable race-level prediction exports
 - `outputs/predictions/upcoming_top10_predictions.csv`: pre-race predictions for upcoming races
+- `outputs/predictions/race_model_renders/*.csv`: per-race, per-model prediction rankings and analysis
 - `outputs/figures/*.png`: EDA and model figures
+- `outputs/figures/predictions/*.png`: race-level model comparison figures and virtual podium renders
 - `outputs/figures/neural_network_embedding_3d.html`: interactive 3D neural-network cluster view
 - `report/Report.docx`: Word report generated from `report/Report.md`
 - `report/Report.pdf`: PDF report generated from `report/Report.md`
@@ -155,6 +158,10 @@ Main outputs:
 The generated DOCX/PDF report includes a cover page, table of contents, styled
 tables, labelled figures, acknowledgements and an assignment compliance
 snapshot.
+
+Race-level prediction renders can optionally use OpenF1 driver `headshot_url`
+metadata to cache driver images in `outputs/driver_headshots/`. If a photo is
+not available, the renderer uses a local initials-based placeholder.
 
 The 3D neural-network HTML export is standalone and browser-interactive: drag
 to rotate, scroll to zoom, hover to inspect driver/race points, and use the

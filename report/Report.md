@@ -11,11 +11,12 @@
 7. Code Organization and Reproducibility
 8. Model Implementation
 9. Model Validation
-10. Analysis and Recommendations
-11. Conclusion
-12. Acknowledgements
-13. References
-14. Appendix: Neural Network and Ranking Extensions
+10. Race-Level Prediction Renders
+11. Analysis and Recommendations
+12. Conclusion
+13. Acknowledgements
+14. References
+15. Appendix: Neural Network and Ranking Extensions
 
 ## Abstract
 
@@ -220,6 +221,23 @@ Training-time measurements on the current machine show that a single holdout run
 | Histogram gradient boosting | 9.00 s |
 
 Rolling backtest averages show that random forest is the most stable model by race precision@10, with an average of 0.767. Histogram gradient boosting is still selected as the holdout champion because it has the strongest latest-season top-10 performance.
+
+## Race-Level Prediction Renders
+
+To make the model outputs more concrete, an additional render script generates race-level prediction artifacts for the 2025 holdout season. These outputs do not replace the statistical validation, but they make the model behaviour easier to inspect race by race.
+
+| Output | Purpose |
+|---|---|
+| `outputs/predictions/race_model_renders/race_model_rankings_2025.csv` | Full driver-level predicted ranking for each race and each model |
+| `outputs/predictions/race_model_renders/race_model_summary_2025.csv` | Race-level summary with top-10 hits, actual points captured, podium hits and heuristic explanations |
+| `outputs/figures/predictions/model_precision_by_race.png` | Line chart showing correct top-10 hits per model and race |
+| `outputs/figures/predictions/model_hit_heatmap.png` | Heatmap comparing top-10 hits by race and model |
+| `outputs/figures/predictions/model_points_captured.png` | Average actual points captured by each model's predicted top 10 |
+| `outputs/figures/predictions/race_cards/*.png` | Visual race cards with actual podium, virtual podiums and predicted top 10 lists |
+
+The race cards show each model's virtual podium and predicted top 10 for a completed race. Green rows indicate drivers who actually finished in the real top 10, while red rows indicate predicted top-10 drivers who missed the real top 10. The points shown are actual race points earned after the race. Driver headshots are retrieved through OpenF1's `headshot_url` metadata when available; if a photo cannot be retrieved, the render falls back to a clean initials-based placeholder.
+
+These visual outputs are useful for explaining why one model performed better on a specific race. For example, a model may win a race-level comparison because it captured more midfield drivers who finished in the points, avoided overrating front-grid drivers who later dropped out, or produced a virtual podium closer to the real podium.
 
 ## Analysis and Recommendations
 
