@@ -31,7 +31,7 @@ Current limitations:
 - telemetry features are still proxies, not real FastF1 telemetry
 - FastF1 coverage is partial because the timing API is rate limited
 - neural network is a tabular MLP baseline, not a sequence model
-- submission ZIP/report/notebook need final validation before hand-in
+- submission ZIP, report and notebook are generated and validated locally
 
 ## Milestone 1 - Stabilize Project Structure
 

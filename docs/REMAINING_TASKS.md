@@ -41,7 +41,7 @@ Done:
 - [x] Add data coverage audit and import currently available Miami qualifying.
 - [x] Import Miami 2026 race results and pit stops incrementally once available.
 - [x] Import the missing 2010 season without refetching 2011-2026.
-- [ ] Optionally generate `report/Report.pdf` if a PDF engine is available.
+- [x] Generate `report/Report.pdf`.
 - [x] Extend FastF1 coverage beyond 2024-2025 where API limits allow it.
 - [x] Train and compare dedicated neural network configurations.
 
@@ -61,7 +61,7 @@ Done:
 
 ## Low Priority
 
-- [ ] Convert the Markdown report into a polished final PDF.
+- [x] Convert the Markdown report into a polished final PDF.
 - [ ] Add a lightweight Streamlit dashboard.
 - [ ] Add unit tests for feature builders.
 - [ ] Add GitHub Actions for `py_compile` and project validation.
