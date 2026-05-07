@@ -129,7 +129,7 @@ def add_cover_page(document: Document) -> None:
         ("Module", "CX016-2.5-3-IML - Introduction to Machine Learning"),
         ("Deliverable", "Report, notebook, dataset, scripts and submission ZIP"),
         ("Main task", "Predict whether each Formula 1 driver finishes in the top 10"),
-        ("Dataset", "6,999 driver-race rows, 198 variables, seasons 2010-2026"),
+        ("Dataset", "6,999 driver-race rows, 206 variables, seasons 2010-2026"),
         ("Primary model", "Histogram Gradient Boosting classifier"),
     ]
     for row_index, (label, value) in enumerate(metadata):

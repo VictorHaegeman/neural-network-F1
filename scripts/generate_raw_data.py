@@ -112,6 +112,13 @@ def mean(values: list[float], default: float = 0.0) -> float:
     return float(sum(clean) / len(clean))
 
 
+def std(values: list[float], default: float = 0.0) -> float:
+    clean = pd.to_numeric(pd.Series(values), errors="coerce").dropna()
+    if clean.empty:
+        return default
+    return float(clean.std(ddof=0))
+
+
 def best_or_default(values: list[int], default: int = 0) -> int:
     clean = [value for value in values if value]
     return min(clean) if clean else default
@@ -503,6 +510,12 @@ def summarize_current_pit_stops(pit_stop_events: pd.DataFrame) -> pd.DataFrame:
         "current_worst_pit_stop_time",
         "current_total_pit_time",
         "current_pit_stop_rank",
+        "current_first_pit_lap",
+        "current_last_pit_lap",
+        "current_avg_pit_lap",
+        "current_pit_lap_spread",
+        "current_avg_pit_lap_fraction",
+        "current_pit_time_std",
     ]
 
     if pit_stop_events.empty:
@@ -516,9 +529,15 @@ def summarize_current_pit_stops(pit_stop_events: pd.DataFrame) -> pd.DataFrame:
             current_best_pit_stop_time=("pit_duration_seconds", "min"),
             current_worst_pit_stop_time=("pit_duration_seconds", "max"),
             current_total_pit_time=("pit_duration_seconds", "sum"),
+            current_first_pit_lap=("pit_lap", "min"),
+            current_last_pit_lap=("pit_lap", "max"),
+            current_avg_pit_lap=("pit_lap", "mean"),
+            current_pit_time_std=("pit_duration_seconds", "std"),
         )
         .fillna(0)
     )
+    summary["current_pit_lap_spread"] = summary["current_last_pit_lap"] - summary["current_first_pit_lap"]
+    summary["current_avg_pit_lap_fraction"] = summary["current_avg_pit_lap"] / 70.0
     summary["current_pit_stop_rank"] = summary.groupby("race_id")["current_total_pit_time"].rank(
         method="average",
         ascending=True,
@@ -706,6 +725,31 @@ def build_feature_tables(
                 for entry in previous_pit_races
                 if as_int(entry.get("current_race_pit_stops")) > 0
             ]
+            previous_first_pit_laps = [
+                as_float(entry.get("current_first_pit_lap"))
+                for entry in previous_pit_races
+                if as_float(entry.get("current_first_pit_lap")) > 0
+            ]
+            previous_avg_pit_laps = [
+                as_float(entry.get("current_avg_pit_lap"))
+                for entry in previous_pit_races
+                if as_float(entry.get("current_avg_pit_lap")) > 0
+            ]
+            previous_pit_lap_spreads = [
+                as_float(entry.get("current_pit_lap_spread"))
+                for entry in previous_pit_races
+                if as_float(entry.get("current_pit_lap_spread")) > 0
+            ]
+            previous_pit_lap_fractions = [
+                as_float(entry.get("current_avg_pit_lap_fraction"))
+                for entry in previous_pit_races
+                if as_float(entry.get("current_avg_pit_lap_fraction")) > 0
+            ]
+            previous_pit_time_std = [
+                as_float(entry.get("current_pit_time_std"))
+                for entry in previous_pit_races
+                if as_float(entry.get("current_pit_time_std")) > 0
+            ]
 
             lap_rows.append(
                 {
@@ -735,8 +779,16 @@ def build_feature_tables(
                     if previous_pit_worst_times
                     else 0.0,
                     "total_pit_stops_previous_3_races": sum(previous_pit_counts),
+                    "avg_pit_stops_previous_3_races": mean(previous_pit_counts),
                     "avg_total_pit_time_previous_3_races": mean(previous_total_pit_times),
                     "avg_pit_stop_rank_previous_3_races": mean(previous_pit_ranks),
+                    "pit_stop_time_std_previous_3_races": mean(previous_pit_time_std),
+                    "pit_strategy_variability_previous_3_races": std(previous_pit_counts),
+                    "avg_first_pit_lap_previous_3_races": mean(previous_first_pit_laps),
+                    "avg_pit_lap_previous_3_races": mean(previous_avg_pit_laps),
+                    "avg_pit_lap_spread_previous_3_races": mean(previous_pit_lap_spreads),
+                    "avg_pit_lap_fraction_previous_3_races": mean(previous_pit_lap_fractions),
+                    "pit_data_availability_rate_previous_3_races": len(previous_pit_races) / 3.0,
                 }
             )
 
@@ -801,6 +853,12 @@ def build_feature_tables(
                         "current_worst_pit_stop_time": 0.0,
                         "current_total_pit_time": 0.0,
                         "current_pit_stop_rank": 0.0,
+                        "current_first_pit_lap": 0.0,
+                        "current_last_pit_lap": 0.0,
+                        "current_avg_pit_lap": 0.0,
+                        "current_pit_lap_spread": 0.0,
+                        "current_avg_pit_lap_fraction": 0.0,
+                        "current_pit_time_std": 0.0,
                     },
                 )
             )

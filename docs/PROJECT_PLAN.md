@@ -13,7 +13,9 @@ Implemented:
 - race results, qualifying, drivers, constructors, circuits and standings
 - real Jolpica pit-stop events and previous-race pit-stop features
 - Open-Meteo historical race-day weather enrichment for local race results
+- upcoming-race weather snapshot script with safe circuit-history fallback
 - FastF1 race-control message import and pre-race disruption history features
+- richer pit-stop timing/spread/availability features rebuilt from local events
 - finish-position/ranking model for predicted top-10 order
 - final model dataset with no missing values
 - multiple algorithms: logistic regression, random forest, extra trees,
@@ -27,6 +29,9 @@ Current limitations:
 
 - Open-Meteo weather is historical race-day weather, not exact live race sensor
   weather
+- upcoming weather snapshots use a real forecast only when Open-Meteo has that
+  future horizon available; otherwise they deliberately fall back to circuit
+  history
 - race-control coverage is partial because the timing API is rate limited
 - telemetry features are still proxies, not real FastF1 telemetry
 - FastF1 coverage is partial because the timing API is rate limited

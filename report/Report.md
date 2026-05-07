@@ -20,7 +20,7 @@
 
 ## Abstract
 
-This project investigates whether machine learning can predict if a Formula 1 driver will finish a Grand Prix in the top 10. This is a useful sporting analytics problem because top-10 classification is directly linked to points scoring, race strategy and team performance evaluation. A single model-ready dataset was built from public Formula 1 data covering 2010 to 2026, combining race results, qualifying, standings, circuit information, historical pit-stop indicators, weather, and selected FastF1-derived features. The dataset was cleaned, merged and transformed into 6,999 driver-race observations with 198 variables and no missing values. The main predictive task is binary classification with `top10_finish` as the target. Logistic regression, random forest, extra trees, histogram gradient boosting and a multilayer perceptron were compared using temporal validation. The best holdout model is histogram gradient boosting, with 2025 race precision@10 of 0.779. A separate neural-network regressor was also trained as a ranking extension for predicted finishing order, but the primary assignment result remains the comparison and validation of predictive models on the tabular top-10 classification task.
+This project investigates whether machine learning can predict if a Formula 1 driver will finish a Grand Prix in the top 10. This is a useful sporting analytics problem because top-10 classification is directly linked to points scoring, race strategy and team performance evaluation. A single model-ready dataset was built from public Formula 1 data covering 2010 to 2026, combining race results, qualifying, standings, circuit information, historical pit-stop indicators, weather, and selected FastF1-derived features. The dataset was cleaned, merged and transformed into 6,999 driver-race observations with 206 variables and no missing values. The main predictive task is binary classification with `top10_finish` as the target. Logistic regression, random forest, extra trees, histogram gradient boosting and a multilayer perceptron were compared using temporal validation. The best holdout model is histogram gradient boosting, with 2025 race precision@10 of 0.783. A separate neural-network regressor was also trained as a ranking extension for predicted finishing order, but the primary assignment result remains the comparison and validation of predictive models on the tabular top-10 classification task.
 
 ## Introduction, Aim and Objectives
 
@@ -48,10 +48,10 @@ The assignment question requires one challenging dataset, predictive models, pre
 | Assignment requirement | Project evidence | Status |
 |---|---|---|
 | One dataset | `data/final/f1_top10_model_dataset.csv` is the single model-ready dataset used for modelling | Satisfied |
-| Reasonable size | 6,999 driver-race rows, 198 variables and seasons 2010-2026 | Satisfied |
+| Reasonable size | 6,999 driver-race rows, 206 variables and seasons 2010-2026 | Satisfied |
 | Not perfectly clean | Raw API tables require identifier matching, missing-data handling, external weather joins and partial FastF1 coverage | Satisfied |
-| Numeric and categorical variables | Final dataset includes 174 numeric/bool columns and 24 categorical/text columns | Satisfied |
-| More than 12 variables | The final dataset has 198 columns | Satisfied |
+| Numeric and categorical variables | Final dataset includes 182 numeric/bool columns and 24 categorical/text columns | Satisfied |
+| More than 12 variables | The final dataset has 206 columns | Satisfied |
 | At least two predictive models | Logistic regression, random forest, extra trees, histogram gradient boosting and MLP were compared | Exceeded |
 | Dataset preparation and EDA | Figures in `outputs/figures/` discuss target balance, season coverage, grid/finish relation and missing values | Satisfied |
 | Optimization/tuning | MLP tuning, fixed ensemble hyperparameters and temporal validation are documented | Satisfied |
@@ -88,8 +88,8 @@ The final dataset is `data/final/f1_top10_model_dataset.csv`. Each row represent
 |---|---:|
 | Driver-race observations | 6,999 |
 | Seasons covered | 2010-2026 |
-| Final variables | 198 |
-| Numeric/bool variables | 174 |
+| Final variables | 206 |
+| Numeric/bool variables | 182 |
 | Categorical/text variables | 24 |
 | Missing values after preprocessing | 0 |
 | Top-10 rows | 3,330 |
@@ -148,7 +148,9 @@ The codebase is organized so that data import, feature engineering, model defini
 | Path | Purpose |
 |---|---|
 | `scripts/generate_raw_data.py` | Imports Jolpica race, qualifying, driver, constructor, circuit and pit-stop data |
+| `scripts/rebuild_derived_raw_tables.py` | Rebuilds derived raw features from local event files without refetching |
 | `scripts/generate_historical_weather.py` | Adds Open-Meteo race-day weather features |
+| `scripts/fetch_upcoming_weather_forecast.py` | Creates pre-race weather forecast/fallback snapshots for upcoming races |
 | `scripts/generate_fastf1_features.py` | Adds optional FastF1 timing, weather, tyre and lap-derived features |
 | `scripts/generate_fastf1_race_control.py` | Imports race-control messages and builds disruption indicators |
 | `scripts/generate_final_dataset.py` | Merges all raw and derived tables into the final modelling dataset |
@@ -167,6 +169,8 @@ The main reproducibility commands are:
 
 ```powershell
 python scripts/generate_final_dataset.py
+python scripts/rebuild_derived_raw_tables.py
+python scripts/fetch_upcoming_weather_forecast.py --season 2026 --count 4
 python scripts/evaluate_models.py
 python scripts/train_model.py --model hist_gradient_boosting
 python scripts/tune_neural_network.py --force
@@ -194,7 +198,7 @@ For the main classification task, the selected champion model is histogram gradi
 
 As an additional experiment beyond the two required predictive models, a Multi-Layer Perceptron neural network was implemented using scikit-learn's `MLPClassifier`. The purpose was to test whether a non-linear neural architecture could capture more complex relationships in the dataset compared with traditional machine learning models. Several neural configurations were tested by varying the number of hidden layers, number of neurons, activation function, learning rate and L2 regularization parameter. Early stopping was also used to reduce overfitting by monitoring validation performance during training.
 
-The MLP model used dense numerical input after preprocessing. Numerical variables were scaled, categorical variables were encoded, and the final transformed feature matrix was passed to the neural network. Since neural networks are sensitive to feature scale, standardization was applied to numerical features. The best current MLP classifier uses hidden layers `(128, 64)`, ReLU activation, `alpha=0.002`, `learning_rate_init=0.0005`, `batch_size=64` and early stopping. After preprocessing, the model receives about 750 transformed features and has approximately 104,449 trainable parameters.
+The MLP model used dense numerical input after preprocessing. Numerical variables were scaled, categorical variables were encoded, and the final transformed feature matrix was passed to the neural network. Since neural networks are sensitive to feature scale, standardization was applied to numerical features. The best current MLP classifier uses hidden layers `(80, 40)`, tanh activation, `alpha=0.002`, `learning_rate_init=0.0007`, `batch_size=64` and early stopping. This model is useful as a non-linear neural baseline, but it is not presented as the main assignment model because the tree-based methods remain stronger or more stable on the tabular prediction task.
 
 ## Model Validation
 
@@ -204,11 +208,11 @@ Current holdout results on the 2025 season:
 
 | Model | Accuracy | Precision | Recall | F1 | ROC-AUC | Race precision@10 |
 |---|---:|---:|---:|---:|---:|---:|
-| Histogram gradient boosting | 0.785 | 0.789 | 0.779 | 0.784 | 0.831 | 0.779 |
-| Random forest | 0.779 | 0.762 | 0.813 | 0.786 | 0.844 | 0.775 |
-| Neural network MLP | 0.766 | 0.756 | 0.788 | 0.771 | 0.829 | 0.771 |
-| Extra trees | 0.752 | 0.735 | 0.788 | 0.761 | 0.833 | 0.750 |
-| Logistic regression | 0.743 | 0.850 | 0.592 | 0.698 | 0.811 | 0.746 |
+| Histogram gradient boosting | 0.777 | 0.783 | 0.767 | 0.775 | 0.832 | 0.783 |
+| Neural network MLP | 0.743 | 0.813 | 0.633 | 0.712 | 0.827 | 0.771 |
+| Extra trees | 0.752 | 0.735 | 0.788 | 0.761 | 0.836 | 0.754 |
+| Random forest | 0.764 | 0.751 | 0.792 | 0.771 | 0.840 | 0.754 |
+| Logistic regression | 0.743 | 0.831 | 0.613 | 0.705 | 0.820 | 0.750 |
 
 Training-time measurements on the current machine show that a single holdout run is lightweight. The heavier steps are the rolling backtest and full neural-network tuning because they train several models repeatedly.
 
@@ -244,9 +248,9 @@ These visual outputs are useful for explaining why one model performed better on
 
 The results are broadly in line with expectations. Tree-based models perform strongly because the dataset is tabular, mixed-type and feature-engineered. Logistic regression is useful as a simple baseline but is less able to capture non-linear interactions such as driver-team-circuit effects. The neural-network classifier is competitive but does not clearly beat tree ensembles on this dataset. This supports the decision to present the neural network as an extension rather than the primary assignment result.
 
-Adding the 2010 season increased the dataset from 6,543 to 6,999 rows. The holdout accuracy and F1 improved for the champion classifier, while race precision@10 stayed at 0.779. This suggests that extra historical data helps general classification stability, but very old F1 seasons are not always directly representative of modern seasons.
+Adding the 2010 season increased the dataset from 6,543 to 6,999 rows. A later feature refresh then added richer pit-stop aggregates, more FastF1 lap-summary coverage where the API allowed it, and a separate upcoming-race weather snapshot table. The champion classifier's 2025 race precision@10 improved from 0.779 to 0.783, although its F1 score and some neural-network variants moved slightly down. This suggests that extra data can improve the practical top-10 ranking objective, but each new feature family still needs validation rather than being assumed helpful.
 
-The separate finish-position ranking model is useful for producing ordered race predictions. Its best current version is a neural-network MLP regressor with race precision@10 of 0.779 and mean race Spearman correlation of 0.660. This is helpful for interpretation, but it should remain secondary because the assignment asks mainly for predictive model comparison.
+The separate finish-position ranking model is useful for producing ordered race predictions. Its best current version is a neural-network MLP regressor with race precision@10 of 0.775 and mean race Spearman correlation of 0.652. This is helpful for interpretation, but it should remain secondary because the assignment asks mainly for predictive model comparison.
 
 Recommended final model:
 
@@ -267,12 +271,13 @@ Recommended future improvements:
 - add calibration plots for probability quality
 - add permutation importance for model interpretability
 - fill remaining FastF1 gaps after rate limits reset
+- rerun upcoming weather snapshots near race week so they use real forecast data
 - test whether older seasons should be down-weighted because modern F1 regulations differ
 - improve the report with more domain-specific literature if more time is available
 
 ## Conclusion
 
-This project satisfies the core assignment requirement by building a machine learning solution on one reasonably large, mixed-type and non-trivial dataset. The work includes data collection, cleaning, feature engineering, EDA, preprocessing, multiple predictive models, tuning, validation and comparison. The strongest model for the main top-10 classification task is histogram gradient boosting, with 2025 holdout race precision@10 of 0.779. The project also shows that neural networks are interesting but not automatically superior for this tabular problem. The main weakness is that some racing signals, especially full telemetry and older pit-stop details, are incomplete in public data. Overall, the project is a solid V0 for the assignment, with neural-network and 3D visualization work best positioned as optional extensions.
+This project satisfies the core assignment requirement by building a machine learning solution on one reasonably large, mixed-type and non-trivial dataset. The work includes data collection, cleaning, feature engineering, EDA, preprocessing, multiple predictive models, tuning, validation and comparison. The strongest model for the main top-10 classification task is histogram gradient boosting, with 2025 holdout race precision@10 of 0.783. The project also shows that neural networks are interesting but not automatically superior for this tabular problem. The main weakness is that some racing signals, especially full telemetry, complete FastF1 historical coverage and exact race-week weather forecasts, are incomplete in public data. Overall, the project is a solid V0 for the assignment, with neural-network and 3D visualization work best positioned as optional extensions.
 
 ## Acknowledgements
 

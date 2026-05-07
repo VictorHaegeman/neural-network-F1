@@ -229,7 +229,13 @@ def main() -> None:
     races = get_races(race_results, args.start_year, args.end_year)
 
     existing = load_existing(FASTF1_RACE_CONTROL_PATH) if args.incremental else pd.DataFrame()
-    existing_races = set(existing.get("race_id", pd.Series(dtype=str)).astype(str))
+    if not existing.empty and "fastf1_race_control_available" in existing.columns:
+        existing_available = existing[
+            pd.to_numeric(existing["fastf1_race_control_available"], errors="coerce").fillna(0) > 0
+        ]
+    else:
+        existing_available = existing
+    existing_races = set(existing_available.get("race_id", pd.Series(dtype=str)).astype(str))
     if args.incremental and not args.force:
         before_count = len(races)
         races = races[~races["race_id"].astype(str).isin(existing_races)].copy()

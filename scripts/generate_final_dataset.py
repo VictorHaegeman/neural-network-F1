@@ -185,8 +185,16 @@ pit_stops_keep = [
     "best_pit_stop_time_previous_3_races",
     "worst_pit_stop_time_previous_3_races",
     "total_pit_stops_previous_3_races",
+    "avg_pit_stops_previous_3_races",
     "avg_total_pit_time_previous_3_races",
-    "avg_pit_stop_rank_previous_3_races"
+    "avg_pit_stop_rank_previous_3_races",
+    "pit_stop_time_std_previous_3_races",
+    "pit_strategy_variability_previous_3_races",
+    "avg_first_pit_lap_previous_3_races",
+    "avg_pit_lap_previous_3_races",
+    "avg_pit_lap_spread_previous_3_races",
+    "avg_pit_lap_fraction_previous_3_races",
+    "pit_data_availability_rate_previous_3_races"
 ]
 
 weather_keep = [

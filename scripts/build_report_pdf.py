@@ -185,7 +185,7 @@ def add_cover_page(story: list, styles: dict[str, ParagraphStyle], width: float)
         ["Module", "CX016-2.5-3-IML - Introduction to Machine Learning"],
         ["Deliverable", "Report, notebook, dataset, scripts and submission ZIP"],
         ["Main task", "Predict whether each Formula 1 driver finishes in the top 10"],
-        ["Dataset", "6,999 driver-race rows, 198 variables, seasons 2010-2026"],
+        ["Dataset", "6,999 driver-race rows, 206 variables, seasons 2010-2026"],
         ["Primary model", "Histogram Gradient Boosting classifier"],
     ]
     table = Table(metadata, colWidths=[1.45 * inch, width - 1.45 * inch])

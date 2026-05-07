@@ -16,8 +16,12 @@ Done:
   pre-race circuit/season disruption features
 - optional FastF1 features extended beyond 2024-2025 where the timing API and
   rate limits allowed it
+- pre-race upcoming weather snapshot script with circuit-history fallback when
+  a true forecast is not yet available
+- richer previous-race pit-stop features rebuilt from the local pit-stop event
+  table
 - incremental missing-race importer that skips already-local `race_id` rows
-- final dataset with 6999 rows and 198 columns
+- final dataset with 6999 rows and 206 columns
 - no missing values in the final dataset
 - model comparison across logistic regression, random forest, extra trees,
   histogram gradient boosting and neural network MLP
@@ -44,12 +48,14 @@ Done:
 - [x] Generate `report/Report.pdf`.
 - [x] Extend FastF1 coverage beyond 2024-2025 where API limits allow it.
 - [x] Train and compare dedicated neural network configurations.
+- [x] Re-engineer previous-race pit-stop features.
+- [x] Add upcoming weather forecast/fallback snapshots.
 
 ## Medium Priority
 
 - [x] Add better race-control/safety-car features from FastF1 messages.
 - [ ] Resume FastF1 incremental import after the API rate limit resets to fill
-  the remaining 2020-2023 gaps.
+  the remaining 2022-2023 gaps and any unavailable 2020 races.
 - [ ] Resume FastF1 race-control incremental import after the API rate limit
   resets to fill the final 10 missing 2025 rounds.
 - [x] Add a small CLI option to predict a future race once entry list data is
@@ -73,4 +79,4 @@ real Jolpica pit-stop events, model comparison and upcoming-race prediction.
 It also has a separate finish-position model for ranking the predicted top 10.
 The largest remaining scientific improvements are fuller FastF1 lap/tyre and
 race-control coverage after API limits reset, calibration analysis, permutation
-importance and richer telemetry.
+importance, richer telemetry and real race-week forecast snapshots.

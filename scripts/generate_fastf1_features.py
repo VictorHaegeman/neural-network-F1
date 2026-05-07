@@ -273,6 +273,24 @@ def combine_existing(existing: pd.DataFrame, new: pd.DataFrame, keys: list[str])
     return combined.reset_index(drop=True)
 
 
+def combine_weather(existing: pd.DataFrame, new: pd.DataFrame) -> pd.DataFrame:
+    combined = combine_existing(existing, new, ["race_id"])
+    if existing.empty or new.empty or combined.empty:
+        return combined
+
+    existing_lookup = {
+        str(row["race_id"]): row.to_dict()
+        for _, row in existing.iterrows()
+        if int(float(row.get("fastf1_weather_available", 0))) == 1
+    }
+    for index, row in combined.iterrows():
+        race_id = str(row["race_id"])
+        if int(float(row.get("fastf1_weather_available", 0))) == 0 and race_id in existing_lookup:
+            for column, value in existing_lookup[race_id].items():
+                combined.at[index, column] = value
+    return combined
+
+
 def main() -> None:
     args = parse_args()
     if not args.race_results.exists():
@@ -283,10 +301,12 @@ def main() -> None:
 
     existing_weather = load_existing(FASTF1_WEATHER_PATH) if args.incremental else pd.DataFrame()
     existing_laps = load_existing(FASTF1_LAP_SUMMARIES_PATH) if args.incremental else pd.DataFrame()
-    existing_race_ids = set(existing_weather.get("race_id", pd.Series(dtype=str)).astype(str))
+    existing_weather_ids = set(existing_weather.get("race_id", pd.Series(dtype=str)).astype(str))
+    existing_lap_ids = set(existing_laps.get("race_id", pd.Series(dtype=str)).astype(str))
     if args.incremental and not args.force:
         before_count = len(races)
-        races = races[~races["race_id"].astype(str).isin(existing_race_ids)].copy()
+        complete_race_ids = existing_weather_ids & existing_lap_ids
+        races = races[~races["race_id"].astype(str).isin(complete_race_ids)].copy()
         print(f"Incremental mode skipped {before_count - len(races)} already fetched races")
 
     if args.max_races is not None:
@@ -320,7 +340,7 @@ def main() -> None:
                 }
             )
 
-    weather_df = combine_existing(existing_weather, pd.DataFrame(weather_rows), ["race_id"])
+    weather_df = combine_weather(existing_weather, pd.DataFrame(weather_rows))
     lap_summaries_df = combine_existing(existing_laps, pd.DataFrame(lap_rows), ["race_id", "driver_id"])
     driver_form_df = build_driver_form(race_results, lap_summaries_df)
 

@@ -21,8 +21,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--skip-prediction", action="store_true")
     parser.add_argument("--skip-pit-stops", action="store_true")
     parser.add_argument("--with-historical-weather", action="store_true")
+    parser.add_argument("--with-upcoming-weather", action="store_true")
+    parser.add_argument("--upcoming-season", type=int, default=date.today().year)
+    parser.add_argument("--upcoming-count", type=int, default=4)
     parser.add_argument("--with-race-control", action="store_true")
     parser.add_argument("--with-fastf1", action="store_true")
+    parser.add_argument("--skip-derived-rebuild", action="store_true")
     parser.add_argument("--fastf1-start-year", type=int, default=2018)
     parser.add_argument("--fastf1-end-year", type=int, default=date.today().year)
     parser.add_argument("--fastf1-max-races", type=int, default=None)
@@ -101,6 +105,21 @@ def main() -> None:
             "--incremental",
         ]
         run_step(race_control_command)
+
+    if not args.skip_derived_rebuild:
+        run_step([python, str(SCRIPTS_PATH / "rebuild_derived_raw_tables.py")])
+
+    if args.with_upcoming_weather:
+        run_step(
+            [
+                python,
+                str(SCRIPTS_PATH / "fetch_upcoming_weather_forecast.py"),
+                "--season",
+                str(args.upcoming_season),
+                "--count",
+                str(args.upcoming_count),
+            ]
+        )
 
     run_step([python, str(SCRIPTS_PATH / "generate_final_dataset.py")])
     run_step([python, str(SCRIPTS_PATH / "train_model.py"), "--model", args.model])

@@ -14,7 +14,7 @@ currently missing from the local project data.
 | 2026 races with local results | 4 |
 | 2026 races in final dataset | 4 |
 | Final dataset rows | 6,999 |
-| Final dataset columns | 198 |
+| Final dataset columns | 206 |
 | Final dataset races | 333 |
 | Final dataset seasons | 2010-2026 |
 | Missing values in final dataset | 0 |
@@ -31,8 +31,9 @@ race results and qualifying.
 | `qualifying_results.csv` | 6,976 rows, 333 races |
 | `pit_stop_events.csv` | 12,294 rows, 313 races |
 | `weather_data.csv` | 333 races |
+| `upcoming_weather_forecast.csv` | 4 upcoming races, forecast/fallback snapshots |
 | `fastf1_weather.csv` | 177 races |
-| `fastf1_lap_summaries.csv` | 100 races |
+| `fastf1_lap_summaries.csv` | 2,477 driver-race rows, 127 races |
 | `fastf1_driver_form.csv` | 6,999 rows, 333 races |
 | `fastf1_race_control.csv` | 177 races |
 | `race_control_history.csv` | 333 races |
@@ -49,26 +50,38 @@ pit-stop signal to import.
 | Race-control and safety-car history | 26 |
 | Weather | 24 |
 | FastF1 lap/tyre proxies | 9 |
-| Pit strategy | 7 |
+| Pit strategy | 15 |
 | Qualifying/grid | 5 |
+
+The latest refresh retried missing 2020-2023 FastF1 lap/tyre data
+incrementally. It added extra lap-summary coverage, but the timing API reached
+its hourly limit before all 2022-2023 races could be completed. The refresh
+also rebuilt the derived pit-stop table from existing pit-stop events and added
+pre-race weather snapshot support for upcoming predictions. Current upcoming
+forecast rows are stored with a `circuit_history` fallback when the real weather
+forecast is not yet available far enough in advance.
 
 ## Quick Ablation Check
 
-The current champion classifier is histogram gradient boosting. A quick
-holdout ablation on the 2025 season gives the following race precision@10:
+The current champion classifier is histogram gradient boosting. The latest
+full-feature run and the recent holdout ablation checks on the 2025 season give
+the following race precision@10:
 
 | Feature setup | Race precision@10 |
 |---|---:|
-| All features | 0.779 |
+| All features | 0.783 |
 | Without pit strategy | 0.783 |
 | Without qualifying/grid | 0.779 |
 | Without FastF1 lap/tyre | 0.779 |
 | Without weather | 0.771 |
 | Without race-control history | 0.771 |
 
-This suggests that weather and race-control history are currently the most
-useful import areas. Pit-stop features may need better engineering before they
-improve the model reliably.
+This suggests that weather and race-control history are useful import areas,
+while the new pit-stop features should continue to be validated carefully. The
+latest full-feature run improved the champion's race precision@10 to 0.783, but
+some other metrics and neural-network variants moved slightly down, so the
+project should keep model comparison as the main claim rather than claiming that
+more data always helps every algorithm.
 
 ## Best Next Imports
 
@@ -97,18 +110,18 @@ improve the model reliably.
 
 3. **Richer weather forecast/pre-race features**
 
-   The current dataset has historical race-day weather. For upcoming races, the
-   model would benefit from explicit pre-race forecast snapshots, for example
-   predicted rain probability, forecast temperature, wind and humidity at race
-   start. This should be stored separately from actual post-race weather to
-   avoid leakage.
+   The project now has `scripts/fetch_upcoming_weather_forecast.py`, which
+   stores pre-race weather snapshots separately from actual post-race weather.
+   For races too far in the future, it writes a historical circuit fallback
+   instead of pretending to know the live forecast. Rerun it near race week for
+   more precise forecast data.
 
 4. **Better pit-stop strategy features**
 
-   Existing pit-stop event data is present, but the current features are simple
-   previous-race aggregates. Better features could include circuit-level average
-   stops, pit-lane loss, tyre-degradation proxy, undercut/overcut frequency and
-   team-specific stop consistency.
+   Existing pit-stop event data is present and now includes richer previous-race
+   features such as stop-time spread, first-pit timing, average pit-lap fraction
+   and pit-data availability. Better future features could include circuit-level
+   pit-lane loss, undercut/overcut frequency and team-specific stop consistency.
 
 5. **Driver/team market and reliability signals**
 
@@ -123,5 +136,7 @@ race-result import is missing. The best precision-improvement work would be:
 
 1. keep importing each new completed 2026 race;
 2. fill FastF1 lap/tyre gaps for 2020-2023 when API limits allow it;
-3. add clean pre-race forecast features for upcoming predictions;
-4. re-engineer pit-stop strategy features before relying on them more heavily.
+3. rerun pre-race forecast snapshots near race week so they use real forecast
+   data instead of circuit-history fallback;
+4. keep validating the richer pit-stop features with ablation/permutation
+   importance before relying on them more heavily.

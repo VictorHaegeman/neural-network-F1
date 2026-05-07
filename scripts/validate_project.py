@@ -20,6 +20,7 @@ REQUIRED_NONEMPTY_FILES = [
     "data/raw/fastf1_race_control.csv",
     "data/raw/race_control_history.csv",
     "data/raw/weather_data.csv",
+    "data/raw/upcoming_weather_forecast.csv",
     "data/raw/upcoming_qualifying_results.csv",
     "data/final/f1_top10_model_dataset.csv",
     "outputs/data_coverage_report.csv",
@@ -74,8 +75,10 @@ REQUIRED_SCRIPTS = [
     "scripts/algorithms/regression.py",
     "scripts/algorithms/neural_network.py",
     "scripts/generate_raw_data.py",
+    "scripts/rebuild_derived_raw_tables.py",
     "scripts/import_missing_completed_races.py",
     "scripts/generate_historical_weather.py",
+    "scripts/fetch_upcoming_weather_forecast.py",
     "scripts/generate_fastf1_features.py",
     "scripts/generate_fastf1_race_control.py",
     "scripts/generate_final_dataset.py",
@@ -147,7 +150,7 @@ def check_dataset(failures: list[str]) -> None:
     else:
         pass_check(f"Dataset rows: {len(df)}")
 
-    if len(df.columns) < 190:
+    if len(df.columns) < 200:
         fail(f"Dataset has too few columns: {len(df.columns)}", failures)
     else:
         pass_check(f"Dataset columns: {len(df.columns)}")

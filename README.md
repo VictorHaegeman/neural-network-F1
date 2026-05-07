@@ -46,7 +46,7 @@ the public timing API allows it.
 Final dataset:
 
 - `6,999` driver-race rows
-- `198` variables
+- `206` variables
 - seasons `2010-2026`
 - no missing values in the final training table
 
@@ -64,7 +64,7 @@ The compared classifiers are:
 - neural-network MLP
 
 The best current holdout classifier is `hist_gradient_boosting`, with 2025 race
-precision@10 of `0.779`. The neural network is competitive, but it is kept as an
+precision@10 of `0.783`. The neural network is competitive, but it is kept as an
 additional experiment rather than the main model.
 
 ## Setup
@@ -86,6 +86,12 @@ Run the complete local pipeline:
 python scripts/run_pipeline.py
 ```
 
+Run it with optional enrichment refreshes:
+
+```powershell
+python scripts/run_pipeline.py --with-fastf1 --with-race-control --with-upcoming-weather
+```
+
 Run the main model:
 
 ```powershell
@@ -103,6 +109,14 @@ Regenerate charts and race prediction renders:
 ```powershell
 python scripts/make_charts.py
 python scripts/generate_prediction_renders.py --test-season 2025 --with-headshots
+```
+
+Refresh derived raw tables and upcoming weather snapshots without refetching
+data that already exists:
+
+```powershell
+python scripts/rebuild_derived_raw_tables.py
+python scripts/fetch_upcoming_weather_forecast.py --season 2026 --count 4
 ```
 
 Generate a visual page for one race only:
@@ -150,11 +164,11 @@ On the 2025 holdout season:
 
 | Model | Race Precision@10 |
 |---|---:|
-| Histogram gradient boosting | `0.779` |
-| Random forest | `0.775` |
+| Histogram gradient boosting | `0.783` |
 | Neural-network MLP | `0.771` |
-| Extra trees | `0.750` |
-| Logistic regression | `0.746` |
+| Random forest | `0.754` |
+| Extra trees | `0.754` |
+| Logistic regression | `0.750` |
 
 Rolling validation shows that random forest is the most stable model on average,
 while histogram gradient boosting is the best latest-season holdout model.

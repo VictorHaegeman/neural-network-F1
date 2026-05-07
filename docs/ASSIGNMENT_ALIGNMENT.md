@@ -9,8 +9,8 @@ This checklist maps the current project to the CX016-2.5-3-IML group assignment 
 | One dataset | Satisfied | `data/final/f1_top10_model_dataset.csv` is the single model-ready dataset |
 | Reasonable size | Satisfied | 6,999 driver-race rows |
 | Not perfectly clean originally | Satisfied | Raw sources require merging, missing historical pit stops, partial FastF1 coverage and weather enrichment |
-| Categorical and numeric data | Satisfied | 174 numeric/bool columns and 24 categorical/text columns |
-| More than 12 variables | Satisfied | 198 final columns |
+| Categorical and numeric data | Satisfied | 182 numeric/bool columns and 24 categorical/text columns |
+| More than 12 variables | Satisfied | 206 final columns |
 | Not a commonly experimented dataset | Satisfied | Custom Formula 1 top-10 prediction dataset assembled from public APIs |
 | If imbalanced, address it | Satisfied | Target is reasonably balanced: 3,330 top-10 rows vs 3,669 non-top-10 rows; class weights are used where relevant |
 
