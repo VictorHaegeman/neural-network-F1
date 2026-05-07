@@ -74,6 +74,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--models", nargs="+", choices=MODEL_NAMES, default=MODEL_NAMES)
     parser.add_argument("--with-headshots", action="store_true", help="Fetch OpenF1/F1 CDN driver headshots.")
     parser.add_argument("--max-races", type=int, default=None, help="Optional cap for generated race cards.")
+    parser.add_argument("--round", type=int, default=None, help="Generate visual cards only for one race round.")
+    parser.add_argument("--race-id", type=str, default=None, help="Generate visual cards only for one race_id.")
     parser.add_argument("--skip-cards", action="store_true")
     parser.add_argument("--skip-overviews", action="store_true")
     return parser.parse_args()
@@ -777,6 +779,12 @@ def main() -> None:
     save_summary_figures(rankings, summary)
 
     races = rankings[["race_id", "round", "grand_prix"]].drop_duplicates().sort_values("round")
+    if args.race_id is not None:
+        races = races[races["race_id"].astype(str) == str(args.race_id)]
+    if args.round is not None:
+        races = races[races["round"].astype(int) == int(args.round)]
+    if races.empty:
+        raise ValueError("No race matched the requested --race-id/--round filter.")
     if args.max_races is not None:
         races = races.head(args.max_races)
 

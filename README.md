@@ -78,6 +78,7 @@ python scripts/train_position_model.py
 python scripts/evaluate_models.py
 python scripts/make_charts.py
 python scripts/generate_prediction_renders.py --test-season 2025 --with-headshots
+python scripts/generate_prediction_renders.py --test-season 2025 --round 8 --with-headshots
 python scripts/visualize_neural_network_3d.py --color-by cluster --open
 python scripts/predict_top10.py
 python scripts/predict_upcoming_races.py --season 2026 --count 4 --current-date 2026-05-05 --position-model outputs/models/finish_position_regressor.joblib
