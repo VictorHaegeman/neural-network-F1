@@ -13,7 +13,8 @@ binary classification task:
 - `hist_gradient_boosting`
 - `neural_network_mlp`
 
-The champion assignment model is currently `hist_gradient_boosting`.
+The current assignment holdout champion is `random_forest`, with `extra_trees`
+kept as the strongest rolling-backtest comparison.
 
 ## Finish-Position Ranking
 
@@ -24,7 +25,8 @@ position for each driver:
 - `random_forest_regressor`
 - `neural_network_mlp_regressor`
 
-The best current finish-position model is the neural-network MLP regressor.
+The best current finish-position model is the histogram gradient boosting
+regressor, with the neural-network MLP regressor kept as an extension.
 
 ## Neural Network Tuning
 

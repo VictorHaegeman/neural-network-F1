@@ -239,12 +239,15 @@ def save_model_metrics_table(model_comparison_path: Path) -> None:
     plt.close(fig)
 
 
-def save_assignment_pipeline_overview() -> None:
+def save_assignment_pipeline_overview(df: pd.DataFrame) -> None:
     FIGURES_PATH.mkdir(parents=True, exist_ok=True)
     stages = [
         ("Raw sources", "Jolpica F1 API\nOpen-Meteo\nFastF1 optional"),
         ("Cleaning", "Identifier matching\nmissing data handling\navailability flags"),
-        ("Final dataset", "6,999 driver-race rows\n198 variables\n0 missing values"),
+        (
+            "Final dataset",
+            f"{len(df):,} driver-race rows\n{len(df.columns)} variables\n{int(df.isna().sum().sum())} missing values",
+        ),
         ("Algorithms", "Logistic regression\nRandom forest\nExtra trees\nHGB\nMLP"),
         ("Validation", "2025 holdout\nrolling backtest\nrace precision@10"),
         ("Outputs", "metrics CSV/JSON\nPNG figures\nDOCX/PDF report"),
@@ -401,7 +404,7 @@ def main() -> None:
     save_model_metrics_table(args.model_comparison)
     save_rolling_backtest(args.rolling_backtest)
     save_algorithm_validation_summary(args.rolling_backtest)
-    save_assignment_pipeline_overview()
+    save_assignment_pipeline_overview(df)
 
     print(f"Figures written to {FIGURES_PATH}")
 

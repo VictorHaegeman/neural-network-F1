@@ -46,7 +46,7 @@ the public timing API allows it.
 Final dataset:
 
 - `6,999` driver-race rows
-- `206` variables
+- `201` variables
 - seasons `2010-2026`
 - no missing values in the final training table
 
@@ -63,20 +63,22 @@ The compared classifiers are:
 - histogram gradient boosting
 - neural-network MLP
 
-The best current holdout classifier is `hist_gradient_boosting`, with 2025 race
-precision@10 of `0.783`. The neural network is competitive, but it is kept as an
-additional experiment rather than the main model.
+The best current holdout classifier is `random_forest`, with 2025 race
+precision@10 of `0.775`. The neural network is competitive, but it is kept as an
+additional experiment rather than the main model. The final feature schema avoids
+future-known dataset-wide experience columns; driver age and experience counters
+are calculated as pre-race values.
 
 ## Setup
 
 ```powershell
-py -3.11 -m venv .venv
-.\.venv\Scripts\Activate.ps1
+$py = "$env:LocalAppData\Programs\Python\Python312\python.exe"
+& $py -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
 On Windows, use `.\.venv\Scripts\python.exe` if the global `python` command
-opens the Microsoft Store alias.
+opens the Microsoft Store alias or if the `py` launcher is not available.
 
 ## Run
 
@@ -95,7 +97,7 @@ python scripts/run_pipeline.py --with-fastf1 --with-race-control --with-upcoming
 Run the main model:
 
 ```powershell
-python scripts/train_model.py --model hist_gradient_boosting
+python scripts/train_model.py --model random_forest
 ```
 
 Compare all models:
@@ -166,14 +168,14 @@ On the 2025 holdout season:
 
 | Model | Race Precision@10 |
 |---|---:|
-| Histogram gradient boosting | `0.783` |
-| Neural-network MLP | `0.771` |
-| Random forest | `0.754` |
-| Extra trees | `0.754` |
+| Random forest | `0.775` |
+| Histogram gradient boosting | `0.771` |
+| Extra trees | `0.771` |
+| Neural-network MLP | `0.758` |
 | Logistic regression | `0.750` |
 
-Rolling validation shows that random forest is the most stable model on average,
-while histogram gradient boosting is the best latest-season holdout model.
+Rolling validation shows that extra trees and random forest are the most stable
+models on average, while random forest is the best latest-season holdout model.
 
 ## Notes
 

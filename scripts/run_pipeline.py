@@ -13,7 +13,7 @@ SCRIPTS_PATH = PROJECT_ROOT / "scripts"
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Run the complete F1 top-10 prediction pipeline.")
-    parser.add_argument("--start-year", type=int, default=2011)
+    parser.add_argument("--start-year", type=int, default=2010)
     parser.add_argument("--end-year", type=int, default=date.today().year)
     parser.add_argument("--model", default="random_forest")
     parser.add_argument("--force-fetch", action="store_true")

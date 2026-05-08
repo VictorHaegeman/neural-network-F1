@@ -38,6 +38,34 @@ def clean_duplicate_columns(df):
     return df
 
 
+def add_pre_race_experience_features(df):
+    """Create experience features that are knowable before each race."""
+    df = df.sort_values(["season", "round", "race_id", "driver_id"]).copy()
+
+    race_date = pd.to_datetime(df["race_date"], errors="coerce")
+    birth_date = pd.to_datetime(df["driver_date_of_birth"], errors="coerce")
+    birthday_has_passed = (
+        (race_date.dt.month > birth_date.dt.month)
+        | ((race_date.dt.month == birth_date.dt.month) & (race_date.dt.day >= birth_date.dt.day))
+    )
+    df["driver_age_at_race"] = (
+        race_date.dt.year - birth_date.dt.year - (~birthday_has_passed).astype("int")
+    )
+
+    driver_first_season = df.groupby("driver_id")["season"].transform("min")
+    constructor_first_season = df.groupby("constructor_id")["season"].transform("min")
+    df["driver_dataset_seasons_before_race"] = (df["season"] - driver_first_season).clip(lower=0)
+    df["constructor_dataset_seasons_before_race"] = (
+        df["season"] - constructor_first_season
+    ).clip(lower=0)
+    df["driver_races_in_dataset_before"] = df.groupby("driver_id").cumcount()
+    df["constructor_races_in_dataset_before"] = df.groupby("constructor_id").cumcount()
+    df["driver_is_dataset_rookie_season"] = (
+        df["driver_dataset_seasons_before_race"] == 0
+    ).astype(int)
+    return df
+
+
 # =========================
 # 1. Load all datasets
 # =========================
@@ -45,7 +73,6 @@ def clean_duplicate_columns(df):
 race_results = load_csv("race_results.csv")
 qualifying_results = load_csv("qualifying_results.csv")
 driver_info = load_csv("driver_info.csv")
-team_info = load_csv("team_info.csv")
 circuit_info = load_csv("circuit_info.csv")
 constructor_standings = load_csv("constructor_standings.csv")
 driver_standings = load_csv("driver_standings.csv")
@@ -92,21 +119,6 @@ qualifying_keep = [
 driver_info_keep = [
     "driver_id",
     "nationality",
-    "date_of_birth",
-    "first_season_in_dataset",
-    "last_season_in_dataset",
-    "number_of_seasons_in_dataset",
-    "age_at_2026",
-    "rookie_in_dataset"
-]
-
-team_info_keep = [
-    "constructor_id",
-    "constructor_nationality",
-    "first_season_in_dataset",
-    "last_season_in_dataset",
-    "number_of_seasons_in_dataset",
-    "team_experience_score"
 ]
 
 circuit_info_keep = [
@@ -255,7 +267,6 @@ telemetry_keep = [
 
 qualifying_results = qualifying_results[[col for col in qualifying_keep if col in qualifying_results.columns]]
 driver_info = driver_info[[col for col in driver_info_keep if col in driver_info.columns]]
-team_info = team_info[[col for col in team_info_keep if col in team_info.columns]]
 circuit_info = circuit_info[[col for col in circuit_info_keep if col in circuit_info.columns]]
 constructor_standings = constructor_standings[[col for col in constructor_standings_keep if col in constructor_standings.columns]]
 driver_standings = driver_standings[[col for col in driver_standings_keep if col in driver_standings.columns]]
@@ -285,16 +296,6 @@ if not race_control_history.empty:
 # Rename columns to avoid confusion
 driver_info = driver_info.rename(columns={
     "nationality": "driver_info_nationality",
-    "date_of_birth": "driver_date_of_birth",
-    "first_season_in_dataset": "driver_first_season_in_dataset",
-    "last_season_in_dataset": "driver_last_season_in_dataset",
-    "number_of_seasons_in_dataset": "driver_number_of_seasons_in_dataset"
-})
-
-team_info = team_info.rename(columns={
-    "first_season_in_dataset": "team_first_season_in_dataset",
-    "last_season_in_dataset": "team_last_season_in_dataset",
-    "number_of_seasons_in_dataset": "team_number_of_seasons_in_dataset"
 })
 
 # Avoid duplicate dnf_previous_5 from form_data and reliability_data
@@ -310,7 +311,6 @@ form_data = form_data.rename(columns={
 merge_steps = [
     ("qualifying_results", qualifying_results, ["race_id", "driver_id"]),
     ("driver_info", driver_info, ["driver_id"]),
-    ("team_info", team_info, ["constructor_id"]),
     ("circuit_info", circuit_info, ["race_id"]),
     ("constructor_standings", constructor_standings, ["race_id", "constructor_id"]),
     ("driver_standings", driver_standings, ["race_id", "driver_id"]),
@@ -351,6 +351,9 @@ for name, dataset, keys in merge_steps:
     print(f"Merged {name}: {before_shape} -> {after_shape}")
 
 
+final_df = add_pre_race_experience_features(final_df)
+
+
 # =========================
 # 6. Clean target and IDs
 # =========================
@@ -376,14 +379,7 @@ if "race_date" in final_df.columns:
 
 
 if "driver_date_of_birth" in final_df.columns:
-    final_df["driver_date_of_birth"] = pd.to_datetime(
-        final_df["driver_date_of_birth"],
-        errors="coerce"
-    )
-
-    final_df["driver_age_at_race"] = (
-        final_df["race_date"].dt.year - final_df["driver_date_of_birth"].dt.year
-    )
+    final_df["driver_date_of_birth"] = pd.to_datetime(final_df["driver_date_of_birth"], errors="coerce")
 
 
 # =========================

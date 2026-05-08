@@ -20,9 +20,9 @@ CLASSIFICATION_MODEL_NAMES = [
 
 CLASSIFICATION_ALGORITHM_SUMMARY = {
     "logistic_regression": "Linear baseline with class balancing and scaled numeric features.",
-    "random_forest": "Bagging tree ensemble used as the most stable rolling-backtest baseline.",
+    "random_forest": "Bagging tree ensemble used as the current holdout champion.",
     "extra_trees": "More randomized tree ensemble used as a second ensemble comparison.",
-    "hist_gradient_boosting": "Boosted tree champion for the main top-10 classification task.",
+    "hist_gradient_boosting": "Boosted tree model used as a strong non-linear comparison.",
     "neural_network_mlp": "Simple multilayer perceptron classifier used as the neural-network baseline.",
 }
 

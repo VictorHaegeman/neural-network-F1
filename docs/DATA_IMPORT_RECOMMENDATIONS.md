@@ -14,7 +14,7 @@ currently missing from the local project data.
 | 2026 races with local results | 4 |
 | 2026 races in final dataset | 4 |
 | Final dataset rows | 6,999 |
-| Final dataset columns | 206 |
+| Final dataset columns | 201 |
 | Final dataset races | 333 |
 | Final dataset seasons | 2010-2026 |
 | Missing values in final dataset | 0 |
@@ -63,25 +63,12 @@ forecast is not yet available far enough in advance.
 
 ## Quick Ablation Check
 
-The current champion classifier is histogram gradient boosting. The latest
-full-feature run and the recent holdout ablation checks on the 2025 season give
-the following race precision@10:
-
-| Feature setup | Race precision@10 |
-|---|---:|
-| All features | 0.783 |
-| Without pit strategy | 0.783 |
-| Without qualifying/grid | 0.779 |
-| Without FastF1 lap/tyre | 0.779 |
-| Without weather | 0.771 |
-| Without race-control history | 0.771 |
-
-This suggests that weather and race-control history are useful import areas,
-while the new pit-stop features should continue to be validated carefully. The
-latest full-feature run improved the champion's race precision@10 to 0.783, but
-some other metrics and neural-network variants moved slightly down, so the
-project should keep model comparison as the main claim rather than claiming that
-more data always helps every algorithm.
+The current leakage-safe holdout champion classifier is random forest. The final
+full-feature run on the 2025 season reaches race precision@10 of 0.775. Earlier
+directional ablation checks suggest that weather and race-control history are
+useful import areas, while the newer pit-stop features should continue to be
+validated carefully. The project should keep model comparison as the main claim
+rather than claiming that more data always helps every algorithm.
 
 ## Best Next Imports
 
@@ -94,7 +81,7 @@ more data always helps every algorithm.
    python scripts/audit_data_coverage.py --season 2026
    python scripts/import_missing_completed_races.py --season 2026
    python scripts/generate_final_dataset.py
-   python scripts/train_model.py --model hist_gradient_boosting
+   python scripts/train_model.py --model random_forest
    ```
 
 2. **Remaining FastF1 lap and tyre summaries**

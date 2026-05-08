@@ -21,7 +21,7 @@ Done:
 - richer previous-race pit-stop features rebuilt from the local pit-stop event
   table
 - incremental missing-race importer that skips already-local `race_id` rows
-- final dataset with 6999 rows and 206 columns
+- final dataset with 6999 rows and 201 columns
 - no missing values in the final dataset
 - model comparison across logistic regression, random forest, extra trees,
   histogram gradient boosting and neural network MLP

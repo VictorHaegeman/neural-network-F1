@@ -78,6 +78,16 @@ LEAKAGE_COLUMNS = [
     "fastf1_slippery_track_count",
     "fastf1_clear_count",
     "fastf1_race_disruption_score",
+    # Dataset-wide summaries computed with future seasons are kept out of models.
+    "age_at_2026",
+    "driver_first_season_in_dataset",
+    "driver_last_season_in_dataset",
+    "driver_number_of_seasons_in_dataset",
+    "rookie_in_dataset",
+    "team_first_season_in_dataset",
+    "team_last_season_in_dataset",
+    "team_number_of_seasons_in_dataset",
+    "team_experience_score",
 ]
 
 NON_FEATURE_COLUMNS = [
@@ -85,6 +95,8 @@ NON_FEATURE_COLUMNS = [
     "race_date",
     "driver_name",
     "driver_date_of_birth",
+    "driver_date_of_birth_x",
+    "driver_date_of_birth_y",
 ]
 
 

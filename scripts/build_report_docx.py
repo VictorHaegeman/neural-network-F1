@@ -22,6 +22,12 @@ LIGHT = "F5F2E8"
 PALE_BLUE = "EAF3F4"
 ROW_ALT = "F7F7F7"
 
+AUTHORS = [
+    ("Cavaignac Romain", "TP1458"),
+    ("Dubernet Mathieu", "TP145868"),
+    ("Haegeman Victor", "TP145873"),
+]
+
 FIGURES = [
     ("assignment_pipeline_overview.png", "Figure 1. End-to-end project pipeline from raw data sources to validated assignment outputs."),
     ("target_distribution.png", "Figure 2. Target distribution for the binary top-10 classification task."),
@@ -60,15 +66,73 @@ def set_cell_shading(cell, fill: str) -> None:
     tc_pr.append(shading)
 
 
-def set_cell_text(cell, text: str, *, bold: bool = False, color: str | None = None) -> None:
+def set_cell_text(
+    cell,
+    text: str,
+    *,
+    bold: bool = False,
+    color: str | None = None,
+    size: float = 9,
+    alignment: int | None = None,
+) -> None:
     cell.text = ""
     paragraph = cell.paragraphs[0]
+    if alignment is not None:
+        paragraph.alignment = alignment
     run = paragraph.add_run(text)
     run.bold = bold
     run.font.name = "Arial"
-    run.font.size = Pt(9)
+    run.font.size = Pt(size)
     if color:
         run.font.color.rgb = RGBColor.from_string(color)
+
+
+def set_cell_margins(cell, top: int = 120, start: int = 120, bottom: int = 120, end: int = 120) -> None:
+    tc_pr = cell._tc.get_or_add_tcPr()
+    margins = tc_pr.first_child_found_in("w:tcMar")
+    if margins is None:
+        margins = OxmlElement("w:tcMar")
+        tc_pr.append(margins)
+
+    for margin_name, value in {
+        "top": top,
+        "start": start,
+        "bottom": bottom,
+        "end": end,
+    }.items():
+        element = margins.find(qn(f"w:{margin_name}"))
+        if element is None:
+            element = OxmlElement(f"w:{margin_name}")
+            margins.append(element)
+        element.set(qn("w:w"), str(value))
+        element.set(qn("w:type"), "dxa")
+
+
+def set_table_borders(table, color: str = "D7D7D7", size: str = "6") -> None:
+    tbl_pr = table._tbl.tblPr
+    borders = tbl_pr.first_child_found_in("w:tblBorders")
+    if borders is None:
+        borders = OxmlElement("w:tblBorders")
+        tbl_pr.append(borders)
+
+    for edge in ("top", "left", "bottom", "right", "insideH", "insideV"):
+        tag = f"w:{edge}"
+        element = borders.find(qn(tag))
+        if element is None:
+            element = OxmlElement(tag)
+            borders.append(element)
+        element.set(qn("w:val"), "single")
+        element.set(qn("w:sz"), size)
+        element.set(qn("w:space"), "0")
+        element.set(qn("w:color"), color)
+
+
+def add_cell_run(paragraph, text: str, *, size: float, color: str, bold: bool = False) -> None:
+    run = paragraph.add_run(text)
+    run.font.name = "Arial"
+    run.font.size = Pt(size)
+    run.font.color.rgb = RGBColor.from_string(color)
+    run.bold = bold
 
 
 def configure_document(document: Document) -> None:
@@ -77,6 +141,7 @@ def configure_document(document: Document) -> None:
     section.bottom_margin = Inches(0.7)
     section.left_margin = Inches(0.75)
     section.right_margin = Inches(0.75)
+    section.different_first_page_header_footer = True
 
     styles = document.styles
     styles["Normal"].font.name = "Arial"
@@ -94,56 +159,94 @@ def configure_document(document: Document) -> None:
     styles["Heading 3"].font.size = Pt(13)
     styles["Heading 3"].font.bold = True
     styles["Heading 3"].font.color.rgb = RGBColor.from_string(PRIMARY)
+    styles["List Bullet"].font.name = "Arial"
+    styles["List Bullet"].font.size = Pt(12)
+    styles["List Number"].font.name = "Arial"
+    styles["List Number"].font.size = Pt(12)
 
     footer = section.footer.paragraphs[0]
     footer.text = "F1 Top-10 Finish Prediction | CX016-2.5-3-IML"
     footer.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    footer.runs[0].font.size = Pt(8)
+    footer.runs[0].font.size = Pt(12)
     footer.runs[0].font.color.rgb = RGBColor.from_string("666666")
 
 
 def add_cover_page(document: Document) -> None:
-    for _ in range(3):
-        document.add_paragraph()
+    document.add_paragraph()
 
-    title = document.add_paragraph()
-    title.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run = title.add_run("F1 Top-10 Finish Prediction\nwith Machine Learning")
-    run.bold = True
-    run.font.name = "Arial"
-    run.font.size = Pt(28)
-    run.font.color.rgb = RGBColor.from_string(PRIMARY)
+    header = document.add_table(rows=1, cols=1)
+    header.alignment = WD_TABLE_ALIGNMENT.CENTER
+    set_table_borders(header, PRIMARY, "0")
+    header_cell = header.cell(0, 0)
+    set_cell_shading(header_cell, PRIMARY)
+    set_cell_margins(header_cell, top=360, start=260, bottom=340, end=260)
+    header_paragraph = header_cell.paragraphs[0]
+    header_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    add_cell_run(header_paragraph, "F1 Top-10 Finish Prediction", size=30, color="FFFFFF", bold=True)
+    add_cell_run(header_paragraph, "\nMachine Learning Classification Report", size=17, color="FFFFFF")
+    add_cell_run(header_paragraph, "\nCX016-2.5-3-IML - Introduction to Machine Learning", size=12, color="EAF3F4")
 
-    subtitle = document.add_paragraph()
-    subtitle.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    subtitle_run = subtitle.add_run("Introduction to Machine Learning - Group Assignment")
-    subtitle_run.font.name = "Arial"
-    subtitle_run.font.size = Pt(14)
-    subtitle_run.font.color.rgb = RGBColor.from_string("555555")
+    accent = document.add_table(rows=1, cols=1)
+    accent.alignment = WD_TABLE_ALIGNMENT.CENTER
+    set_table_borders(accent, SECONDARY, "0")
+    accent_cell = accent.cell(0, 0)
+    set_cell_shading(accent_cell, SECONDARY)
+    set_cell_margins(accent_cell, top=28, bottom=28)
+    accent_cell.paragraphs[0].add_run("")
 
     document.add_paragraph()
-    table = document.add_table(rows=5, cols=2)
-    table.alignment = WD_TABLE_ALIGNMENT.CENTER
-    table.style = "Table Grid"
+
+    authors_table = document.add_table(rows=1 + len(AUTHORS), cols=2)
+    authors_table.alignment = WD_TABLE_ALIGNMENT.CENTER
+    authors_table.style = "Table Grid"
+    set_table_borders(authors_table, "D0D7D8", "6")
+    set_cell_shading(authors_table.cell(0, 0), PRIMARY)
+    set_cell_text(authors_table.cell(0, 0), "Group members", bold=True, color="FFFFFF", size=12)
+    set_cell_shading(authors_table.cell(0, 1), PRIMARY)
+    set_cell_text(authors_table.cell(0, 1), "TP number", bold=True, color="FFFFFF", size=12)
+    for row_index, (name, tp_number) in enumerate(AUTHORS, start=1):
+        fill = LIGHT if row_index % 2 else PALE_BLUE
+        set_cell_shading(authors_table.cell(row_index, 0), fill)
+        set_cell_text(authors_table.cell(row_index, 0), name, size=12)
+        set_cell_shading(authors_table.cell(row_index, 1), fill)
+        set_cell_text(authors_table.cell(row_index, 1), tp_number, size=12)
+    for row in authors_table.rows:
+        for cell in row.cells:
+            set_cell_margins(cell, top=110, start=140, bottom=110, end=140)
+
+    document.add_paragraph()
+
     metadata = [
-        ("Module", "CX016-2.5-3-IML - Introduction to Machine Learning"),
+        ("Module code", "CX016-2.5-3-IML"),
+        ("Module title", "Introduction to Machine Learning"),
+        ("Class / intake code", "CSSE___CX016-2.5-3-IML-L-1___2026-01-30"),
+        ("Hand out date", "13 February 2026"),
+        ("Hand in date", "08 May 2026"),
+        ("Weightage", "30%"),
         ("Deliverable", "Report, notebook, dataset, scripts and submission ZIP"),
         ("Main task", "Predict whether each Formula 1 driver finishes in the top 10"),
-        ("Dataset", "6,999 driver-race rows, 206 variables, seasons 2010-2026"),
-        ("Primary model", "Histogram Gradient Boosting classifier"),
+        ("Dataset", "6,999 driver-race rows, 201 variables, seasons 2010-2026"),
+        ("Primary model", "Random Forest classifier"),
     ]
+    table = document.add_table(rows=len(metadata), cols=2)
+    table.alignment = WD_TABLE_ALIGNMENT.CENTER
+    table.style = "Table Grid"
+    set_table_borders(table, "D0D7D8", "6")
     for row_index, (label, value) in enumerate(metadata):
         set_cell_shading(table.cell(row_index, 0), PRIMARY)
-        set_cell_text(table.cell(row_index, 0), label, bold=True, color="FFFFFF")
+        set_cell_text(table.cell(row_index, 0), label, bold=True, color="FFFFFF", size=12)
         set_cell_shading(table.cell(row_index, 1), LIGHT if row_index % 2 == 0 else PALE_BLUE)
-        set_cell_text(table.cell(row_index, 1), value)
+        set_cell_text(table.cell(row_index, 1), value, size=12)
+        set_cell_margins(table.cell(row_index, 0), top=95, start=130, bottom=95, end=130)
+        set_cell_margins(table.cell(row_index, 1), top=95, start=130, bottom=95, end=130)
 
     document.add_paragraph()
-    note = document.add_paragraph()
-    note.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    note_run = note.add_run("Generated from report/Report.md using scripts/build_report_docx.py")
-    note_run.font.size = Pt(9)
-    note_run.font.color.rgb = RGBColor.from_string("666666")
+    badge = document.add_paragraph()
+    badge.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    badge_run = badge.add_run("Temporal validation: 2025 holdout | Dataset: 2010-2026 | Target: top10_finish")
+    badge_run.font.name = "Arial"
+    badge_run.font.size = Pt(12)
+    badge_run.font.color.rgb = RGBColor.from_string("555555")
 
     document.add_page_break()
 

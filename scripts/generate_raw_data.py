@@ -4,7 +4,7 @@ import argparse
 import time
 from collections import defaultdict, deque
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from datetime import date, datetime
+from datetime import date
 from pathlib import Path
 from typing import Any
 
@@ -881,23 +881,14 @@ def build_driver_info(race_results: pd.DataFrame) -> pd.DataFrame:
     rows = []
 
     for driver_id, group in grouped:
-        seasons = sorted(group["season"].dropna().astype(int).unique())
         first_row = group.sort_values(["season", "round"]).iloc[0]
         birth_date = first_row.get("driver_date_of_birth")
-        age_at_2026 = None
-        if isinstance(birth_date, str) and birth_date:
-            age_at_2026 = 2026 - datetime.strptime(birth_date, "%Y-%m-%d").year
 
         rows.append(
             {
                 "driver_id": driver_id,
                 "nationality": first_row.get("driver_nationality"),
                 "date_of_birth": birth_date,
-                "first_season_in_dataset": seasons[0],
-                "last_season_in_dataset": seasons[-1],
-                "number_of_seasons_in_dataset": len(seasons),
-                "age_at_2026": age_at_2026,
-                "rookie_in_dataset": int(len(seasons) == 1),
             }
         )
 
@@ -909,16 +900,11 @@ def build_team_info(race_results: pd.DataFrame) -> pd.DataFrame:
     rows = []
 
     for constructor_id, group in grouped:
-        seasons = sorted(group["season"].dropna().astype(int).unique())
         first_row = group.sort_values(["season", "round"]).iloc[0]
         rows.append(
             {
                 "constructor_id": constructor_id,
                 "constructor_nationality": first_row.get("constructor_nationality"),
-                "first_season_in_dataset": seasons[0],
-                "last_season_in_dataset": seasons[-1],
-                "number_of_seasons_in_dataset": len(seasons),
-                "team_experience_score": len(seasons) / max(1, DEFAULT_END_YEAR - DEFAULT_START_YEAR + 1),
             }
         )
 

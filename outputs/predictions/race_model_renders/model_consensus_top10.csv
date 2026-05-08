@@ -14,14 +14,14 @@ race_id,grand_prix,driver_code,driver_name,constructor_name,final_position,point
 2025_02,Chinese Grand Prix,NOR,Lando Norris,McLaren,2,18.0,5
 2025_02,Chinese Grand Prix,RUS,George Russell,Mercedes,3,15.0,5
 2025_02,Chinese Grand Prix,VER,Max Verstappen,Red Bull,4,12.0,5
-2025_02,Chinese Grand Prix,ANT,Andrea Kimi Antonelli,Mercedes,6,8.0,5
 2025_02,Chinese Grand Prix,HAM,Lewis Hamilton,Ferrari,19,0.0,5
 2025_02,Chinese Grand Prix,LEC,Charles Leclerc,Ferrari,18,0.0,5
+2025_02,Chinese Grand Prix,TSU,Yuki Tsunoda,RB F1 Team,16,0.0,5
+2025_02,Chinese Grand Prix,ANT,Andrea Kimi Antonelli,Mercedes,6,8.0,4
 2025_02,Chinese Grand Prix,ALB,Alexander Albon,Williams,7,6.0,4
 2025_02,Chinese Grand Prix,SAI,Carlos Sainz,Williams,10,1.0,4
-2025_02,Chinese Grand Prix,TSU,Yuki Tsunoda,RB F1 Team,16,0.0,4
 2025_02,Chinese Grand Prix,ALO,Fernando Alonso,Aston Martin,17,0.0,2
-2025_02,Chinese Grand Prix,HAD,Isack Hadjar,RB F1 Team,11,0.0,1
+2025_02,Chinese Grand Prix,GAS,Pierre Gasly,Alpine F1 Team,20,0.0,1
 2025_03,Japanese Grand Prix,VER,Max Verstappen,Red Bull,1,25.0,5
 2025_03,Japanese Grand Prix,NOR,Lando Norris,McLaren,2,18.0,5
 2025_03,Japanese Grand Prix,PIA,Oscar Piastri,McLaren,3,15.0,5
@@ -29,12 +29,13 @@ race_id,grand_prix,driver_code,driver_name,constructor_name,final_position,point
 2025_03,Japanese Grand Prix,RUS,George Russell,Mercedes,5,10.0,5
 2025_03,Japanese Grand Prix,ANT,Andrea Kimi Antonelli,Mercedes,6,8.0,5
 2025_03,Japanese Grand Prix,HAM,Lewis Hamilton,Ferrari,7,6.0,5
-2025_03,Japanese Grand Prix,SAI,Carlos Sainz,Williams,14,0.0,5
-2025_03,Japanese Grand Prix,ALB,Alexander Albon,Williams,9,2.0,4
-2025_03,Japanese Grand Prix,BEA,Oliver Bearman,Haas F1 Team,10,1.0,2
-2025_03,Japanese Grand Prix,TSU,Yuki Tsunoda,Red Bull,12,0.0,2
+2025_03,Japanese Grand Prix,ALB,Alexander Albon,Williams,9,2.0,5
+2025_03,Japanese Grand Prix,BEA,Oliver Bearman,Haas F1 Team,10,1.0,3
+2025_03,Japanese Grand Prix,SAI,Carlos Sainz,Williams,14,0.0,3
 2025_03,Japanese Grand Prix,HAD,Isack Hadjar,RB F1 Team,8,4.0,1
 2025_03,Japanese Grand Prix,ALO,Fernando Alonso,Aston Martin,11,0.0,1
+2025_03,Japanese Grand Prix,GAS,Pierre Gasly,Alpine F1 Team,13,0.0,1
+2025_03,Japanese Grand Prix,TSU,Yuki Tsunoda,Red Bull,12,0.0,1
 2025_04,Bahrain Grand Prix,PIA,Oscar Piastri,McLaren,1,25.0,5
 2025_04,Bahrain Grand Prix,RUS,George Russell,Mercedes,2,18.0,5
 2025_04,Bahrain Grand Prix,NOR,Lando Norris,McLaren,3,15.0,5
@@ -53,8 +54,9 @@ race_id,grand_prix,driver_code,driver_name,constructor_name,final_position,point
 2025_05,Saudi Arabian Grand Prix,ANT,Andrea Kimi Antonelli,Mercedes,6,8.0,5
 2025_05,Saudi Arabian Grand Prix,HAM,Lewis Hamilton,Ferrari,7,6.0,5
 2025_05,Saudi Arabian Grand Prix,SAI,Carlos Sainz,Williams,8,4.0,5
-2025_05,Saudi Arabian Grand Prix,GAS,Pierre Gasly,Alpine F1 Team,20,0.0,5
 2025_05,Saudi Arabian Grand Prix,TSU,Yuki Tsunoda,Red Bull,19,0.0,5
+2025_05,Saudi Arabian Grand Prix,GAS,Pierre Gasly,Alpine F1 Team,20,0.0,4
+2025_05,Saudi Arabian Grand Prix,ALB,Alexander Albon,Williams,9,2.0,1
 2025_06,Miami Grand Prix,PIA,Oscar Piastri,McLaren,1,25.0,5
 2025_06,Miami Grand Prix,NOR,Lando Norris,McLaren,2,18.0,5
 2025_06,Miami Grand Prix,RUS,George Russell,Mercedes,3,15.0,5
@@ -73,10 +75,11 @@ race_id,grand_prix,driver_code,driver_name,constructor_name,final_position,point
 2025_07,Emilia Romagna Grand Prix,LEC,Charles Leclerc,Ferrari,6,8.0,5
 2025_07,Emilia Romagna Grand Prix,RUS,George Russell,Mercedes,7,6.0,5
 2025_07,Emilia Romagna Grand Prix,SAI,Carlos Sainz,Williams,8,4.0,5
-2025_07,Emilia Romagna Grand Prix,GAS,Pierre Gasly,Alpine F1 Team,13,0.0,5
 2025_07,Emilia Romagna Grand Prix,HAM,Lewis Hamilton,Ferrari,4,12.0,4
-2025_07,Emilia Romagna Grand Prix,ANT,Andrea Kimi Antonelli,Mercedes,19,0.0,3
-2025_07,Emilia Romagna Grand Prix,ALO,Fernando Alonso,Aston Martin,11,0.0,2
+2025_07,Emilia Romagna Grand Prix,ALO,Fernando Alonso,Aston Martin,11,0.0,3
+2025_07,Emilia Romagna Grand Prix,GAS,Pierre Gasly,Alpine F1 Team,13,0.0,3
+2025_07,Emilia Romagna Grand Prix,ANT,Andrea Kimi Antonelli,Mercedes,19,0.0,2
+2025_07,Emilia Romagna Grand Prix,STR,Lance Stroll,Aston Martin,15,0.0,2
 2025_07,Emilia Romagna Grand Prix,HAD,Isack Hadjar,RB F1 Team,9,2.0,1
 2025_08,Monaco Grand Prix,NOR,Lando Norris,McLaren,1,25.0,5
 2025_08,Monaco Grand Prix,LEC,Charles Leclerc,Ferrari,2,18.0,5
@@ -86,24 +89,22 @@ race_id,grand_prix,driver_code,driver_name,constructor_name,final_position,point
 2025_08,Monaco Grand Prix,ALB,Alexander Albon,Williams,9,2.0,5
 2025_08,Monaco Grand Prix,ALO,Fernando Alonso,Aston Martin,19,0.0,5
 2025_08,Monaco Grand Prix,HAD,Isack Hadjar,RB F1 Team,6,8.0,4
-2025_08,Monaco Grand Prix,RUS,George Russell,Mercedes,11,0.0,4
-2025_08,Monaco Grand Prix,OCO,Esteban Ocon,Haas F1 Team,7,6.0,2
-2025_08,Monaco Grand Prix,ANT,Andrea Kimi Antonelli,Mercedes,18,0.0,2
-2025_08,Monaco Grand Prix,LAW,Liam Lawson,RB F1 Team,8,4.0,1
-2025_08,Monaco Grand Prix,SAI,Carlos Sainz,Williams,10,1.0,1
-2025_08,Monaco Grand Prix,TSU,Yuki Tsunoda,Red Bull,17,0.0,1
+2025_08,Monaco Grand Prix,OCO,Esteban Ocon,Haas F1 Team,7,6.0,3
+2025_08,Monaco Grand Prix,RUS,George Russell,Mercedes,11,0.0,3
+2025_08,Monaco Grand Prix,LAW,Liam Lawson,RB F1 Team,8,4.0,2
+2025_08,Monaco Grand Prix,SAI,Carlos Sainz,Williams,10,1.0,2
+2025_08,Monaco Grand Prix,ANT,Andrea Kimi Antonelli,Mercedes,18,0.0,1
 2025_09,Spanish Grand Prix,PIA,Oscar Piastri,McLaren,1,25.0,5
 2025_09,Spanish Grand Prix,NOR,Lando Norris,McLaren,2,18.0,5
 2025_09,Spanish Grand Prix,LEC,Charles Leclerc,Ferrari,3,15.0,5
 2025_09,Spanish Grand Prix,RUS,George Russell,Mercedes,4,12.0,5
 2025_09,Spanish Grand Prix,HAM,Lewis Hamilton,Ferrari,6,8.0,5
-2025_09,Spanish Grand Prix,GAS,Pierre Gasly,Alpine F1 Team,8,4.0,5
 2025_09,Spanish Grand Prix,VER,Max Verstappen,Red Bull,10,1.0,5
 2025_09,Spanish Grand Prix,ANT,Andrea Kimi Antonelli,Mercedes,18,0.0,5
 2025_09,Spanish Grand Prix,HAD,Isack Hadjar,RB F1 Team,7,6.0,4
+2025_09,Spanish Grand Prix,GAS,Pierre Gasly,Alpine F1 Team,8,4.0,4
+2025_09,Spanish Grand Prix,ALB,Alexander Albon,Williams,19,0.0,4
 2025_09,Spanish Grand Prix,ALO,Fernando Alonso,Aston Martin,9,2.0,3
-2025_09,Spanish Grand Prix,ALB,Alexander Albon,Williams,19,0.0,2
-2025_09,Spanish Grand Prix,TSU,Yuki Tsunoda,Red Bull,13,0.0,1
 2025_10,Canadian Grand Prix,RUS,George Russell,Mercedes,1,25.0,5
 2025_10,Canadian Grand Prix,VER,Max Verstappen,Red Bull,2,18.0,5
 2025_10,Canadian Grand Prix,ANT,Andrea Kimi Antonelli,Mercedes,3,15.0,5
@@ -113,33 +114,33 @@ race_id,grand_prix,driver_code,driver_name,constructor_name,final_position,point
 2025_10,Canadian Grand Prix,ALO,Fernando Alonso,Aston Martin,7,6.0,5
 2025_10,Canadian Grand Prix,HAD,Isack Hadjar,RB F1 Team,16,0.0,5
 2025_10,Canadian Grand Prix,NOR,Lando Norris,McLaren,18,0.0,5
-2025_10,Canadian Grand Prix,ALB,Alexander Albon,Williams,20,0.0,3
-2025_10,Canadian Grand Prix,TSU,Yuki Tsunoda,Red Bull,12,0.0,2
+2025_10,Canadian Grand Prix,ALB,Alexander Albon,Williams,20,0.0,4
+2025_10,Canadian Grand Prix,TSU,Yuki Tsunoda,Red Bull,12,0.0,1
 2025_11,Austrian Grand Prix,NOR,Lando Norris,McLaren,1,25.0,5
 2025_11,Austrian Grand Prix,PIA,Oscar Piastri,McLaren,2,18.0,5
 2025_11,Austrian Grand Prix,LEC,Charles Leclerc,Ferrari,3,15.0,5
 2025_11,Austrian Grand Prix,HAM,Lewis Hamilton,Ferrari,4,12.0,5
 2025_11,Austrian Grand Prix,RUS,George Russell,Mercedes,5,10.0,5
-2025_11,Austrian Grand Prix,LAW,Liam Lawson,RB F1 Team,6,8.0,5
 2025_11,Austrian Grand Prix,ANT,Andrea Kimi Antonelli,Mercedes,19,0.0,5
-2025_11,Austrian Grand Prix,GAS,Pierre Gasly,Alpine F1 Team,13,0.0,5
 2025_11,Austrian Grand Prix,VER,Max Verstappen,Red Bull,18,0.0,5
+2025_11,Austrian Grand Prix,LAW,Liam Lawson,RB F1 Team,6,8.0,4
+2025_11,Austrian Grand Prix,GAS,Pierre Gasly,Alpine F1 Team,13,0.0,4
 2025_11,Austrian Grand Prix,BOR,Gabriel Bortoleto,Sauber,8,4.0,3
-2025_11,Austrian Grand Prix,ALB,Alexander Albon,Williams,17,0.0,1
+2025_11,Austrian Grand Prix,ALB,Alexander Albon,Williams,17,0.0,2
+2025_11,Austrian Grand Prix,HAD,Isack Hadjar,RB F1 Team,12,0.0,1
 2025_11,Austrian Grand Prix,TSU,Yuki Tsunoda,Red Bull,16,0.0,1
 2025_12,British Grand Prix,NOR,Lando Norris,McLaren,1,25.0,5
 2025_12,British Grand Prix,PIA,Oscar Piastri,McLaren,2,18.0,5
 2025_12,British Grand Prix,HAM,Lewis Hamilton,Ferrari,4,12.0,5
 2025_12,British Grand Prix,VER,Max Verstappen,Red Bull,5,10.0,5
 2025_12,British Grand Prix,GAS,Pierre Gasly,Alpine F1 Team,6,8.0,5
+2025_12,British Grand Prix,ALO,Fernando Alonso,Aston Martin,9,2.0,5
 2025_12,British Grand Prix,RUS,George Russell,Mercedes,10,1.0,5
 2025_12,British Grand Prix,ANT,Andrea Kimi Antonelli,Mercedes,16,0.0,5
 2025_12,British Grand Prix,LEC,Charles Leclerc,Ferrari,14,0.0,5
-2025_12,British Grand Prix,ALO,Fernando Alonso,Aston Martin,9,2.0,4
 2025_12,British Grand Prix,TSU,Yuki Tsunoda,Red Bull,15,0.0,2
-2025_12,British Grand Prix,ALB,Alexander Albon,Williams,8,4.0,1
 2025_12,British Grand Prix,BEA,Oliver Bearman,Haas F1 Team,11,0.0,1
-2025_12,British Grand Prix,OCO,Esteban Ocon,Haas F1 Team,13,0.0,1
+2025_12,British Grand Prix,HAD,Isack Hadjar,RB F1 Team,17,0.0,1
 2025_12,British Grand Prix,SAI,Carlos Sainz,Williams,12,0.0,1
 2025_13,Belgian Grand Prix,PIA,Oscar Piastri,McLaren,1,25.0,5
 2025_13,Belgian Grand Prix,NOR,Lando Norris,McLaren,2,18.0,5
@@ -149,25 +150,22 @@ race_id,grand_prix,driver_code,driver_name,constructor_name,final_position,point
 2025_13,Belgian Grand Prix,ALB,Alexander Albon,Williams,6,8.0,5
 2025_13,Belgian Grand Prix,HAM,Lewis Hamilton,Ferrari,7,6.0,5
 2025_13,Belgian Grand Prix,TSU,Yuki Tsunoda,Red Bull,13,0.0,5
-2025_13,Belgian Grand Prix,LAW,Liam Lawson,RB F1 Team,8,4.0,3
-2025_13,Belgian Grand Prix,ANT,Andrea Kimi Antonelli,Mercedes,16,0.0,2
-2025_13,Belgian Grand Prix,HAD,Isack Hadjar,RB F1 Team,20,0.0,2
+2025_13,Belgian Grand Prix,LAW,Liam Lawson,RB F1 Team,8,4.0,4
+2025_13,Belgian Grand Prix,HAD,Isack Hadjar,RB F1 Team,20,0.0,3
 2025_13,Belgian Grand Prix,BOR,Gabriel Bortoleto,Sauber,9,2.0,1
+2025_13,Belgian Grand Prix,GAS,Pierre Gasly,Alpine F1 Team,10,1.0,1
 2025_13,Belgian Grand Prix,BEA,Oliver Bearman,Haas F1 Team,11,0.0,1
-2025_13,Belgian Grand Prix,OCO,Esteban Ocon,Haas F1 Team,15,0.0,1
 2025_14,Hungarian Grand Prix,NOR,Lando Norris,McLaren,1,25.0,5
 2025_14,Hungarian Grand Prix,PIA,Oscar Piastri,McLaren,2,18.0,5
 2025_14,Hungarian Grand Prix,RUS,George Russell,Mercedes,3,15.0,5
 2025_14,Hungarian Grand Prix,LEC,Charles Leclerc,Ferrari,4,12.0,5
 2025_14,Hungarian Grand Prix,ALO,Fernando Alonso,Aston Martin,5,10.0,5
+2025_14,Hungarian Grand Prix,STR,Lance Stroll,Aston Martin,7,6.0,5
 2025_14,Hungarian Grand Prix,LAW,Liam Lawson,RB F1 Team,8,4.0,5
 2025_14,Hungarian Grand Prix,VER,Max Verstappen,Red Bull,9,2.0,5
 2025_14,Hungarian Grand Prix,HAM,Lewis Hamilton,Ferrari,12,0.0,5
-2025_14,Hungarian Grand Prix,STR,Lance Stroll,Aston Martin,7,6.0,4
-2025_14,Hungarian Grand Prix,BOR,Gabriel Bortoleto,Sauber,6,8.0,2
-2025_14,Hungarian Grand Prix,ANT,Andrea Kimi Antonelli,Mercedes,10,1.0,2
-2025_14,Hungarian Grand Prix,BEA,Oliver Bearman,Haas F1 Team,20,0.0,1
-2025_14,Hungarian Grand Prix,HAD,Isack Hadjar,RB F1 Team,11,0.0,1
+2025_14,Hungarian Grand Prix,BOR,Gabriel Bortoleto,Sauber,6,8.0,4
+2025_14,Hungarian Grand Prix,ANT,Andrea Kimi Antonelli,Mercedes,10,1.0,1
 2025_15,Dutch Grand Prix,PIA,Oscar Piastri,McLaren,1,25.0,5
 2025_15,Dutch Grand Prix,VER,Max Verstappen,Red Bull,2,18.0,5
 2025_15,Dutch Grand Prix,RUS,George Russell,Mercedes,4,12.0,5
@@ -177,8 +175,8 @@ race_id,grand_prix,driver_code,driver_name,constructor_name,final_position,point
 2025_15,Dutch Grand Prix,LAW,Liam Lawson,RB F1 Team,12,0.0,5
 2025_15,Dutch Grand Prix,LEC,Charles Leclerc,Ferrari,19,0.0,5
 2025_15,Dutch Grand Prix,NOR,Lando Norris,McLaren,18,0.0,5
-2025_15,Dutch Grand Prix,SAI,Carlos Sainz,Williams,13,0.0,3
-2025_15,Dutch Grand Prix,HAD,Isack Hadjar,RB F1 Team,3,15.0,2
+2025_15,Dutch Grand Prix,HAD,Isack Hadjar,RB F1 Team,3,15.0,4
+2025_15,Dutch Grand Prix,SAI,Carlos Sainz,Williams,13,0.0,1
 2025_16,Italian Grand Prix,VER,Max Verstappen,Red Bull,1,25.0,5
 2025_16,Italian Grand Prix,NOR,Lando Norris,McLaren,2,18.0,5
 2025_16,Italian Grand Prix,PIA,Oscar Piastri,McLaren,3,15.0,5
@@ -189,31 +187,30 @@ race_id,grand_prix,driver_code,driver_name,constructor_name,final_position,point
 2025_16,Italian Grand Prix,ALO,Fernando Alonso,Aston Martin,19,0.0,5
 2025_16,Italian Grand Prix,BOR,Gabriel Bortoleto,Sauber,8,4.0,4
 2025_16,Italian Grand Prix,TSU,Yuki Tsunoda,Red Bull,13,0.0,4
-2025_16,Italian Grand Prix,ALB,Alexander Albon,Williams,7,6.0,1
-2025_16,Italian Grand Prix,BEA,Oliver Bearman,Haas F1 Team,12,0.0,1
+2025_16,Italian Grand Prix,BEA,Oliver Bearman,Haas F1 Team,12,0.0,2
 2025_17,Azerbaijan Grand Prix,VER,Max Verstappen,Red Bull,1,25.0,5
 2025_17,Azerbaijan Grand Prix,RUS,George Russell,Mercedes,2,18.0,5
-2025_17,Azerbaijan Grand Prix,SAI,Carlos Sainz,Williams,3,15.0,5
 2025_17,Azerbaijan Grand Prix,ANT,Andrea Kimi Antonelli,Mercedes,4,12.0,5
-2025_17,Azerbaijan Grand Prix,LAW,Liam Lawson,RB F1 Team,5,10.0,5
+2025_17,Azerbaijan Grand Prix,TSU,Yuki Tsunoda,Red Bull,6,8.0,5
 2025_17,Azerbaijan Grand Prix,NOR,Lando Norris,McLaren,7,6.0,5
 2025_17,Azerbaijan Grand Prix,HAM,Lewis Hamilton,Ferrari,8,4.0,5
 2025_17,Azerbaijan Grand Prix,LEC,Charles Leclerc,Ferrari,9,2.0,5
 2025_17,Azerbaijan Grand Prix,PIA,Oscar Piastri,McLaren,20,0.0,5
-2025_17,Azerbaijan Grand Prix,TSU,Yuki Tsunoda,Red Bull,6,8.0,4
-2025_17,Azerbaijan Grand Prix,HAD,Isack Hadjar,RB F1 Team,10,1.0,1
+2025_17,Azerbaijan Grand Prix,SAI,Carlos Sainz,Williams,3,15.0,3
+2025_17,Azerbaijan Grand Prix,LAW,Liam Lawson,RB F1 Team,5,10.0,3
+2025_17,Azerbaijan Grand Prix,HAD,Isack Hadjar,RB F1 Team,10,1.0,3
+2025_17,Azerbaijan Grand Prix,ALO,Fernando Alonso,Aston Martin,15,0.0,1
 2025_18,Singapore Grand Prix,RUS,George Russell,Mercedes,1,25.0,5
 2025_18,Singapore Grand Prix,VER,Max Verstappen,Red Bull,2,18.0,5
 2025_18,Singapore Grand Prix,NOR,Lando Norris,McLaren,3,15.0,5
 2025_18,Singapore Grand Prix,PIA,Oscar Piastri,McLaren,4,12.0,5
 2025_18,Singapore Grand Prix,ANT,Andrea Kimi Antonelli,Mercedes,5,10.0,5
 2025_18,Singapore Grand Prix,LEC,Charles Leclerc,Ferrari,6,8.0,5
-2025_18,Singapore Grand Prix,ALO,Fernando Alonso,Aston Martin,7,6.0,5
 2025_18,Singapore Grand Prix,HAM,Lewis Hamilton,Ferrari,8,4.0,5
 2025_18,Singapore Grand Prix,HAD,Isack Hadjar,RB F1 Team,11,0.0,5
-2025_18,Singapore Grand Prix,BEA,Oliver Bearman,Haas F1 Team,9,2.0,3
-2025_18,Singapore Grand Prix,ALB,Alexander Albon,Williams,14,0.0,1
-2025_18,Singapore Grand Prix,TSU,Yuki Tsunoda,Red Bull,12,0.0,1
+2025_18,Singapore Grand Prix,ALO,Fernando Alonso,Aston Martin,7,6.0,4
+2025_18,Singapore Grand Prix,TSU,Yuki Tsunoda,Red Bull,12,0.0,4
+2025_18,Singapore Grand Prix,BEA,Oliver Bearman,Haas F1 Team,9,2.0,2
 2025_19,United States Grand Prix,VER,Max Verstappen,Red Bull,1,25.0,5
 2025_19,United States Grand Prix,NOR,Lando Norris,McLaren,2,18.0,5
 2025_19,United States Grand Prix,LEC,Charles Leclerc,Ferrari,3,15.0,5
@@ -224,7 +221,8 @@ race_id,grand_prix,driver_code,driver_name,constructor_name,final_position,point
 2025_19,United States Grand Prix,SAI,Carlos Sainz,Williams,20,0.0,5
 2025_19,United States Grand Prix,ALO,Fernando Alonso,Aston Martin,10,1.0,4
 2025_19,United States Grand Prix,TSU,Yuki Tsunoda,Red Bull,7,6.0,3
-2025_19,United States Grand Prix,BEA,Oliver Bearman,Haas F1 Team,9,2.0,3
+2025_19,United States Grand Prix,BEA,Oliver Bearman,Haas F1 Team,9,2.0,2
+2025_19,United States Grand Prix,LAW,Liam Lawson,RB F1 Team,11,0.0,1
 2025_20,Mexico City Grand Prix,NOR,Lando Norris,McLaren,1,25.0,5
 2025_20,Mexico City Grand Prix,LEC,Charles Leclerc,Ferrari,2,18.0,5
 2025_20,Mexico City Grand Prix,VER,Max Verstappen,Red Bull,3,15.0,5
@@ -233,34 +231,32 @@ race_id,grand_prix,driver_code,driver_name,constructor_name,final_position,point
 2025_20,Mexico City Grand Prix,RUS,George Russell,Mercedes,7,6.0,5
 2025_20,Mexico City Grand Prix,HAM,Lewis Hamilton,Ferrari,8,4.0,5
 2025_20,Mexico City Grand Prix,SAI,Carlos Sainz,Williams,17,0.0,5
+2025_20,Mexico City Grand Prix,TSU,Yuki Tsunoda,Red Bull,11,0.0,5
 2025_20,Mexico City Grand Prix,HAD,Isack Hadjar,RB F1 Team,13,0.0,4
-2025_20,Mexico City Grand Prix,TSU,Yuki Tsunoda,Red Bull,11,0.0,4
-2025_20,Mexico City Grand Prix,BEA,Oliver Bearman,Haas F1 Team,4,12.0,2
+2025_20,Mexico City Grand Prix,BEA,Oliver Bearman,Haas F1 Team,4,12.0,1
 2025_21,São Paulo Grand Prix,NOR,Lando Norris,McLaren,1,25.0,5
 2025_21,São Paulo Grand Prix,ANT,Andrea Kimi Antonelli,Mercedes,2,18.0,5
 2025_21,São Paulo Grand Prix,RUS,George Russell,Mercedes,4,12.0,5
 2025_21,São Paulo Grand Prix,PIA,Oscar Piastri,McLaren,5,10.0,5
+2025_21,São Paulo Grand Prix,BEA,Oliver Bearman,Haas F1 Team,6,8.0,5
 2025_21,São Paulo Grand Prix,LAW,Liam Lawson,RB F1 Team,7,6.0,5
 2025_21,São Paulo Grand Prix,HAD,Isack Hadjar,RB F1 Team,8,4.0,5
-2025_21,São Paulo Grand Prix,HAM,Lewis Hamilton,Ferrari,18,0.0,5
 2025_21,São Paulo Grand Prix,LEC,Charles Leclerc,Ferrari,19,0.0,5
 2025_21,São Paulo Grand Prix,VER,Max Verstappen,Red Bull,3,15.0,4
-2025_21,São Paulo Grand Prix,BEA,Oliver Bearman,Haas F1 Team,6,8.0,4
-2025_21,São Paulo Grand Prix,GAS,Pierre Gasly,Alpine F1 Team,10,1.0,1
+2025_21,São Paulo Grand Prix,HAM,Lewis Hamilton,Ferrari,18,0.0,4
+2025_21,São Paulo Grand Prix,HUL,Nico Hülkenberg,Sauber,9,2.0,1
 2025_21,São Paulo Grand Prix,ALO,Fernando Alonso,Aston Martin,14,0.0,1
 2025_22,Las Vegas Grand Prix,VER,Max Verstappen,Red Bull,1,25.0,5
 2025_22,Las Vegas Grand Prix,RUS,George Russell,Mercedes,2,18.0,5
 2025_22,Las Vegas Grand Prix,ANT,Andrea Kimi Antonelli,Mercedes,3,15.0,5
 2025_22,Las Vegas Grand Prix,LEC,Charles Leclerc,Ferrari,4,12.0,5
 2025_22,Las Vegas Grand Prix,SAI,Carlos Sainz,Williams,5,10.0,5
+2025_22,Las Vegas Grand Prix,HAD,Isack Hadjar,RB F1 Team,6,8.0,5
 2025_22,Las Vegas Grand Prix,ALO,Fernando Alonso,Aston Martin,11,0.0,5
 2025_22,Las Vegas Grand Prix,NOR,Lando Norris,McLaren,19,0.0,5
 2025_22,Las Vegas Grand Prix,PIA,Oscar Piastri,McLaren,20,0.0,5
-2025_22,Las Vegas Grand Prix,HAD,Isack Hadjar,RB F1 Team,6,8.0,3
 2025_22,Las Vegas Grand Prix,LAW,Liam Lawson,RB F1 Team,14,0.0,3
 2025_22,Las Vegas Grand Prix,HAM,Lewis Hamilton,Ferrari,8,4.0,2
-2025_22,Las Vegas Grand Prix,BEA,Oliver Bearman,Haas F1 Team,10,1.0,1
-2025_22,Las Vegas Grand Prix,ALB,Alexander Albon,Williams,16,0.0,1
 2025_23,Qatar Grand Prix,VER,Max Verstappen,Red Bull,1,25.0,5
 2025_23,Qatar Grand Prix,PIA,Oscar Piastri,McLaren,2,18.0,5
 2025_23,Qatar Grand Prix,SAI,Carlos Sainz,Williams,3,15.0,5
@@ -270,9 +266,8 @@ race_id,grand_prix,driver_code,driver_name,constructor_name,final_position,point
 2025_23,Qatar Grand Prix,ALO,Fernando Alonso,Aston Martin,7,6.0,5
 2025_23,Qatar Grand Prix,LEC,Charles Leclerc,Ferrari,8,4.0,5
 2025_23,Qatar Grand Prix,HAD,Isack Hadjar,RB F1 Team,18,0.0,5
-2025_23,Qatar Grand Prix,HAM,Lewis Hamilton,Ferrari,12,0.0,3
-2025_23,Qatar Grand Prix,BEA,Oliver Bearman,Haas F1 Team,19,0.0,1
-2025_23,Qatar Grand Prix,GAS,Pierre Gasly,Alpine F1 Team,16,0.0,1
+2025_23,Qatar Grand Prix,GAS,Pierre Gasly,Alpine F1 Team,16,0.0,3
+2025_23,Qatar Grand Prix,HAM,Lewis Hamilton,Ferrari,12,0.0,2
 2025_24,Abu Dhabi Grand Prix,VER,Max Verstappen,Red Bull,1,25.0,5
 2025_24,Abu Dhabi Grand Prix,PIA,Oscar Piastri,McLaren,2,18.0,5
 2025_24,Abu Dhabi Grand Prix,NOR,Lando Norris,McLaren,3,15.0,5
@@ -281,7 +276,7 @@ race_id,grand_prix,driver_code,driver_name,constructor_name,final_position,point
 2025_24,Abu Dhabi Grand Prix,ALO,Fernando Alonso,Aston Martin,6,8.0,5
 2025_24,Abu Dhabi Grand Prix,ANT,Andrea Kimi Antonelli,Mercedes,15,0.0,5
 2025_24,Abu Dhabi Grand Prix,HAD,Isack Hadjar,RB F1 Team,17,0.0,4
-2025_24,Abu Dhabi Grand Prix,HAM,Lewis Hamilton,Ferrari,8,4.0,3
-2025_24,Abu Dhabi Grand Prix,SAI,Carlos Sainz,Williams,13,0.0,3
-2025_24,Abu Dhabi Grand Prix,TSU,Yuki Tsunoda,Red Bull,14,0.0,3
-2025_24,Abu Dhabi Grand Prix,OCO,Esteban Ocon,Haas F1 Team,7,6.0,2
+2025_24,Abu Dhabi Grand Prix,SAI,Carlos Sainz,Williams,13,0.0,4
+2025_24,Abu Dhabi Grand Prix,TSU,Yuki Tsunoda,Red Bull,14,0.0,4
+2025_24,Abu Dhabi Grand Prix,HAM,Lewis Hamilton,Ferrari,8,4.0,2
+2025_24,Abu Dhabi Grand Prix,OCO,Esteban Ocon,Haas F1 Team,7,6.0,1

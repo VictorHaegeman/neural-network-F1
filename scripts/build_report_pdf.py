@@ -24,6 +24,12 @@ PALE_BLUE = colors.HexColor("#EAF3F4")
 ROW_ALT = colors.HexColor("#F7F7F7")
 TEXT = colors.HexColor("#222222")
 
+AUTHORS = [
+    ("Cavaignac Romain", "TP1458"),
+    ("Dubernet Mathieu", "TP145868"),
+    ("Haegeman Victor", "TP145873"),
+]
+
 FIGURES = [
     ("assignment_pipeline_overview.png", "Figure 1. End-to-end project pipeline from raw data sources to validated assignment outputs."),
     ("target_distribution.png", "Figure 2. Target distribution for the binary top-10 classification task."),
@@ -62,21 +68,37 @@ def make_styles() -> dict[str, ParagraphStyle]:
             "CoverTitle",
             parent=sample["Title"],
             fontName="Helvetica-Bold",
-            fontSize=28,
-            leading=33,
+            fontSize=30,
+            leading=35,
             alignment=1,
-            textColor=PRIMARY,
-            spaceAfter=12,
+            textColor=colors.white,
+            spaceAfter=8,
         ),
         "CoverSubtitle": ParagraphStyle(
             "CoverSubtitle",
             parent=sample["BodyText"],
             fontName="Helvetica",
-            fontSize=13,
-            leading=17,
+            fontSize=12,
+            leading=16,
             alignment=1,
-            textColor=colors.HexColor("#555555"),
-            spaceAfter=20,
+            textColor=PALE_BLUE,
+            spaceAfter=0,
+        ),
+        "CoverSection": ParagraphStyle(
+            "CoverSection",
+            parent=sample["BodyText"],
+            fontName="Helvetica-Bold",
+            fontSize=12,
+            leading=15,
+            textColor=colors.white,
+        ),
+        "CoverCell": ParagraphStyle(
+            "CoverCell",
+            parent=sample["BodyText"],
+            fontName="Helvetica",
+            fontSize=12,
+            leading=15,
+            textColor=TEXT,
         ),
         "Title": ParagraphStyle(
             "ProjectTitle",
@@ -114,8 +136,8 @@ def make_styles() -> dict[str, ParagraphStyle]:
             "ProjectBody",
             parent=sample["BodyText"],
             fontName="Helvetica",
-            fontSize=10.5,
-            leading=14,
+            fontSize=12,
+            leading=16,
             textColor=TEXT,
             spaceAfter=7,
         ),
@@ -123,8 +145,10 @@ def make_styles() -> dict[str, ParagraphStyle]:
             "ProjectBullet",
             parent=sample["BodyText"],
             fontName="Helvetica",
-            fontSize=10.5,
-            leading=14,
+            fontSize=12,
+            leading=16,
+            bulletFontName="Helvetica",
+            bulletFontSize=12,
             textColor=TEXT,
             leftIndent=18,
             bulletIndent=6,
@@ -134,8 +158,8 @@ def make_styles() -> dict[str, ParagraphStyle]:
             "ProjectCode",
             parent=sample["Code"],
             fontName="Courier",
-            fontSize=8.5,
-            leading=11,
+            fontSize=12,
+            leading=15,
             leftIndent=8,
             rightIndent=8,
             backColor=colors.HexColor("#F1F1F1"),
@@ -148,8 +172,8 @@ def make_styles() -> dict[str, ParagraphStyle]:
             "ProjectCaption",
             parent=sample["BodyText"],
             fontName="Helvetica-Oblique",
-            fontSize=9,
-            leading=12,
+            fontSize=12,
+            leading=15,
             alignment=1,
             textColor=colors.HexColor("#333333"),
             spaceBefore=4,
@@ -177,18 +201,80 @@ def is_table_separator(line: str) -> bool:
 
 
 def add_cover_page(story: list, styles: dict[str, ParagraphStyle], width: float) -> None:
-    story.append(Spacer(1, 1.05 * inch))
-    story.append(Paragraph("F1 Top-10 Finish Prediction<br/>with Machine Learning", styles["CoverTitle"]))
-    story.append(Paragraph("CX016-2.5-3-IML - Introduction to Machine Learning<br/>Group Assignment", styles["CoverSubtitle"]))
+    story.append(Spacer(1, 0.55 * inch))
+
+    header = Table(
+        [
+            [
+                Paragraph("F1 Top-10 Finish Prediction<br/>Machine Learning Classification Report", styles["CoverTitle"]),
+            ],
+            [
+                Paragraph("CX016-2.5-3-IML - Introduction to Machine Learning", styles["CoverSubtitle"]),
+            ],
+        ],
+        colWidths=[width],
+    )
+    header.setStyle(
+        TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (-1, -1), PRIMARY),
+                ("BOX", (0, 0), (-1, -1), 0, PRIMARY),
+                ("LEFTPADDING", (0, 0), (-1, -1), 18),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 18),
+                ("TOPPADDING", (0, 0), (0, 0), 26),
+                ("BOTTOMPADDING", (0, 0), (0, 0), 8),
+                ("TOPPADDING", (0, 1), (0, 1), 0),
+                ("BOTTOMPADDING", (0, 1), (0, 1), 26),
+            ]
+        )
+    )
+    story.append(header)
+
+    accent = Table([[""]], colWidths=[width], rowHeights=[0.08 * inch])
+    accent.setStyle(TableStyle([("BACKGROUND", (0, 0), (-1, -1), SECONDARY), ("BOX", (0, 0), (-1, -1), 0, SECONDARY)]))
+    story.append(accent)
+    story.append(Spacer(1, 0.28 * inch))
+
+    authors = [[Paragraph("Group members", styles["CoverSection"]), Paragraph("TP number", styles["CoverSection"])]]
+    authors.extend(
+        [Paragraph(name, styles["CoverCell"]), Paragraph(tp_number, styles["CoverCell"])]
+        for name, tp_number in AUTHORS
+    )
+    authors_table = Table(authors, colWidths=[width * 0.7, width * 0.3])
+    authors_table.setStyle(
+        TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (-1, 0), PRIMARY),
+                ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+                ("ROWBACKGROUNDS", (0, 1), (-1, -1), [LIGHT, PALE_BLUE]),
+                ("GRID", (0, 0), (-1, -1), 0.35, colors.HexColor("#CAD4D6")),
+                ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+                ("LEFTPADDING", (0, 0), (-1, -1), 8),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 8),
+                ("TOPPADDING", (0, 0), (-1, -1), 7),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 7),
+            ]
+        )
+    )
+    story.append(authors_table)
+    story.append(Spacer(1, 0.22 * inch))
 
     metadata = [
-        ["Module", "CX016-2.5-3-IML - Introduction to Machine Learning"],
+        ["Module code", "CX016-2.5-3-IML"],
+        ["Module title", "Introduction to Machine Learning"],
+        ["Class / intake code", "CSSE___CX016-2.5-3-IML-L-1___2026-01-30"],
+        ["Hand out date", "13 February 2026"],
+        ["Hand in date", "08 May 2026"],
+        ["Weightage", "30%"],
         ["Deliverable", "Report, notebook, dataset, scripts and submission ZIP"],
         ["Main task", "Predict whether each Formula 1 driver finishes in the top 10"],
-        ["Dataset", "6,999 driver-race rows, 206 variables, seasons 2010-2026"],
-        ["Primary model", "Histogram Gradient Boosting classifier"],
+        ["Dataset", "6,999 driver-race rows, 201 variables, seasons 2010-2026"],
+        ["Primary model", "Random Forest classifier"],
     ]
-    table = Table(metadata, colWidths=[1.45 * inch, width - 1.45 * inch])
+    table = Table(
+        [[Paragraph(label, styles["CoverSection"]), Paragraph(value, styles["CoverCell"])] for label, value in metadata],
+        colWidths=[1.7 * inch, width - 1.7 * inch],
+    )
     table.setStyle(
         TableStyle(
             [
@@ -206,8 +292,13 @@ def add_cover_page(story: list, styles: dict[str, ParagraphStyle], width: float)
         )
     )
     story.append(table)
-    story.append(Spacer(1, 0.35 * inch))
-    story.append(Paragraph("Generated from report/Report.md using scripts/build_report_pdf.py", styles["Caption"]))
+    story.append(Spacer(1, 0.22 * inch))
+    story.append(
+        Paragraph(
+            "Temporal validation: 2025 holdout | Dataset: 2010-2026 | Target: top10_finish",
+            styles["Caption"],
+        )
+    )
     story.append(PageBreak())
 
 
@@ -286,7 +377,7 @@ def add_page_number(canvas, document) -> None:
     canvas.saveState()
     canvas.setFillColor(PRIMARY)
     canvas.rect(0, document.pagesize[1] - 0.32 * inch, document.pagesize[0], 0.08 * inch, stroke=0, fill=1)
-    canvas.setFont("Helvetica", 8)
+    canvas.setFont("Helvetica", 12)
     canvas.setFillColor(colors.HexColor("#555555"))
     canvas.drawString(0.65 * inch, 0.45 * inch, "F1 Top-10 Prediction | CX016-2.5-3-IML")
     canvas.drawRightString(document.pagesize[0] - 0.65 * inch, 0.45 * inch, f"Page {document.page}")
@@ -362,7 +453,7 @@ def main() -> None:
     )
     styles = make_styles()
     story = build_story(input_path, styles, document.width)
-    document.build(story, onFirstPage=add_page_number, onLaterPages=add_page_number)
+    document.build(story, onFirstPage=lambda canvas, doc: None, onLaterPages=add_page_number)
 
     print(f"Wrote {output_path}")
 

@@ -112,6 +112,56 @@ REQUIRED_METRICS = [
     "race_precision_at_10",
 ]
 
+FORBIDDEN_FINAL_COLUMNS = [
+    "driver_date_of_birth_x",
+    "driver_date_of_birth_y",
+    "constructor_nationality_x",
+    "constructor_nationality_y",
+    "age_at_2026",
+    "driver_first_season_in_dataset",
+    "driver_last_season_in_dataset",
+    "driver_number_of_seasons_in_dataset",
+    "rookie_in_dataset",
+    "team_first_season_in_dataset",
+    "team_last_season_in_dataset",
+    "team_number_of_seasons_in_dataset",
+    "team_experience_score",
+]
+
+REQUIRED_PRE_RACE_COLUMNS = [
+    "driver_date_of_birth",
+    "driver_age_at_race",
+    "driver_dataset_seasons_before_race",
+    "constructor_dataset_seasons_before_race",
+    "driver_races_in_dataset_before",
+    "constructor_races_in_dataset_before",
+    "driver_is_dataset_rookie_season",
+]
+
+REQUIRED_REPORT_TEXT = [
+    "Cavaignac Romain",
+    "Dubernet Mathieu",
+    "Haegeman Victor",
+    "TP1458",
+    "TP145868",
+    "TP145873",
+    "CSSE___CX016-2.5-3-IML-L-1___2026-01-30",
+    "13 February 2026",
+    "08 May 2026",
+    "Random Forest classifier",
+]
+
+FORBIDDEN_REPORT_TEXT = [
+    "Generated from report/Report.md",
+    "Histogram Gradient Boosting classifier",
+    "206 variables",
+    "0.783",
+]
+
+FORBIDDEN_NOTEBOOK_TEXT = [
+    "histogram gradient boosting as the current champion",
+]
+
 
 def fail(message: str, failures: list[str]) -> None:
     failures.append(message)
@@ -157,6 +207,18 @@ def check_dataset(failures: list[str]) -> None:
         fail(f"Dataset has too few columns: {len(df.columns)}", failures)
     else:
         pass_check(f"Dataset columns: {len(df.columns)}")
+
+    forbidden_present = [column for column in FORBIDDEN_FINAL_COLUMNS if column in df.columns]
+    if forbidden_present:
+        fail(f"Dataset contains future/duplicate schema columns: {forbidden_present}", failures)
+    else:
+        pass_check("Dataset excludes future-known and duplicate schema columns")
+
+    missing_pre_race = [column for column in REQUIRED_PRE_RACE_COLUMNS if column not in df.columns]
+    if missing_pre_race:
+        fail(f"Dataset is missing pre-race schema columns: {missing_pre_race}", failures)
+    else:
+        pass_check("Dataset includes pre-race age and experience columns")
 
     missing_count = int(df.isna().sum().sum())
     if missing_count:
@@ -260,6 +322,59 @@ def check_metrics(failures: list[str]) -> None:
             pass_check(f"{metric}: {metrics[metric]}")
 
 
+def read_docx_text(path: Path) -> str:
+    with zipfile.ZipFile(path) as archive:
+        xml_parts = [
+            archive.read(name).decode("utf-8", errors="ignore")
+            for name in archive.namelist()
+            if name.startswith("word/") and name.endswith(".xml")
+        ]
+    text = " ".join(xml_parts)
+    return text.replace("</w:t><w:t>", "")
+
+
+def check_report_metadata(failures: list[str]) -> None:
+    path = PROJECT_ROOT / "report/Report.docx"
+    if not path.exists() or path.stat().st_size == 0:
+        return
+
+    docx_text = read_docx_text(path)
+    for value in REQUIRED_REPORT_TEXT:
+        if value not in docx_text:
+            fail(f"Report DOCX is missing cover/detail text: {value}", failures)
+        else:
+            pass_check(f"Report includes {value}")
+
+    outdated_text = False
+    for value in FORBIDDEN_REPORT_TEXT:
+        if value in docx_text:
+            fail(f"Report DOCX still contains outdated text: {value}", failures)
+            outdated_text = True
+    if not outdated_text:
+        pass_check("Report excludes stale generated-cover and old-metric text")
+
+
+def check_notebook(failures: list[str]) -> None:
+    path = PROJECT_ROOT / "notebooks/ML_Project_Code.ipynb"
+    if not path.exists() or path.stat().st_size == 0:
+        return
+
+    notebook = json.loads(path.read_text(encoding="utf-8"))
+    text = "\n".join("".join(cell.get("source", [])) for cell in notebook.get("cells", []))
+    if "random_forest" not in text:
+        fail("Notebook does not include the current random_forest champion example", failures)
+    else:
+        pass_check("Notebook includes current random_forest champion example")
+
+    outdated_text = False
+    for value in FORBIDDEN_NOTEBOOK_TEXT:
+        if value in text:
+            fail(f"Notebook still contains outdated model text: {value}", failures)
+            outdated_text = True
+    if not outdated_text:
+        pass_check("Notebook excludes outdated champion wording")
+
+
 def check_submission_zip(failures: list[str]) -> None:
     path = PROJECT_ROOT / "submission/IML_Assignment_GroupX.zip"
     if not path.exists() or path.stat().st_size == 0:
@@ -275,6 +390,8 @@ def check_submission_zip(failures: list[str]) -> None:
         "report/Report.docx",
         "report/Report.pdf",
         "notebooks/ML_Project_Code.ipynb",
+        "data/raw/race_results.csv",
+        "data/raw/qualifying_results.csv",
         "data/final/f1_top10_model_dataset.csv",
         "scripts/run_pipeline.py",
     }
@@ -303,6 +420,8 @@ def main() -> None:
     check_race_control_data(failures)
     check_metrics(failures)
     check_position_model_outputs(failures)
+    check_report_metadata(failures)
+    check_notebook(failures)
     check_submission_zip(failures)
 
     if failures:

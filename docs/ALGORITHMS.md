@@ -23,7 +23,9 @@ These predict `top10_finish`, the assignment's main binary target:
 - `hist_gradient_boosting`
 - `neural_network_mlp`
 
-The current assignment champion is `hist_gradient_boosting`.
+The current assignment holdout champion is `random_forest`. The expanding-window
+rolling backtest remains close between `extra_trees` and `random_forest`, so both
+tree ensembles are retained in the comparison.
 
 ## Neural Network Files
 
