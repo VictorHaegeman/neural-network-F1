@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>F1 Driver Detail</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Neural network F1</p>
+          <h1>Fiche pilote</h1>
+        </div>
+        <div class="top-actions">
+          <a class="ghost-link" href="index.html">Scoreboard</a>
+          <a id="raceBackLink" class="ghost-link" href="race.html">Dossier GP</a>
+          <a class="ghost-link" href="profile.html">Profil</a>
+          <div class="status-pill">Simulation uniquement</div>
+        </div>
+      </header>
+
+      <section class="control-strip scoreboard-controls" aria-label="Selection pilote">
+        <label class="control-field">
+          <span>Course</span>
+          <select id="raceSelect"></select>
+        </label>
+        <label class="control-field">
+          <span>Pilote</span>
+          <select id="driverSelect"></select>
+        </label>
+      </section>
+
+      <section class="driver-page-hero">
+        <div class="driver-page-card">
+          <div id="driverHeroAvatar" class="driver-page-avatar"></div>
+          <div>
+            <p class="eyebrow" id="driverContextLabel">Detail pilote</p>
+            <h2 id="driverDetailName">Pilote</h2>
+            <p id="driverDetailTeam">Equipe</p>
+          </div>
+        </div>
+        <div class="driver-page-card compact">
+          <span class="summary-label">Signal</span>
+          <strong id="driverDetailSignal">--</strong>
+          <p id="driverDecisionText">--</p>
+        </div>
+      </section>
+
+      <section id="driverDetailStats" class="driver-detail-stats driver-page-stats"></section>
+
+      <section class="driver-page-grid">
+        <section class="detail-panel">
+          <div class="detail-heading">
+            <h2>Historique sur ce circuit</h2>
+            <span id="driverHistoryCount">--</span>
+          </div>
+          <div id="driverDetailResults" class="compact-list"></div>
+        </section>
+
+        <section class="detail-panel">
+          <div class="detail-heading">
+            <h2>Contexte GP</h2>
+            <span id="raceContextLabel">--</span>
+          </div>
+          <div id="raceContextList" class="compact-list"></div>
+        </section>
+
+        <section class="detail-panel">
+          <div class="detail-heading">
+            <h2>Comparaison marche</h2>
+            <span>top 10</span>
+          </div>
+          <div id="marketComparisonList" class="compact-list"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="profile-store.js"></script>
+    <script src="driver.js"></script>
+  </body>
+</html>

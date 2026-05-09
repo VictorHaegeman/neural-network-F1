@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>F1 Neural Scoreboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Neural network F1</p>
+          <h1>Scoreboard predictions</h1>
+        </div>
+        <div class="top-actions">
+          <a class="ghost-link" href="profile.html">Profil</a>
+          <span class="status-pill">Simulation uniquement</span>
+        </div>
+      </header>
+
+      <section class="control-strip scoreboard-controls" aria-label="Scoreboard controls">
+        <label class="control-field">
+          <span>Course affichee</span>
+          <select id="raceSelect"></select>
+        </label>
+        <a id="raceDetailLink" class="primary-link" href="race.html">Analyser / parier ce GP</a>
+      </section>
+
+      <section class="race-summary" aria-label="Resume de la course">
+        <div class="summary-block">
+          <span class="summary-label">Confiance top 10</span>
+          <strong id="confidenceMetric">--</strong>
+        </div>
+        <div class="summary-block">
+          <span class="summary-label">Bubble 10/11</span>
+          <strong id="bubbleMetric">--</strong>
+        </div>
+        <div class="summary-block">
+          <span class="summary-label">Meteo</span>
+          <strong id="weatherMetric">--</strong>
+        </div>
+        <div class="summary-block">
+          <span class="summary-label">NN holdout P@10</span>
+          <strong id="modelMetric">--</strong>
+        </div>
+      </section>
+
+      <section id="raceCards" class="scoreboard-race-grid" aria-label="Courses a venir"></section>
+
+      <section class="prediction-panel scoreboard-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow" id="raceDateLabel">--</p>
+            <h2 id="raceTitle">Predictions</h2>
+          </div>
+          <a id="panelDetailLink" class="ghost-link" href="race.html">Dossier GP</a>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Rang</th>
+                <th>Pilote</th>
+                <th>Top 10</th>
+                <th>Cote juste</th>
+                <th>Historique circuit</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="predictionTable"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="profile-store.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
