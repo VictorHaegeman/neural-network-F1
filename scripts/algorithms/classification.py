@@ -23,7 +23,7 @@ CLASSIFICATION_ALGORITHM_SUMMARY = {
     "random_forest": "Bagging tree ensemble used as the current holdout champion.",
     "extra_trees": "More randomized tree ensemble used as a second ensemble comparison.",
     "hist_gradient_boosting": "Boosted tree model used as a strong non-linear comparison.",
-    "neural_network_mlp": "Simple multilayer perceptron classifier used as the neural-network baseline.",
+    "neural_network_mlp": "Tuned multilayer perceptron classifier used as the neural-network baseline.",
 }
 
 
@@ -97,15 +97,16 @@ def build_classification_estimator(model_name: str, random_state: int = 42):
         )
     if model_name == "neural_network_mlp":
         return MLPClassifier(
-            hidden_layer_sizes=(64, 32),
-            activation="relu",
-            alpha=0.001,
+            hidden_layer_sizes=(80, 40),
+            activation="tanh",
+            alpha=0.002,
             batch_size=64,
             early_stopping=True,
-            learning_rate_init=0.001,
-            max_iter=350,
-            n_iter_no_change=25,
+            learning_rate_init=0.0007,
+            max_iter=650,
+            n_iter_no_change=35,
             random_state=random_state,
+            validation_fraction=0.15,
         )
 
     raise ValueError(f"Unknown classification model: {model_name}")

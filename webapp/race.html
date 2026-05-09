@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>F1 GP Betting Dossier</title>
+    <link rel="stylesheet" href="/webapp/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Neural network F1</p>
+          <h1>Dossier GP & paris</h1>
+        </div>
+        <div class="top-actions">
+          <a class="ghost-link" href="/webapp/">Scoreboard</a>
+          <div class="status-pill">Simulation uniquement</div>
+        </div>
+      </header>
+
+      <section class="control-strip" aria-label="Parametres du guide">
+        <label class="control-field">
+          <span>Course</span>
+          <select id="raceSelect"></select>
+        </label>
+        <label class="control-field compact">
+          <span>Bankroll</span>
+          <input id="bankrollInput" type="number" min="10" step="10" value="1000" />
+        </label>
+        <label class="control-field compact">
+          <span>Mise</span>
+          <input id="stakeInput" type="number" min="1" step="1" value="25" />
+        </label>
+        <div class="segmented" aria-label="Strategie">
+          <button class="segment active" data-strategy="safe">Safe</button>
+          <button class="segment" data-strategy="balanced">Equilibre</button>
+          <button class="segment" data-strategy="aggressive">Agressif</button>
+        </div>
+      </section>
+
+      <section class="detail-hero" aria-label="Image et contexte circuit">
+        <div class="circuit-visual">
+          <img id="circuitImage" src="/webapp/assets/circuits/circuit_gilles_villeneuve.svg" alt="" />
+          <a id="circuitCredit" class="asset-credit" href="#" target="_blank" rel="noreferrer">Circuit map credit</a>
+        </div>
+        <div class="detail-hero-copy">
+          <p class="eyebrow">Dossier course</p>
+          <h2 id="detailHeroTitle">Grand Prix</h2>
+          <p id="detailHeroText">Selectionne une course pour charger le contexte complet.</p>
+          <div class="hero-stat-grid">
+            <div>
+              <span>Longueur</span>
+              <strong id="circuitLengthMetric">--</strong>
+            </div>
+            <div>
+              <span>Tours</span>
+              <strong id="circuitLapsMetric">--</strong>
+            </div>
+            <div>
+              <span>Difficulte</span>
+              <strong id="overtakingMetric">--</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="race-summary" aria-label="Resume de la course">
+        <div class="summary-block">
+          <span class="summary-label">Confiance top 10</span>
+          <strong id="confidenceMetric">--</strong>
+        </div>
+        <div class="summary-block">
+          <span class="summary-label">Bubble 10/11</span>
+          <strong id="bubbleMetric">--</strong>
+        </div>
+        <div class="summary-block">
+          <span class="summary-label">Meteo</span>
+          <strong id="weatherMetric">--</strong>
+        </div>
+        <div class="summary-block">
+          <span class="summary-label">NN holdout P@10</span>
+          <strong id="modelMetric">--</strong>
+        </div>
+      </section>
+
+      <section class="race-intelligence" aria-label="Dossier de course">
+        <div class="intelligence-grid">
+          <article class="insight-card">
+            <span class="summary-label">Prevision</span>
+            <strong id="forecastHeadline">--</strong>
+            <p id="forecastDetail">--</p>
+          </article>
+          <article class="insight-card">
+            <span class="summary-label">Chaos circuit</span>
+            <strong id="chaosHeadline">--</strong>
+            <p id="chaosDetail">--</p>
+          </article>
+          <article class="insight-card">
+            <span class="summary-label">Strategie attendue</span>
+            <strong id="strategyHeadline">--</strong>
+            <p id="strategyDetail">--</p>
+          </article>
+          <article class="insight-card">
+            <span class="summary-label">Angle de mise</span>
+            <strong id="bettingHeadline">--</strong>
+            <p id="bettingDetail">--</p>
+          </article>
+        </div>
+
+        <div class="race-detail-grid">
+          <section class="detail-panel">
+            <div class="detail-heading">
+              <h2>Historique circuit</h2>
+              <span id="historyCount">--</span>
+            </div>
+            <div id="recentRaceList" class="compact-list"></div>
+          </section>
+          <section class="detail-panel">
+            <div class="detail-heading">
+              <h2>Pilotes forts ici</h2>
+              <span>performance vs hasard</span>
+            </div>
+            <div id="topPerformerList" class="compact-list"></div>
+          </section>
+          <section class="detail-panel">
+            <div class="detail-heading">
+              <h2>Equipes & pneus</h2>
+              <span id="teamStrategyNote">--</span>
+            </div>
+            <div id="teamStrategyList" class="compact-list"></div>
+          </section>
+          <section class="detail-panel selected-driver-panel">
+            <div class="detail-heading">
+              <h2 id="selectedDriverTitle">Pilote</h2>
+              <span id="selectedDriverSignal">--</span>
+            </div>
+            <div id="selectedDriverStats" class="driver-stat-grid"></div>
+            <div id="selectedDriverResults" class="compact-list"></div>
+          </section>
+        </div>
+      </section>
+
+      <section id="driverDetailSection" class="driver-detail-section" aria-label="Detail pilote">
+        <div class="driver-detail-main">
+          <div class="driver-detail-header">
+            <div id="driverHeroAvatar" class="driver-hero-avatar"></div>
+            <div>
+              <p class="eyebrow">Detail pilote</p>
+              <h2 id="driverDetailName">Pilote</h2>
+              <p id="driverDetailTeam">Equipe</p>
+            </div>
+          </div>
+          <div id="driverDetailStats" class="driver-detail-stats"></div>
+        </div>
+        <div class="driver-detail-main">
+          <div class="detail-heading">
+            <h2>Historique sur ce circuit</h2>
+            <span id="driverDetailSignal">--</span>
+          </div>
+          <div id="driverDetailResults" class="compact-list"></div>
+        </div>
+      </section>
+
+      <section class="market-strip" aria-label="Marches de pari">
+        <button class="market-tab active" data-market="top10">Top 10 favoris</button>
+        <button class="market-tab" data-market="value">Value watch</button>
+        <button class="market-tab" data-market="outsiders">Outsiders</button>
+        <button class="market-tab" data-market="history">Historique fort</button>
+      </section>
+
+      <section class="workspace">
+        <div class="prediction-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow" id="raceDateLabel">--</p>
+              <h2 id="raceTitle">Predictions</h2>
+            </div>
+            <button id="autoSlipButton" class="ghost-button">Auto ticket</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Rang</th>
+                  <th>Pilote</th>
+                  <th>Top 10</th>
+                  <th>Cote juste</th>
+                  <th><abbr title="Cote vue chez un bookmaker ou au PMU, saisie a la main pour comparer au modele.">Cote PMU</abbr></th>
+                  <th>Edge</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="predictionTable"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <aside class="bet-panel">
+          <div class="panel-heading slim">
+            <div>
+              <p class="eyebrow">Portefeuille fictif</p>
+              <h2>Ticket</h2>
+            </div>
+            <button id="clearSlipButton" class="ghost-button">Reset</button>
+          </div>
+
+          <div id="slipList" class="slip-list"></div>
+
+          <div class="pool-box">
+            <div class="pool-row">
+              <span>Cagnotte simulee</span>
+              <strong id="poolMetric">--</strong>
+            </div>
+            <div class="pool-row">
+              <span>Exposition</span>
+              <strong id="exposureMetric">--</strong>
+            </div>
+            <div class="pool-row">
+              <span>Gain potentiel PMU</span>
+              <strong id="potentialReturnMetric">--</strong>
+            </div>
+            <div class="pool-row">
+              <span>Profit potentiel</span>
+              <strong id="potentialProfitMetric">--</strong>
+            </div>
+            <div class="pool-row">
+              <span>Bankroll apres mise</span>
+              <strong id="remainingMetric">--</strong>
+            </div>
+          </div>
+
+          <div class="odds-policy">
+            <span class="summary-label">Changement de cote</span>
+            <div class="policy-buttons">
+              <button class="policy-button active" data-odds-policy="ask">Demander</button>
+              <button class="policy-button" data-odds-policy="higher">Hausses OK</button>
+              <button class="policy-button" data-odds-policy="all">Tout accepter</button>
+            </div>
+          </div>
+
+          <div class="settlement">
+            <div class="panel-heading mini">
+              <div>
+                <p class="eyebrow">Fin de course</p>
+                <h3>Top 10 reel</h3>
+              </div>
+              <button id="settleButton" class="primary-button">Calculer</button>
+            </div>
+            <div id="settlementGrid" class="settlement-grid"></div>
+            <div id="settlementResult" class="settlement-result"></div>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <script src="/webapp/race.js"></script>
+  </body>
+</html>
