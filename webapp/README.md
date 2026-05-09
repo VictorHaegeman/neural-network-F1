@@ -45,8 +45,9 @@ The app is static-hosting ready. From the repository root:
 ```
 
 The deployable files are written to `public/`. The GitHub Actions workflow
-publishes that folder to GitHub Pages, and `netlify.toml` / `vercel.json` use
-the same build output.
+publishes that folder to the `gh-pages` branch. On first setup, GitHub Pages
+must be enabled in repository settings with source `gh-pages` / root.
+`netlify.toml` and `vercel.json` use the same build output.
 
 Profiles are stored in browser `localStorage` only. A real shared account system
 should use a hosted auth/database provider such as Supabase or Firebase before

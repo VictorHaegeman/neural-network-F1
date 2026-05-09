@@ -185,5 +185,7 @@ https://victorhaegeman.github.io/neural-network-F1/
 ```
 
 The workflow builds a small `public/` folder from `webapp/`, root `index.html`
-and driver headshots, then deploys it through GitHub Pages. Netlify and Vercel
-configs are also present for a one-click import later.
+and driver headshots, then publishes it to the `gh-pages` branch. First-time
+GitHub Pages activation must point Pages to `gh-pages` / root in repository
+settings. Netlify and Vercel configs are also present for a one-click import
+later.
