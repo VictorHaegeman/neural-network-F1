@@ -153,10 +153,15 @@ Tasks:
 - `webapp/index.html`
 - `webapp/race.html`
 - `webapp/driver.html`
+- `webapp/profile.html`
 - `webapp/styles.css`
 - `webapp/app.js`
 - `webapp/race.js`
 - `webapp/driver.js`
+- `webapp/profile.js`
+- `webapp/profile-store.js`
+- `.github/workflows/deploy-webapp.yml`
+- `scripts/build_static_site.py`
 - `webapp/assets/circuits/*.svg`
 - `webapp/data/betting_guide_data.json`
 
@@ -168,3 +173,17 @@ Tasks:
   circuit history, strategy, market filters and the simulated betting slip.
 - `webapp/driver.html?race=<race_id>&driver=<driver_code>` is the driver file:
   model signal, circuit history, GP context and nearby market comparison.
+- `webapp/profile.html` is the local simulation profile: display name, favorite
+  driver, favorite GP, risk style and bankroll stored in browser localStorage.
+
+## Public URL Direction
+
+The selected free deployment target is GitHub Pages:
+
+```text
+https://victorhaegeman.github.io/neural-network-F1/
+```
+
+The workflow builds a small `public/` folder from `webapp/`, root `index.html`
+and driver headshots, then deploys it through GitHub Pages. Netlify and Vercel
+configs are also present for a one-click import later.

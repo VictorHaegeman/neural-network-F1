@@ -1,4 +1,4 @@
-const DATA_URL = "/webapp/data/betting_guide_data.json";
+const DATA_URL = "data/betting_guide_data.json";
 
 const state = {
   data: null,
@@ -24,11 +24,15 @@ function percent(value) {
 }
 
 function detailUrl(raceId) {
-  return `/webapp/race.html?race=${encodeURIComponent(raceId)}`;
+  return `race.html?race=${encodeURIComponent(raceId)}`;
 }
 
 function driverUrl(raceId, driverCode) {
-  return `/webapp/driver.html?race=${encodeURIComponent(raceId)}&driver=${encodeURIComponent(driverCode)}`;
+  return `driver.html?race=${encodeURIComponent(raceId)}&driver=${encodeURIComponent(driverCode)}`;
+}
+
+function currentProfile() {
+  return window.ProfileStore?.load() || {};
 }
 
 function avatarMarkup(driver) {
@@ -73,20 +77,22 @@ function renderSummary() {
 }
 
 function renderRaceCards() {
+  const profile = currentProfile();
   el.raceCards.innerHTML = state.data.races
     .map((race) => {
       const active = race.race_id === state.race.race_id ? "active-card" : "";
+      const favorite = race.race_id === profile.favoriteRaceId ? "favorite-card" : "";
       const topDrivers = race.drivers
         .slice(0, 3)
         .map((driver) => `${driver.driver_code} ${percent(driver.top10_probability_pct)}`)
         .join(" / ");
-      const profile = race.intelligence?.circuit_profile || {};
+      const circuitProfile = race.intelligence?.circuit_profile || {};
       return `
-        <button class="scoreboard-race-card ${active}" data-race-card="${race.race_id}">
+        <button class="scoreboard-race-card ${active} ${favorite}" data-race-card="${race.race_id}">
           <span class="summary-label">${race.race_date}</span>
-          <strong>${race.grand_prix}</strong>
+          <strong>${race.grand_prix}${favorite ? " - GP favori" : ""}</strong>
           <span>${topDrivers}</span>
-          <span>${race.weather_condition} - chaos ${profile.chaos_label || "Unknown"}</span>
+          <span>${race.weather_condition} - chaos ${circuitProfile.chaos_label || "Unknown"}</span>
         </button>
       `;
     })
@@ -94,11 +100,13 @@ function renderRaceCards() {
 }
 
 function renderPredictionTable() {
+  const profile = currentProfile();
   el.predictionTable.innerHTML = state.race.drivers
     .map((driver) => {
       const history = driver.circuit_history || {};
+      const favoriteDriver = driver.driver_code === profile.favoriteDriverCode;
       return `
-        <tr>
+        <tr class="${favoriteDriver ? "favorite-row" : ""}">
           <td class="rank-cell">#${driver.predicted_rank}</td>
           <td>
             <div class="driver-cell">
@@ -112,6 +120,7 @@ function renderPredictionTable() {
           <td class="prob-cell">
             <strong>${percent(driver.top10_probability_pct)}</strong>
             <span class="tag ${driver.confidence_label.toLowerCase()}">${driver.confidence_label}</span>
+            ${favoriteDriver ? `<span class="tag favorite">Favori</span>` : ""}
             <div class="prob-track"><div class="prob-fill" style="width:${driver.top10_probability_pct}%"></div></div>
           </td>
           <td>${driver.fair_decimal_odds ? driver.fair_decimal_odds.toFixed(2) : "--"}</td>
@@ -148,8 +157,11 @@ async function init() {
     throw new Error(`Unable to load ${DATA_URL}`);
   }
   state.data = await response.json();
-  state.race = state.data.races[0];
+  const profile = currentProfile();
+  state.race =
+    state.data.races.find((race) => race.race_id === profile.favoriteRaceId) || state.data.races[0];
   renderRaceOptions();
+  el.raceSelect.value = state.race.race_id;
   bindEvents();
   render();
 }

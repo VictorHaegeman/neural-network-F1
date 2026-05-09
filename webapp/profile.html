@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>F1 Neural Profile</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Neural network F1</p>
+          <h1>Profil</h1>
+        </div>
+        <div class="top-actions">
+          <a class="ghost-link" href="index.html">Scoreboard</a>
+          <a id="raceLink" class="ghost-link" href="race.html">Dossier GP</a>
+          <div class="status-pill">Stockage local</div>
+        </div>
+      </header>
+
+      <section class="profile-layout">
+        <form id="profileForm" class="profile-card">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Compte simulation</p>
+              <h2>Mes preferences</h2>
+            </div>
+            <button class="primary-button" type="submit">Sauvegarder</button>
+          </div>
+
+          <label class="control-field">
+            <span>Nom affiche</span>
+            <input id="displayNameInput" type="text" maxlength="32" placeholder="ex Victor" />
+          </label>
+
+          <label class="control-field">
+            <span>Pilote favori</span>
+            <select id="favoriteDriverSelect"></select>
+          </label>
+
+          <label class="control-field">
+            <span>GP favori</span>
+            <select id="favoriteRaceSelect"></select>
+          </label>
+
+          <label class="control-field">
+            <span>Style de risque</span>
+            <select id="riskProfileSelect">
+              <option value="safe">Safe</option>
+              <option value="balanced">Equilibre</option>
+              <option value="aggressive">Agressif</option>
+            </select>
+          </label>
+
+          <label class="control-field">
+            <span>Bankroll fictive</span>
+            <input id="bankrollInput" type="number" min="10" step="10" value="1000" />
+          </label>
+
+          <div class="profile-actions">
+            <button id="resetProfileButton" class="ghost-button" type="button">Effacer</button>
+            <span id="saveStatus" class="save-status">--</span>
+          </div>
+        </form>
+
+        <aside class="profile-card profile-summary-card">
+          <p class="eyebrow">Resume</p>
+          <div id="profileAvatar" class="profile-avatar"></div>
+          <h2 id="profileName">Invite</h2>
+          <div id="profileSummaryList" class="compact-list"></div>
+          <a id="driverLink" class="primary-link profile-main-link" href="driver.html">Voir mon pilote</a>
+        </aside>
+      </section>
+    </main>
+
+    <script src="profile-store.js"></script>
+    <script src="profile.js"></script>
+  </body>
+</html>

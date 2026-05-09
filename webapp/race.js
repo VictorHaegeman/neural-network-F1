@@ -1,4 +1,4 @@
-const DATA_URL = "/webapp/data/betting_guide_data.json";
+const DATA_URL = "data/betting_guide_data.json";
 const DEFAULT_POOL = 1000;
 
 const state = {
@@ -117,7 +117,19 @@ function impliedEdge(driver, offeredOdds) {
 }
 
 function driverUrl(driverCode) {
-  return `/webapp/driver.html?race=${encodeURIComponent(state.race.race_id)}&driver=${encodeURIComponent(driverCode)}`;
+  return `driver.html?race=${encodeURIComponent(state.race.race_id)}&driver=${encodeURIComponent(driverCode)}`;
+}
+
+function currentProfile() {
+  return window.ProfileStore?.load() || {};
+}
+
+function setActiveStrategy(strategy) {
+  if (!strategyRules[strategy]) return;
+  state.strategy = strategy;
+  document.querySelectorAll(".segment").forEach((button) => {
+    button.classList.toggle("active", button.dataset.strategy === strategy);
+  });
 }
 
 function marketDrivers() {
@@ -153,7 +165,7 @@ function setRace(raceId) {
   state.slip.clear();
   state.offeredOdds.clear();
   el.settlementResult.textContent = "";
-  window.history.replaceState(null, "", `/webapp/race.html?race=${encodeURIComponent(state.race.race_id)}`);
+  window.history.replaceState(null, "", `race.html?race=${encodeURIComponent(state.race.race_id)}`);
   render();
 }
 
@@ -317,6 +329,7 @@ function avatarMarkup(driver) {
 
 function renderPredictionTable() {
   const rows = marketDrivers();
+  const profile = currentProfile();
   el.predictionTable.innerHTML = rows
     .map((driver) => {
       const offered = state.offeredOdds.get(driver.driver_code) || "";
@@ -325,9 +338,10 @@ function renderPredictionTable() {
       const edgeText = edge === null ? "--" : `${edge >= 0 ? "+" : ""}${percent(edge * 100)}`;
       const tagClass = driver.confidence_label.toLowerCase();
       const selectedClass = driver.driver_code === state.selectedDriverCode ? "selected-row" : "";
+      const favoriteDriver = driver.driver_code === profile.favoriteDriverCode ? "favorite-row" : "";
 
       return `
-        <tr class="${selectedClass}" data-driver-detail="${driver.driver_code}">
+        <tr class="${selectedClass} ${favoriteDriver}" data-driver-detail="${driver.driver_code}">
           <td class="rank-cell">#${driver.predicted_rank}</td>
           <td>
             <div class="driver-cell">
@@ -341,6 +355,7 @@ function renderPredictionTable() {
           <td class="prob-cell">
             <strong>${percent(driver.top10_probability_pct)}</strong>
             <span class="tag ${tagClass}">${driver.confidence_label}</span>
+            ${favoriteDriver ? `<span class="tag favorite">Favori</span>` : ""}
             <div class="prob-track"><div class="prob-fill" style="width:${driver.top10_probability_pct}%"></div></div>
           </td>
           <td>${driver.fair_decimal_odds ? driver.fair_decimal_odds.toFixed(2) : "--"}</td>
@@ -491,9 +506,7 @@ function bindEvents() {
 
   document.querySelectorAll(".segment").forEach((button) => {
     button.addEventListener("click", () => {
-      document.querySelectorAll(".segment").forEach((item) => item.classList.remove("active"));
-      button.classList.add("active");
-      state.strategy = button.dataset.strategy;
+      setActiveStrategy(button.dataset.strategy);
       renderSlip();
     });
   });
@@ -570,11 +583,22 @@ async function init() {
   state.data = await response.json();
   const params = new URLSearchParams(window.location.search);
   const requestedRace = params.get("race");
-  state.race = state.data.races.find((race) => race.race_id === requestedRace) || state.data.races[0];
-  state.selectedDriverCode = state.race.drivers[0]?.driver_code || null;
+  const profile = currentProfile();
+  state.race =
+    state.data.races.find((race) => race.race_id === requestedRace) ||
+    state.data.races.find((race) => race.race_id === profile.favoriteRaceId) ||
+    state.data.races[0];
+  state.selectedDriverCode =
+    state.race.drivers.find((driver) => driver.driver_code === profile.favoriteDriverCode)?.driver_code ||
+    state.race.drivers[0]?.driver_code ||
+    null;
+  if (profile.bankroll) {
+    el.bankrollInput.value = profile.bankroll;
+  }
   renderRaceOptions();
   el.raceSelect.value = state.race.race_id;
   bindEvents();
+  setActiveStrategy(profile.riskProfile || state.strategy);
   render();
 }
 

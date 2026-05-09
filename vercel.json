@@ -1,0 +1,5 @@
+{
+  "buildCommand": "python scripts/build_static_site.py",
+  "outputDirectory": "public",
+  "cleanUrls": false
+}

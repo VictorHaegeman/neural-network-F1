@@ -91,6 +91,12 @@ h3 {
   white-space: nowrap;
 }
 
+.save-status {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
 .top-actions {
   display: flex;
   align-items: center;
@@ -285,6 +291,10 @@ input:focus {
   box-shadow:
     inset 0 0 0 2px rgba(19, 122, 91, 0.28),
     var(--shadow);
+}
+
+.scoreboard-race-card.favorite-card {
+  border-color: var(--blue);
 }
 
 .scoreboard-panel {
@@ -625,6 +635,44 @@ input:focus {
   margin-top: 16px;
 }
 
+.profile-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 16px;
+  align-items: start;
+}
+
+.profile-card {
+  display: grid;
+  gap: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  padding: 18px;
+}
+
+.profile-avatar {
+  width: 112px;
+  height: 112px;
+}
+
+.profile-avatar .avatar {
+  width: 112px;
+  height: 112px;
+}
+
+.profile-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.profile-main-link {
+  width: 100%;
+}
+
 .driver-detail-stats {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -845,6 +893,15 @@ tbody tr.selected-row {
   color: var(--muted);
 }
 
+.tag.favorite {
+  background: rgba(36, 93, 156, 0.12);
+  color: var(--blue);
+}
+
+.favorite-row {
+  box-shadow: inset 4px 0 0 var(--blue);
+}
+
 .odds-input {
   width: 94px;
 }
@@ -1032,6 +1089,10 @@ tbody tr.selected-row {
     grid-template-columns: 1fr;
   }
 
+  .profile-layout {
+    grid-template-columns: 1fr;
+  }
+
   .bet-panel {
     position: static;
   }
@@ -1096,5 +1157,10 @@ tbody tr.selected-row {
 
   .settlement-grid {
     grid-template-columns: 1fr;
+  }
+
+  .profile-actions {
+    align-items: stretch;
+    flex-direction: column;
   }
 }

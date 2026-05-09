@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>F1 GP Betting Dossier</title>
-    <link rel="stylesheet" href="/webapp/styles.css" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main class="app-shell">
@@ -14,7 +14,8 @@
           <h1>Dossier GP & paris</h1>
         </div>
         <div class="top-actions">
-          <a class="ghost-link" href="/webapp/">Scoreboard</a>
+          <a class="ghost-link" href="index.html">Scoreboard</a>
+          <a class="ghost-link" href="profile.html">Profil</a>
           <div class="status-pill">Simulation uniquement</div>
         </div>
       </header>
@@ -41,7 +42,7 @@
 
       <section class="detail-hero" aria-label="Image et contexte circuit">
         <div class="circuit-visual">
-          <img id="circuitImage" src="/webapp/assets/circuits/circuit_gilles_villeneuve.svg" alt="" />
+          <img id="circuitImage" src="assets/circuits/circuit_gilles_villeneuve.svg" alt="" />
           <a id="circuitCredit" class="asset-credit" href="#" target="_blank" rel="noreferrer">Circuit map credit</a>
         </div>
         <div class="detail-hero-copy">
@@ -233,6 +234,7 @@
       </section>
     </main>
 
-    <script src="/webapp/race.js"></script>
+    <script src="profile-store.js"></script>
+    <script src="race.js"></script>
   </body>
 </html>

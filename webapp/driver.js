@@ -1,4 +1,4 @@
-const DATA_URL = "/webapp/data/betting_guide_data.json";
+const DATA_URL = "data/betting_guide_data.json";
 
 const state = {
   data: null,
@@ -29,11 +29,15 @@ function percent(value) {
 }
 
 function raceUrl(raceId) {
-  return `/webapp/race.html?race=${encodeURIComponent(raceId)}`;
+  return `race.html?race=${encodeURIComponent(raceId)}`;
 }
 
 function driverUrl(raceId, driverCode) {
-  return `/webapp/driver.html?race=${encodeURIComponent(raceId)}&driver=${encodeURIComponent(driverCode)}`;
+  return `driver.html?race=${encodeURIComponent(raceId)}&driver=${encodeURIComponent(driverCode)}`;
+}
+
+function currentProfile() {
+  return window.ProfileStore?.load() || {};
 }
 
 function avatarMarkup(driver) {
@@ -77,8 +81,10 @@ function renderDriverOptions() {
 }
 
 function renderHero(history) {
+  const profile = currentProfile();
+  const favoriteLabel = state.driver.driver_code === profile.favoriteDriverCode ? " - pilote favori" : "";
   el.driverHeroAvatar.innerHTML = avatarMarkup(state.driver);
-  el.driverContextLabel.textContent = `${state.race.grand_prix} - ${state.race.race_date}`;
+  el.driverContextLabel.textContent = `${state.race.grand_prix} - ${state.race.race_date}${favoriteLabel}`;
   el.driverDetailName.textContent = `${state.driver.driver_name} (${state.driver.driver_code})`;
   el.driverDetailTeam.textContent = `${state.driver.constructor_name} - grille P${state.driver.grid} - rang modele #${state.driver.predicted_rank}`;
   el.driverDetailSignal.textContent = history.signal || "Pas de signal historique.";
@@ -178,9 +184,15 @@ async function init() {
   const params = new URLSearchParams(window.location.search);
   const requestedRace = params.get("race");
   const requestedDriver = params.get("driver");
-  state.race = state.data.races.find((race) => race.race_id === requestedRace) || state.data.races[0];
+  const profile = currentProfile();
+  state.race =
+    state.data.races.find((race) => race.race_id === requestedRace) ||
+    state.data.races.find((race) => race.race_id === profile.favoriteRaceId) ||
+    state.data.races[0];
   state.driver =
-    state.race.drivers.find((driver) => driver.driver_code === requestedDriver) || state.race.drivers[0];
+    state.race.drivers.find((driver) => driver.driver_code === requestedDriver) ||
+    state.race.drivers.find((driver) => driver.driver_code === profile.favoriteDriverCode) ||
+    state.race.drivers[0];
   renderRaceOptions();
   renderDriverOptions();
   bindEvents();

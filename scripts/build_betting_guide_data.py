@@ -20,25 +20,25 @@ POSITION_METRICS_PATH = Path("outputs/position_model_metrics.json")
 HEADSHOT_DIR = Path("outputs/driver_headshots")
 CIRCUIT_ASSETS_BY_NAME = {
     "Circuit Gilles Villeneuve": {
-        "path": "/webapp/assets/circuits/circuit_gilles_villeneuve.svg",
+        "path": "assets/circuits/circuit_gilles_villeneuve.svg",
         "source_url": "https://commons.wikimedia.org/wiki/File:Circuit_Gilles_Villeneuve.svg",
         "author": "Will Pittenger, derivative work by cBuckley",
         "license": "CC BY-SA 3.0",
     },
     "Circuit de Monaco": {
-        "path": "/webapp/assets/circuits/circuit_de_monaco.svg",
+        "path": "assets/circuits/circuit_de_monaco.svg",
         "source_url": "https://commons.wikimedia.org/wiki/File:Circuit_Monaco.svg",
         "author": "Rumbin",
         "license": "Public domain",
     },
     "Circuit de Barcelona-Catalunya": {
-        "path": "/webapp/assets/circuits/circuit_de_barcelona_catalunya.svg",
+        "path": "assets/circuits/circuit_de_barcelona_catalunya.svg",
         "source_url": "https://commons.wikimedia.org/wiki/File:2023_F1_CourseLayout_Spain.svg",
         "author": "ごひょううべこ",
         "license": "CC BY-SA 4.0",
     },
     "Red Bull Ring": {
-        "path": "/webapp/assets/circuits/red_bull_ring.svg",
+        "path": "assets/circuits/red_bull_ring.svg",
         "source_url": "https://commons.wikimedia.org/wiki/File:Circuit_Red_Bull_Ring.svg",
         "author": "Pitlane02 and Wikimedia contributors",
         "license": "CC BY-SA 3.0",
@@ -133,7 +133,7 @@ def pick_recommendation(probability: float, rank: int, predicted_top10: bool) ->
 def headshot_path(driver_code: str) -> str | None:
     candidate = HEADSHOT_DIR / f"{driver_code}.png"
     if candidate.exists():
-        return f"/outputs/driver_headshots/{driver_code}.png"
+        return f"../outputs/driver_headshots/{driver_code}.png"
     return None
 
 

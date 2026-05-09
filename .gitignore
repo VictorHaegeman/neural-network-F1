@@ -6,3 +6,4 @@ __pycache__/
 outputs/models/
 outputs/logs/
 .fastf1_cache/
+public/

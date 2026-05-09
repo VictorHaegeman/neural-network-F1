@@ -1,0 +1,8 @@
+[build]
+  command = "python scripts/build_static_site.py"
+  publish = "public"
+
+[[redirects]]
+  from = "/"
+  to = "/webapp/"
+  status = 302
