@@ -50,13 +50,6 @@ const el = {
   selectedDriverSignal: document.querySelector("#selectedDriverSignal"),
   selectedDriverStats: document.querySelector("#selectedDriverStats"),
   selectedDriverResults: document.querySelector("#selectedDriverResults"),
-  driverDetailSection: document.querySelector("#driverDetailSection"),
-  driverHeroAvatar: document.querySelector("#driverHeroAvatar"),
-  driverDetailName: document.querySelector("#driverDetailName"),
-  driverDetailTeam: document.querySelector("#driverDetailTeam"),
-  driverDetailStats: document.querySelector("#driverDetailStats"),
-  driverDetailSignal: document.querySelector("#driverDetailSignal"),
-  driverDetailResults: document.querySelector("#driverDetailResults"),
   raceDateLabel: document.querySelector("#raceDateLabel"),
   raceTitle: document.querySelector("#raceTitle"),
   predictionTable: document.querySelector("#predictionTable"),
@@ -121,6 +114,10 @@ function poolTotal() {
 function impliedEdge(driver, offeredOdds) {
   if (!offeredOdds || offeredOdds <= 1) return null;
   return driver.top10_probability * offeredOdds - 1;
+}
+
+function driverUrl(driverCode) {
+  return `/webapp/driver.html?race=${encodeURIComponent(state.race.race_id)}&driver=${encodeURIComponent(driverCode)}`;
 }
 
 function marketDrivers() {
@@ -284,7 +281,6 @@ function renderIntelligence() {
   const driver = selectedDriver();
   if (!driver) return;
   const history = driver.circuit_history || {};
-  renderDriverDetail(driver, history);
   el.selectedDriverTitle.textContent = `${driver.driver_code} - ${driver.driver_name}`;
   el.selectedDriverSignal.textContent = history.signal || "--";
   el.selectedDriverStats.innerHTML = `
@@ -295,44 +291,21 @@ function renderIntelligence() {
     <div><span>Podiums</span><strong>${history.podiums || 0}</strong></div>
     <div><span>Facteur chaos</span><strong>${percent(history.chaos_dependency_pct || 0)}</strong></div>
   `;
-  el.selectedDriverResults.innerHTML = (history.recent_results || [])
-    .map(
-      (result) => `
-        <div class="compact-row">
-          <strong>${result.season}: P${result.finish} depuis P${result.grid}</strong>
-          <span>${result.weather_condition}, SC ${result.safety_car_count}, disruption ${result.race_disruption_score}</span>
-        </div>
-      `,
-    )
-    .join("");
-}
-
-function renderDriverDetail(driver, history) {
-  el.driverHeroAvatar.innerHTML = avatarMarkup(driver);
-  el.driverDetailName.textContent = `${driver.driver_name} (${driver.driver_code})`;
-  el.driverDetailTeam.textContent = `${driver.constructor_name} - grille P${driver.grid} - rang modele #${driver.predicted_rank}`;
-  el.driverDetailSignal.textContent = history.signal || "--";
-  el.driverDetailStats.innerHTML = `
-    <div><span>Proba top 10</span><strong>${percent(driver.top10_probability_pct)}</strong></div>
-    <div><span>Cote juste</span><strong>${driver.fair_decimal_odds ? driver.fair_decimal_odds.toFixed(2) : "--"}</strong></div>
-    <div><span>Reco</span><strong>${driver.recommendation}</strong></div>
-    <div><span>Top 10 circuit</span><strong>${percent(history.top10_rate_pct || 0)}</strong></div>
-    <div><span>Finish moyen</span><strong>P${history.avg_finish || "--"}</strong></div>
-    <div><span>Meilleur ici</span><strong>P${history.best_finish || "--"}</strong></div>
-    <div><span>Gain grille</span><strong>${Number(history.avg_position_gain || 0).toFixed(1)}</strong></div>
-    <div><span>DNF ici</span><strong>${percent(history.dnf_rate_pct || 0)}</strong></div>
-    <div><span>Chaos dependance</span><strong>${percent(history.chaos_dependency_pct || 0)}</strong></div>
+  const recentResults =
+    (history.recent_results || [])
+      .map(
+        (result) => `
+          <div class="compact-row">
+            <strong>${result.season}: P${result.finish} depuis P${result.grid}</strong>
+            <span>${result.weather_condition}, SC ${result.safety_car_count}, disruption ${result.race_disruption_score}</span>
+          </div>
+        `,
+      )
+      .join("") || `<div class="empty-state">Aucun historique direct sur ce circuit.</div>`;
+  el.selectedDriverResults.innerHTML = `
+    ${recentResults}
+    <a class="row-link full-row-link" href="${driverUrl(driver.driver_code)}">Ouvrir la fiche pilote</a>
   `;
-  el.driverDetailResults.innerHTML = (history.recent_results || [])
-    .map(
-      (result) => `
-        <div class="compact-row">
-          <strong>${result.season}: P${result.finish} depuis P${result.grid}</strong>
-          <span>${result.points} pts, ${result.weather_condition}, SC ${result.safety_car_count}, disruption ${result.race_disruption_score}</span>
-        </div>
-      `,
-    )
-    .join("") || `<div class="empty-state">Aucun historique direct sur ce circuit.</div>`;
 }
 
 function avatarMarkup(driver) {
@@ -585,7 +558,6 @@ function bindEvents() {
       state.selectedDriverCode = detailTarget.dataset.driverDetail;
       renderIntelligence();
       renderPredictionTable();
-      el.driverDetailSection.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   });
 }
@@ -598,16 +570,12 @@ async function init() {
   state.data = await response.json();
   const params = new URLSearchParams(window.location.search);
   const requestedRace = params.get("race");
-  const requestedDriver = params.get("driver");
   state.race = state.data.races.find((race) => race.race_id === requestedRace) || state.data.races[0];
-  state.selectedDriverCode = requestedDriver || state.race.drivers[0]?.driver_code || null;
+  state.selectedDriverCode = state.race.drivers[0]?.driver_code || null;
   renderRaceOptions();
   el.raceSelect.value = state.race.race_id;
   bindEvents();
   render();
-  if (requestedDriver && driverByCode(requestedDriver)) {
-    el.driverDetailSection.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
 }
 
 init().catch((error) => {

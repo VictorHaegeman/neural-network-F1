@@ -27,6 +27,10 @@ function detailUrl(raceId) {
   return `/webapp/race.html?race=${encodeURIComponent(raceId)}`;
 }
 
+function driverUrl(raceId, driverCode) {
+  return `/webapp/driver.html?race=${encodeURIComponent(raceId)}&driver=${encodeURIComponent(driverCode)}`;
+}
+
 function avatarMarkup(driver) {
   if (driver.headshot_path) {
     return `<img class="avatar" src="${driver.headshot_path}" alt="" />`;
@@ -115,7 +119,7 @@ function renderPredictionTable() {
             <strong>${history.starts || 0} departs</strong>
             <span class="table-muted">${history.top10_rate_pct || 0}% top 10 ici</span>
           </td>
-          <td><a class="row-link" href="${detailUrl(state.race.race_id)}&driver=${driver.driver_code}">Voir pilote</a></td>
+          <td><a class="row-link" href="${driverUrl(state.race.race_id, driver.driver_code)}">Voir pilote</a></td>
         </tr>
       `;
     })

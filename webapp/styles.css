@@ -558,53 +558,87 @@ input:focus {
   font-size: 18px;
 }
 
-.driver-detail-section {
+.driver-page-hero {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: 1.1fr 0.9fr;
   gap: 12px;
   margin-top: 16px;
 }
 
-.driver-detail-main {
+.driver-page-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--surface);
   box-shadow: var(--shadow);
-  padding: 16px;
+  padding: 18px;
 }
 
-.driver-detail-header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 14px;
+.driver-page-card.compact {
+  display: block;
 }
 
-.driver-hero-avatar {
-  width: 78px;
-  height: 78px;
+.driver-page-card.compact strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 22px;
+}
+
+.driver-page-card.compact p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.driver-page-avatar {
+  width: 96px;
+  height: 96px;
   flex: 0 0 auto;
 }
 
-.driver-hero-avatar .avatar {
-  width: 78px;
-  height: 78px;
+.driver-page-avatar .avatar {
+  width: 96px;
+  height: 96px;
 }
 
-.driver-detail-header h2 {
-  font-size: 28px;
+.driver-page-card h2 {
+  font-size: 34px;
 }
 
-.driver-detail-header p {
-  margin: 7px 0 0;
+.driver-page-card p {
+  margin: 8px 0 0;
   color: var(--muted);
   font-weight: 800;
+}
+
+.driver-page-stats {
+  margin-top: 16px;
+}
+
+.driver-page-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
 }
 
 .driver-detail-stats {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
+}
+
+.full-row-link {
+  margin-top: 2px;
+  width: 100%;
+}
+
+.highlight-row {
+  border-color: var(--green);
+  box-shadow: inset 4px 0 0 var(--green);
 }
 
 .driver-detail-stats div {
@@ -989,7 +1023,8 @@ tbody tr.selected-row {
 
   .intelligence-grid,
   .race-detail-grid,
-  .driver-detail-section {
+  .driver-page-hero,
+  .driver-page-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1023,7 +1058,8 @@ tbody tr.selected-row {
   .detail-hero,
   .intelligence-grid,
   .race-detail-grid,
-  .driver-detail-section,
+  .driver-page-hero,
+  .driver-page-grid,
   .driver-detail-stats {
     grid-template-columns: 1fr;
   }

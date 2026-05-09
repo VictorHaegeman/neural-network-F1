@@ -152,9 +152,11 @@ Tasks:
 - `scripts/build_betting_guide_data.py`
 - `webapp/index.html`
 - `webapp/race.html`
+- `webapp/driver.html`
 - `webapp/styles.css`
 - `webapp/app.js`
 - `webapp/race.js`
+- `webapp/driver.js`
 - `webapp/assets/circuits/*.svg`
 - `webapp/data/betting_guide_data.json`
 
@@ -163,4 +165,6 @@ Tasks:
 - `webapp/index.html` is the scoreboard: quick race selector, upcoming GP cards
   and the model ranking table.
 - `webapp/race.html?race=<race_id>` is the GP dossier: circuit image, weather,
-  circuit history, strategy, driver detail and the simulated betting slip.
+  circuit history, strategy, market filters and the simulated betting slip.
+- `webapp/driver.html?race=<race_id>&driver=<driver_code>` is the driver file:
+  model signal, circuit history, GP context and nearby market comparison.
