@@ -26,3 +26,87 @@
 [2026-05-03T07:24:41.053Z] INFO  [Installer] Checking Jolli Memory status
 [2026-05-03T07:24:41.221Z] INFO  [CodexDiscoverer] Discovered 1 Codex session(s)
 [2026-05-03T07:24:41.289Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=false, worktreeHooks=true, sessions=1, summaries=0, codex=true/true, gemini=false/undefined, enabledWorktrees=1, opencode=false/undefined
+[2026-05-09T11:11:05.501Z] INFO  [activate] Activating JolliMemory extension {"workspaceRoot":"c:\\Users\\victo\\Desktop\\Cursor\\neural-network-F1","extensionPath":"c:\\Users\\victo\\.cursor\\extensions\\jolli.jollimemory-vscode-0.98.0-universal"}
+[2026-05-09T11:11:06.482Z] INFO  [initialLoad] Loading all panels
+[2026-05-09T11:11:06.485Z] INFO  [Installer] Checking Jolli Memory status
+[2026-05-09T11:11:06.959Z] INFO  [Installer] Checking Jolli Memory status
+[2026-05-09T11:11:07.322Z] INFO  [plans] detectPlans found 0 plans (0 in registry)
+[2026-05-09T11:11:07.330Z] INFO  [notes] detectNotes found 0 notes (0 in registry)
+[2026-05-09T11:11:23.449Z] INFO  [CodexDiscoverer] Discovered 0 Codex session(s)
+[2026-05-09T11:11:23.573Z] INFO  [CodexDiscoverer] Discovered 0 Codex session(s)
+[2026-05-09T11:11:23.792Z] INFO  [Installer] Status: enabled=false, claude=true, git=false, geminiHook=false, worktreeHooks=true, sessions=0, summaries=0, codex=true/true, gemini=false/undefined, enabledWorktrees=1, opencode=false/undefined
+[2026-05-09T11:11:23.892Z] INFO  [initialLoad] All panels loaded — updating status bar
+[2026-05-09T11:11:23.892Z] INFO  [Installer] Checking Jolli Memory status
+[2026-05-09T11:11:23.941Z] INFO  [Installer] Status: enabled=false, claude=true, git=false, geminiHook=false, worktreeHooks=true, sessions=0, summaries=0, codex=true/true, gemini=false/undefined, enabledWorktrees=1, opencode=false/undefined
+[2026-05-09T11:11:23.941Z] INFO  [Installer] Checking Jolli Memory status
+[2026-05-09T11:11:24.814Z] INFO  [CodexDiscoverer] Discovered 0 Codex session(s)
+[2026-05-09T11:11:24.898Z] INFO  [CodexDiscoverer] Discovered 0 Codex session(s)
+[2026-05-09T11:11:25.222Z] INFO  [Installer] Status: enabled=false, claude=true, git=false, geminiHook=false, worktreeHooks=true, sessions=0, summaries=0, codex=true/true, gemini=false/undefined, enabledWorktrees=1, opencode=false/undefined
+[2026-05-09T11:11:25.234Z] INFO  [Installer] Checking Jolli Memory status
+[2026-05-09T11:11:25.353Z] INFO  [Installer] Status: enabled=false, claude=true, git=false, geminiHook=false, worktreeHooks=true, sessions=0, summaries=0, codex=true/true, gemini=false/undefined, enabledWorktrees=1, opencode=false/undefined
+[2026-05-09T11:11:25.964Z] INFO  [CodexDiscoverer] Discovered 0 Codex session(s)
+[2026-05-09T11:11:26.288Z] INFO  [Installer] Status: enabled=false, claude=true, git=false, geminiHook=false, worktreeHooks=true, sessions=0, summaries=0, codex=true/true, gemini=false/undefined, enabledWorktrees=1, opencode=false/undefined
+[2026-05-09T12:44:51.842Z] INFO  [Installer] Checking Jolli Memory status
+[2026-05-09T12:44:51.842Z] INFO  [Installer] Checking Jolli Memory status
+[2026-05-09T12:44:52.422Z] INFO  [CodexDiscoverer] Discovered 1 Codex session(s)
+[2026-05-09T12:44:52.516Z] INFO  [CodexDiscoverer] Discovered 1 Codex session(s)
+[2026-05-09T12:44:52.719Z] INFO  [Installer] Status: enabled=false, claude=true, git=false, geminiHook=false, worktreeHooks=true, sessions=1, summaries=0, codex=true/true, gemini=false/undefined, enabledWorktrees=1, opencode=false/undefined
+[2026-05-09T12:44:52.864Z] INFO  [Installer] Status: enabled=false, claude=true, git=false, geminiHook=false, worktreeHooks=true, sessions=1, summaries=0, codex=true/true, gemini=false/undefined, enabledWorktrees=1, opencode=false/undefined
+[2026-05-22T21:33:15.052Z] INFO  [activate] Activating JolliMemory extension {"workspaceRoot":"c:\\Users\\victo\\Desktop\\Cursor\\neural-network-F1","extensionPath":"c:\\Users\\victo\\.cursor\\extensions\\jolli.jollimemory-vscode-0.99.1-universal"}
+[2026-05-22T21:33:15.288Z] INFO  [initialLoad] Loading all panels
+[2026-05-22T21:33:15.290Z] INFO  [Installer] Checking Jolli Memory status
+[2026-05-22T21:33:15.352Z] INFO  [Installer] Checking Jolli Memory status
+[2026-05-22T21:33:15.455Z] INFO  [plans] detectPlans found 0 plans (0 in registry)
+[2026-05-22T21:33:15.464Z] WARN  [SummaryStore] loadIndex: index.json unreadable from hr (fresh repo or backend read failed)
+[2026-05-22T21:33:15.535Z] INFO  [notes] detectNotes found 0 notes (0 in registry)
+[2026-05-22T21:33:17.611Z] INFO  [KBPathResolver] KB folder initialized: C:\Users\victo\Documents\jolli\neural-network-F1 (remote=https://github.com/VictorHaegeman/neural-network-F1.git)
+[2026-05-22T21:33:17.925Z] INFO  [bridge] Merged mode activated {"branch":"main","creationPoint":"35968b8c","author":"Victor Haegeman"}
+[2026-05-22T21:33:18.011Z] INFO  [StorageFactory] StorageFactory.create: storageMode=dual-write, projectPath=c:\Users\victo\Desktop\Cursor\neural-network-F1
+[2026-05-22T21:33:18.129Z] INFO  [StorageFactory] Storage mode: dual-write (primary=orphan, shadow=folder)
+[2026-05-22T21:33:18.156Z] INFO  [CodexDiscoverer] Discovered 0 Codex session(s)
+[2026-05-22T21:33:18.157Z] INFO  [CodexDiscoverer] Discovered 0 Codex session(s)
+[2026-05-22T21:33:18.167Z] WARN  [CursorDiscoverer] Skipping Cursor composer f5e26387-7c64-48e5-8c79-b8c0e95c6256: non-finite lastUpdatedAt
+[2026-05-22T21:33:18.169Z] WARN  [CursorDiscoverer] Skipping Cursor composer f5e26387-7c64-48e5-8c79-b8c0e95c6256: non-finite lastUpdatedAt
+[2026-05-22T21:33:18.169Z] INFO  [CursorDiscoverer] Discovered 0 Cursor session(s) for c:\Users\victo\Desktop\Cursor\neural-network-F1
+[2026-05-22T21:33:18.169Z] INFO  [CursorDiscoverer] Discovered 0 Cursor session(s) for c:\Users\victo\Desktop\Cursor\neural-network-F1
+[2026-05-22T21:33:18.222Z] WARN  [SummaryStore] loadIndex: index.json unreadable from Rd (fresh repo or backend read failed)
+[2026-05-22T21:33:18.307Z] INFO  [Installer] Status: enabled=false, claude=true, git=false, geminiHook=false, worktreeHooks=true, sessions=0, summaries=0, codex=true/true, gemini=false/undefined, enabledWorktrees=1, opencode=false/undefined, cursor=true/true, copilot=false/undefined, copilotChat=false
+[2026-05-22T21:33:18.328Z] INFO  [Installer] Status: enabled=false, claude=true, git=false, geminiHook=false, worktreeHooks=true, sessions=0, summaries=0, codex=true/true, gemini=false/undefined, enabledWorktrees=1, opencode=false/undefined, cursor=true/true, copilot=false/undefined, copilotChat=false
+[2026-05-22T21:33:18.329Z] INFO  [Installer] Checking Jolli Memory status
+[2026-05-22T21:33:18.522Z] INFO  [CodexDiscoverer] Discovered 0 Codex session(s)
+[2026-05-22T21:33:18.531Z] WARN  [CursorDiscoverer] Skipping Cursor composer f5e26387-7c64-48e5-8c79-b8c0e95c6256: non-finite lastUpdatedAt
+[2026-05-22T21:33:18.531Z] INFO  [CursorDiscoverer] Discovered 0 Cursor session(s) for c:\Users\victo\Desktop\Cursor\neural-network-F1
+[2026-05-22T21:33:18.618Z] INFO  [Installer] Status: enabled=false, claude=true, git=false, geminiHook=false, worktreeHooks=true, sessions=0, summaries=0, codex=true/true, gemini=false/undefined, enabledWorktrees=1, opencode=false/undefined, cursor=true/true, copilot=false/undefined, copilotChat=false
+[2026-05-22T21:33:18.622Z] INFO  [Installer] Checking Jolli Memory status
+[2026-05-22T21:33:18.766Z] INFO  [CodexDiscoverer] Discovered 0 Codex session(s)
+[2026-05-22T21:33:18.771Z] WARN  [CursorDiscoverer] Skipping Cursor composer f5e26387-7c64-48e5-8c79-b8c0e95c6256: non-finite lastUpdatedAt
+[2026-05-22T21:33:18.772Z] INFO  [CursorDiscoverer] Discovered 0 Cursor session(s) for c:\Users\victo\Desktop\Cursor\neural-network-F1
+[2026-05-22T21:33:18.824Z] INFO  [initialLoad] All panels loaded — updating status bar
+[2026-05-22T21:33:18.824Z] INFO  [Installer] Checking Jolli Memory status
+[2026-05-22T21:33:18.843Z] INFO  [Installer] Status: enabled=false, claude=true, git=false, geminiHook=false, worktreeHooks=true, sessions=0, summaries=0, codex=true/true, gemini=false/undefined, enabledWorktrees=1, opencode=false/undefined, cursor=true/true, copilot=false/undefined, copilotChat=false
+[2026-05-22T21:33:18.844Z] INFO  [activate] Auto-enabling Jolli Memory (no opt-out recorded)
+[2026-05-22T21:33:18.844Z] INFO  [bridge] enable() called
+[2026-05-22T21:33:18.844Z] INFO  [Installer] Installing Jolli Memory hooks
+[2026-05-22T21:33:18.885Z] WARN  [SummaryStore] loadIndex: index.json unreadable from Rd (fresh repo or backend read failed)
+[2026-05-22T21:33:18.930Z] INFO  [DispatchScripts] Wrote resolve-dist-path, run-hook, and run-cli scripts to C:\Users\victo\.jolli\jollimemory
+[2026-05-22T21:33:18.933Z] INFO  [DistPathWriter] Wrote dist-paths/cursor (version=0.99.1, distDir=c:\Users\victo\.cursor\extensions\jolli.jollimemory-vscode-0.99.1-universal\dist)
+[2026-05-22T21:33:18.937Z] INFO  [SkillInstaller] Wrote SKILL.md (version 0.99.1) to C:\Users\victo\Desktop\Cursor\neural-network-F1\.claude\skills\jolli-recall\SKILL.md
+[2026-05-22T21:33:18.939Z] INFO  [SkillInstaller] Wrote SKILL.md (version 0.99.1) to C:\Users\victo\Desktop\Cursor\neural-network-F1\.claude\skills\jolli-search\SKILL.md
+[2026-05-22T21:33:18.941Z] INFO  [GitHookInstaller] Git post-commit hook installed
+[2026-05-22T21:33:18.943Z] INFO  [GitHookInstaller] Git post-rewrite hook installed
+[2026-05-22T21:33:18.944Z] INFO  [GitHookInstaller] Git prepare-commit-msg hook installed
+[2026-05-22T21:33:18.946Z] INFO  [Installer] Installation complete
+[2026-05-22T21:33:18.946Z] INFO  [Installer] Checking Jolli Memory status
+[2026-05-22T21:33:18.973Z] INFO  [CodexDiscoverer] Discovered 0 Codex session(s)
+[2026-05-22T21:33:18.978Z] WARN  [CursorDiscoverer] Skipping Cursor composer f5e26387-7c64-48e5-8c79-b8c0e95c6256: non-finite lastUpdatedAt
+[2026-05-22T21:33:18.979Z] INFO  [CursorDiscoverer] Discovered 0 Cursor session(s) for c:\Users\victo\Desktop\Cursor\neural-network-F1
+[2026-05-22T21:33:19.050Z] INFO  [Installer] Status: enabled=false, claude=true, git=false, geminiHook=false, worktreeHooks=true, sessions=0, summaries=0, codex=true/true, gemini=false/undefined, enabledWorktrees=1, opencode=false/undefined, cursor=true/true, copilot=false/undefined, copilotChat=false
+[2026-05-22T21:33:19.096Z] INFO  [CodexDiscoverer] Discovered 0 Codex session(s)
+[2026-05-22T21:33:19.101Z] WARN  [CursorDiscoverer] Skipping Cursor composer f5e26387-7c64-48e5-8c79-b8c0e95c6256: non-finite lastUpdatedAt
+[2026-05-22T21:33:19.101Z] INFO  [CursorDiscoverer] Discovered 0 Cursor session(s) for c:\Users\victo\Desktop\Cursor\neural-network-F1
+[2026-05-22T21:33:19.160Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=false, worktreeHooks=true, sessions=0, summaries=0, codex=true/true, gemini=false/undefined, enabledWorktrees=1, opencode=false/undefined, cursor=true/true, copilot=false/undefined, copilotChat=false
+[2026-05-22T21:33:19.161Z] INFO  [Installer] Checking Jolli Memory status
+[2026-05-22T21:33:19.307Z] INFO  [CodexDiscoverer] Discovered 0 Codex session(s)
+[2026-05-22T21:33:19.315Z] WARN  [CursorDiscoverer] Skipping Cursor composer f5e26387-7c64-48e5-8c79-b8c0e95c6256: non-finite lastUpdatedAt
+[2026-05-22T21:33:19.315Z] INFO  [CursorDiscoverer] Discovered 0 Cursor session(s) for c:\Users\victo\Desktop\Cursor\neural-network-F1
+[2026-05-22T21:33:19.424Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=false, worktreeHooks=true, sessions=0, summaries=0, codex=true/true, gemini=false/undefined, enabledWorktrees=1, opencode=false/undefined, cursor=true/true, copilot=false/undefined, copilotChat=false
